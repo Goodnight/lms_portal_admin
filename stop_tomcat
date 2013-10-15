@@ -1,0 +1,13 @@
+
+launcher='org.apache.catalina.startup.Bootstrap'
+PID=`ps -ef | grep $launcher | grep -v ' grep' | awk '{print $2}'`
+
+echo $PID
+
+if [ ! -e $PID ];
+then
+        echo "kill tomcat the PID is $PID"
+        kill $PID
+else
+        echo "tomcat not run"
+fi

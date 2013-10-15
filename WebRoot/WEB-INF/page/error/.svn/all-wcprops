@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/lmsportal/!svn/ver/10809/lms_portal_admin/trunk/WebRoot/WEB-INF/page/error
+END
+404.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/error/404.jsp
+END
+permissionDenied.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/error/permissionDenied.jsp
+END
+lossFunction.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/lmsportal/!svn/ver/7342/lms_portal_admin/trunk/WebRoot/WEB-INF/page/error/lossFunction.jsp
+END
+sso.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/lmsportal/!svn/ver/10809/lms_portal_admin/trunk/WebRoot/WEB-INF/page/error/sso.jsp
+END
+systemMaintenance.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/7675/lms_portal_admin/trunk/WebRoot/WEB-INF/page/error/systemMaintenance.jsp
+END

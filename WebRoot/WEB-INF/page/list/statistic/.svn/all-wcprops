@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/lmsportal/!svn/ver/11984/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/statistic
+END
+org_trainclass.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/statistic/org_trainclass.jsp
+END
+user.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/statistic/user.jsp
+END
+course.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/statistic/course.jsp
+END
+org_case.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/statistic/org_case.jsp
+END
+org_doc.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/statistic/org_doc.jsp
+END
+trainclass.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/statistic/trainclass.jsp
+END
+trainplan.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/statistic/trainplan.jsp
+END
+org_course.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/statistic/org_course.jsp
+END

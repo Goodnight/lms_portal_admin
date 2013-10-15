@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/lmsportal/!svn/ver/11985/lms_portal_admin/trunk/WebRoot/WEB-INF/page/include
+END
+taglibs.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/lmsportal/!svn/ver/8917/lms_portal_admin/trunk/WebRoot/WEB-INF/page/include/taglibs.jsp
+END
+download.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/lmsportal/!svn/ver/11787/lms_portal_admin/trunk/WebRoot/WEB-INF/page/include/download.jsp
+END
+swfUploadAddOrUpdate.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/lmsportal/!svn/ver/11892/lms_portal_admin/trunk/WebRoot/WEB-INF/page/include/swfUploadAddOrUpdate.jsp
+END
+script.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/lmsportal/!svn/ver/7974/lms_portal_admin/trunk/WebRoot/WEB-INF/page/include/script.jsp
+END
+uploadData.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/lmsportal/!svn/ver/11807/lms_portal_admin/trunk/WebRoot/WEB-INF/page/include/uploadData.jsp
+END
+header.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/lmsportal/!svn/ver/9250/lms_portal_admin/trunk/WebRoot/WEB-INF/page/include/header.jsp
+END
+uploadOrUpdate.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/11985/lms_portal_admin/trunk/WebRoot/WEB-INF/page/include/uploadOrUpdate.jsp
+END
+downloadData.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/lmsportal/!svn/ver/11892/lms_portal_admin/trunk/WebRoot/WEB-INF/page/include/downloadData.jsp
+END
+uploadOrUpdateData.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/lmsportal/!svn/ver/11740/lms_portal_admin/trunk/WebRoot/WEB-INF/page/include/uploadOrUpdateData.jsp
+END
+footer.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/lmsportal/!svn/ver/9118/lms_portal_admin/trunk/WebRoot/WEB-INF/page/include/footer.jsp
+END
+leftNav.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/lmsportal/!svn/ver/6976/lms_portal_admin/trunk/WebRoot/WEB-INF/page/include/leftNav.jsp
+END
+script_1.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/include/script_1.jsp
+END
+upload.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/lmsportal/!svn/ver/11985/lms_portal_admin/trunk/WebRoot/WEB-INF/page/include/upload.jsp
+END
+css.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/include/css.jsp
+END
+leftNav_old.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/include/leftNav_old.jsp
+END
+agent.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/include/agent.jsp
+END

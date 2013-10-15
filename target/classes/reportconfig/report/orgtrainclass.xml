@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications xmlns="http://www.wabacus.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.wabacus.com ../xsd/wabacus.applications.xsd">
+	<page id="orgtrainclass">
+		<report id="orgtrainclasslist" title="培训班报表" pagesize="20"
+			scrollstyle="image" dataexport="richexcel" cellresize="1">
+			<display>
+				<col column="deptName" label="机构名称" clickorderby="true" width="200px" />
+				<col column="planAmount" label="培训计划" clickorderby="true" />
+				<col column="classNumTotal" label="培训班总数" clickorderby="true" />
+				<col column="onlineNum" label="在线培训班数" clickorderby="true" />
+				<col column="complexNum" label="混合培训班数" clickorderby="true" />
+				<col column="faceNum" label="面授培训班数" clickorderby="true" />
+				<col column="teacherNum" label="有辅导教师的班数" clickorderby="true" />
+				<col column="videoNum" label="利用同步课堂的班数" clickorderby="true" />
+				<col column="examNum" label="利用考试的班数" clickorderby="true" />
+				<col column="examAvgScore" label="考试平均分" clickorderby="true" />
+				<col column="responseNum" label="利用反应层评估的班数" clickorderby="true" />
+				<col column="statisfactionAvgScore" label="满意度调查平均分" clickorderby="true" />
+				<col column="behaviorNum" label="利用行为层评估的班数" clickorderby="true" />
+				<col column="certificateNum" label="发放证书的班数" clickorderby="true" />
+				<col column="improvePlan" label="利用训后改进计划" clickorderby="true" />
+				<col column="forumNum" label="利用讨论区的班数" clickorderby="true" />
+			</display>
+			<sql>
+				<value>
+						<![CDATA[SELECT a.*,b.namepath as deptName FROM rpt_org_trainclass a left join au_organization b on a.org_orgId=b.orgId where 1=1 and  {#condition#} ]]>
+				</value>
+				<condition name="jobId"  hidden="true">
+					<value>
+						<![CDATA[(job_jobId='#data#')]]>
+					</value>
+				</condition>
+			</sql>
+			<format>
+				<imports>
+					<import>com.telecom.lms.portal.admin.util</import>
+					<import>com.wabacus.system.format</import>
+					<import>com.wabacus.util</import>
+					<import>com.wabacus.config</import>
+					<import>com.wabacus</import>
+				</imports>
+				<value>
+					<![CDATA[
+						forumNum=forumNum==null?"0":forumNum;	
+						classNumTotal=classNumTotal==null?"0":classNumTotal;
+						teacherNum=teacherNum==null?"0":teacherNum;
+						examNum=examNum==null?"0":examNum;
+						examAvgScore=examAvgScore==null?FormatTools.formatDouble("0","#,###0.00"):FormatTools.formatDouble(examAvgScore,"#,###0.00");
+						statisfactionAvgScore=statisfactionAvgScore==null?FormatTools.formatDouble("0","#,###0.00"):FormatTools.formatDouble(statisfactionAvgScore,"#,###0.00");
+						if(rrequest.getShowtype() == Consts.DISPLAY_ON_PAGE)
+						{//如果是显示在html页面上，则提供查看详细资料的链接
+						deptName="<a href=\"#\" title='"+deptName+"'>"+deptName+"</a>";
+						}
+					]]>
+				</value>
+			</format>
+		</report>
+	</page>
+</applications>

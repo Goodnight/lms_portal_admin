@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications xmlns="http://www.wabacus.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.wabacus.com ../xsd/wabacus.applications.xsd">
+	<page id="courselearn">
+		<report id="leanlist" title="课程学习详情报表" pagesize="20" scrollstyle="image"
+			dataexport="richexcel" cellresize="1">
+			<display>
+				<col column="sn" label="课程编号" clickorderby="true" width="200px" />
+				<col column="courseName" label="课程名称" clickorderby="true"/>
+				<col column="deptname" label="所属机构" clickorderby="true" />
+				<col column="totalPerson" label="学习总人数" clickorderby="true" />
+				<col column="totalTime" label="学习总人次" clickorderby="true"/>
+				<col column="totalLength" label="学习总时长" clickorderby="true"/>
+				<col column="averageLength" label="平均学习时长" clickorderby="true" />
+				<col column="completePerson" label="完成人数" clickorderby="true"/>
+				<col column="completionRate" label="完成率" clickorderby="true" />
+			</display>
+			<sql>
+				<value>
+						<![CDATA[SELECT a.*,d.namepath as deptname,c.sn FROM rpt_course_learn a left join au_organization d on a.org_orgId=d.orgId,res_cw b,res_base c where a.courseware_cId = b.cId and c.rbId=b.res_rbId and {#condition#} ]]>
+				</value>
+				<condition name="jobId"  hidden="true">
+					<value>
+						<![CDATA[(job_jobId='#data#')]]>
+					</value>
+				</condition>
+			</sql>
+			<format>
+				<imports>
+					<import>com.wabacus.system.format</import>
+					<import>com.wabacus.util</import>
+					<import>com.wabacus.config</import>
+					<import>com.wabacus</import>
+				</imports>
+				<value>
+					<![CDATA[
+					if(rrequest.getShowtype() == Consts.DISPLAY_ON_PAGE)
+					{//如果是显示在html页面上，则提供查看详细资料的链接
+					deptName="<a href=\"#\" title='"+deptName+"'>"+deptName+"</a>";
+					}
+					]]>
+				</value>
+			</format>
+		</report>
+	</page>
+</applications>

@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/lmsportal/!svn/ver/12633/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/resource
+END
+KnowledgePointCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/lmsportal/!svn/ver/12392/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/resource/KnowledgePointCtr.java
+END
+LibraryResCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/lmsportal/!svn/ver/8916/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/resource/LibraryResCtr.java
+END
+TrainResourceCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/lmsportal/!svn/ver/12202/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/resource/TrainResourceCtr.java
+END
+CoursewareCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/lmsportal/!svn/ver/12632/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/resource/CoursewareCtr.java
+END
+CaseDocCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/lmsportal/!svn/ver/12352/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/resource/CaseDocCtr.java
+END
+DocCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/lmsportal/!svn/ver/12633/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/resource/DocCtr.java
+END
+LsResCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/lmsportal/!svn/ver/8916/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/resource/LsResCtr.java
+END
+TagCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/lmsportal/!svn/ver/8916/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/resource/TagCtr.java
+END
+KnowledgeCategoryCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/lmsportal/!svn/ver/12402/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/resource/KnowledgeCategoryCtr.java
+END
+CaseCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/lmsportal/!svn/ver/12631/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/resource/CaseCtr.java
+END

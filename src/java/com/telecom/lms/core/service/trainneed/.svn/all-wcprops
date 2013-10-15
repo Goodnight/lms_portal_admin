@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/12562/lms_portal_admin/trunk/src/java/com/telecom/lms/core/service/trainneed
+END
+UserTrainInfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/lmsportal/!svn/ver/12561/lms_portal_admin/trunk/src/java/com/telecom/lms/core/service/trainneed/UserTrainInfoService.java
+END
+SurveyAttendanceInfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/lmsportal/!svn/ver/12531/lms_portal_admin/trunk/src/java/com/telecom/lms/core/service/trainneed/SurveyAttendanceInfoService.java
+END
+DepartmentTrainInfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/lmsportal/!svn/ver/11962/lms_portal_admin/trunk/src/java/com/telecom/lms/core/service/trainneed/DepartmentTrainInfoService.java
+END

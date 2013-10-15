@@ -1,0 +1,46 @@
+10
+
+dir
+12636
+https://218.83.175.166/svn/lmsportal/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin
+https://218.83.175.166/svn/lmsportal
+
+
+
+2013-10-14T10:38:56.961250Z
+12633
+zhangpeng
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+18d7e01c-543b-2d48-9527-2539e95595b0
+
+common
+dir
+
+control
+dir
+
+interceptor
+dir
+
+service
+dir
+
+systemSet
+dir
+
+util
+dir
+

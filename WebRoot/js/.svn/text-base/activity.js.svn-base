@@ -1,0 +1,1282 @@
+function liaddClass(li){
+	for(i=0;i<li.length;i++){
+		var mm=li[i].getElementsByTagName('ul');
+		var length=$(li[i]).parent().children().length;
+		var index=$(li[i]).parent().children().index(li[i]);
+		if(index==length-1){
+			if(mm.length>0){
+				$(li[i]).addClass("lastfoldClosed");	
+			}
+			else{
+				$(li[i]).addClass("lastfold");		
+			}
+		}
+		else{
+			if(mm.length>0){
+				$(li[i]).addClass("foldClosed");	
+			}	
+		}
+	}
+}
+
+function loadingStart(){
+	
+	$("#loading").show();
+	$("#downloaddiv").hide();
+	$("#leadindown,.blackall").show();
+}
+
+function loadingEnd(date){
+	
+	$("#downloada").attr("href",basepath+"/download/"+date);
+	$("#loading").hide();
+	$("#downloaddiv").show();
+}
+
+
+function loadingDataStart(){
+	
+	$("#downloaddiv,#branch").hide();
+	$("#loading").show();
+	$("#dialogDownLoad").fadeIn(10, function(){
+		$("dialogDownLoad .blackall").show();
+		$("#newwindowDownLoad").show();
+	});
+}
+
+function loadingDataEnd(date){
+	
+	$("#downloada").attr("href",basepath+"/download/"+date);
+	$("#loading").hide();
+	$("#downloaddiv").show();
+}
+
+
+function postData(countUrl,listUrl){
+	
+	 $.post(countUrl, function(date){
+      
+		listUrl = listUrl + "&count=" +date.count;
+		if(date.flag=="confirm"){
+			$.dialog.confirm('此次导出的数据太过庞大，确定要继续导出吗？', function(){
+				postDataList(listUrl);
+			}, function(){
+				$("#dialogDownLoad").hide();
+			});
+		} else {
+			postDataList(listUrl);
+		}
+	 });
+}
+
+
+function postDataList(url){
+	
+	 $.post(url, function(date){
+       loadingDataEnd(date);
+	 });
+}
+
+
+function postCount(countUrl,listUrl){
+	
+	 $.post(countUrl, function(date){
+       
+		listUrl = listUrl + "&count=" +date.count;
+		if(date.flag=="confirm"){
+			$.dialog.confirm('此次导出的数据太过庞大，确定要继续导出吗？', function(){
+				postList(listUrl);
+			}, function(){
+				$("#leadindown,.blackall").hide();
+			});
+		} else {
+			postList(listUrl);
+		}
+	 });
+}
+
+
+function postList(url){
+	
+	 $.post(url, function(date){
+        loadingEnd(date);
+	 });
+}
+
+
+
+function rTrim(str)
+{
+   var iLength;
+
+   iLength = str.length;
+   if (str.charAt(iLength - 1) == " " || str.charAt(iLength - 1) ==",")
+   {
+    //如果字串右边第一个字符为空格
+    str = str.substring(0, iLength - 1);//将空格从字串中去掉
+    //这一句也可改成 str = str.substring(0, iLength - 1);
+    str = rTrim(str); //递归调用
+   }
+   return str;
+}
+
+function checkLength(which) {
+	var maxchar=130;
+    iCount = which.value.replace(/[^\u0000-\u00ff]/g,"aa").length;
+	if(iCount<=maxchar)
+	{
+    which.style.border = '1px solid #000';
+	which.size=iCount+2;
+	}
+	else alert("请不要超过"+maxchar);
+}
+function browserevent(){
+	var Sys = {};
+
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.match(/msie ([\d.]+)/))
+
+            {Sys.ie = ua.match(/msie ([\d.]+)/)[1];}
+
+        else if (ua.match(/firefox\/([\d.]+)/))
+
+            {Sys.firefox = ua.match(/firefox\/([\d.]+)/)[1];}
+
+        else if (ua.match(/chrome\/([\d.]+)/))
+
+            {Sys.chrome = ua.match(/chrome\/([\d.]+)/)[1];}
+
+        else if (ua.match(/opera.([\d.]+)/))
+
+            {Sys.opera = ua.match(/opera.([\d.]+)/)[1];}
+
+        else if (ua.match(/version\/([\d.]+)/))
+
+            {Sys.safari = ua.match(/version\/([\d.]+)/)[1];}
+
+	if(Sys.chrome) {return 88;}
+	else {return 99;}
+
+
+}
+function getWidth(){              
+var xScroll;           
+if (window.innerHeight && window.scrollMaxY)    
+{          
+    xScroll = document.body.scrollWidth;              
+ }    
+else if (document.body.scrollHeight > document.body.offsetHeight){    
+ // all but Explorer Mac              
+ xScroll = document.body.scrollWidth;              
+} else {              
+ xScroll = document.body.offsetWidth;              
+}    
+             
+var windowWidth;       
+if (self.innerHeight) {    
+ // all except Explorer              
+ windowWidth = self.innerWidth;              
+} else if (document.documentElement && document.documentElement.clientHeight) {    
+ // Explorer 6 Strict Mode              
+ windowWidth = document.documentElement.clientWidth;              
+} else if (document.body) {    
+ // other Explorers              
+  windowWidth = document.body.clientWidth;             
+}              
+if(xScroll < windowWidth){              
+  pageWidth = windowWidth;              
+ } else {              
+   pageWidth = xScroll;             
+}             
+ return pageWidth;     
+}  
+	
+function GetPageSize(){
+    var xScroll, yScroll;
+    if (window.innerHeight  &&  window.scrollMaxY) { 
+        xScroll = document.body.scrollWidth;
+        yScroll = window.innerHeight + window.scrollMaxY;
+    } else if (document.body.scrollHeight > document.body.offsetHeight){
+        xScroll = document.body.scrollWidth;
+        yScroll = document.body.scrollHeight;
+    } else {
+        xScroll = document.body.offsetWidth;
+        yScroll = document.body.offsetHeight;
+    }
+    var windowWidth, windowHeight;
+    if (self.innerHeight) {
+        windowWidth = self.innerWidth;
+        windowHeight = self.innerHeight;
+    } else if (document.documentElement  &&  document.documentElement.clientHeight) {
+        windowWidth = document.documentElement.clientWidth;
+        windowHeight = document.documentElement.clientHeight;
+    } else if (document.body) {
+        windowWidth = document.body.clientWidth;
+        windowHeight = document.body.clientHeight;
+    } 
+    if(yScroll < windowHeight){
+        pageHeight = windowHeight;
+    } else { 
+        pageHeight = yScroll;
+    }
+    if(xScroll < windowWidth){ 
+        pageWidth = windowWidth;
+    } else {
+        pageWidth = xScroll;
+    }
+    arrayPageSize = new Array(pageWidth,pageHeight,windowWidth,windowHeight) 
+    return arrayPageSize;
+}
+$(document).ready(function () {	
+	$(function() {
+		$( ".datepicker" ).datepicker({
+			showOn: "button",
+			buttonImage: "../../images/calendar.gif",
+			buttonImageOnly: true
+		});
+	}); 
+	
+	
+	$(function(){
+        $("select.select, button,input.checkbox").uniform();
+      });			
+	$(".leftunit").hover( 
+	  function () { 
+		$(this).addClass("unithover");
+		$(this).prev().addClass("smallblue");
+		$(this).next().addClass("bigblue");
+		var cHeight=$(this).children().eq(2).height();
+		var bHeight=GetPageSize()[3];
+		var index=$(".leftunit").index(this);
+		if(bHeight-46-index*32<cHeight){
+			$(this).children().eq(2).css("bottom",0);	
+		}
+		$(this).children().eq(2).show();
+		var img=$(this).children().eq(0).children();
+		$(img).eq(0).hide();
+		$(img).eq(1).show();
+	  },  
+	  function () { 
+	  	$(this).children().eq(2).hide();
+		$(this).removeClass("unithover");
+		$(this).prev().removeClass("smallblue");
+		$(this).next().removeClass("bigblue");
+		var img=$(this).children().eq(0).children();
+		$(img).eq(1).hide();
+		$(img).eq(0).show();
+	  } 
+	); 
+	$(".changecloumn img").live("click", function(){
+		var index=$(".changecloumn img").index(this);
+		if(index==0){
+			$(this).hide();	
+			$(".changecloumn img").eq(1).show();
+			$(".leftnav").addClass("sw");
+			$(".leftunit").addClass("ie6w");
+			$(".nextunit").addClass("cm");
+			$(".leftunit .y").hide();
+			$(".rightco").addClass("changeleft");
+			$(".nextunit").addClass("changeml");
+		}
+		else{
+			$(this).hide();	
+			$(".changecloumn img").eq(0).show();
+			$(".leftnav").removeClass("sw");
+			$(".leftunit").removeClass("ie6w");
+			$(".nextunit").removeClass("cm");
+			$(".leftunit .y").show();
+			$(".rightco").removeClass("changeleft");
+			$(".nextunit").removeClass("changeml");
+		}
+	});	
+	$(".changecloumn2 img").click(function(){
+		var index=$(".changecloumn2 img").index(this);
+		if(index==0){
+			$(this).hide();	
+			$(".changecloumn2 img").eq(1).show();
+			$(this).parent().parent().width(49);
+			$(".newleft").width(49);
+			$(".newrightco").css("margin-left",51);
+			$(".nextunit").addClass("cm");
+			$(".nextunit").addClass("changeml");
+		}
+		else{
+			$(this).hide();	
+			$(".changecloumn2 img").eq(0).show();
+			$(this).parent().parent().width(144);
+			$(".newleft").width(144);
+			$(".newrightco").css("margin-left",146);
+			$(".nextunit").removeClass("cm");
+			$(".nextunit").removeClass("changeml");
+		}
+	});	
+	$(".plus").live("click", function(){	
+		$(this).toggleClass("minus");
+		var number=$(".plus").length;
+		var index=$(".plus").index(this);
+		var css=this.className;
+		if(css.length>4){
+			$(this).next().children().show();
+			$(this).next().show();
+			$(this).next().css("height","auto");
+		}
+		else{
+			$(this).next().children().hide();
+			if(index==number-1){
+				$(this).next().hide();		
+			}
+			else{$(this).next().height(10);}
+		}
+	});
+	$(".searchblock label").click(function(){
+		 $(this).parent().children().find("span").removeClass("choosed");
+		 $(this).parent().children().find("input").attr("checked",false);
+		 $(this).find("span").addClass("choosed");
+		 $(this).find("input").attr("checked",true);
+
+	});
+	$(".basic_information .option input").click(function(){
+		 $(this).parent().siblings().removeClass("choosed");
+		 $(this).parent().siblings().find("input").attr("checked",false);
+		 $(this).parent().addClass("choosed");
+		 $(this).parent().find("input").attr("checked",true);
+	});
+	$(".tree_title a").click(function(){
+		$(this).parent().next().toggleClass("hidden");								  
+	});
+	$(".searchblock .img").click(function(){
+		var index=$(".searchblock .img").index(this);
+		$(".searchblock .img").hide();
+		$(this).prev().hide();
+		if(index==0){
+			$(".searchblock .img").eq(1).show();	
+			$(".searchblock .img").eq(1).prev().show();
+			$(".searchblock .mt10").show();
+		}
+		else{
+			$(".searchblock .img").eq(0).show();
+			$(".searchblock .img").eq(0).prev().show();
+			$(".searchblock .mt10").hide();
+		}
+	});
+	$("#classinput").focus(function(){
+		var ms=$(this).val();
+		if(ms=="输入培训班的名称"){
+			$(this).val("");		
+		}						   
+	});
+	$("#courseinput").focus(function(){
+		var ms=$(this).val();
+		if(ms=="输入课程名称"){
+			$(this).val("");		
+		}						   
+	});
+	$("#doucementinput").focus(function(){
+		var ms=$(this).val();
+		if(ms=="输入文档名称"){
+			$(this).val("");		
+		}						   
+	});
+	$("#caseinput").focus(function(){
+		var ms=$(this).val();
+		if(ms=="输入案例名称"){
+			$(this).val("");		
+		}						   
+	});
+	$("#w177").blur(function(){
+		var ms=$(this).val();
+		if(ms==""){
+			$(this).val("输入人员编号、姓名或手机号码");		
+		}
+	});
+	$("#w177").focus(function(){
+		var ms=$(this).val();
+		if(ms=="输入人员编号、姓名或手机号码"){
+			$(this).val("");		
+		}						   
+	});
+	$("#classinput").blur(function(){
+		var ms=$(this).val();
+		if(ms==""){
+			$(this).val("输入培训班的名称");		
+		}
+	});
+	$("#courseinput").blur(function(){
+		var ms=$(this).val();
+		if(ms==""){
+			$(this).val("输入课程名称");		
+		}
+	});
+	$("#caseinput").blur(function(){
+		var ms=$(this).val();
+		if(ms==""){
+			$(this).val("输入案例名称");		
+		}
+	});
+	$("#doucementinput").blur(function(){
+		var ms=$(this).val();
+		if(ms==""){
+			$(this).val("输入文档名称");		
+		}
+	});
+	
+	$(".windowclose").click(function(){
+		$(".newcreat").hide();						  
+	});
+	$(".windowlast a,.back,.button,.step,.makenew,.deltree,.leadin,.leadout,.appoint,.searchbutton,.functionbutton").live("mousedown", function(){	
+		$(this).addClass("mousedown");					  
+	});
+	$(".windowlast a,.back,.button,.step,.makenew,.deltree,.leadin,.leadout,.appoint,.searchbutton,.functionbutton").live("mouseup", function(){	
+		$(this).removeClass("mousedown");					  
+	});
+	$(".makenew").click(function(){
+		$(".newcreat").show();						  
+	});
+	$(".dpnav li").live("click",function(){
+		var index=$(this).parent().children().index(this);
+		$(this).siblings().removeClass("now");
+		$(this).addClass("now");
+		$(this).parent().next().next().children().hide();
+		$(this).parent().next().next().children().eq(index).show();
+	});
+	$(".listnav li,.courseupload li").live("click",function(){
+		var index=$(this).parent().children().index(this);
+		$(this).siblings().removeClass("now");
+		$(this).addClass("now");
+		$(this).parent().next().children().hide();
+		$(this).parent().next().children().eq(index).show();
+	});
+	$(".courseupload2 li").click(function(){
+		var index=$(this).parent().children().index(this);
+		$(this).siblings().removeClass("now");
+		$(this).addClass("now");
+		$(this).parent().parent().next().children().hide();
+		$(this).parent().parent().next().children().eq(index).show();
+	});
+	$(".coursesetting li").click(function(){
+		var index=$(this).parent().children().index(this);								  
+		$(this).parent().next().children().hide();
+		$(this).parent().next().children().eq(index).show();								  
+	});
+	$("#creatlesson").click(function(){
+		$(".newwindow").show();
+		$(".newwindow").children().hide();
+		$(".creatlesson").show();
+		$(".close").show();
+	});
+	$(".close a").click(function(){
+		$(".newwindow").hide();
+	});
+	$(".resouce_list_table .darkstar,.resouce_picture_table .darkstar").click(function(){
+		$(this).toggleClass("darkstar");
+		$(this).toggleClass("star");
+	});
+	$(".resouce_list_table .darkhistory,.resouce_picture_table .darkhistory").click(function(){
+		$(this).toggleClass("darkhistory");
+		$(this).toggleClass("history");
+	});
+	$("#assign").click(function(){
+		$(".blackall").show();
+		$("#assignco").show();
+	});
+	$("#appoint,.appoint").click(function(){
+		$(".blackall").show();
+		$("#appointco").show();
+	});
+	$("#planclass").click(function(){
+		$(".blackall").show();
+		$("#planco").show();
+	});
+	$("#plansure").click(function(){
+		$(".blackall").hide();
+		$("#planco").hide();
+	});
+	$(".previewbutton").click(function(){
+		$(".blackall").show();
+		$("#release").show();
+	});
+//	$(".groupadd").click(function(){
+//		var sn = $(this).attr("id");
+//		var tcid = $("#cisa").val();
+//		windowkey=true;						  
+//		$(".blackall").show();
+//		var url = basepath+"/trainclass/number.html?tcid="+tcid+"&sn="+sn+"&r="+Math.random();
+//		$("#dialog_content").load(encodeURI(url));
+//		$("#dialoges").show();
+//		$("#choosepersonco").show();
+//		
+//		
+////		$("#choosegroup").show();
+//	});
+//	
+//	$(".groupadds").click(function(){
+//		var sn = $(this).attr("id");
+//		var tcid = $("#cisa").val();
+//		windowkey=true;						  
+//		$(".blackall").show();
+//		var url = basepath+"/trainclass/number.html?tcid="+tcid+"&sn="+sn+"&op=1&r="+Math.random();
+//		$("#dialog_content").load(encodeURI(url));
+//		$("#dialoges").show();
+//		$("#choosepersonco").show();
+//		
+////		$("#choosegroup").show();
+//	});
+	
+	
+	$(".chooseperson").click(function(){
+		$(function () {
+	// TO CREATE AN INSTANCE
+	// select the tree container using jQuery
+	$(".demo")
+		// call `.jstree` with the options object
+		.jstree({
+			// the `plugins` array allows you to configure the active plugins on this instance
+			"plugins" : ["themes","html_data","ui","crrm","hotkeys"]
+			// each plugin you have included can have its own config object
+			
+			// it makes sense to configure a plugin only if overriding the defaults
+		})
+		// EVENTS
+		// each instance triggers its own events - to process those listen on the container
+		// all events are in the `.jstree` namespace
+		// so listen for `function_name`.`jstree` - you can function names from the docs
+		.bind("loaded.jstree", function (event, data) {
+			// you get two params - event & data - check the core docs for a detailed description
+		});
+	// INSTANCES
+	// 1) you can call most functions just by selecting the container and calling `.jstree("func",`
+	setTimeout(function () { $("#demo1").jstree("set_focus"); }, 500);
+	// with the methods below you can call even private functions (prefixed with `_`)
+	// 2) you can get the focused instance using `$.jstree._focused()`. 
+	setTimeout(function () { $.jstree._focused().select_node("#phtml_1"); }, 1000);
+	// 3) you can use $.jstree._reference - just pass the container, a node inside it, or a selector
+	//setTimeout(function () { $.jstree._reference("#phtml_1").close_node("#phtml_1"); }, 1500);
+	// 4) when you are working with an event you can use a shortcut
+	$("#demo1").bind("open_node.jstree", function (e, data) {
+		// data.inst is the instance which triggered this event
+		data.inst.select_node("#phtml_2", true);
+	});
+	
+});							  
+		$("#choosepersonco").show();
+	});
+	
+	$(".preview").live("click", function(){
+	 	var x=$(this).offset().left;
+		var y=$(this).offset().top;
+		$(".previewco").css("left",x+25);
+		$(".previewco").css("top",y);
+		$(".previewco").show();
+	 });
+	$(".preview2").live("click", function(){
+		$(this).parents('.dataTables_wrapper').css("position","inherit");
+		var oDiv='<div class="previewco previewco2 hidden" style="margin: -25px 0px 0px 10px;"><div align="right" class="mt10 mr10" style="margin-bottom:5px"><img src="'+basepath+'/images/deletegrey.gif" width="13" height="13" /></div><a id="upLevelTp" href="javascript:;" target="_blank">上级模板</a><a id="equalLevelTp" href="javascript:;" target="_blank">平级模板</a><a id="downLevelTp" href="javascript:;" target="_blank">下级模板</a><a id="elseTp" href="javascript:;" target="_blank">其他模板</a><a id="selfTp" href="javascript:;" target="_blank">本人模板</a></div>';
+	 	$(this).parent().append(oDiv);
+		$(".previewco2").show();
+	 });
+	$(".previewco2 img").live("click", function(){
+		 $(this).parents('.dataTables_wrapper').css("position","relative");
+	 	$(".previewco2").remove();
+
+	 });
+	$(".choosedepartmentco a").click(function(){
+		$(".choosedepartmentco").hide();							  
+	});
+	$("#modify").click(function(){
+		var input=$(this).parent().prev().children().find("input");
+		var inputkey=$(input).attr("disabled");
+		if(inputkey==true){
+			$(input).removeClass("noborder");
+			$(input).attr("disabled","");
+		}
+		else{
+			$(input).addClass("noborder");
+			$(input).attr("disabled","disabled");	
+		}
+	});
+	$("#online .option").click(function(){
+		var index=$("#online .option").index(this);	
+		if(index==0){
+			$(".online").show();	
+		}
+		else{
+			$(".online").hide();
+		}
+	});							
+	$("#face .option").click(function(){
+		var index=$("#face .option").index(this);
+		if(index==1 || index==2){
+			$(".faceco").show();	
+		}
+		else{
+			$(".faceco").hide();
+		}
+	});		
+	$(".inputtext2").click(function(){
+		$(this).val("");					  
+	});
+	$(".basic_information h5 > label").click(function(){
+		var index=$(this).parent().find("label").index(this);
+		$(this).hide();
+		if(index==0){
+			$(this).next().show();
+			$(this).next().next().hide();
+			$(this).parent().next().hide();
+		}
+		else{
+			$(this).prev().show();
+			$(this).next().show();
+			$(this).parent().next().show();
+		}
+	});
+	$(".chooseboard").click(function(){
+		$(".blackall").show();
+		$("#chooseboard").show();
+	});
+	$(".releasebutton").click(function(){
+		$("#leadinco").hide();
+		$("#release").show();
+	});
+	$(".closed,.leadclose").live("click", function(){
+		$(this).parent().parent().parent().hide();
+		$(".blackall").hide();
+	});
+	
+	
+	
+	$("#chooseleadout").live("click",function(){
+		$("#loading img").attr("src",basepath+"/images/loading.gif");
+		$("#loading span").text("正在导出中，请稍后");
+		$("#loading").show();
+    	$("#downloaddiv").hide();
+		var downType = $("#importType").val();
+		if(downType == "addofficialUser" || downType == "updateofficialUser"){
+			export_page();
+		} else if(downType=="addOrganization" || downType=="updateOrganization"){			
+			export_list();
+		}
+		$("#leadindown").show();
+		$(".blackall").show();
+	});
+	
+	$("#leadin,.leadin").live("click", function(){
+		
+		//alert("此功能正在完善中");
+		var downType = $("#importType").val();
+		var url="";
+		if(downType=="trainUser"){
+			url=basepath+"/template/trainUser.xlsx";
+			$("#downLoad").attr("href",url);
+		} else if (downType=="outTrainUser") {
+			url=basepath+"/template/outTrainUser.xlsx";
+			$("#downLoad").attr("href",url);
+		} else if(downType=="addOrganization"||downType=="updateOrganization"){
+			url=basepath+"/template/addOrganization.xlsx";
+			$("#downLoad").attr("href",url);
+		} else if(downType=="trainFaceCourse"){
+			url=basepath+"/template/faceCourse.xlsx";
+			$("#downLoad").attr("href",url);
+		} else if(downType=="addofficialUser"||downType=="updateofficialUser"){
+			var addUrl=basepath+"/template/officialAddUser.xlsx";
+			$("#downLoad").attr("href",addUrl);
+		} else if(downType=="addBlocEthnicGroup"||downType=="updateBlocEthnicGroup"){
+			url=basepath+"/template/addBlocEthnicGroup.xlsx";
+			$("#downLoad").attr("href",url);
+		} else if(downType=="addBlocPosition"||downType=="updateBlocPosition"){
+			url=basepath+"/template/addBlocPosition.xlsx";
+			$("#downLoad").attr("href",url);
+		} else if(downType=="addStandardEthnicGroup"||downType=="updateStandardEthnicGroup"){
+			url=basepath+"/template/addStandardEthnicGroup.xlsx";
+			$("#downLoad").attr("href",url);
+		} else if(downType=="addStandardPosition"||downType=="updateStandardPosition"){
+			url=basepath+"/template/addStandardPosition.xlsx";
+			$("#downLoad").attr("href",url);
+		} else if(downType=="addTempUser"||downType=="updateTempUser"){
+			url=basepath+"/template/addTempUser.xlsx";
+			$("#downLoad").attr("href",url);
+		} else if(downType=="trainCheckin"){
+			url = basepath+"/trainclass/exportTrainCheckinTemplet.html?tcid="+tcid+"&r="+Math.random();
+			$("#downLoad").attr("href",url);
+		} else if(downType=="trainFaceManage"){
+			url = basepath+"/trainclass/exportTrainFaceManageTemplet.html?tcid="+tcid+"&r="+Math.random();
+			$("#downLoad").attr("href",url);
+		} else if(downType == "userManage"){
+			url=basepath+"/template/userManage.xlsx";
+			$("#downLoad").attr("href",url);
+		} else if(downType == "evaluate"||downType == "surveyEvaluate"){
+			url=basepath+"/template/evaluate.xlsx";
+			$("#downLoad").attr("href",url);
+		} else if(downType == "inquiry"||downType == "surveyInquiry"){
+			url=basepath+"/template/inquiry.xlsx";
+			$("#downLoad").attr("href",url);
+		} else if(downType == "departmentTrain"){
+			url=basepath+"/template/departmentTrain.xlsx";
+			$("#downLoad").attr("href",url);
+		} else if(downType == "responseUser"){
+			url=basepath+"/template/responseUser.xlsx";
+			$("#downLoad").attr("href",url);
+		} else if(downType == "comprehensiveUser"){
+			url=basepath+"/template/comprehensiveUser.xlsx";
+			$("#downLoad").attr("href",url);
+		} else if(downType == "responseResult"||downType == "comprehensiveResult"){
+			var surveyIds = $("input:checkbox[name=id]:checked");
+			if(surveyIds.length!=1){
+				$.dialog.alert("请有且只选择一个评估问卷").title('提示');
+				return false;
+			}
+			$("#objId").attr("value",$(surveyIds[0]).val());
+			url=basepath+"/survey/exportSurveyResultTemplet.html?surveyId="+$(surveyIds[0]).val();
+			$("#downLoad").attr("href",url);
+		} else if(downType == "inquiryResult"){
+			var surveyIds = $("input:checkbox[name=groupTypeId]:checked");
+			if(surveyIds.length!=1){
+				$.dialog.alert("请有且只选择一个需求问卷").title('提示');
+				return false;
+			}
+			$("#objId").attr("value",$(surveyIds[0]).val());
+			url=basepath+"/survey/exportSurveyResultTemplet.html?surveyId="+$(surveyIds[0]).val();
+			$("#downLoad").attr("href",url);
+		} else if(downType == "meetingUser"){
+			url=basepath+"/template/meetingUser.xlsx";
+			$("#downLoad").attr("href",url);
+		} else if(downType == "userCredits"){
+			url=basepath+"/template/userCredits.xlsx";
+			$("#downLoad").attr("href",url);
+		} else if(downType == "generalTrainClass"){
+			url=basepath+"/template/generalTrainClassInfo.xlsx";
+			$("#downLoad").attr("href",url);
+		}
+//		if ($.browser.msie && parseInt($.browser.version, 10) == 9) {
+//			$(".blackall").show().css('position', 'absolute');
+//			$("#leadinco").show().css('position', 'absolute');
+//		}
+//		else {
+			$(".blackall").show();
+			$("#leadinco").show();			
+			
+//		}
+	});
+	$("#choosepersonsure").click(function(){	
+		$("#choosepersonco").hide();
+	});
+	$("#choosepersonsure2").click(function(){	
+		$("#choosepersonco").hide();
+		$("#choosepersonco2").show();
+	});
+	$("#choosepersonsure3").click(function(){	
+		$("#choosepersonco2").hide();
+		$("#choosepersonco").show();
+	});
+	$("#leadin2").click(function(){	
+		$("#leadinco2").show();
+		$(".blackall").show();
+	});
+	$(".appointbutton").click(function(){	
+		$("#appointlevel").show();
+		$(".blackall").show();
+	});
+	$(".windowbutton").live("click", function(){							  
+		$(this).parents(".newwindow").hide();
+		$(".blackall").hide();
+	});
+	$(".windowbutton2").click(function(){	
+		var key=$("#chooseboard").css("display");
+		if(key=="block"){
+			$("#release").hide();
+		}
+		else{
+			$("#release").hide();
+			$(".blackall").hide();
+		}
+		
+	});
+	$(".newwindowbutton").click(function(){
+		$("#leadinco").hide();
+		var key=$("#appointlevel").css("display");
+		if(key!="block"){
+			$(".blackall").hide();
+		}
+	});	 
+	$(".nchoosepersonbutton").click(function(){
+		$("#choosepersonco").hide();
+		var key=$("#appointlevel").css("display");
+		if(key!="block"){
+			$(".blackall").hide();
+		}
+	});	 
+	$(".addClass").click(function(){
+		$("#addClassco").show();
+		$(".blackall").show();
+	});
+	$(".addDocument").click(function(){
+		$("#addClassco2").show();
+		$(".blackall").show();
+	});
+	$(".addCase").click(function(){
+		$("#addClassco3").show();
+		$(".blackall").show();
+	});
+	$(".previewco a").click(function(){
+		$("#release").show();
+	});
+	$(".previewco img,.previewco a").click(function(){
+		$(".previewco").hide();
+	});
+	$("#select").change( function () {
+		var this_item = $(this).find("option:selected").text();
+		if(this_item=="简答题"){
+			$(this).parent().parent().next().hide();
+			$("#point").hide();
+		}
+		else if(this_item=="量规题"){
+			$("#point").show();
+			$(this).parent().parent().next().hide();
+		}
+		else{
+			$("#point").hide();	
+			$(this).parent().parent().next().show();	
+		}
+		if(this_item=="多选题"){
+			$(this).after('<label class="ml12" id="mostchoose"><input name="5" type="radio" value="" class="mr5"/>最多可选<input name="optionCount" type="text" class="w50" disabled="disabled" />项</label><label id="nolimit"><input name="5" type="radio" value=""  checked="checked" class="mr5"/>不限</label>'); 	
+		}
+		else{
+			$(this).parent().find("label").remove();	
+		}
+	});
+	$(".deletree").live("click", function(){	
+		str="A";
+		code = str.charCodeAt();
+		var ss=$(this).parent().parent();
+		$(this).parent().remove();
+		ss=$(ss).find("em");
+		for(i=0;i<ss.length;i++){
+			$(ss).eq(i).html(String.fromCharCode(code+i));	
+		}
+	});
+	$("#additem").click(function(){
+		var ss=$(this).parent();
+		str="A";
+		code = str.charCodeAt(); 
+		ss2=$(ss).siblings() ;
+		thislength=$(ss2).length;
+		str2 = String.fromCharCode(code+thislength-1);
+		newstr='<div><em class="z w50 black">'+str2+'</em><input maxlength="1000" name="answer" type="text" class="w500"/><a href="javascript:;" class="deletree ml12">删除</a></div>';
+		var new_obj=$(newstr);
+		new_obj.insertBefore(ss);
+	});
+	$("#additem2").click(function(){
+		var ss=$(this).parent();
+		str="A";
+		code = str.charCodeAt(); 
+		ss2=$(ss).siblings() ;
+		thislength=$(ss2).length;
+		str2 = String.fromCharCode(code+thislength-1);
+		newstr='<div><em class="z w50 black">'+str2+'</em><input name="answer2" type="text" class="w500"/><a href="javascript:;" class="deletree ml12">删除</a><input name="score" type="text" class="ml12"/></div>';
+		var new_obj=$(newstr);
+		new_obj.insertBefore(ss);
+	});
+	$("#finish").click(function(){
+		$(".content").hide();
+		$(".content").eq(1).show();
+	});
+	$("#creatnewcourse").click(function(){
+		$(".searchblock").show();
+		$(this).next().show();
+		$(this).val("保存");
+		$(this).removeClass("longstep");
+	});
+	$("#finishcourse").click(function(){
+		$(".searchblock").hide();
+		$(this).hide();
+		$("#creatnewcourse").val("新建课程安排");
+		$("#creatnewcourse").addClass("longstep");
+	});
+	$("#roll label").click(function(){
+		var this_item = $("#roll label").index(this);
+		if(this_item==1){
+			$("#uniform-rollco").show();
+			$("#uniform-rollco").next().hide();
+			$("#rollco").attr("disabled",false);
+			$("#uniform-rollco").attr("disabled",false);
+			$("#uniform-rollco").removeClass("disabled");
+		}
+		else if(this_item==2){
+			$("#uniform-rollco").hide();
+			$("#uniform-rollco").next().show();
+			$("#rollco").attr("disabled",true);
+			$("#uniform-rollco").attr("disabled",true);
+			$("#uniform-rollco").addClass("disabled");
+		}
+		else{
+			$("#uniform-rollco").show();
+			$("#uniform-rollco").next().hide();	
+			$("#rollco").attr("disabled",true);
+			$("#uniform-rollco").attr("disabled",true);
+			$("#uniform-rollco").addClass("disabled");
+			$("#uniform-rollco > span").text("全部");
+		}
+	});
+	$(".checklength").live("keyup", function(){	
+		checkLength(this);					 
+	});
+	$(".edit_again").click(function(){
+		var text=$(this).text();
+		if(text=="编辑"){
+			$(this).text("确定");
+			var dom=$(this).parent().parent().parent().find(".edit_again_co");
+			for(i=0;i<dom.length;i++){
+				innerText=$(dom).eq(i).text();
+				$(dom).eq(i).html('<input type="text" class="checklength" value='+innerText+'>');	
+			}
+			
+		}
+		else{
+			$(this).text("编辑");
+			var dom=$(this).parent().parent().parent().find(".edit_again_co");
+			for(i=0;i<dom.length;i++){
+				innerText=$(dom).eq(i).find("input").val();
+				$(dom).eq(i).html(innerText);
+			}
+		}
+	});
+	$(".del_again").click(function(){
+		$(this).parents("tr").remove();							   
+	});
+	$("#mostchoose").live("click", function(){	
+		$(this).find("input").eq(1).attr("disabled",false);	
+		$(this).find("input").eq(1).focus();
+	});
+	$("#nolimit").live("click", function(){	
+		$("#mostchoose").find("input").eq(1).attr("disabled",true);						   
+	});
+	$(".datatable th").live("click", function(){	
+		var index=$(this).parent().find("th").index(this);
+		var oTab=$(this).parent().parent().parent();
+		var arr=[];
+		for(i=0;i<oTab[0].tBodies[0].rows.length;i++)
+		{
+			arr[i]=oTab[0].tBodies[0].rows[i];
+		}
+		if(this.className=="sorting"){
+			if(this.id){
+				arr.sort(function(tr1,tr2){
+					return (tr1.cells[index].innerHTML-tr2.cells[index].innerHTML);
+				});	
+			}
+			else{
+				arr.sort(function(tr1,tr2){
+					
+					return (tr1.cells[index].innerHTML).localeCompare(tr2.cells[index].innerHTML);
+				});
+			}
+			for(i=0;i<arr.length;i++)
+			{
+				oTab[0].tBodies[0].appendChild(arr[i]);
+			}
+			this.className="sorting_asc";
+			$(oTab).find("td").attr("class","");
+			for(i=0;i<oTab[0].tBodies[0].rows.length;i++){
+				if(i%2==0){
+					oTab[0].tBodies[0].rows[i].className="gradeA even";	
+					oTab[0].tBodies[0].rows[i].cells[index].className="sorting_1";
+				}
+				else{
+					oTab[0].tBodies[0].rows[i].className="gradeA odd";	
+					oTab[0].tBodies[0].rows[i].cells[index].className="sorting_1";
+				}
+			}
+		}
+		else if(this.className=="sorting_asc"){
+			if(this.id){
+				arr.sort(function(tr1,tr2){
+					return (tr2.cells[index].innerHTML-tr1.cells[index].innerHTML);
+				});	
+			}
+			else{
+				arr.sort(function(tr1,tr2){
+					return (tr2.cells[index].innerHTML).localeCompare(tr1.cells[index].innerHTML);
+				});
+			}
+			for(i=0;i<arr.length;i++)
+			{
+				oTab[0].tBodies[0].appendChild(arr[i]);
+			}
+			this.className="sorting_desc";
+			$(oTab).find("td").attr("class","");
+			for(i=0;i<oTab[0].tBodies[0].rows.length;i++){
+				if(i%2==0){
+					oTab[0].tBodies[0].rows[i].className="gradeA even";	
+					oTab[0].tBodies[0].rows[i].cells[index].className="sorting_1";
+				}
+				else{
+					oTab[0].tBodies[0].rows[i].className="gradeA odd";	
+					oTab[0].tBodies[0].rows[i].cells[index].className="sorting_1";
+				}
+			}
+		}
+		else if(this.className=="sorting_desc"){
+			if(this.id){
+				arr.sort(function(tr1,tr2){
+					return (tr1.cells[index].innerHTML-tr2.cells[index].innerHTML);
+				});	
+			}
+			else{
+				arr.sort(function(tr1,tr2){
+					
+					return (tr1.cells[index].innerHTML).localeCompare(tr2.cells[index].innerHTML);
+				});
+			}
+			for(i=0;i<arr.length;i++)
+			{
+				oTab[0].tBodies[0].appendChild(arr[i]);
+			}
+			this.className="sorting_asc";
+			$(oTab).find("td").attr("class","");
+			for(i=0;i<oTab[0].tBodies[0].rows.length;i++){
+				if(i%2==0){
+					oTab[0].tBodies[0].rows[i].className="gradeA even";	
+					oTab[0].tBodies[0].rows[i].cells[index].className="sorting_1";
+				}
+				else{
+					oTab[0].tBodies[0].rows[i].className="gradeA odd";	
+					oTab[0].tBodies[0].rows[i].cells[index].className="sorting_1";
+				}
+			}
+		}
+	});
+	$(".selector select").live("change", function(){
+		var itemkey =  $(this).find("option:selected").text();
+		$(this).prev().text(itemkey);
+	});
+	$("#tagf span").click(function(){
+		var mm=$(this).text();
+		var ww=$("#tagf input").val();
+		
+		if(ww==""){
+			$("#tagf input").val(mm);	
+		}
+		else{
+			ww=rTrim(ww);
+			ww+=","+mm;
+			$("#tagf input").val(ww);	
+		}
+	});
+	$("#tagf input").keyup(function(ev){
+		var oEvent=ev||event;
+		if(oEvent.keyCode==32){
+			var mm=$(this).val();
+			mm=rTrim(mm);   
+			mm+=",";
+			$(this).val(mm);
+		}							  
+	});	
+	$(".pen_editor").live("click", function(){
+		var span_value=$(this).prev().text();
+		$(this).parent().html('<select class="select"><option>aaa</option><option>bbbb</option></select><a href="javascript:;" class="imgright ml12"><img src="../../images/right.png" width="15" height="12" /></a>');
+	});
+	$(".imgright").live("click", function(){
+		var span_value=$(this).prev().text();
+		$(this).parent().html('<span>某个分类的课程</span><a href="javascript:;" class="pen_editor ml12"><img src="../../images/post_12.png" width="12" height="12" />');
+	});
+	$(".windowbutton3").live("click", function(){
+		$(".newwindow").hide();
+		$("#addClassco").show();
+	});
+	$("#objectstring .ml12,.objectstring a.ml6").live("click", function(){
+		$(this).parent().remove();
+	});	
+	$(".nextshow").click(function(){
+		$(this).parent().parent().next().show();
+		$(this).parent().parent().hide();
+	});
+	$(".prevshow").click(function(){
+		$(this).parent().parent().prev().show();
+		$(this).parent().parent().hide();
+	});
+	$(".models").click(function(){
+		var index=$(".models").index(this);
+		if(index==1){
+			$(this).parent().parent().next().show();
+			$(this).parent().parent().next().next().show();
+		}
+		else{
+			$(this).parent().parent().next().next().hide();
+			$(this).parent().parent().next().next().next().hide();
+		}
+	});
+	$(".extra h3").mousedown(function(){
+		var oChildren=$(this).children().filter(':visible');					  
+		var mm=$(oChildren).attr("class");
+		var oDom=$(this).parent();		
+		
+		if(mm=="extraimg extraimon"){					  
+			$(oDom).prev().hide();
+			$(oDom).css("left",0);
+			var aa=browserevent();
+			if(aa==88){
+				$(this).css("margin-left",0);	
+			}
+			$(".newmainco").css("margin-left",13);
+			$(this).children().hide();
+			$(oChildren).next().show();
+			this.className="";
+		}
+		else{
+			$(oDom).prev().show();
+			$(oDom).css("left",200);
+			var aa=browserevent();
+			if(aa==88){
+				$(this).css("margin-left",200);	
+			}
+			$(".newmainco").css("margin-left",213);
+			$(this).children().hide();
+			$(this).children().eq(0).show();
+			this.className="";
+			
+		}
+	});
+	$(".extra h3").hover(
+	  function () {
+		$(this).addClass("bgon");
+		var dom=$(this).children().filter(':visible');
+		var mm=$(dom).attr("class");
+		if(mm=="extraimg"){
+			$(this).children().hide();
+			$(dom).next().show();
+		}
+		if(mm=="extraimg extraimg2"){
+			$(this).children().hide();
+			$(dom).next().show();
+		}
+	  },
+	  function () {
+		$(this).removeClass("bgon");
+		var dom=$(this).children().filter(':visible');
+		var mm=$(dom).attr("class");
+		if(mm=="extraimg extraimon"){
+			$(this).children().hide();
+			$(dom).prev().show();
+		}
+		if(mm=="extraimg extraimon2"){
+			$(this).children().hide();
+			$(dom).prev().show();
+		}
+	  }
+	); 
+	$(".forsetup2").live("click",function(){
+		$(this).hide();
+		$(this).prev().hide();
+		$(this).next().show();
+	});
+	$(".select_setup2 img").live("click",function(){
+		var mm=$(this).prev().val();
+		$(this).parent().prev().prev().text(mm);
+		$(this).parent().hide();
+		$(this).parent().prev().show();
+		$(this).parent().prev().prev().show();
+	});
+	$("#setdiscuz").click(function(){
+		$(this).parents("table").find("tr").show();
+	});
+	$("#nodiscuz").click(function(){
+		$(this).parents("table").find("tr.hidden").hide();
+	});
+	$("#creatdiscuz").click(function(){
+		$(this).parents("table").find("tr.hidden").show();
+	});
+	
+	$("#choosediscussion").click(function(){
+		$(this).parents("table").find("tr.hidden").hide();
+		$(this).parents("table").find("tr.hidden").eq(0).show();
+	});
+	$("#report").change( function () {
+		var this_item = $(this).find("option:selected").text();
+		switch (this_item)
+		   {
+		   case "月报表":
+			 $(".season,.halfyear,.others").hide();
+			 $(".month").show();
+			 break;
+		   case "季报表":
+			$(".month,.halfyear,.others").hide();
+			 $(".season").show();
+			 break;
+		   case "半年报表":
+			$(".season,.month,.others").hide();
+			 $(".halfyear").show();
+			 break;
+		  case "其他":
+			 $(".season,.halfyear,.month").hide();
+			 $(".others").show();
+			 break;
+		}
+	});
+	$(".reportall").click(function(){
+		$(this).parents("table").find(".appoint").hide();
+		$(this).parents("table").find(".leadin").hide();
+	});
+	$(".reportappoint").click(function(){
+		$(this).parents("table").find(".appoint").show();
+		$(this).parents("table").find(".leadin").hide();
+	});
+	$(".reportleadin").click(function(){
+		$(this).parents("table").find(".appoint").hide();
+		$(this).parents("table").find(".leadin").show();
+	});
+	
+	$(".datacode").live("click", function(){
+		$(".dpnav2").parent().hide();
+		$("#datasource").show();
+	});
+	$("#databack").live("click", function(){
+		$("#datasource").hide();
+		$("#datasource").prev().show();
+		
+	});
+	$(".detailaction").live("click", function(){
+		var dom=$(this).parents("tr").next();
+		var showstyle=$(dom).css("display");
+		if(showstyle=="none"){
+			$(dom).show();	
+		}
+		else{
+			$(dom).hide();	
+		}
+		
+	})
+	
+	$(".leadout").live("click", function(){
+		var importType=$("#importType").val();
+//		alert(importType);
+		if(importType=="addofficialUser"||importType=="updateofficialUser"){
+			export_page();
+		} else if (importType=="trainCheckin"){
+			export_page();
+		}
+	})
+	
+	$(".mailreminder").live("click", function(){
+		alert("此功能正在完善中");
+	})
+	$(".allclose").live("click", function(){
+		// if(confirm("数据未保存，确定要关闭吗?")){ 
+			window.opener=null;
+			window.open('','_self');
+			window.close();
+		 //}
+	})
+	//资源详情页面关闭按钮使用普通的关闭提示框.(课程，文档，案例)
+	 $(".resourceDetailClose").live("click", function(){
+                			window.opener=null;
+                			window.open('','_self');
+                			window.close();
+                		 
+                	});
+	$("textarea").live("keydown", function(){
+		 if(this.value.length > 1000) {
+            alert("请不要超过最大长度:" + 1000);
+            this.value=this.value.substring(0,(1000-1));
+            return;
+        }
+	});
+});

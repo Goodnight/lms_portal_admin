@@ -1,0 +1,164 @@
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/page/include/taglibs.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="utf-8" xml:lang="utf-8">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="content-language" content="utf-8" />
+		<title>培训班详情统计</title>
+		<jsp:include page="/WEB-INF/page/include/css.jsp" />
+	</head>
+	<body class="bg">
+		<div class="container">
+		    <jsp:include page="/WEB-INF/page/include/header.jsp" />
+		  	<div class="cl">
+		    	<div class="newright">
+		        	<div class="newrightco"> 
+						<div class="listpagenav">
+                        <div class="breadCrumbHolder pf">
+                                <div id="breadCrumb3" class="breadCrumb reHeight">
+                                    <div class="z">
+                                         <ul>
+											<li class="first">
+												<a href="${basepath }/index.html">首页</a>
+											</li>
+											<li>
+												<a href="#">培训统计</a>
+											</li>
+											<li class="last">
+												培训班详情统计
+											</li>
+										</ul>
+                                    </div>
+                                    <div class="y"></div>
+                                </div>
+                            </div>
+                        </div>
+						<div class="m10 hidden" id="datasource" style="display: block;">
+						<div class="ngreyborder changeblue2 mt20">
+							<h2 class="png_bg">培训班详情统计结果</h2>
+								<div class="courseupload pt15">
+									<div>
+										<div class="dataTables_wrapper" style="width:99%">
+													<h3 class="reHeight">
+													<div class="y"><a href="javascript:;" class="functionbutton" id="dataleadout">导出</a></div>
+													</h3>
+													<table width="100%" class="datatable">
+														<thead>
+															<tr>
+																 <th>培训班编号</th>
+																  <th>培训班名称</th>
+																  <th>计划内/外</th>
+																  <th>人数</th>
+																  <th>起止时间</th>
+																  <th>培训级别</th>
+																  <th>培训类别</th>
+																  <th>培训形式</th>
+					
+																  <th>同步课堂</th>
+																  <th>考试</th>
+																  <th>考试平均分</th>
+																  <th>反应层评估</th>
+																  <th>行为层评估</th>
+																  <th>改进计划</th>
+																  <th>培训班讨论区</th>
+															</tr>
+														  </thead>
+														  <tbody>
+															<tr class="gradeA odd">
+																<td>FJ-AA-2011-02-23-001</td>
+																<td>中国电信CDMA无线基站安装测试随工验收指导手册(龙岩网络建设部)</td>
+																<td>计划内</td>
+																<td><a url="trainclassmember.html" class="runcode" href="javascript:;">100</a></td>
+																<td>2012.12.06-2012.12.06</td>
+																<td>内训集团级</td>
+																<td>在岗培训</td>
+																<td>混合培训</td>
+																<td>1</td>
+																<td><a url="trainclassexam.html" class="runcode" href="javascript:;">有</a></td>
+																<td>85</td>
+																<td><a target="_blank" href="培训班详情统计结果-反应层评估.html">有</a></td>
+																<td><a target="_blank" href="培训班详情统计结果-行为层评估.html">有</a></td>
+																<td>是</td>
+																<td><a href="">有</a></td>
+															 </tr>
+															 <tr class="gradeA even">
+																<td>FJ-AA-2011-02-23-001</td>
+																<td>中国电信CDMA无线基站安装测试随工验收指导手册(龙岩网络建设部)</td>
+																<td>计划内</td>
+																<td><a url="trainclassmember.html" class="runcode" href="javascript:;">100</a></td>
+																<td>2012.12.06-2012.12.06</td>
+																<td>内训集团级</td>
+																<td>在岗培训</td>
+																<td>混合培训</td>
+																<td>1</td>
+																<td><a url="trainclassexam.html" class="runcode" href="javascript:;">有</a></td>
+																<td>85</td>
+																<td><a target="_blank" href="培训班详情统计结果-反应层评估.html">有</a></td>
+																<td><a target="_blank" href="培训班详情统计结果-行为层评估.html">有</a></td>
+																<td>是</td>
+																<td><a href="">有</a></td>
+															  </tr>
+														   
+															
+															  
+															 </tbody>
+															 
+														</table>
+													<div class="reHeight" style="padding:0 0 20px 0;">
+														<div class="dataTables_length z">
+															<div class="z pt10">每页</div>
+															<div class="selector z" id="uniform-undefined"><span style="-moz-user-select: none;">10</span><select size="1" style="opacity: 0;"><option value="10" selected="selected">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
+															<div class="z pt10">条</div>
+															<div class="z m10">|</div>
+															<div class="z pt10">共58条</div>
+															<div class="z m10">|</div>
+															<div class="z pt10">当前1-20条</div>
+														</div>
+														<div class="dataTables_paginate paging_full_numbers"><span class="first paginate_button paginate_button_disabled">第一页</span><span class="previous paginate_button paginate_button_disabled">前一页</span><span><span class="paginate_active">1</span><span class="paginate_button">2</span><span class="paginate_button">3</span><span class="paginate_button">4</span><span class="paginate_button">5</span></span><span class="next paginate_button">后一页</span><span class="last paginate_button">最后页</span></div>
+													</div>
+												</div>
+					
+										
+									</div>
+									
+								</div>
+							
+						</div>
+						<div class="taR"><a href="course.html"><input type="button" id="databack" style="height:30px;" hidefocus="true" value="返回" class="step mt10" name=""></a></div>
+					</div>
+					</div>
+		        </div>
+		    	<div class="newleft">
+		    		<c:set var="menu_sn" value="9" scope="request"></c:set>
+		        	<jsp:include page="/WEB-INF/page/include/leftNav.jsp" />
+		        </div>
+		    </div> 
+		</div>
+		<jsp:include page="/WEB-INF/page/include/script.jsp" />
+		<script type="text/javascript" src="${basepath }/js/statistic/user.js" charset="gbk"></script>
+		<script type="text/javascript" src="${basepath }/js/jquery.min.js"></script>
+		<script type="text/javascript" src="${basepath }/js/jquery.hotkeys.js"></script>
+		<script type="text/javascript" src="${basepath }/js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="${basepath }/js/jquery.ui.min.js"></script>
+		<script type="text/javascript" src="${basepath }/js/jquery.uniform.min.js"></script>
+		<script type="text/javascript" src="${basepath }/js/jquery.jstree.js"></script>
+		<script type="text/javascript" src="${basepath }/js/menu.js" charset="utf-8"></script>
+		<script type="text/javascript" src="${basepath }/js/activity.js"></script>
+		<script src="${basepath }/js/lhgdialog.min.js?self=true&skin=idialog"></script>
+		<script>
+			$(function(){
+				$(document).bind('click', function(event){
+					var target = event.target,$target = $(target);
+					if ($target.hasClass('runcode')) {
+						$.dialog({
+						width: '800px',
+						height: 300,
+						content: 'url:'+$(target).attr('url')
+					});
+					};
+				});
+			});
+		</script>
+	</body>
+</html>

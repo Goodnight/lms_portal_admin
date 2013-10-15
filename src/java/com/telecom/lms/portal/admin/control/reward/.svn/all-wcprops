@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/lmsportal/!svn/ver/9804/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/reward
+END
+ScoreUserCostCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/lmsportal/!svn/ver/8916/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/reward/ScoreUserCostCtr.java
+END
+ScoreUserGainCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/lmsportal/!svn/ver/8916/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/reward/ScoreUserGainCtr.java
+END
+ScoreUserCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/lmsportal/!svn/ver/9804/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/reward/ScoreUserCtr.java
+END

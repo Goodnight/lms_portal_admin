@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications xmlns="http://www.wabacus.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.wabacus.com ../xsd/wabacus.applications.xsd">
+	<page id="usercourse">
+		<report id="usercourselist" title="课程信息" pagesize="20" scrollstyle="image"
+			 dataexport="richexcel" cellresize="1">
+			<display>
+				<col column="sn" label="课程编号" clickorderby="true" />
+				<col column="name" label="课程名称" clickorderby="true"/>
+				<col column="startTime" label="开始学习时间" clickorderby="true"/>
+				<col column="lastTime" label="上次学习时间" clickorderby="true" />
+				<col column="alltimes" label="学习次数" clickorderby="true"/>
+				<col column="duration" label="学习时长" clickorderby="true" />
+				<col column="percent" label="学习进度" clickorderby="true" />
+			</display>
+			<sql>
+				<value>
+						<![CDATA[SELECT a.*,c.sn,c.name FROM rpt_user_learn_detail a,res_cw b,res_base c where a.course_cId = b.cId and c.rbId=b.res_rbId and {#condition#} ]]>
+				</value>
+				<condition name="userid"  hidden="true">
+					<value>
+						<![CDATA[(a.uid='#data#')]]>
+					</value>
+				</condition>
+				<condition name="jobid"  hidden="true">
+					<value>
+						<![CDATA[(a.job_jobId='#data#')]]>
+					</value>
+				</condition>
+			</sql>
+			<format>
+				<imports>
+					<import>com.telecom.lms.portal.admin.util</import>
+				</imports>
+				<value>
+					<![CDATA[
+						duration=TimeTool.changeSecToHMS(duration);
+						percent=TimeTool.changepercent(percent);
+						percent=FormatTools.formatDouble(percent,"#,###0.00")+"%";
+					]]>
+				</value>
+			</format>
+		</report>
+	</page>
+</applications>

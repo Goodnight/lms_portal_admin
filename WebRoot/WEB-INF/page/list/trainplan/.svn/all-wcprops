@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/lmsportal/!svn/ver/12372/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/trainplan
+END
+checkTrainPlanList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/lmsportal/!svn/ver/7555/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/trainplan/checkTrainPlanList.jsp
+END
+trainplan_trainclass.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/lmsportal/!svn/ver/6768/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/trainplan/trainplan_trainclass.jsp
+END
+trainPlanList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/lmsportal/!svn/ver/12372/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/trainplan/trainPlanList.jsp
+END
+upTrainPlanList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/lmsportal/!svn/ver/8247/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/trainplan/upTrainPlanList.jsp
+END

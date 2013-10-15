@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tree id="0">
+	<!--==============================================================================-->
+	<!--=================================表单类型配置===================================-->
+	<!--==============================================================================-->
+	<item id="formtypes" text="表单类型" im0="dhtmlxtree_icon.gif"
+		im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<userdata name="groupnode">true</userdata>
+		<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					演示框架内置的两种类型的表单配置方法。
+		</userdata>
+		<item text="普通表单" id="detailform">
+			<userdata name="pageid">detailformpage1</userdata>
+			<userdata name="configfilename">report_reportypes.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=detailformpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				演示普通表单的配置方式，其实配置方式与“数据编辑篇”演示的可编辑数据细览报表第二种编辑方式相同，只是配置的报表类型不同，这里的报表类型是form&lt;br&gt;
+			</userdata>
+		</item>
+		<item text="列表表单" id="listform">
+			<userdata name="pageid">listformpage1</userdata>
+			<userdata name="configfilename">report_reportypes.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=listformpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				演示数据自动列表表单的配置方式，其实配置方式与“可编辑数据自动列表”报表类型的配置方式相同，只是配置的报表类型不同，这里配置的报表类型为listform
+			</userdata>
+		</item>
+	</item>
+	<!--==============================================================================-->
+	<!--=================================模板配置===================================-->
+	<!--==============================================================================-->
+	<item text="自定义布局表单显示" id="formtemplate"
+			im0="dhtmlxtree_icon.gif" im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<userdata name="groupnode">true</userdata>
+		<userdata name="desc">
+			&lt;br&gt;
+			&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			对于表单类型，与“数据展示篇”中介绍的模板一样，也支持静态模板和动态模板两种方式对表单进行布局显示。&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			这里着重介绍数据部分和编辑按钮的功能，对于报表其它部分的控制，请参看“数据展示篇”的“自定义页面”，那里介绍了对报表各个部分的精确控制。
+		</userdata>
+		<item text="静态模板" id="formstatictemplate">
+			<userdata name="pageid">formstatictemplatepage1</userdata>
+			<userdata name="configfilename">report_template.xml</userdata>
+			<userdata name="otherfilename">/wabacusdemo/htmltemplate/editabletemplatepage1report1_report.html</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formstatictemplatepage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示了在HTML模板中布局显示在页面和Excel文件中的显示效果，其中布局显示在页面中的html模板内容定义在模板文件editabletemplatepage1report1_report.html中。
+				布局显示在Excel文件中的html模板定义在资源项中。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里没有演示采用html模板布局Header/Footer/翻页导航栏部分的显示，它们与数据展示篇完全一样。
+			</userdata>
+		</item>
+		<item text="动态模板" id="formdynamictemplate">
+			<userdata name="pageid">formdynamictemplatepage1</userdata>
+			<userdata name="configfilename">report_template.xml</userdata>
+			<userdata name="otherfilename">/wabacusdemo/jsp/tagpages/formdynamictemplatepage1_report1.jsp;/wabacusdemo/jsp/tagpages/formdynamictemplatepage1_report2.jsp</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formdynamictemplatepage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示了如何在JSP页面中利用框架提供的自定义标签控制每个表单各细节的显示，这里重点演示了控制功能按钮和数据部分。
+				其它部分细节显示的控制请参看“数据展示篇”的“控制报表各细节的显示”的演示部分。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				对于列表表单，数据部分都必须做为一个整体，否则将失去可编辑功能；对于普通表单，可以随意控制每个输入框的显示位置。
+			</userdata>
+		</item>
+	</item>
+	
+	<!--==============================================================================-->
+	<!--=================================权限配置===================================-->
+	<!--==============================================================================-->
+	<item id="form_permission" text="授&amp;nbsp;&amp;nbsp;权" im0="dhtmlxtree_icon.gif"
+		im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<userdata name="groupnode">true</userdata>
+		<userdata name="desc">
+			&lt;br&gt;
+			&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			这里只演示表单权限，不演示容器权限，而且只演示跟数据编辑相关的权限，其它的请参看数据展示篇中的演示
+		</userdata>
+		<item text="表单权限" id="formpermission">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示对表单上所有部分上的元素进行授权的效果。
+			</userdata>
+			<item text="报表数据权限" id="formpermission1">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了对表单数据部分进行readonly授权效果，关于其它权限类型，则参看数据展示篇。
+				</userdata>
+				<item text="数据整体权限" id="formpermission11">
+					<userdata name="pageid">formpermissionpage11</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formpermissionpage11&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						将数据整体的readonly权限授权为true时，此表单将不允许编辑，但允许删除操作。如果也不允许删除操作，则可以将它的accessmode设置为readonly &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						对表单授权与数据编辑篇中的对可编辑报表授权效果完全一样。
+					</userdata>
+				</item>
+				<item text="每列数据权限" id="formpermission12">
+					<userdata name="pageid">formpermissionpage12</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formpermissionpage12&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示了将此页面上三个报表的“中文名”、“性别”两列授权为只读和不显示权限。&lt;br&gt;
+					</userdata>
+				</item>
+			</item>
+			<item text="编辑按钮权限" id="formpermission2">
+				<userdata name="pageid">formpermissionpage2</userdata>
+				<userdata name="configfilename">report_permissions.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formpermissionpage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里只演示编辑相关的按钮的授权效果，对于其它按钮，请参看数据展示篇的演示。编辑相关的按钮都是系统内置的按钮，它们都有自己的type，因此授权时都只能通过它们的type属性进行授权，不能通过name属性。
+						编辑相关按钮包括如下type：add：添加按钮；modify：修改按钮；delete：删除按钮；save：保存按钮；reset：重置按钮；cancel：取消按钮；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						编辑按钮像其它按钮一样，只有display和disabled两个权限类型，例如授权代码：rrequest.authorize("report1",Consts.BUTTON_PART,"type{save}","disabled","true");
+						rrequest.authorize("report1",Consts.SEARCH_PART,"type{add}","display","false");
+				</userdata>
+			</item>
+		</item>
+	</item>
+	
+	<!--==============================================================================-->
+	<!--=================================常用功能配置===================================-->
+	<!--==============================================================================-->
+	<item id="formusualfunctions" text="常用功能配置" im0="dhtmlxtree_icon.gif"
+		im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<userdata name="groupnode">true</userdata>
+		<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					演示Wabacus框架内置的各种报表类型的显示效果、配置方法
+		</userdata>
+		
+		<item text="编辑部分列" id="formpartcol">
+			<userdata name="pageid">formpartcoldetail1</userdata>
+			<userdata name="configfilename">report_formfunc1.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formpartcoldetail&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				默认情况下，只有出现在＜insert/＞和＜update/＞中的列框架才会自动显示输入框进行编辑，这里就是演示了部分列出现在了＜insert/＞更新字段中，这样在添加时可以编辑它们并保存；
+				一部分列出现在＜update/＞更新字段中，这样修改时可以编辑它们并保存。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				当然没有出现在＜insert/＞或＜update/＞中的列也可以显示输入框，只要在其所在＜col/＞的＜inputbox/＞中配置displayon属性为"insert"、"update"、"insert|update"等即可。
+				不过通过这种方式显示的输入框不会自动保存到后台（因为没有出现在更新数据的SQL语句中），但可以用在客户端校验，或服务器端的保存前后置动作中，关于这部分请参看后面“显示辅助输入框”的演示
+			</userdata>
+		</item>
+		<item text="显示辅助输入框" id="redundantbox">
+			<userdata name="pageid">redundantboxpage1</userdata>
+			<userdata name="configfilename">report_formfunc2.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=redundantboxpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				默认情况下，只有当某列出现在＜insert/＞标签的更新字段中，添加记录时才会为此列显示输入框，如果没有出现在＜insert/＞标签的更新字段中则不会在添加时显示输入框，即使为它的＜col/＞配置了＜inputbox/＞也无效；
+				同样，只有当某列出现在＜update/＞标签的更新字段中，修改记录时才会为此列显示输入框，如果没有出现在＜update/＞标签的更新字段中则不会在编辑时显示输入框，即使为它的＜col/＞配置了＜inputbox/＞也无效。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				但有的场合即使某列没有出现在＜insert/＞或＜update/＞标签的更新字段中，也要为此列显示一个输入框供用户输入数据，输入的数据可能要用于其它用途，比如常见的确认密码输入框，确认密码列并不需要保存到数据库中，但需要用来与保存到数据库中的密码列进行比较是否一致。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				此时就要用到框架提供的显示辅助输入框的功能。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				如果某列没有出现在＜insert/＞标签的更新字段中，但想在添加时为其显示输入框输入数据，则为此列所在＜col/＞配置＜inputbox/＞标签，并指定其displayon属性为insert即可，＜inputbox/＞其它配置与普通输入框一致，也可以配置客户端服务器端校验方法。
+				同样，如果某列没有出现在＜update/＞标签的更新字段中，但想在修改时为其显示输入框输入数据，则为此列所在＜col/＞配置＜inputbox/＞标签，并指定其displayon属性为update即可。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				如果某列没有出现在＜insert/＞标签和＜update/＞标签的更新字段中，但想在添加修改时为其显示输入框，则将其＜inputbox/＞标签的displayon配置为“insert|update”，即用“｜”分隔。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示的“再次输入出生日期”列就是一个不参与保存数据到后台的列，只是每次保存时，用来判断与“出生日期”列数据是否一致，如果不一致，则阻止保存。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				辅助输入框列的数据可以在保存前、后客户端回调函数中取到，也可以在拦截器的保存前后置动作中取到，在此都有演示。
+			</userdata>
+		</item>
+		<item text="提供部分编辑功能" id="formpartfunc">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					演示配置只具有某个或某几个功能的表单，这也是日常开发中常见的情况，比如当前表单只用于添加数据，或只用于添加修改数据。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在表单中提供部分功能的配置方法与在“数据编辑篇”中演示的“提供部分编辑功能”的可编辑报表类型配置方法完全一样，需要提供添加功能，则
+					配置＜insert/＞配置，需要提供修改功能，则提供＜update/＞配置，需要提供删除功能，则提供＜delete/＞配置等等。
+			</userdata>
+			<item text="普通表单" id="formpartfuncdetail">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示为普通表单提供部分编辑功能的配置。
+				</userdata>
+				<item text="只添加" id="formpartfuncdetail_add">
+					<userdata name="pageid">formpartfuncdetail_addpage1</userdata>
+					<userdata name="configfilename">report_formfunc1.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formpartfuncdetail_addpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						在本表单中只提供添加功能，且添加完后进入添加下一条记录的状态，而不是进入修改当前新添加记录的状态&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						配置方法是不为此表单配置查询SQL，这样每次添加完记录后，因为没有配置查询SQL语句，取不到数据，因此自动进入添加模式。
+					</userdata>
+				</item>
+				<item text="先添加后修改" id="formpartfuncdetail_addmodify">
+					<userdata name="pageid">formpartfuncdetail_addmodifypage1</userdata>
+					<userdata name="params">&amp;txtgonghao=99999</userdata>
+					<userdata name="configfilename">report_formfunc1.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formpartfuncdetail_addmodifypage1&amp;txtgonghao=99999&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						在本表单中只提供添加以及修改新添加数据的功能。在此表单中，添加完记录后，进入修改当前新添加数据的状态，而不是
+						像上面演示的进入添加下一条记录的状态，这是与上面“只添加”演示部分不相同的地方。
+					</userdata>
+				</item>
+				<item text="只修改" id="formpartfuncdetail_modify">
+					<userdata name="pageid">formpartfuncdetail_modifypage1</userdata>
+					<userdata name="configfilename">report_formfunc1.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formpartfuncdetail_modifypage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示只为表单提供修改功能的配置。
+					</userdata>
+				</item>
+				<item text="修改/删除" id="formpartfuncdetail_modifydelete">
+					<userdata name="pageid">formpartfuncdetail_modifydeletepage1</userdata>
+					<userdata name="configfilename">report_formfunc1.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formpartfuncdetail_modifydelete&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示为表单提供修改数据和删除当前数据的功能的配置。
+					</userdata>
+				</item>
+			</item>
+			<item text="列表表单" id="formpartfunclist">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示为列表表单提供部分编辑功能的配置。
+				</userdata>
+				<item text="添加/修改" id="formpartfunclist_addmodify">
+					<userdata name="pageid">formpartfunclist_addmodifypage1</userdata>
+					<userdata name="configfilename">report_formfunc1.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formpartfunclist_addmodifypage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						在此演示的列表表单中，只为表单提供添加和修改记录的功能，不提供删除记录的功能。
+					</userdata>
+				</item>
+				<item text="只修改" id="formpartfunclist_modify">
+					<userdata name="pageid">formpartfunclist_modifypage1</userdata>
+					<userdata name="configfilename">report_formfunc1.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formpartfunclist_modifypage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						在此演示的列表表单中，只为表单提供修改记录的功能，不提供添加和删除记录的功能。
+					</userdata>
+				</item>
+				<item text="修改/删除" id="formpartfunclist_modifydelete">
+					<userdata name="pageid">formpartfunclist_modifydeletepage1</userdata>
+					<userdata name="configfilename">report_formfunc1.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formpartfunclist_modifydeletepage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						在此演示的列表表单中，只为表单提供修改和删除记录的功能，不提供添加记录的功能。
+					</userdata>
+				</item>
+			</item>
+		</item>
+		
+		<!-- item text="分组显示列表表单" id="grouplistform">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				请参看“数据编辑篇”的“编辑分组显示报表”部分的说明
+			</userdata>
+			<item text="行分组列表表单" id="rowgrouplistform">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					
+				</userdata>
+				<item text="分组列为普通输入框" id="commonrowgrouplistform">
+					<userdata name="pageid">commonrowgrouplistformpage1</userdata>
+					<userdata name="configfilename">report_formfunc1.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=commonrowgrouplistformpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						请参看“数据编辑篇”的“编辑分组显示报表”部分的说明
+					</userdata>
+				</item>
+				<item text="分组列为关联下拉框" id="otherrowgrouplistform">
+					<userdata name="pageid">otherrowgrouplistformpage1</userdata>
+					<userdata name="configfilename">report_formfunc1.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=otherrowgrouplistformpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						请参看“数据编辑篇”的“编辑分组显示报表”部分的说明
+					</userdata>
+				</item>
+			</item>
+			<item text="树形分组列表表单" id="treerowgroupform">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					请参看“数据编辑篇”的“编辑分组显示报表”部分的说明
+				</userdata>
+				<item text="分组列为普通输入框" id="commontreerowgroupform">
+					<userdata name="pageid">commontreerowgroupformpage1</userdata>
+					<userdata name="configfilename">report_formfunc1.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=commontreerowgroupformpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						请参看“数据编辑篇”的“编辑分组显示报表”部分的说明
+					</userdata>
+				</item>
+				<item text="分组列为关联下拉框" id="othertreerowgroupform">
+					<userdata name="pageid">othertreerowgroupformpage1</userdata>
+					<userdata name="configfilename">report_formfunc1.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=othertreerowgroupformpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						请参看“数据编辑篇”的“编辑分组显示报表”部分的说明
+					</userdata>
+				</item>
+			</item>
+		</item> -->
+		
+		<item text="默认值" id="formdefaultvalue">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+			&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				请参考“数据编辑篇”中关于“默认值”的介绍
+			</userdata>
+			<item text="输入框默认值" id="forminputboxdefaultvalue">
+				<userdata name="pageid">forminputboxdefaultvaluepage1</userdata>
+				<userdata name="configfilename">report_formfunc2.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=forminputboxdefaultvaluepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					请参看“数据编辑篇”中关于输入框默认值的介绍。
+				</userdata>
+			</item>
+			<item text="列默认值" id="formcoldefaultvalue">
+				<userdata name="pageid">formcoldefaultvaluepage1</userdata>
+				<userdata name="configfilename">report_formfunc2.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formcoldefaultvaluepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					请参看“数据编辑篇”中关于列默认值的介绍。
+				</userdata>
+			</item>
+		</item>
+		
+		<item text="控制列表表单记录数" id="listformrownum">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+			&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			对于可编辑数据自动列表报表（editablelist2）和列表表单（listform），如果配置了添加功能，可以限制此报表/列表表单的最大记录数、最小记录数以及
+			固定它的记录数。方法就是通过＜display/＞的maxrownum和minrownum两个属性控制。&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			这里只演示了列表表单的配置情况，对于可编辑数据自动列表报表类型，这里没演示，配置方式与效果完全一样。&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			另外，这里只演示了普通列表表单，没有演示行分组表单和树形分组表单，对于这两种，也支持控制它们的记录行数。
+			</userdata>
+			<item text="控制最大记录数" id="listformmaxrownum">
+				<userdata name="pageid">listformmaxrownumpage1</userdata>
+				<userdata name="configfilename">report_formfunc2.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=listformmaxrownumpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					控制最大记录数是指限制此列表表单的最大记录数，如果添加时，判断到添加的行数加上已有记录数超过了最大记录数，将提示不允许再添加新的记录。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					指定最大记录数有两种方式：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1、静态配置：通过＜display/＞的maxrownum属性指定，此属性默认值为-1，即不限制最大记录数，可以将它配置为大于0的任意正整数。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2、在拦截器中通过调用rrequest.setAttribute("reportid","maxrownum","最大记录数");进行指定，这里指定的值会覆盖掉静态配置值&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					注意：如果列表表单已有的记录数已经超过了最大记录数，则显示时只会显示最大记录数指定的记录，超过的部分将不会显示出来。
+				</userdata>
+			</item>
+			<item text="控制最小记录数" id="listformminrownum">
+				<userdata name="pageid">listformminrownumpage1</userdata>
+				<userdata name="configfilename">report_formfunc2.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=listformminrownumpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					只有列表表单配置了添加按钮时，才能给它指定最小记录数，如果已有的记录数小于所配置的最小记录数，则在页面中会以添加的形式显示空行，使其达到最小记录数，用户可以在这些空行中添加数据。。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					指定最小记录数有两种方式：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1、静态配置：配置方式是通过＜display/＞的minrownum属性指定，如果此列表表单没有配置添加功能，则此属性值永远为默认值0，不能将它指定为其它值。如果配置了添加功能，则此属性默认值为1。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2、在拦截器中通过调用rrequest.setAttribute("reportid","minrownum","最小记录数");进行指定，这里指定的值会覆盖掉静态配置值&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					注意：只有配置了添加功能的列表表单才能为它指定最小记录数，否则将加载失败。而且如果配置了大于0的最大记录数，则最小记录数必须小于等于最大记录数。
+				</userdata>
+			</item>
+			<item text="固定记录数" id="listformfixrownum">
+				<userdata name="pageid">listformfixrownumpage1</userdata>
+				<userdata name="configfilename">report_formfunc2.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=listformfixrownumpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					当一个列表表单同时指定了最小记录数和最大记录数（不管是静态配置，还是动态指定），且指定的数相等，且均大于0，则此列表表单的行数固定。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在行数固定的列表表单中，将不显示“添加”按钮，而且点击“删除”按钮删除记录时，不会将行对象真正删除，只是清除其上的内容。保存时会将记录从数据库中删除。
+				</userdata>
+			</item>
+		</item>
+		
+		<item text="输入联想" id="formtypeprompt">
+			<userdata name="pageid">formtypepromptpage1</userdata>
+			<userdata name="configfilename">report_formfunc1.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formtypepromptpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里就演示两种表单类型中的编辑输入框的输入联想功能配置，与“数据展示篇”的查询条件输入框中的输入联想完全一致，更多的效果请参看“数据展示篇”的输入联想演示
+			</userdata>
+		</item>
+		
+		<item text="主从报表表单" id="formmasterslave">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+			&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				保存多个表单与在“数据编辑篇”中演示的保存多个可编辑报表方法及效果完全一样
+			</userdata>
+			<item text="主从方式一" id="formmasterslave1">
+				<userdata name="pageid">formmasterslavepage1</userdata>
+				<userdata name="configfilename">report_formfunc1.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formmasterslavepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了两个可编辑从报表依赖一个主报表的情况，且主报表为数据自动列表报表。
+				</userdata>
+			</item>
+			<item text="主从方式二" id="formmasterslave2">
+				<userdata name="pageid">formmasterslavepage2</userdata>
+				<userdata name="configfilename">report_formfunc1.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formmasterslavepage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了主报表为普通表单，一个普通表单和一个列表表单依赖此普通表单，当主表单添加时，另外两个表单也进入添加状态。三个表单可以同时添加、修改、删除数据。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					因为主表单的按钮对三个表单都有效，所以将它们引用到容器中进行显示。
+				</userdata>
+			</item>
+		</item>
+		<item text="定制输入框" id="formcustomizeinputbox">
+				<userdata name="pageid">formcustomizeinputboxpage1</userdata>
+				<userdata name="configfilename">report_formfunc1.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formcustomizeinputboxpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在自定义JSP页面中，只能对普通表单的输入框进行定制，对于列表表单，如果想使用框架没内置的输入框类型，只能通过新增输入框类型来实现，这里不做演示。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在自定义JSP页面中为普通表单实现自己的输入框与在“数据编辑篇”中“定制编辑输入框”演示的方法完全一样，具体方法可以参看那里的演示说明。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在此演示页面中，“表现”、“简介”两个数据的输入框是用户在自定义页面中自己实现的，而没有用框架提供的输入框。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					关于自定义页面，请参看下面“自定义页面”的演示。
+				</userdata>
+		</item>
+		<item text="处理复杂表单" id="freeform">
+			<userdata name="pageid">freeformpage1</userdata>
+			<userdata name="configfilename">report_formfunc2.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=freeformpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				框架对任意复杂的表单均提供支持，在此演示中，“性别”、“简介”、“入职日期”三列是自己提供输入框，而没有使用框架自动显示的输入框。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				其中“性别”是单选框，且选择“男”时，允许编辑“婚否”、“年龄”两个输入框的值，选择“女”时，允许编辑“工资”输入框的值。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				对于用户自定义表单部分的输入框，可以在保存前客户端回调函数中调用框架的setCustomizeParamValue(reportid,参数名,参数值)方法进行设置。这样框架就会
+				将它们传到后台进行保存。在保存回调函数中，如果返回false，则会中断保存操作。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				保存前回调函数中，如果想中断本次保存操作，比如校验失败，则返回WX_SAVE_TERMINAT，如果只是想中断本报表的保存操作，其它绑定一起保存的报表继承它们的保存操作（如果配置了绑定保存的话），
+				则返回WX_SAVE_IGNORE，如果返回WX_SAVE_CONTINUE，则完成本报表的保存操作&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				对于用户自定义的表单部分在后台保存时，又分三种保存方式：&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				1、“性别”列除了自己提供输入框外，与框架提供输入框在保存时没有什么区别，因此可以直接在＜insert/＞、＜update/＞的更新语句中指定要保存的值。指定方式为!{参数名}，
+				    ，即写成sex=!{sex}，因为性别字段为字符串类型，因此可以直接在更新数据的SQL语句中这样指定，对于不是字符串类型的，则采用下面介绍的方法。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				2、“简介”、“入职日期”两列除了自己提供输入框外，与其它框架自己提供输入框的列保存时也没什么不同，因此可以直接在＜insert/＞、＜update/＞的更新语句中指定要保存的值。
+				但是因为这两列不是字符串类型，一个为Clob，一个为Date类型，因此需要为它们定义一个变量，在变量中指定它们的真正类型，在保存的更新语句中，使用变量进行保存，如下所示：&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				＜external-values＞
+			  		＜value name="e_joinindate" value="!{joinindate}" datatype="date{MM/dd/yyyy}"/＞
+			  		＜value name="e_description" value="!{description}" datatype="clob"/＞
+			  	＜/external-values＞&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				保存语句配置成如下形式：joinindate=#{e_joinindate},description=#{e_description}即可。
+				3、“婚否”、“年龄”、两列在性别为男时需要保存，“工资”列在性别为女时需要保存。因此不能在＜insert/＞、＜update/＞中实现这种灵活性。这里采用在保存后置动作中保存这几列数据。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				在保存后置动作中，可以通过 Map＜String,String＞ mCustomizedData=rrequest.getMCustomizeEditData(rbean);得到所有用户传过来的自定义表单的数据。
+				然后根据性别是男还是女，决定修改哪几列的数据。
+			</userdata>
+		</item>
+		
+		<item text="客户端保存回调函数" id="formclientsavecallback">
+			<userdata name="pageid">formclientsavecallbackpage1</userdata>
+				<userdata name="configfilename">report_formfunc1.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formclientsavecallbackpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了普通表单的客户端保存前/后回调函数，配置方式与在“数据编辑篇”的“客户端保存回调函数”一致。都是在＜sql/＞标签的
+					beforesave属性和aftersave属性中配置回调方法名，对于前置动作，可以中断报表的保存操作，对于后置动作，可以中断保存后页面的刷新。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					普通表单与可编辑数据细览报表2（EditableDetailReportType）一样，可以在保存前客户端回调函数中取到当前的编辑操作类型，可取值为add、update、delete
+					之一，表示当前是在做添加、修改、删除之一的操作&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里没有演示列表表单，它的配置方法与含义与在“数据编辑篇”的“客户端保存回调函数”演示的可编辑列表报表完全一样。
+			</userdata>
+		</item>
+		
+		<item text="同时保存多个表单" id="savemultiforms">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+			&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				保存多个表单与在“数据编辑篇”中演示的保存多个可编辑报表方法及效果完全一样
+			</userdata>
+			<item text="静态配置绑定保存" id="savemultiforms_static">
+				<userdata name="pageid">savemultiforms_staticpage1</userdata>
+				<userdata name="configfilename">report_formfunc2.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=savemultiforms_staticpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					静态配置绑定保存多个表单与配置绑定保存多个可编辑报表方法完全一样，而且同一页面中的表单和可编辑报表也可以相互绑定保存&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					更多介绍请参看数据编辑篇中“静态配置绑定保存”的演示
+				</userdata>
+			</item>
+			<item text="自定义标签动态指定绑定保存" id="savemultiforms_tag">
+				<userdata name="pageid">savemultiforms_tagpage1</userdata>
+				<userdata name="configfilename">report_formfunc2.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=savemultiforms_tagpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在模板文件中用自定义标签指定动态绑定保存的方法及规则与指定可编辑报表绑定保存完全一样，而且同一页面中的表单和可编辑报表也可以通过这种方式指定为相互绑定保存。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					更多介绍请参看数据编辑篇中“自定义标签动态指定绑定保存”的演示
+				</userdata>
+			</item>
+			<item text="javascript方法动态指定绑定保存" id="savemultiforms_js">
+				<userdata name="pageid">savemultiforms_jspage1</userdata>
+				<userdata name="configfilename">report_formfunc2.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=savemultiforms_jspage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					用框架的saveEditableReportData(params)方法动态指定绑定保存多个表单的方法及规则与指定可编辑报表绑定保存完全一样，而且同一页面中的表单和可编辑报表也可以通过这种方式指定为相互绑定保存。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					更多介绍请参看数据编辑篇中“javascript方法动态指定绑定保存”的演示
+				</userdata>
+			</item>
+		</item>
+		
+		<item text="动态指定表单访问模式" id="formAccessmode">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				对于普通表单和列表表单，都可以以只读的方式访问它们，此时与相应的数据展示报表类型显示效果一致，不会提供编辑功能。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				以只读方式访问某个表单的方法为：在URL中指定reportid+"_ACCESSMODE=readonly"即可，其中reportid为要访问表单的ID值。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				此功能对于需要权限控制的场合比较有用。 &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里为了方便显示以不同模式访问报表的链接，采用grid页面类型进行页面布局。关于这种页面类型，请看“数据展示篇”的页面类型部分关于此
+				报表类型的演示。
+			</userdata>
+			<item text="普通表单" id="detailformAccessmode">
+				<userdata name="pageid">detailformAccessmodepage1</userdata>
+				<userdata name="configfilename">report_formfunc1.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=detailformAccessmodepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了普通表单的默认访问模式和只读访问模式。其实对于这种表单类型，除了这两种访问模式，还有add访问模式，
+					即添加模式，此时会显示成添加新记录的状态，可以录入新记录。
+				</userdata>
+			</item>
+			<item text="列表表单" id="listformAccessmode">
+				<userdata name="pageid">listformAccessmodepage1</userdata>
+				<userdata name="configfilename">report_formfunc1.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=listformAccessmodepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了列表表单的两种访问模式，一种是默认的访问模式，此时可以编辑数据。另一种是只读访问模式，此时
+					显示效果与数据自动列表报表类型一致，只能浏览，不能编辑。
+				</userdata>
+			</item>
+		</item>
+		
+		<item text="根据访问模式进行格式化" id="formFormat">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				上面已经演示了两种表单类型都有两种以上的访问模式，在格式化显示数据时，可以根据当前的显示模式进行不同的格式化，这样可以达到
+				不同的显示模式看到不同的显示效果的目的。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				对于普通表单，此功能可以实现在添加数据时，为某些输入框提供默认值的功能。
+			</userdata>
+			<item text="普通表单" id="detailformFormat">
+				<userdata name="pageid">detailformFormatPage1</userdata>
+				<userdata name="configfilename">report_formfunc1.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=detailformFormatPage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					普通有update（默认）、readonly、add三种访问模式，这里演示了为这三种模式分别进行格式化的配置和显示效果。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在add模式进行格式化时有时候特别有用，它可以实现添加数据时，为某些列自动填上默认值。这里是自动为工号输入框填上默认值：“111111”、姓名输入框填上“无名”数据。
+				</userdata>
+			</item>
+			<item text="列表表单" id="listformFormat">
+				<userdata name="pageid">listformFormatPage1</userdata>
+				<userdata name="configfilename">report_formfunc1.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=listformFormatPage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					列表表单只有两种访问模式，即默认访问模式和只读访问模式。在此演示的报表中，在＜format/＞方法中从rrequest对象中获取到当前
+					访问模式，如果是readonly，表示是只读模式访问，其它（一般是空值）则是默认的编辑模式。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					因此可以分两种情况对它们进行不同的格式化显示。这里是在只读访问模式时单独将工号列数据格式化为一个超链接。
+				</userdata>
+			</item>
+		</item>
+	</item>
+	<!--==============================================================================-->
+	<!--=================================客户端接口方法的演示===================================-->
+	<!--==============================================================================-->
+	<item id="formclientapi" text="常用客户端接口方法" im0="dhtmlxtree_icon.gif"
+		im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<item text="添加记录行" id="formaddrowapi">
+			<userdata name="pageid">formaddrowapipage1</userdata>
+			<userdata name="configfilename">report_clientapi.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formaddrowapipage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				如果某个列表表单配置了添加功能（即配置了＜insert/＞），则框架不仅会为它自动提供“添加”按钮进行添加记录，还可以调用框架提供的javascript接口方法：
+				addListReportNewDataRow(pageid,reportid,dynDefaultValues)利用程序进行添加，添加时还可以为某此列的输入框指定默认值。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				注意：如果本列表表单没有配置添加功能，则不能调用此方法添加记录&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				关于此接口方法的介绍，请参看《Wabacus框架接口方法》文档
+			</userdata>
+		</item>
+		<item text="删除记录行" id="formdeleterowapi">
+			<userdata name="pageid">formdeleterowapipage1</userdata>
+			<userdata name="configfilename">report_clientapi.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=formdeleterowapipage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果某个列表表单配置了删除功能（即配置了＜delete/＞），则框架不仅会为它自动提供“删除”按钮进行删除操作，还可以调用框架提供的javascript接口方法：
+				 deleteEditableListReportRows(pageid,reportid,trObj)利用程序进行删除，最后一个trObj参数即为要删除的＜tr/＞对象，可以通过它们的id得到，因为每个记录行的＜tr/＞对象都会分配一个独立的ID。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				注意：如果本列表表单没有配置删除功能，则调用此方法不能完成删除操作&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				关于此接口方法的介绍，请参看《Wabacus框架接口方法》文档
+			</userdata>
+		</item>
+		<item text="设置编辑列输入框的值" id="setformcolinputboxvalueapi">
+			<userdata name="pageid">setformcolinputboxvalueapipage1</userdata>
+			<userdata name="configfilename">report_clientapi.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=setformcolinputboxvalueapipage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了如何通过框架提供的javascript接口方法setReportInputBoxValue(pageid,reportid,reporttype,newvalues,conditions)设置两种表单的输入框的值&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					对于普通表单，框架还提供了一个更为简单的专用方法来设置其上输入框的值，此方法签名为：setInputboxValueForDetailReport(pageid,reportid,paramname,paramvalue)
+					其中的paramname 列＜col/＞的column属性配置值； paramvalue 为此列输入框设置的新值&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					关于上面接口方法的更多介绍，请参看《Wabacus框架接口方法》文档&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里只演示了设置可编辑列上输入框的值，其实框架还提供了设置不可编辑列或隐藏列的值的接口方法，签名为：setEditableReportColValue(pageid,reportid,reporttype,newvalues,conditions)，
+					此方法的使用方法与setReportInputBoxValue(pageid,reportid,reporttype,newvalues,conditions)类似，这里没做演示，请参看《Wabacus框架接口方法》文档关于它的介绍
+			</userdata>
+		</item>
+		<item text="获取可编辑报表列的值" id="getformcolvalueapi">
+			<userdata name="pageid">getformcolvalueapipage1</userdata>
+			<userdata name="configfilename">report_clientapi.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=getformcolvalueapipage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示了如何通过框架提供的javascript接口方法getEditableReportColValues(pageid,reportid,reporttype,columns,conditions)获取两种表单上的列的新旧值&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				注意：这个方法不光是获取输入框的值，对于不可编辑列或隐藏列，也可以通过此方法获取到值，它与setEditableReportColValue()方法对应，后者是设置编辑列上的值。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				关于上面接口方法的更多介绍，请参看《Wabacus框架接口方法》文档&lt;br&gt;
+			</userdata>
+		</item>
+		<item text="保存一个或多个表单" id="saveformapi">
+			<userdata name="pageid">savemultiforms_jspage1</userdata>
+			<userdata name="configfilename">report_formfunc2.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=savemultiforms_jspage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了如何通过框架提供的javascript接口方法saveEditableReportData(params)保存一个或多个表单数据的方法&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					其实通过此方法还可以绑定删除多个报表或表单的数据，而且保存和删除可以同时进行。关于上面接口方法的更多介绍，请参看《Wabacus框架接口方法》文档&lt;br&gt;
+			</userdata>
+		</item>
+	</item>
+</tree>

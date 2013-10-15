@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+
+	<property name="loggingRoot" value="/opt/applications/logs" />
+	<property name="loggingCharset" value="UTF-8" />
+
+	<appender name="logInfofile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${loggingRoot}/lms-admin.log</file>
+		<encoding>${loggingCharset}</encoding>
+		<append>true</append>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%-20(%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread]) %-5level %logger{80} - %msg%n</pattern>
+		</layout>
+		<prudent>false</prudent>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>${loggingRoot}/lms-admin.%d{yyyy-MM-dd.HH}.log.gz</fileNamePattern>
+			<!-- keep 24*30 hour' worth of history -->
+			<maxHistory>720</maxHistory>
+		</rollingPolicy>
+	</appender>
+
+	<!--root log -->
+	<root level="info" additivity="false">
+		<appender-ref ref="logInfofile" />
+	</root>
+	
+	<logger name="com.myctu" level="debug" />
+	<logger name="com.telecom" level="debug" />
+	<logger name="edu.yale.its.tp.cas.client.filter" level="trace" />
+</configuration>

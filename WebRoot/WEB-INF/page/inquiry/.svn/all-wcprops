@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/lmsportal/!svn/ver/12519/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry
+END
+inquiryAimUserList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/7274/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryAimUserList.jsp
+END
+inquiryAddTrainClass.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/lmsportal/!svn/ver/8943/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryAddTrainClass.jsp
+END
+inquiryIndex.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/lmsportal/!svn/ver/7722/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryIndex.jsp
+END
+inquiryTpUpdate.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/lmsportal/!svn/ver/10280/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryTpUpdate.jsp
+END
+inquiryAllItem.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/11503/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryAllItem.jsp
+END
+inquiryTpIndex.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/lmsportal/!svn/ver/7722/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryTpIndex.jsp
+END
+inquiryTpAllItemList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryTpAllItemList.jsp
+END
+inquiryTpNewItem.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/lmsportal/!svn/ver/11314/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryTpNewItem.jsp
+END
+inquiryTpAllItem.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/lmsportal/!svn/ver/11504/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryTpAllItem.jsp
+END
+errorTip.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/errorTip.jsp
+END
+inquiryTpItemList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/lmsportal/!svn/ver/8298/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryTpItemList.jsp
+END
+inquiryNew1.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/lmsportal/!svn/ver/12127/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryNew1.jsp
+END
+inquiryNew.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/lmsportal/!svn/ver/9524/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryNew.jsp
+END
+inquiryPersonList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/12519/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryPersonList.jsp
+END
+errorForTemplate.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/lmsportal/!svn/ver/7363/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/errorForTemplate.jsp
+END
+inquiryDetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/lmsportal/!svn/ver/8798/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryDetails.jsp
+END
+inquiryTpNew.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/lmsportal/!svn/ver/10443/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryTpNew.jsp
+END
+inquiryAim.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryAim.jsp
+END
+inquiryTpItemSnInfo.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/lmsportal/!svn/ver/8456/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryTpItemSnInfo.jsp
+END
+errorInquiry.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/lmsportal/!svn/ver/7405/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/errorInquiry.jsp
+END
+assigndep.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/assigndep.jsp
+END
+inquiryTpList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/lmsportal/!svn/ver/10316/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryTpList.jsp
+END
+inquiryAddTpListInfo.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryAddTpListInfo.jsp
+END
+inquiryTpIndex1.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/lmsportal/!svn/ver/10291/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryTpIndex1.jsp
+END
+inquiryItemSnInfo.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/lmsportal/!svn/ver/8524/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryItemSnInfo.jsp
+END
+serveyType.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/serveyType.jsp
+END
+inquiryList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/lmsportal/!svn/ver/10931/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryList.jsp
+END
+inquiryIndex1.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/lmsportal/!svn/ver/10068/lms_portal_admin/trunk/WebRoot/WEB-INF/page/inquiry/inquiryIndex1.jsp
+END

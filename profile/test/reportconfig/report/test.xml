@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications xmlns="http://www.wabacus.com"
+			   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			   xsi:schemaLocation="http://www.wabacus.com ../xsd/wabacus.applications.xsd">
+	<page id="trainplan">
+		<report id="report1" title="培训计划统计报表" pagesize="20" scrollstyle="image" scrollheight="300px" width="1000px" dataexport="richexcel">
+			<display>
+				<col column="{sequence:1}" label="序号"/>
+				<col column="orgname" label="机构名称" clickorderby="true" />
+				<col column="year" label="年度" clickorderby="true"/>
+				<col column="planType" label="计划类型" clickorderby="true" />
+				<col column="sn" label="编号" clickorderby="true"/>
+				<col column="name" label="培训计划名称" clickorderby="true"/>
+				<col column="finishAmount" label="实际培训班数" clickorderby="true"/>
+				<col column="creater_uid" label="计划内培训班完成率" clickorderby="true"/>
+			</display>
+			<sql>
+				<value>
+					<![CDATA[SELECT A.*,B.name as orgname FROM train_plan A left join au_organization B on A.org_orgId=B.orgId where {#condition#} order by A.createDt]]>
+				</value>
+				<condition name="txtno" label="工号">
+					<value>
+						<![CDATA[(B.name like  '%#data#%' )]]>
+					</value>
+				</condition>
+				<condition name="txtname" label="姓名">
+					<value>
+						<![CDATA[(year like  '%#data#%' )]]>
+					</value>
+				</condition>
+				<condition name="txtsex" label="性别">
+					<value>
+						<![CDATA[(planType =#data#)]]>
+					</value>
+					<inputbox type="selectbox">
+						<option value="" label="全部"/>
+						<option value="1" label="临时"/> 
+						<option value="0" label="正式" />
+					</inputbox>
+				</condition>
+			</sql>
+			<format>
+			  <value>
+					planType=planType==null?"1":planType.trim();
+					if(planType.equals("0")) planType="正式";
+					else planType="临时";
+			  </value>
+			</format>
+		</report>
+	</page>
+</applications>

@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/lmsportal/!svn/ver/10276/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreUser
+END
+integralMaintenance.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/lmsportal/!svn/ver/9941/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreUser/integralMaintenance.jsp
+END
+rewardsPointsApplication.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreUser/rewardsPointsApplication.jsp
+END
+scoreUserList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/lmsportal/!svn/ver/10276/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreUser/scoreUserList.jsp
+END
+useThePoints.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreUser/useThePoints.jsp
+END
+rewardApplyInformation.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/lmsportal/!svn/ver/9513/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreUser/rewardApplyInformation.jsp
+END
+rewardApply.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreUser/rewardApply.jsp
+END
+rewardPointsList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreUser/rewardPointsList.jsp
+END
+approvalCostApplication.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreUser/approvalCostApplication.jsp
+END
+approvalIntegralApplication.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreUser/approvalIntegralApplication.jsp
+END
+showFire.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreUser/showFire.jsp
+END
+pointsAllocation.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreUser/pointsAllocation.jsp
+END
+scorePoints.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreUser/scorePoints.jsp
+END

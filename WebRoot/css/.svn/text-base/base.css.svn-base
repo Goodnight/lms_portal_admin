@@ -1,0 +1,219 @@
+/* ------------------------------------------------------------------------ 重定义浏览器默认样式 */
+* { margin: 0; padding: 0; }
+body { background: #FFFFFF; text-rendering: optimizelegibility; }
+body { font: 12px/1.5 'Helvetica Neue','Segoe UI',Tahoma,'Hiragino Sans GB','Hiragino Kaku Gothic Pro','Microsoft YaHei',sans-serif; color: #444; }
+	textarea { resize: none; }
+	input, button, select, textarea { font: normal normal normal 12px/1.5 'Hiragino Sans GB', 'Hiragino Kaku Gothic Pro', 'Microsoft YaHei'; color: #444; }
+table { empty-cells: show; border-collapse: collapse; }
+	caption, th { text-align: left; font-weight: 400; }
+ul li { list-style: none; }
+h1, h2, h3, h4, h5, h6 { font-size: 1em; }
+em, cite { font-style: normal; }
+a { color: #333; text-decoration: none; }
+	a:hover { text-decoration: underline; }
+	a img { border: none; }
+
+	
+/* ------------------------------------------------------------------------ 全局常用 CSS 样式 */
+
+/* Added by Izzln */ .replaced { display: block; overflow: hidden; outline: none; text-indent: -9999px; text-decoration: none; text-align: left; }
+
+.link-button { display: inline-block; overflow: hidden; outline: none; text-decoration: none; }
+
+/* Added by Izzln */ .oneLine { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* .z/.y 浮动 left/right */ .z { float: left; } .y { float: right; }
+
+/* 自动闭合浮动 .cl --> Clear */ .cl:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; } .cl { zoom: 1; }
+
+/* Added by Izzln */ .taL { text-align: left!important;} .taR { text-align: right; }
+
+/* Added by Izzln */ .clearL { clear: left; } .clearR { clear: right; }
+
+/* 白色半透明背景 */ .whitebg_tr { background: rgba(255, 255, 255, 0.7); filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#C2FFFFFF,endcolorstr=#C2FFFFFF); }
+
+/* 表格奇偶行 Added by Izzln */ .line0 { background-color: #fff !important; } .line1 { background-color: #f3f7fb !important; }
+
+/* Added by Izzln */ .fpr { position: relative !important; }
+
+/* 修正IE6振动bug Added by Izzln */ * html,* html body { background-image:url(about:blank); background-attachment:fixed; }
+
+/* Fixing the IE6 background repeatly reload bug */ html { zoom: expression(function(el){ document.execCommand('BackgroundImageCache', false, true); el.style.zoom = '1'; }(this)); }
+
+/* Added by Izzln */.diyavt img { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; padding: 4px; background: #fff; border: 1px solid #d6d6d6; display:block;}
+
+/* 清除外边距 Added by Izzln */
+.clmt { margin-top: 0 !important; }
+.clmr { margin-right: 0 !important; }
+.clmb { margin-bottom: 0 !important; }
+.clml { margin-left: 0 !important; }
+.clm { margin: 0 !important; }
+
+/* 清除内边距 Added by Izzln */
+.clpt { padding-top: 0 !important; }
+.clpr { padding-right: 0 !important; }
+.clpb { padding-bottom: 0 !important; }
+.clpl { padding-left: 0 !important; }
+.clp { padding: 0 !important; }
+
+/* 清除背景 */
+.clbg { background: none !important; }
+
+/* 用于修正由于float导致无高度 Added by Izzln */ .reHeight{ overflow: hidden; zoom:1; }
+
+/* Added by Izzln */ .piped { display: block; zoom: 1; }
+					 .piped li { float: left; display: inline; }
+					 .piped a { border-right: 1px solid #B1B1B1; padding: 0 6px; }
+					 .piped a.first { padding-left: 0; margin-left: 0; }
+					 .piped a.last { border-right: 0 !important; padding-right: 0; margin-right: 0 !important; }
+
+/* 分隔线 */
+	hr { display: block; clear: both; *margin-top: -8px !important; *margin-bottom: -8px !important; }
+		.mn hr { margin: 0 10px 0 15px; }
+		.sd hr { margin: 0 15px 0 10px; }
+		.area hr { margin-left: 0 !important; margin-right: 0 !important; }
+	/* 实心分隔线 <hr class="l" /> */
+	hr.l { height: 1px; border: none; background: #E6E7E1; color: #E6E7E1; }
+		hr.l2 { height: 2px; }
+		hr.l3 { height: 3px; }
+	/* 虚线分隔线 <hr class="da" /> */
+	hr.da { height: 0; border: none; border-top: 1px dashed #E6E7E1; background: transparent; color: transparent; }
+	/* 空白分隔 blank by lushnis */
+	hr.bk { margin-bottom: 10px !important; *margin-bottom: 2px !important; height: 0; border: none; border-top: 1px solid #FFF; background: transparent; color: transparent; }
+		.n .sd hr.bk { border-top-color: #F9F9F9; }
+		
+/* 页面标题、文章标题、粗体字 */
+	/* .wx --> weight text 粗体字，通常用于大标题 */
+	.wx, .ph { font-family: 'Helvetica Neue', 'Segoe UI', Tahoma, 'Hiragino Sans GB', 'Hiragino Kaku Gothic Pro', 'Microsoft YaHei', STHeiti, SimHei, sans-serif; font-weight: 100; }
+	/* Page header */ .ph { font-size: 20px !important; }
+	/* Main title */ .mt { padding: 10px 0; font-size: 16px; }
+
+/* 行内分割竖线 */ .pipe { margin: 0 5px; color: #CCC; }
+
+/* 文本属性：字号、颜色、粗细 */
+	/* 字号 .xs --> text size 文字大小, 0=10px, 1=12px, 2=14px by Pony 3=16px 4=18px 7=24px Added by Izzln */
+	.xs0 { font-size: 10px; }
+	.xs1 { font-size: 12px; }
+	.xs2 { font-size: 14px; }
+	.xs3 { font-size: 16px; }
+	.xs4 { font-size: 18px !important; }
+	.xs7 { font-size: 24px !important; }
+	/* 颜色 .xg --> text gray level, 0=#bfbfbf, 1=#909090, 2=#666 Added by Izzln */
+	.xg0, .xg0 a { color: #bfbfbf; }
+	.xg1, .xg1 a { color: #999 !important; }
+	.xg2 { color: #666; }
+	/* 颜色 .xc --> text color, white=#fff, red=#e92b49, orange=#ff3d00 Added by Izzln */
+	.xcwhite, .xcwhite a { color: #fff; }
+	.xcred, .xcred a { color: #e92b49 !important; }
+	.xcorange, .xcorange a { color: #ff3d00 !important; }
+	/* 加亮颜色 .xi --> text important level, 1=#F60, 2\3=#109CD1 */
+	.xi1 { color: #FF6600; }
+	.xi2, .xi2 a, .xi3 a { color: #0093C3 !important; }
+	/* 粗细 .xw --> text weight level, 0=normal, 1=bold by Pony */
+	.xw0 { font-weight: 400; }
+	.xw1 { font-weight: 700; }
+	/* z-index */
+	.xz0 { z-index: -1; }
+	.xz1 { z-index: 100; }
+	
+
+/* 渐变 Added by Izzln*/
+	/* .gg2w --> grey to white */
+	.gg2w { background: url(esn/nv_gradient.png) repeat-x 0 0; }
+	.w2gg { background: #f9f9f9 url(esn/bg_gradient.png) repeat-x 0 0 !important; }
+
+/* 背景 Added by Izzln */	
+	.bgnoz { background: url(esn/tile.gif) repeat 0 0 !important; }
+	.bgwhite { background-color: #FFF !important; }
+	.bggrid { background: url(esn/tile2.png) repeat 0 0 !important; }
+	
+/* 边框线 Modified by Izzln */
+	.bbda { border-bottom: 1px dashed #E6E7E1; }
+	.bbs { border-bottom: 1px solid #E6E7E1; }
+	.bbn, .bbn th, .bbn td { border: none !important; }
+		.bbn label.z { margin-top: 6px; }
+		
+	.brdagroup { border-right: 1px dotted #d6d6d6; }
+	.brsgroup { border-right: 1px solid #d6d6d6; }
+	.bldagroup { border-left: 1px dotted #d6d6d6; }
+	.blsgroup { border-left: 1px solid #d6d6d6; }
+	
+	.bbdagroup { border-bottom: 1px dotted #d6d6d6; }
+	.bbsgroup { border-bottom: 1px solid #d6d6d6; }
+
+	.vlda { background-image: url(esn/vline_dashed.png); background-position: 644px 0; background-repeat: repeat-y; }
+	
+/* 圆角 */
+	.brs, .avt img { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+	.brm, .oshr, .el .ec .hot { -moz-border-radius: 5px; -webkit-border-radius: 10px; border-radius: 10px; }
+	.brw { -moz-border-radius: 20px; -webkit-border-radius: 20px; border-radius: 20px; }
+	
+	/* Added by Izzln */
+	.brtln { -moz-border-radius-topleft: 5px; -webkit-border-top-left-radius: 5px; border-top-left-radius: 5px; }
+	.brtrn { -moz-border-radius-topright: 5px; -webkit-border-top-right-radius: 5px; border-top-right-radius: 5px; }
+	.brbln { -moz-border-radius-bottomleft: 5px; -webkit-border-bottom-left-radius: 5px; border-bottom-left-radius: 5px; }
+	.brbrn { -moz-border-radius-bottomright: 5px; -webkit-border-bottom-right-radius: 5px; border-bottom-right-radius: 5px; }
+	.brtlm { -moz-border-radalius-topleft: 10px; -webkit-border-top-left-radius: 10px; border-top-left-radius: 10px; }
+	.brtrm { -moz-border-radius-topright: 10px; -webkit-border-top-right-radius: 10px; border-top-right-radius: 10px; }
+	.brblm { -moz-border-radius-bottomleft: 10px; -webkit-border-bottom-left-radius: 10px; border-bottom-left-radius: 10px; }
+	.brbrm { -moz-border-radius-bottomright: 10px; -webkit-border-bottom-right-radius: 10px; border-bottom-right-radius: 10px; }
+	.brtlw { -moz-border-radius-topleft: 20px; -webkit-border-top-left-radius: 20px; border-top-left-radius: 20px; }
+	.brtrw { -moz-border-radius-topright: 20px; -webkit-border-top-right-radius: 20px; border-top-right-radius: 20px; }
+	.brblw { -moz-border-radius-bottomleft: 20px; -webkit-border-bottom-left-radius: 20px; border-bottom-left-radius: 20px; }
+	.brbrw { -moz-border-radius-bottomright: 20px; -webkit-border-bottom-right-radius: 20px; border-bottom-right-radius: 20px; }
+	
+/* 外边距 Margin，三组从窄到宽，级别分别为：n, m, w */
+	.mtn { margin-top: 5px !important; }
+	.mbn { margin-bottom: 5px !important; }
+	.mtm { margin-top: 10px !important; }
+	.mbm { margin-bottom: 10px !important; }
+	.mtw { margin-top: 20px !important; }
+	.mbw { margin-bottom: 20px !important; }
+	
+	/*  Added by Izzln */
+	.mlngroup { margin-left: 5px !important; }
+	.mrngroup { margin-right: 5px !important; }
+	.mlmgroup { margin-left: 10px !important; }
+	.mrmgroup { margin-right: 10px !important; }
+	.mlwgroup { margin-left: 20px !important; }
+	.mrwgroup { margin-right: 20px !important; }
+	.mbww { margin-bottom: 40px !important; }
+	
+	/* 请不要用这个选择符，待删 by lushnis */.mgh { margin-right: 15px; margin-left: 20px; }
+
+/* 内边距 Padding，三组从窄到宽，级别分别为：n, m, w */
+	.ptn { padding-top: 5px !important; }
+	.pbn { padding-bottom: 5px !important; }
+	.ptm { padding-top: 10px !important; }
+	.pbm { padding-bottom: 10px !important; }
+	.ptw { padding-top: 20px !important; }
+	.pbw { padding-bottom: 20px !important; }
+	
+	/*  Added by Izzln */
+	.plngroup { padding-left: 5px !important; }
+	.prngroup { padding-right: 5px !important; }
+	.plmgroup { padding-left: 10px !important; }
+	.prmgroup { padding-right: 10px !important; }
+	.plwgroup { padding-left: 20px !important; }
+	.prwgroup { padding-right: 20px !important; }
+	
+	/* 请不要用这个选择符，待删 by lushnis */.sbp { padding-right: 20px; padding-left: 15px; }
+
+/* 头像 .avt --> Avatar */
+	.avt img { padding: 3px; width: 48px; height: 48px; background: #FFF; border: 1px solid; border-color: #F8F8F8 #E6E7E1 #E6E7E1 #F8F8F8; }
+		.avtm img { width: 120px; height: auto; }
+		.avts img { width: 24px; height: 24px; vertical-align: middle; }
+
+/* 没有数据时的提示信息样式 .emp --> empty */ .emp { padding: 20px 10px; }
+
+/* 垂直居中 */ .vm { vertical-align: middle; }
+/* 水平居中 */ .hm { text-align: center; }
+
+/* 隔行换色中的深色背景，用法：class="{echo swapclass('alt');}" */ .alt, .alt th, .alt td { background-color: #F8F8F8; }
+
+/* 次要链接 */ a.minlk { display: none; }
+
+#ajaxwaitid { display: none; position: absolute; right: 0; top: 0; z-index: 1; padding: 0 5px; background: #D00; color: #FFF; }
+
+
+

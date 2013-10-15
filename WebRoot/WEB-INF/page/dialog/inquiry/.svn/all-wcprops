@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/lmsportal/!svn/ver/9523/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/inquiry
+END
+inquiryRemarkDetail.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/inquiry/inquiryRemarkDetail.jsp
+END
+inquiryRemarkAll.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/lmsportal/!svn/ver/8205/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/inquiry/inquiryRemarkAll.jsp
+END
+selectArrangedDep.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/inquiry/selectArrangedDep.jsp
+END
+templatePreview.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/inquiry/templatePreview.jsp
+END
+trainClassList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/inquiry/trainClassList.jsp
+END
+selectStaff.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/inquiry/selectStaff.jsp
+END
+selectTemplate.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/lmsportal/!svn/ver/9523/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/inquiry/selectTemplate.jsp
+END

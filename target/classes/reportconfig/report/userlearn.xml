@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications xmlns="http://www.wabacus.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.wabacus.com ../xsd/wabacus.applications.xsd">
+	<page id="userlearn">
+		<report id="leanlist" title="员工学习信息统计报表" pagesize="20"
+			dataexport="richexcel" cellresize="1">
+			<display>
+				<col column="sn" label="员工编号" clickorderby="true" />
+				<col column="user_uid" displaytype="hidden" />
+				<col column="job_jobId" displaytype="hidden" />
+				<col column="uName" label="员工姓名" clickorderby="true" />
+				<col column="deptName" label="所属部门" clickorderby="true" width="200px" />
+				<col column="totalCourseNum" label="学习课程总数" clickorderby="true" />
+				<col column="totalStudyTime" label="学习总次数" clickorderby="true" />
+				<col column="studyTimeAvg" label="平均学习次数" clickorderby="true" />
+				<col column="totalStudyHour" label="学习总时长" clickorderby="true" />
+				<col column="studyHourAvg" label="学习平均时长" clickorderby="true" />
+				<col column="ompleteCourseNum" label="完成课程数" clickorderby="true" />
+				<col column="courseCompletionRate" label="课程完成率" clickorderby="true" />
+			</display>
+			<sql>
+				<value>
+						<![CDATA[SELECT a.*,b.`name` as uName,b.sn,c.namePath as deptName FROM rpt_user_learn a,au_userinfo b,au_organization c where a.user_uid =b.uid and b.org_orgId=c.orgId and {#condition#} ]]>
+				</value>
+				<condition name="jobId" hidden="true">
+					<value>
+						<![CDATA[(a.job_jobId='#data#')]]>
+					</value>
+				</condition>
+			</sql>
+			<format>
+				<imports>
+					<import>com.telecom.lms.portal.admin.util</import>
+					<import>com.wabacus.system.format</import>
+					<import>com.wabacus.util</import>
+					<import>com.wabacus.config</import>
+					<import>com.wabacus</import>
+				</imports>
+				<value>
+					<![CDATA[
+					totalCourseNum=totalCourseNum==null?"0":totalCourseNum;
+					ompleteCourseNum=ompleteCourseNum==null?"0":ompleteCourseNum;
+					courseCompletionRate=courseCompletionRate==null?"0":courseCompletionRate;
+					totalStudyTime=totalStudyTime==null?"0":totalStudyTime;
+					studyTimeAvg=studyTimeAvg==null?"0":studyTimeAvg;
+					if(totalCourseNum.equals("0")){
+						courseCompletionRate="-";
+					}else{
+						courseCompletionRate=FormatTools.formatDouble(courseCompletionRate,"#,###0.00")+"%";
+					}
+					totalStudyHour=TimeTool.changeSecToHMS(totalStudyHour);
+					studyHourAvg=TimeTool.changeSecToHMS(studyHourAvg);
+					if(rrequest.getShowtype() == Consts.DISPLAY_ON_PAGE)
+					{//如果是显示在html页面上，则提供查看详细资料的链接
+					deptName="<a href=\"#\" title='"+deptName+"'>"+deptName+"</a>";
+					totalCourseNum ="<a href=\"#\" onclick=\"wx_winpage('/lmsportal-admin/ShowReport.wx?PAGEID=usercourse&userid="+user_uid+"&jobid="+job_jobId+"',{width:600})\""+ ">"+totalCourseNum+"</a>";
+					}
+					]]>
+				</value>
+			</format>
+		</report>
+	</page>
+</applications>

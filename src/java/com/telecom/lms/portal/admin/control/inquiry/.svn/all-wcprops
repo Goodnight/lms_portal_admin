@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/lmsportal/!svn/ver/12569/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/inquiry
+END
+InquiryTpCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/lmsportal/!svn/ver/11315/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/inquiry/InquiryTpCtr.java
+END
+SurveyAttendanceCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/lmsportal/!svn/ver/12533/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/inquiry/SurveyAttendanceCtr.java
+END
+InquiryCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/lmsportal/!svn/ver/11978/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/inquiry/InquiryCtr.java
+END
+UserTrainCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/lmsportal/!svn/ver/12569/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/inquiry/UserTrainCtr.java
+END

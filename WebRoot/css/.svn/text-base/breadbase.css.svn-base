@@ -1,0 +1,26 @@
+
+
+
+.breadCrumbHolder a
+{
+	color: #0e82c7;
+	text-decoration: none;
+	font-size: inherit;
+	font-weight: inherit;
+}
+
+.breadCrumbHolder a:hover
+{
+	text-decoration: underline;
+}
+
+
+
+/* Page Specific
+ ---------------------------------------------------------------------*/
+
+.breadCrumbHolder
+{
+	margin:0 0 20px 0;
+}
+

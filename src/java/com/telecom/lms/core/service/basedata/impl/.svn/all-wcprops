@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/lmsportal/!svn/ver/12366/lms_portal_admin/trunk/src/java/com/telecom/lms/core/service/basedata/impl
+END
+UsersInfoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/lmsportal/!svn/ver/12366/lms_portal_admin/trunk/src/java/com/telecom/lms/core/service/basedata/impl/UsersInfoServiceImpl.java
+END
+OrganizationInfoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/lmsportal/!svn/ver/12337/lms_portal_admin/trunk/src/java/com/telecom/lms/core/service/basedata/impl/OrganizationInfoServiceImpl.java
+END

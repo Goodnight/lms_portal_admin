@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/lmsportal/!svn/ver/7936/lms_portal_admin/trunk/src/resource/reportconfig/xsd
+END
+wabacus.util.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/lmsportal/!svn/ver/7936/lms_portal_admin/trunk/src/resource/reportconfig/xsd/wabacus.util.xsd
+END
+wabacus.applications.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/lmsportal/!svn/ver/7936/lms_portal_admin/trunk/src/resource/reportconfig/xsd/wabacus.applications.xsd
+END
+wabacus.cfg.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/lmsportal/!svn/ver/7936/lms_portal_admin/trunk/src/resource/reportconfig/xsd/wabacus.cfg.xsd
+END
+wabacus.resources.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/7936/lms_portal_admin/trunk/src/resource/reportconfig/xsd/wabacus.resources.xsd
+END

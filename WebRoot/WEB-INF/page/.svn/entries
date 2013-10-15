@@ -1,0 +1,193 @@
+10
+
+dir
+12636
+https://218.83.175.166/svn/lmsportal/lms_portal_admin/trunk/WebRoot/WEB-INF/page
+https://218.83.175.166/svn/lmsportal
+
+
+
+2013-10-14T08:13:15.711250Z
+12627
+lih
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+18d7e01c-543b-2d48-9527-2539e95595b0
+
+auth
+dir
+
+demand
+dir
+
+dialog
+dir
+
+error
+dir
+
+examination
+dir
+
+filemanage
+dir
+
+include
+dir
+
+index.jsp
+file
+
+
+
+
+2013-08-01T07:50:58.803000Z
+6cb495f304b758e1acb5ea0839aea94b
+2013-05-10T07:32:15.579125Z
+9459
+yanlei
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+643
+
+inquiry
+dir
+
+knowledge
+dir
+
+list
+dir
+
+main.jsp
+file
+
+
+
+
+2013-08-01T07:50:46.170000Z
+b066d5ad65344c7652190e6af723d33b
+2013-04-24T06:50:07.485125Z
+9111
+litingchen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2233
+
+meetingManage
+dir
+
+orgClass
+dir
+
+resource
+dir
+
+scoreDep
+dir
+
+scoreUser
+dir
+
+statistic
+dir
+
+survey
+dir
+
+systemSet
+dir
+
+teacher
+dir
+
+todolist.jsp
+file
+
+
+
+
+2013-10-09T07:08:58.973000Z
+f9f47702a2cc6521ba9229767950fabc
+2013-10-08T03:33:09.850546Z
+12481
+luxl
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7257
+
+train
+dir
+
+trainplan
+dir
+

@@ -1,0 +1,20 @@
+#host=http\://192.168.203.156\:88/lms_core_service/
+#host=http\://192.168.203.156\:81/lms-core/
+#host=http\://192.168.1.112\:8080/lms_core_service/
+host=http\://localhost\:8888/lms_core_service/
+#host=http\://10.127.7.15\:8888/lms_core_service/
+#host=http\://10.127.6.53\:80/
+app_key=telecom
+password=111111
+filePath=upload\\temp\\
+orgRootUpId=9001
+orgRootId=9002
+timestamp=10
+baseBatchNum=1000 
+orgBatchNum=100
+exportLimit=100
+pos4provinceRootId=10
+pos4groupRootId=9
+
+#student-portal bbsUrl
+bbsUrl=http\://localhost\:8080/lms_portal_student/class/detail.html?tcid\=

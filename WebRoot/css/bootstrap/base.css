@@ -1,0 +1,257 @@
+.selectHead select{
+	width: 150px;
+	margin-bottom:1px;
+}
+.dataTables_length {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.dataTables_length .selector{ 
+	margin: 18px 0px;
+	display: inline-block;
+}
+
+.dataTables_length label {
+	display: inline-block;
+	margin-top: 25px;
+	float: left;
+}
+.pagerFoot {
+	margin-top:-18px;
+	height:60px;
+}
+.container-fluid {
+	padding-right: 0;
+}
+
+.pftree h4{
+	margin-left:15px;
+}
+.pftree .control-group{
+	margin-left:15px;
+}
+.tableButton{
+	padding-bottom:5px;
+	padding-top:5px;
+}
+.taL .inputType{
+	margin-top:9px;
+}
+.page-right{
+	padding:8px;
+	padding-top: 100px;
+}
+.extra h3 {
+
+ margin-top: 0px;
+}
+.taR {
+text-align: right!important;
+}
+
+.pfb {
+	position: fixed!important;
+	top: 45px!important;
+	width:100%;	
+}
+.ml12{
+	margin-left:20px;
+}
+
+input, button, select, textarea {
+font: normal normal normal 12px/1.5 'Hiragino Sans GB', 'Hiragino Kaku Gothic Pro', 'Microsoft YaHei';
+color: #444;
+}
+
+.select {
+	width:80px;
+}
+
+/*
+ * jsTree default theme 1.0
+ * Supported features: dots/no-dots, icons/no-icons, focused, loading
+ * Supported plugins: ui (hovered, clicked), checkbox, contextmenu, search
+ */
+
+.jstree-default li, 
+.jstree-default ins { background-image:url("../../images/d.png"); background-repeat:no-repeat; background-color:transparent; }
+.jstree-default li { background-position:-90px 0; background-repeat:repeat-y; }
+.jstree-default li.jstree-last { background:transparent; }
+.jstree-default .jstree-open > ins { background-position:-72px 0; }
+.jstree-default .jstree-closed > ins { background-position:-54px 0; }
+.jstree-default .jstree-leaf > ins { background-position:-36px 0; }
+
+.jstree-default .jstree-hovered { background:#e7f4f9; border:1px solid #d8f0fa; padding:0 2px 0 1px; }
+.jstree-default .jstree-clicked { background:#beebff; border:1px solid #99defd; padding:0 2px 0 1px; }
+.jstree-default a .jstree-icon { background-position:-56px -19px; }
+.jstree-default a.jstree-loading .jstree-icon { background:url("../../images/throbber.gif") center center no-repeat !important; }
+
+.jstree-default .jstree-no-dots li, 
+.jstree-default .jstree-no-dots .jstree-leaf > ins { background:transparent; }
+.jstree-default .jstree-no-dots .jstree-open > ins { background-position:-18px 0; }
+.jstree-default .jstree-no-dots .jstree-closed > ins { background-position:0 0; }
+
+.jstree-default .jstree-no-icons a .jstree-icon { display:none; }
+
+.jstree-default .jstree-search { font-style:italic; }
+
+.jstree-default .jstree-no-icons .jstree-checkbox { display:inline-block; }
+.jstree-default .jstree-no-checkboxes .jstree-checkbox { display:none !important; }
+.jstree-default .jstree-checked > a > .jstree-checkbox { background-position:-38px -19px; }
+.jstree-default .jstree-unchecked > a > .jstree-checkbox { background-position:-2px -19px; }
+.jstree-default .jstree-undetermined > a > .jstree-checkbox { background-position:-20px -19px; }
+.jstree-default .jstree-checked > a > .jstree-checkbox:hover { background-position:-38px -37px; }
+.jstree-default .jstree-unchecked > a > .jstree-checkbox:hover { background-position:-2px -37px; }
+.jstree-default .jstree-undetermined > a > .jstree-checkbox:hover { background-position:-20px -37px; }
+
+#vakata-dragged.jstree-default ins { background:transparent !important; }
+#vakata-dragged.jstree-default .jstree-ok { background:url("../../images/d.png") -2px -53px no-repeat !important; }
+#vakata-dragged.jstree-default .jstree-invalid { background:url("../../images/d.png") -18px -53px no-repeat !important; }
+#jstree-marker.jstree-default { background:url("../../images/d.png") -41px -57px no-repeat !important; text-indent:-100px; }
+
+.jstree-default a.jstree-search { color:aqua; }
+.jstree-default .jstree-locked a { color:silver; cursor:default; }
+
+#vakata-contextmenu.jstree-default-context, 
+#vakata-contextmenu.jstree-default-context li ul { background:#f0f0f0; border:1px solid #979797; -moz-box-shadow: 1px 1px 2px #999; -webkit-box-shadow: 1px 1px 2px #999; box-shadow: 1px 1px 2px #999; }
+#vakata-contextmenu.jstree-default-context li { }
+#vakata-contextmenu.jstree-default-context a { color:black; }
+#vakata-contextmenu.jstree-default-context a:hover, 
+#vakata-contextmenu.jstree-default-context .vakata-hover > a { padding:0 5px; background:#e8eff7; border:1px solid #aecff7; color:black; -moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px; }
+#vakata-contextmenu.jstree-default-context li.jstree-contextmenu-disabled a, 
+#vakata-contextmenu.jstree-default-context li.jstree-contextmenu-disabled a:hover { color:silver; background:transparent; border:0; padding:1px 4px; }
+#vakata-contextmenu.jstree-default-context li.vakata-separator { background:white; border-top:1px solid #e0e0e0; margin:0; }
+#vakata-contextmenu.jstree-default-context li ul { margin-left:-4px; }
+
+/* IE6 BEGIN */
+.jstree-default li, 
+.jstree-default ins,
+#vakata-dragged.jstree-default .jstree-invalid, 
+#vakata-dragged.jstree-default .jstree-ok, 
+#jstree-marker.jstree-default { _background-image:url("../images/d.gif"); }
+.jstree-default .jstree-open ins { _background-position:-72px 0; }
+.jstree-default .jstree-closed ins { _background-position:-54px 0; }
+.jstree-default .jstree-leaf ins { _background-position:-36px 0; }
+.jstree-default a ins.jstree-icon { _background-position:-56px -19px; }
+#vakata-contextmenu.jstree-default-context ins { _display:none; }
+#vakata-contextmenu.jstree-default-context li { _zoom:1; }
+.jstree-default .jstree-undetermined a .jstree-checkbox { _background-position:-20px -19px; }
+.jstree-default .jstree-checked a .jstree-checkbox { _background-position:-38px -19px; }
+.jstree-default .jstree-unchecked a .jstree-checkbox { _background-position:-2px -19px; }
+/* IE6 END */
+
+.navbar-fixed-top {
+	position: fixed!important;
+}
+
+.newmain{float:left;width:100%;}
+.newmainco{margin-left:215px;}
+.newlefttree{
+	float:left;
+	margin-left:-100%;
+	width:200px;
+}
+.extra{
+	float: left;
+	width: 30px;
+	margin-left: -100%;
+	position: relative;
+	left: 200px;
+	padding-top:85px;
+}
+.pftree{
+	position:fixed;
+	top:85px;
+	border-left: 1px solid #fff;
+	border-right: 1px solid #dedede;
+	height:88%;
+	overflow:auto;
+	width:198px;
+	background:#fff;
+	border-top:0;
+}
+.pftree h3{
+	font-size:16px;
+	margin:10px;
+}
+.extra{
+	background:red;
+}
+.extra h3{
+	height:90%;
+	width:14px;
+	border-right:1px solid #dedede;
+	background:url(../../images/bgchangecloumn.jpg) repeat-y;
+	border-bottom:1px solid #dedede;
+	cursor:pointer;
+	position:fixed;
+	z-index:2;
+}
+.extra h3.bgon{
+	background:url(../../images/extrabg.png) repeat-y;
+}
+.extraimg{
+	background-position:center;
+	height:90%;
+	background-repeat:no-repeat;
+	background-image:url(../../images/extraimg1.png);
+}
+.extraimon{
+	background-image:url(../../images/extraimg3.png);
+	display:none;
+}
+.extraimg2{
+	background-image:url(../../images/extraimg4.png);
+	display:none;
+}
+.extraimon2{
+	background-image:url(../../images/extraimg2.png);
+	display:none;
+}
+.treewindow{
+	position:fixed;
+	z-index:10;
+	height:100%;
+	border:1px solid #dedede;
+	background:#fff;
+	right:-239px;
+	display:none;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0){.extra h3{margin-left:200px;}}
+
+
+
+.mt20 {
+margin-top: 20px!important;
+}
+
+
+.mt10 {
+margin-top: 10px!important;
+}
+
+.w176 {
+width: 176px;
+}
+.z {
+float: left;
+}
+.y {
+float: right;
+}
+a img {
+border: none;
+}
+.w785 {
+	width:785px;
+}
+.pl50{
+	padding-left:50px;
+}
+.pr50{
+	padding-right:50px;
+}
+.mr100{
+	margin-right:100px;
+}

@@ -1,0 +1,84 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@include file="/WEB-INF/page/include/taglibs.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="gbk" xml:lang="gbk">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<meta http-equiv="content-language" content="gbk" />
+<title>需求收集时间</title>
+<jsp:include page="/WEB-INF/page/include/css.jsp"></jsp:include>
+</head>
+<body class="bg">
+<div class="blackall hidden">&nbsp;</div>
+<div class="newwindow hidden" id="leadinco">
+	<div class="taR"><a href="javascript:;"><img class="png_bg closed" src="${basepath }/images/close.png" width="40" height="40" /></a></div>
+    <div class="ngreyborder changeblue2 mt20">
+        	<h2 class="png_bg">导入培训班</h2>
+            <div class="basic_information w90p">
+              <div class="pt20">导入培训班：<input name="" type="file" /> <a href="" class="ml30">下载导入模板 <img src="${basepath }/images/download.png" width="16" height="16" class="vm"/></a></div>
+                <div class="m10 taR "><input type="button" class="step windowbutton" value="确定" /></div>
+            </div>
+    </div>
+</div>
+<c:if test="${user.type != 1 }">
+<div class="container">
+    <jsp:include page="/WEB-INF/page/include/header.jsp"></jsp:include>
+    <div class="cl">
+        <div class="newright">
+            <div class="newrightco">
+                                        您不是集团级管理员, 不具有访问权限!
+            </div>
+        </div>
+        <div class="newleft">
+        <c:set var="menu_sn" value="10" scope="request"></c:set>
+        <jsp:include page="/WEB-INF/page/include/leftNav.jsp"></jsp:include>
+        </div>
+    </div> 
+</div>             
+</c:if>
+<c:if test="${user.type == 1 }">
+<div class="container">
+	<jsp:include page="/WEB-INF/page/include/header.jsp"></jsp:include>
+    <div class="cl">
+    	<div class="newright">
+        	<div class="newrightco">
+            	<div class="listpagenav">
+                    <div class="breadCrumbHolder pf">
+                        <div class="breadCrumb reHeight" id="breadCrumb3">
+                            <div class="z">
+                                <ul>
+                                    <li class="first">
+                                        <a href="${basepath }/index.html">首页</a>
+                                    </li>
+                                    <li><a href="${basepath }/demand/demandTopicIndex.html">需求收集时间</a></li>
+                                    <li class="last">需求收集时间列表</li>
+                                </ul>
+                            </div>
+                            <div class="y"></div>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" id="dep_id"/>
+                <div>
+                    <div class="dataTables_wrapper">
+                        <h3 class="reHeight">
+                            <div class="z" style="font-size:14px">需求收集时间列表</div>
+                            <div class="y"><a href="demandTopicNew.html" class="functionbutton"  target="_blank">新建</a><a id="btn_delete" class="functionbutton">删除</a></div>
+                        </h3>
+                    	<div id="list_demandTopic"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    	<div class="newleft">
+    	<c:set var="menu_sn" value="10" scope="request"></c:set>
+        <jsp:include page="/WEB-INF/page/include/leftNav.jsp"></jsp:include>
+        </div>
+    </div> 
+</div>
+</c:if>
+<jsp:include page="/WEB-INF/page/include/script.jsp"></jsp:include>
+<script type="text/javascript" src="${basepath }/js/demand/index.js" charset="gbk"></script>
+</body>
+</html>
+ 

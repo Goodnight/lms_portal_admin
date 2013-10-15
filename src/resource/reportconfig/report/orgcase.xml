@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications xmlns="http://www.wabacus.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.wabacus.com ../xsd/wabacus.applications.xsd">
+	<page id="orgcase">
+		<report id="orgcaselist" title="案例报表" pagesize="20"
+			scrollstyle="image" dataexport="richexcel" cellresize="1">
+			<display>
+				<col column="deptName" label="机构名称" clickorderby="true" width="200px"/>
+				<col column="userTotal" label="用户总数" clickorderby="true" />
+				<col column="docTotal" label="案例总数" clickorderby="true" />
+				<col column="eliteNum" label="精品案例数" clickorderby="true" />
+				<col column="updateNum" label="更新案例数" clickorderby="true" />
+				<col column="views" label="浏览总次数" clickorderby="true" />
+				<col column="downloads" label="下载总次数" clickorderby="true" />
+			</display>
+			<sql>
+				<value>
+						<![CDATA[SELECT a.*,b.namepath as deptName FROM rpt_org_doc a left join au_organization b on a.org_orgId=b.orgId where a.type=3 and {#condition#} ]]>
+				</value>
+				<condition name="jobId"  hidden="true">
+					<value>
+						<![CDATA[(job_jobId='#data#')]]>
+					</value>
+				</condition>
+			</sql>
+			<format>
+				<imports>
+					<import>com.wabacus.system.format</import>
+					<import>com.wabacus.util</import>
+					<import>com.wabacus.config</import>
+					<import>com.wabacus</import>
+				</imports>
+			<value>
+				<![CDATA[
+					views=views==null?"0":views;
+					downloads=downloads==null?"0":downloads;
+					eliteNum=eliteNum==null?"0":eliteNum;
+					updateNum=updateNum==null?"0":updateNum;
+					if(rrequest.getShowtype() == Consts.DISPLAY_ON_PAGE)
+					{//如果是显示在html页面上，则提供查看详细资料的链接
+					deptName="<a href=\"#\" title='"+deptName+"'>"+deptName+"</a>";
+					}
+				]]>
+			</value>
+			</format>
+		</report>
+	</page>
+</applications>

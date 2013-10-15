@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/ueditor/_src/core
+END
+filterword.js
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/ueditor/_src/core/filterword.js
+END
+utils.js
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/ueditor/_src/core/utils.js
+END
+ajax.js
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/ueditor/_src/core/ajax.js
+END
+Editor.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/ueditor/_src/core/Editor.js
+END
+EventBase.js
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/ueditor/_src/core/EventBase.js
+END
+browser.js
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/ueditor/_src/core/browser.js
+END

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/lmsportal/!svn/ver/11342/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreDep
+END
+scoreDepCostList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/10263/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreDep/scoreDepCostList.jsp
+END
+scoreDepCostCostById.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/lmsportal/!svn/ver/10205/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreDep/scoreDepCostCostById.jsp
+END
+saveScoreDepGain.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/10645/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreDep/saveScoreDepGain.jsp
+END
+scoreDepUsed.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/lmsportal/!svn/ver/11342/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreDep/scoreDepUsed.jsp
+END
+scoreDepGainList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreDep/scoreDepGainList.jsp
+END
+addCostScoreDep.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/lmsportal/!svn/ver/9987/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreDep/addCostScoreDep.jsp
+END
+scoreDepList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/lmsportal/!svn/ver/10277/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreDep/scoreDepList.jsp
+END
+scoreDepBaseList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreDep/scoreDepBaseList.jsp
+END
+errorForGain.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/lmsportal/!svn/ver/10266/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreDep/errorForGain.jsp
+END
+scoreDepCostApply.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/6477/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreDep/scoreDepCostApply.jsp
+END
+scoreDepCostAllApplyList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/scoreDep/scoreDepCostAllApplyList.jsp
+END

@@ -1,0 +1,3933 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tree id="0">
+	<!--==============================================================================-->
+	<!--=================================报表类型配置===================================-->
+	<!--==============================================================================-->
+	<item id="reporttypes" text="报表类型&lt;font color='red'&gt;New&lt;font/&gt;" im0="dhtmlxtree_icon.gif"
+		im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<item text="数据自动列表报表" id="listpage">
+			<userdata name="pageid">listreportpage1</userdata>
+			<userdata name="configfilename">report_reportypes.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=listreportpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了对数据库数据进行自动列表显示的报表类型，并为这种报表类型演示了两种常见的应用场合，一个是显示普通数据列表，另一个是显示新闻列表&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					显示新闻列表与显示普通数据列表报表的配置方法大同小异，区别有如下几点：&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1、将＜report/＞的border配置为horizontal2，即只显示横向虚线边框，（也可以配置为horizontal0，只显示横向实线边框，关于边框部分请参看下面有专门的演示）&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2、将＜display＞标签的dataheader属性配置为空，即不自动显示数据标题部分，因为新闻列表一般每列都没有标题，当然如果需要标题也可以不配置这个属性，此时框架就会为每列自动显示标题出来&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					3、将＜report/＞的template配置为${articlelist.report.template}，这是定义在wabacus.jar包的wabacus.resource.default.xml资源文件中的一个内置静态模板资源项，用这个资源项控制报表结构使之显示成新闻列表的形式。
+						其它报表没有配置自己的静态模板，框架就会自动采用一个key为report.template.default的资源项做为它的模板来布局报表的显示。用户可以从jar包找到这个文件查看这个资源项的配置。也可以配置自己的静态资源项来控制报表结构，关于
+						这部分请参看下面“自定义布局报表显示”的演示
+			</userdata>
+		</item>
+		<item text="块数据自动列表报表" id="blocklist">
+			<userdata name="pageid">blocklistpage1</userdata>
+			<userdata name="configfilename">report_reportypes.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=blocklistpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这种报表类型是一条记录显示成一块，一条记录的每一列在块中显示成一个数据项，一行可以显示多个数据块。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					当显示在页面时，每一行显示的块数由报表宽度（即＜report/＞的width配置值，默认为100%）和每个块的宽度（即＜display/＞的blockwidth属性配置值或blockstyleproperty属性配置值）自动决定，
+					但在显示到下载数据文件时，每行显示的块数则由＜display/＞的colsinexportfile属性配置值决定，默认为5，即每行显示5块，如果配置为0，则在数据文件中一行显示所有块，不分行。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在演示的第一个报表中，因为各个块的高度不一致（因为图片高度不一致，而且可能有的没有图片），为了不使显示混乱，在＜display/＞中配置了块的高度，使所有块都保持统一高度，这样显示比较整齐，不会混乱。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					更多介绍可以参看《Wabacus框架开发指南》文档
+			</userdata>
+		</item>
+		<item id="crosslist" text="交叉列表报表&lt;font color='red'&gt;New&lt;font/&gt;">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				交叉报表是指可横向扩展的报表，即列或分组列是动态从数据库或其它地方获取的，交叉报表分为普通交叉报表和交叉统计报表，一个报表中可以存在多个动态列。
+			</userdata>
+			<item text="普通交叉列表报表" id="commoncrossslist">
+				<userdata name="pageid">commoncrossslistpage1</userdata>
+				<userdata name="configfilename">
+					report_reportypes.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=commoncrossslistpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					普通交叉报表和一般的报表基本相同，唯一的区别就是它的部分或全部列是从数据库或其它地方动态获取的，而不是硬编码配置在配置文件中的。关于“普通交叉报表”的更多内容，请参看《开发指南一》文档中“报表类型”一节的介绍
+				</userdata>
+			</item>
+			<item text="交叉统计报表" id="crossstatistic">
+				<userdata name="pageid">crossstatisticpage1</userdata>
+				<userdata name="configfilename">
+					report_reportypes.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=crossstatisticpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					关于交叉统计的概念，可以在google或baidu上进行搜索。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					使用Wabacus框架可以配置出任意复杂的交叉统计功能，比如可以对多个字段进行多种类型的统计、可以横向统计整行、纵向统计整列、生成任意复杂的表头等。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					还可以对统计数据，动态生成的表头数据进行任意格式化显示&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					可配置的统计功能包括如下几种类型：sum、count、max、min、avg。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里由简单到复杂演示了三个报表：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					简单交叉统计报表：演示了一个单行表头、没有进行横向和纵向统计且只对一个字段进行一种类型的统计的交叉统计报表&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					分组交叉统计报表：演示了一个复杂的交叉统计功能的配置：复杂表头（且“季度”表头是根据month列运算得到，并在显示时进行了格式化）、同时进行多个类型的统计。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里将其tablename属性配置为select * from tbl_salary只是为了测试可以配置一个记录集做为查询表头数据，而不只限于从一个表中取动态表头数据。其实在这里也可以配置为tablename="tbl_salary"即可，因为从这一个表中就可以取到所有要显示的动态表头数据。
+					复杂交叉统计报表：演示了一个更为复杂的交叉统计功能的配置：复杂表头、同时进行多个类型的统计，每个统计项可以针对每个列、某个分组或整个报表进行统计，还可以对动态生成的横向列进行搜索操作。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					还可以配置更复杂的交叉统计功能，比如对多个字段进行多种类型的统计等，这里没有演示。
+				</userdata>
+			</item>
+			<item text="综合示例" id="crossslistcomplex">
+				<userdata name="pageid">crossslistcomplexpage1</userdata>
+				<userdata name="configfilename">
+					report_reportypes.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=crossslistcomplexpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里综合演示了在一个报表中同时显示普通交叉报表、交叉统计报表，并且演示了两个交叉统计的配置
+				</userdata>
+			</item>
+		</item>
+		
+		<item text="数据细览报表" id="detailpage">
+			<userdata name="pageid">detailpage1</userdata>
+			<userdata name="configfilename">report_reportypes.xml</userdata>
+			<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=detailpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							演示了以细览方式显示数据&lt;br&gt;
+					&lt;b&gt;其它演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							演示了为查询条件输入框配置输入联想功能，在“工号”或“姓名”两个查询框中输入数据时，系统会自动给出可选数据供选择。这
+					里演示了配置与不配置提示选项标题的情况，还演示了提示一列或提示多列的情况。
+					关于更多“输入联想”功能的演示，请参看后面“输入联想”的演示部分
+				</userdata>
+		</item>
+	</item>
+	<!--==============================================================================-->
+	<!--=================================容器类型配置===================================-->
+	<!--==============================================================================-->
+	<item id="container" text="容器类型" im0="dhtmlxtree_icon.gif"
+		im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<userdata name="groupnode">true</userdata>
+		<userdata name="desc">
+			&lt;br&gt;
+			&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			容器包括page、panel、framepanel、tabpanel、vpanel、horizontalpanel，其中page是一个特殊容器，一个页面必须包括一个page，且必须放在顶层，可以嵌套其它容器，但不能被其它容器嵌套。
+		</userdata>
+		<item text="page容器" id="page">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				page是一个特殊容器，一个页面必须包括一个page，且必须放在顶层，可以嵌套其它容器，但不能被其它容器嵌套。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				page容器如果配置了多个子组件时，它们将垂直排列，之间的间距由它们的top和bottom属性决定。
+			</userdata>
+			<item text="标题" id="pagetitle">
+				<userdata name="pageid">pagetitlepage1</userdata>
+				<userdata name="configfilename">report_container.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=pagetitlepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里只是演示了显示在居中位置的标题，页面容器的标题可以显示在上、下、左、右，对齐方式包括left、center、right、top、middle、bottom&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这种容器与下面演示的＜vpanel/＞容器一致，更多标题的演示可以参看此容器的演示。
+				</userdata>
+			</item>
+			<item text="边框" id="pageborder">
+				<userdata name="pageid">pageborderpage1</userdata>
+				<userdata name="configfilename">report_container.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=pageborderpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示了为页面容器配置边框及边框颜色
+				</userdata>
+			</item>
+			<item text="滚动条" id="pagescroll">
+				<userdata name="pageid">pagescrollpage1</userdata>
+				<userdata name="configfilename">report_container.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=pagescrollpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示了为页面容器配置横向和纵向滚动条
+				</userdata>
+			</item>
+			<item text="页面拦截器" id="pageinterceptor">
+				<userdata name="pageid">pageinterceptorpage1</userdata>
+				<userdata name="configfilename">report_container.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=pageinterceptorpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						页面是唯一能配置拦截器的容器，页面拦截器包括全局拦截器和私有拦截器：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						全局拦截器：配置在系统配置文件wabacus.cfg.xml的标签＜global-interceptors/＞中，如果某个页面ID被全局拦截器匹配，则访问页面时就会被其拦截到，并执行其它的代码，一个页面可以被多个全局拦截器匹配；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						页面私有拦截器：配置在报表＜page/＞的interceptor属性或＜interceptor/＞子标签中，通过前都可以配置多个拦截器，通过后者只可配置一个拦截器，一个页面可以同时通过这两种方式配置拦截器，页面访问时都会被拦截到。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示的页面会被三个全局拦截器拦截，也会被三个自己的私有拦截器拦截，并且com.wabacusdemo.testpageinterceptor.PageInterceptor2拦截器即是全局拦截器，又是私有拦截器，访问此页面时会被此拦截器拦截两次。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						关于页面拦截器的更多介绍，请参看《Wabacus框架开发指南》相关介绍
+				</userdata>
+			</item>
+		</item>
+		<item text="tabpanel容器" id="tabpanel">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				tabpanel是一个切换容器，一次显示容器中一个子组件。&lt;br&gt;
+			</userdata>
+			<item text="标题" id="tabpaneltitle">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示如何控制tabpanel标题部分的显示、显示位置，以及各标题的对齐方式。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果tabpanel容器中各tabitem的标题长度不一致，可以通过＜tabpanel＞的titlewidth配置所有tabitem标题的宽度，这样可以保证所有标题宽度一致。只有这个容器有titlewidth属性。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					tabpanel与其它容器不同，每个tab页的标题不是在＜tabpanel＞中配置的，而是在其对应的子组件上配置的，每个显示在＜tabpanel＞中的子组件（包括除＜page＞之外的任意容器和报表）都可以配置parenttitle属性
+					指定对应的tab页的标题，如果没有配置此属性，则会取子组件的title属性配置的标题，如果也没有配置title属性，且当前子组件是容器，则会取此子容器上子组件的parenttitle和title，依次递归下去，最后没取到则此tab页显示空标题&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					＜tabpanel＞容器本身的title属性没什么意义，除非此＜tabpanel＞是配置在其它＜tabpanel＞容器中，则会根据它的title取到对应父tab页的标题（在没配置parenttitle的情况下）。
+				</userdata>
+				<item text="标题在顶部" id="tabpaneltitletop">
+					<userdata name="groupnode">true</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					</userdata>
+					<item text="标题样式一" id="tabpaneltitletop1">
+						<userdata name="pageid">tabpaneltitletoppage1</userdata>
+						<userdata name="configfilename">report_container.xml</userdata>
+						<userdata name="desc">
+							&lt;br&gt;
+							&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+								&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=tabpaneltitletoppage1&lt;br&gt;
+							&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								要将标题显示在顶部，只要将＜tabpanel＞的titleposition属性配置为top，或不配置，因为默认就是将标题显示在顶部&lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								针对所有容器，如果标题显示在顶部，则可以通过titlealign配置对齐方式，可配置值有三种：left、right、center。&lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								对于tabpanel，如果标题显示在顶部，还可以通过titlestyle属性控制显示样式，可配置值为1和2，这里演示配置为1的显示效果
+						</userdata>
+					</item>
+					<item text="标题样式二" id="tabpaneltitletop2">
+						<userdata name="pageid">tabpaneltitletoppage2</userdata>
+						<userdata name="configfilename">report_container.xml</userdata>
+						<userdata name="desc">
+							&lt;br&gt;
+							&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+								&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=tabpaneltitletoppage2&lt;br&gt;
+							&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								要将标题显示在顶部，只要将＜tabpanel＞的titleposition属性配置为top，或不配置，因为默认就是将标题显示在顶部&lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								针对所有容器，如果标题显示在顶部，则可以通过titlealign配置对齐方式，可配置值有三种：left、right、center。&lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								对于tabpanel，如果标题显示在顶部，还可以通过titlestyle属性控制显示样式，可配置值为1和2。这里演示配置为2的显示效果
+						</userdata>
+					</item>
+				</item>
+				<item text="标题在底部" id="tabpaneltitlebottom">
+					<userdata name="pageid">tabpaneltitlebottompage1</userdata>
+					<userdata name="configfilename">report_container.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=tabpaneltitlebottompage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							要将标题显示在底部，只要将＜tabpanel＞的titleposition属性配置为bottom&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							针对所有容器，如果标题显示在底部，可以通过titlealign配置对齐方式，可配置值有三种：left、right、center。&lt;br&gt;
+					</userdata>
+				</item>
+				<item text="标题在左侧" id="tabpaneltitleleft">
+					<userdata name="groupnode">true</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					</userdata>
+					<item text="标题样式一" id="tabpaneltitleleft1">
+						<userdata name="pageid">tabpaneltitleleftpage1</userdata>
+						<userdata name="configfilename">report_container.xml</userdata>
+						<userdata name="desc">
+							&lt;br&gt;
+							&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+								&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=tabpaneltitleleftpage1&lt;br&gt;
+							&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								要将标题显示在左侧，只要将＜tabpanel＞的titleposition属性配置为left&lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								针对所有容器，如果标题显示在左侧，则可以通过titlealign配置对齐方式，可配置值有三种：top、middle、bottom。&lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								对于tabpanel，如果标题显示在左侧，还可以通过titlestyle属性控制显示样式，可配置值为1和2，这里演示配置为1的显示效果
+						</userdata>
+					</item>
+					<item text="标题样式二" id="tabpaneltitleleft2">
+						<userdata name="pageid">tabpaneltitleleftpage2</userdata>
+						<userdata name="configfilename">report_container.xml</userdata>
+						<userdata name="desc">
+							&lt;br&gt;
+							&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+								&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=tabpaneltitleleftpage2&lt;br&gt;
+							&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								要将标题显示在左侧，只要将＜tabpanel＞的titleposition属性配置为left&lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								针对所有容器，如果标题显示在左侧，则可以通过titlealign配置对齐方式，可配置值有三种：top、middle、bottom。&lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								对于tabpanel，如果标题显示在左侧，还可以通过titlestyle属性控制显示样式，可配置值为1和2，这里演示配置为2的显示效果
+						</userdata>
+					</item>
+				</item>
+				<item text="标题在右侧" id="tabpaneltitleright">
+					<userdata name="groupnode">true</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					</userdata>
+					<item text="标题样式一" id="tabpaneltitleright1">
+						<userdata name="pageid">tabpaneltitlerightpage1</userdata>
+						<userdata name="configfilename">report_container.xml</userdata>
+						<userdata name="desc">
+							&lt;br&gt;
+							&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+								&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=tabpaneltitlerightpage1&lt;br&gt;
+							&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								要将标题显示在左侧，只要将＜tabpanel＞的titleposition属性配置为right&lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								针对所有容器，如果标题显示在左侧，则可以通过titlealign配置对齐方式，可配置值有三种：top、middle、bottom。&lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								对于tabpanel，如果标题显示在左侧，还可以通过titlestyle属性控制显示样式，可配置值为1和2，这里演示配置为1的显示效果
+						</userdata>
+					</item>
+					<item text="标题样式二" id="tabpaneltitleright2">
+						<userdata name="pageid">tabpaneltitlerightpage2</userdata>
+						<userdata name="configfilename">report_container.xml</userdata>
+						<userdata name="desc">
+							&lt;br&gt;
+							&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+								&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=tabpaneltitlerightpage2&lt;br&gt;
+							&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								要将标题显示在左侧，只要将＜tabpanel＞的titleposition属性配置为right&lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								针对所有容器，如果标题显示在左侧，则可以通过titlealign配置对齐方式，可配置值有三种：top、middle、bottom。&lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								对于tabpanel，如果标题显示在左侧，还可以通过titlestyle属性控制显示样式，可配置值为1和2，这里演示配置为2的显示效果
+						</userdata>
+					</item>
+				</item>
+			</item>
+			<item text="边框" id="tabpanelborder">
+				<userdata name="pageid">tabpanelborderpage1</userdata>
+				<userdata name="configfilename">report_container.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=tabpanelborderpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						＜tabpanel/＞像其它容器一样，可以通过border配置边框，如果配置为0，则没有边框，配置为大于1的数则表示边框粗细；还可以通过bordercolor属性配置边框颜色。
+				</userdata>
+			</item>
+			<item text="滚动条" id="tabpanelscroll">
+				<userdata name="pageid">tabpanelscrollpage1</userdata>
+				<userdata name="configfilename">report_container.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=tabpanelscrollpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						＜tabpanel/＞像其它容器一样，可以通过scrollX和scrollY配置纵横滚动条，并且可以通过scrolltype配置滚动条类型，normal为普通滚动条，image为图片滚动条
+				</userdata>
+			</item>
+			<item text="动态指定默认选中tab标签" id="tabpanelSelectedItem">
+				<userdata name="pageid">tabpanelSelectedItempage1</userdata>
+				<userdata name="configfilename">report_container.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=tabpanelSelectedItempage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						tabpanel容器如果没有指定默认选中的tab标签页，则刚进入时选中第一个标签页进行选中，用户也可以动态指定默认选中的标签页，指定方式有如下两种：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						1、在页面拦截器的doStart()方法或＜preaction/＞标签中用JAVA代码：rrequest.setAttribute("tabpanelid_selectedIndex","0、1、2.....");进行指定；
+						其中tabpanelid为当前tabpanel的id配置值；0,1,2为要显示的tabitem在整个tabpanel的位置下标，第一个为0，第二个为1，依次类推。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						2、在访问页面的URL中加上tabpanelid+“_selectedIndex=0、1、2...”，其中tabpanelid为当前tabpanel的id配置值；
+							0,1,2为要显示的tabitem在整个tabpanel的位置下标，第一个为0，第二个为1，依次类推。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示的是第一种方式。
+				</userdata>
+			</item>
+			<item text="标签页切换方式" id="tabpanelSwitch">
+				<userdata name="pageid">tabpanelSwitchpage1</userdata>
+				<userdata name="configfilename">report_container.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=tabpanelSwitchpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						此容器的标签页切换有两种方式，通过＜tabpanel/＞的asyn属性指定，指定为true时，异步切换，即每次切换都从数据库取数据；指定为false时，在客户端切换，即第一次访问时全部加载，切换时在客户端完成，默认为true&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						虽然这里只演示了一种标题，对其它标题效果，都支持客户端切换和异步切换方式。
+				</userdata>
+			</item>
+		</item>
+		<item text="panel容器" id="panel">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				panel是一个只能显示一个子组件的容器，子组件可以是除＜page/＞之外的任意容器或报表表单。&lt;br&gt;
+			</userdata>
+			<item text="标题" id="paneltitle">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示如何控制panel标题部分的显示、显示位置，以及各标题的对齐方式。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				</userdata>
+				<item text="标题在顶部" id="paneltitletop">
+					<userdata name="pageid">paneltitletoppage1</userdata>
+					<userdata name="configfilename">report_container.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=paneltitletoppage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							要将标题显示在顶部，只要将＜panel＞的titleposition属性配置为top，或不配置，因为默认就是将标题显示在顶部&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							针对所有容器，如果标题显示在顶部，则可以通过titlealign配置对齐方式，可配置值有三种：left、right、center。
+					</userdata>
+				</item>
+				<item text="标题在底部" id="paneltitlebottom">
+					<userdata name="pageid">paneltitlebottompage1</userdata>
+					<userdata name="configfilename">report_container.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=paneltitlebottompage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							要将标题显示在底部，只要将＜panel＞的titleposition属性配置为bottom&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							针对所有容器，如果标题显示在底部，可以通过titlealign配置对齐方式，可配置值有三种：left、right、center。&lt;br&gt;
+					</userdata>
+				</item>
+				<item text="标题在左侧" id="paneltitleleft">
+					<userdata name="pageid">paneltitleleftpage1</userdata>
+					<userdata name="configfilename">report_container.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=paneltitleleftpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							要将标题显示在左侧，只要将＜panel＞的titleposition属性配置为left&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							针对所有容器，如果标题显示在左侧，可以通过titlealign配置对齐方式，可配置值有三种：top、middle、bottom。&lt;br&gt;
+					</userdata>
+				</item>
+				<item text="标题在右侧" id="paneltitleright">
+					<userdata name="pageid">paneltitlerightpage1</userdata>
+					<userdata name="configfilename">report_container.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=paneltitlerightpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							要将标题显示在右侧，只要将＜panel＞的titleposition属性配置为right&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							针对所有容器，如果标题显示在右侧，可以通过titlealign配置对齐方式，可配置值有三种：top、middle、bottom。&lt;br&gt;
+					</userdata>
+				</item>
+			</item>
+			<item text="边框" id="panelborder">
+				<userdata name="pageid">panelborderpage1</userdata>
+				<userdata name="configfilename">report_container.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=panelborderpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						＜panel/＞像其它容器一样，可以通过border配置边框，如果配置为0，则没有边框，配置为大于1的数则表示边框粗细；还可以通过bordercolor属性配置边框颜色。
+				</userdata>
+			</item>
+			<item text="滚动条" id="panelscroll">
+				<userdata name="pageid">panelscrollpage1</userdata>
+				<userdata name="configfilename">report_container.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=panelscrollpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						＜panel/＞像其它容器一样，可以通过scrollX和scrollY配置纵横滚动条，并且可以通过scrolltype配置滚动条类型，normal为普通滚动条，image为图片滚动条
+				</userdata>
+			</item>
+		</item>
+		<item text="framepanel容器" id="framepanel">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				framepanel是一个只能显示一个子组件的容器，子组件可以是除＜page/＞之外的任意容器或报表表单。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				framepanel容器不能控制标题的显示位置
+			</userdata>
+			<item text="边框" id="framepanelborder">
+				<userdata name="pageid">framepanelborderpage1</userdata>
+				<userdata name="configfilename">report_container.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=framepanelborderpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						＜framepanel/＞像其它容器一样，可以通过border配置边框，如果配置为0，则没有边框，配置为大于1的数则表示边框粗细；还可以通过bordercolor属性配置边框颜色。
+				</userdata>
+			</item>
+			<item text="滚动条" id="framepanelscroll">
+				<userdata name="pageid">framepanelscrollpage1</userdata>
+				<userdata name="configfilename">report_container.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=framepanelscrollpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						＜framepanel/＞像其它容器一样，可以通过scrollX和scrollY配置纵横滚动条，并且可以通过scrolltype配置滚动条类型，normal为普通滚动条，image为图片滚动条
+				</userdata>
+			</item>
+		</item>
+		<item text="vpanel容器" id="vpanel">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				vpanel如果配置了多个子组件（包括容器或报表），它们将以垂直的方式全部显示出来，与上面的＜page/＞容器一致。&lt;br&gt;
+			</userdata>
+			<item text="标题" id="vpaneltitle">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示如何控制vpanel标题部分的显示、显示位置，以及各标题的对齐方式。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				</userdata>
+				<item text="标题在顶部" id="vpaneltitletop">
+					<userdata name="pageid">vpaneltitletoppage1</userdata>
+					<userdata name="configfilename">report_container.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=vpaneltitletoppage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							要将标题显示在顶部，只要将＜vpanel＞的titleposition属性配置为top，或不配置，因为默认就是将标题显示在顶部&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							针对所有容器，如果标题显示在顶部，则可以通过titlealign配置对齐方式，可配置值有三种：left、right、center。
+					</userdata>
+				</item>
+				<item text="标题在底部" id="vpaneltitlebottom">
+					<userdata name="pageid">vpaneltitlebottompage1</userdata>
+					<userdata name="configfilename">report_container.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=vpaneltitlebottompage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							要将标题显示在底部，只要将＜vpanel＞的titleposition属性配置为bottom&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							针对所有容器，如果标题显示在底部，可以通过titlealign配置对齐方式，可配置值有三种：left、right、center。&lt;br&gt;
+					</userdata>
+				</item>
+				<item text="标题在左侧" id="vpaneltitleleft">
+					<userdata name="pageid">vpaneltitleleftpage1</userdata>
+					<userdata name="configfilename">report_container.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=vpaneltitleleftpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							要将标题显示在左侧，只要将＜vpanel＞的titleposition属性配置为left&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							针对所有容器，如果标题显示在左侧，可以通过titlealign配置对齐方式，可配置值有三种：top、middle、bottom。&lt;br&gt;
+					</userdata>
+				</item>
+				<item text="标题在右侧" id="vpaneltitleright">
+					<userdata name="pageid">vpaneltitlerightpage1</userdata>
+					<userdata name="configfilename">report_container.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=vpaneltitlerightpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							要将标题显示在右侧，只要将＜vpanel＞的titleposition属性配置为right&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							针对所有容器，如果标题显示在右侧，可以通过titlealign配置对齐方式，可配置值有三种：top、middle、bottom。&lt;br&gt;
+					</userdata>
+				</item>
+			</item>
+			<item text="边框" id="vpanelborder">
+				<userdata name="pageid">vpanelborderpage1</userdata>
+				<userdata name="configfilename">report_container.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=vpanelborderpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						＜vpanel/＞像其它容器一样，可以通过border配置边框，如果配置为0，则没有边框，配置为大于1的数则表示边框粗细；还可以通过bordercolor属性配置边框颜色。
+				</userdata>
+			</item>
+			<item text="滚动条" id="vpanelscroll">
+				<userdata name="pageid">vpanelscrollpage1</userdata>
+				<userdata name="configfilename">report_container.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=vpanelscrollpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						＜vpanel/＞像其它容器一样，可以通过scrollX和scrollY配置纵横滚动条，并且可以通过scrolltype配置滚动条类型，normal为普通滚动条，image为图片滚动条
+				</userdata>
+			</item>
+		</item>
+		<item text="hpanel容器" id="hpanel">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				hpanel如果配置了多个子组件（包括容器或报表），它们将以横向的方式全部显示出来。&lt;br&gt;
+			</userdata>
+			<item text="标题" id="hpaneltitle">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示如何控制hpanel标题部分的显示、显示位置，以及各标题的对齐方式。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				</userdata>
+				<item text="标题在顶部" id="hpaneltitletop">
+					<userdata name="pageid">hpaneltitletoppage1</userdata>
+					<userdata name="configfilename">report_container.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=hpaneltitletoppage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							要将标题显示在顶部，只要将＜hpanel＞的titleposition属性配置为top，或不配置，因为默认就是将标题显示在顶部&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							针对所有容器，如果标题显示在顶部，则可以通过titlealign配置对齐方式，可配置值有三种：left、right、center。
+					</userdata>
+				</item>
+				<item text="标题在底部" id="hpaneltitlebottom">
+					<userdata name="pageid">hpaneltitlebottompage1</userdata>
+					<userdata name="configfilename">report_container.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=hpaneltitlebottompage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							要将标题显示在底部，只要将＜hpanel＞的titleposition属性配置为bottom&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							针对所有容器，如果标题显示在底部，可以通过titlealign配置对齐方式，可配置值有三种：left、right、center。&lt;br&gt;
+					</userdata>
+				</item>
+				<item text="标题在左侧" id="hpaneltitleleft">
+					<userdata name="pageid">hpaneltitleleftpage1</userdata>
+					<userdata name="configfilename">report_container.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=hpaneltitleleftpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							要将标题显示在左侧，只要将＜hpanel＞的titleposition属性配置为left&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							针对所有容器，如果标题显示在左侧，可以通过titlealign配置对齐方式，可配置值有三种：top、middle、bottom。&lt;br&gt;
+					</userdata>
+				</item>
+				<item text="标题在右侧" id="hpaneltitleright">
+					<userdata name="pageid">hpaneltitlerightpage1</userdata>
+					<userdata name="configfilename">report_container.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=hpaneltitlerightpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							要将标题显示在右侧，只要将＜hpanel＞的titleposition属性配置为right&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							针对所有容器，如果标题显示在右侧，可以通过titlealign配置对齐方式，可配置值有三种：top、middle、bottom。&lt;br&gt;
+					</userdata>
+				</item>
+			</item>
+			<item text="边框" id="hpanelborder">
+				<userdata name="pageid">hpanelborderpage1</userdata>
+				<userdata name="configfilename">report_container.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=hpanelborderpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						＜hpanel/＞像其它容器一样，可以通过border配置边框，如果配置为0，则没有边框，配置为大于1的数则表示边框粗细；还可以通过bordercolor属性配置边框颜色。
+				</userdata>
+			</item>
+			<item text="滚动条" id="hpanelscroll">
+				<userdata name="pageid">hpanelscrollpage1</userdata>
+				<userdata name="configfilename">report_container.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=hpanelscrollpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						＜hpanel/＞像其它容器一样，可以通过scrollX和scrollY配置纵横滚动条，并且可以通过scrolltype配置滚动条类型，normal为普通滚动条，image为图片滚动条
+				</userdata>
+			</item>
+		</item>
+		<item text="容器Header/Footer" id="pageheader">
+			<userdata name="pageid">containerheaderpage1</userdata>
+			<userdata name="configfilename">report_container.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=containerheaderpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示为容器配置Header和Footer部分的显示代码，可以配置为普通字符串、html代码、静态模板等，可以直接配置在＜header/＞、＜footer＞标签中，也可以配置为引用资源文件中的html代码或静态模板资源项。
+					关于为容器配置Header和Footer部分的详细说明，可以参看《Wabacus框架开发指南》文档中“组件公共子标签”一节的介绍。
+			</userdata>
+		</item>
+		<!--item text="容器综合应用示例" id="complexcontainer">
+			<userdata name="pageid">complexcontainerpage1</userdata>
+			<userdata name="configfilename">report_container.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=complexcontainerpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了在一个页面中利用多种容器进行布局的效果。
+			</userdata>
+		</item-->
+	</item>
+	<!--==============================================================================-->
+	<!--=================================模板配置===================================-->
+	<!--==============================================================================-->
+	<item id="template" text="自定义布局报表显示" im0="dhtmlxtree_icon.gif"
+		im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<userdata name="groupnode">true</userdata>
+		<userdata name="desc">
+			&lt;br&gt;
+			&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			通过配置文件，用户可以配置报表的显示结构，但控制能力不是很强，尤其是对细览报表，用户可能会要求非常复杂的布局，此时就要利用框架提供的自定义布局报表显示的功能进行灵活布局。&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			自定义布局包括两种如下方式：&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			静态模板：即利用HTML代码和框架提供的一套自定义标签控制报表的显示，利用静态模板，开发人员即可以布局整个报表在页面和Excel文件中的显示，也可以单独布局Header/Footer/翻页导航栏的显示元素及位置。
+			一个html模板可以配置在资源文件中，也可以写在一个.html文件中。两种方式完全等价。静态模板的优点是方便重用，框架的报表默认结构，翻页导航栏的默认结构就是通过静态模板进行提供的；缺点是相对动态模板，
+			功能相对比较弱。&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			动态模板：利用框架提供的一套自定义标签在JSP页面中布局报表各部分的显示位置，动态模板除了可以是JSP，也可以是html文件、servlet等，但因为这两种类型的文件不能使用框架的自定义标签，因此一般不会使用它们做动态模板
+			动态模板不方便复用，但功能很强，因为框架提供给JSP文件的自定义标签功能比较静态模板强，而且可以调用框架的JAVA接口方法。在显示时，动态模板是通过include方式包含进来显示的。动态模板不能像静态模板一样，
+			单独用在Header/Footer/翻页导航栏中控制这些部分的显示。&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			不管是静态模板，还是动态模板，不仅可以控制报表显示在页面中的布局，还可以控制显示在数据导出文件中的布局（但不能控制导出纯数据到Excel文件的结构）&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			下面分别介绍这两种自定义页面的配置方法和显示效果。
+		</userdata>
+		<item text="静态模板" id="statictemplate">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				静态模板是通过HTML代码和框架提供的自定义标签来布局整个报表、布局Header/Footer部分、布局翻页导航栏的显示。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				引用静态模板有四种方式：&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				引用定义在资源文件中的静态模板资源项：配置为${reskey}的形式&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				通过classpath方式引用静态模板文件：配置为classpath{path}形式&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				通过绝对路径引用静态模板文件：配置为absolute{path}形式&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				通过相对WEB根路径引用静态模板文件：配置为relative{path}形式&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			</userdata>
+			<item text="布局整个报表" id="statictemplate1">
+				<userdata name="pageid">statictemplatepage1</userdata>
+				<userdata name="configfilename">
+					report_template.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=statictemplatepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					利用html模板可以布局整个报表在页面中的显示和在Excel文件中的显示布局，分别是通过＜wx:report/＞标签的template属性和dataexporttemplate属性进行指定模板。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在这种类型的html模板中可以使用所有标签（框架提供的标签可以参看《Wabacus框架开发指南》中“报表模板”一节的介绍）&lt;br&gt;
+				</userdata>
+			</item>
+			<item text="布局Header/Footer" id="statictemplate2">
+				<userdata name="pageid">statictemplatepage2</userdata>
+				<userdata name="configfilename">
+					report_template.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=statictemplatepage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了通过html模板布局Header/Footer部分的演示，因为这两个位置的布局方式完全一样，所以放在一起演示&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在使用在Header/Footer部分的html模板中，可以使用所有框架提供的标签，但Header部分的html模板内容不能使用＜wx:header/＞标签，
+					Footer部分的html模板内容不能使用＜wx:footer/＞标签，否则会造成死循环错误。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里均使用配置在资源项中的模板，它们也可以使用html文件中的模板，配置方式与上面“布局整个报表”的方式一样。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					Header/Footer部分除了可以配置静态模板外，还可以配置其它类型的显示信息，具体可以参考《Wabacus标签手册》中关于＜display/＞
+					标签的header和footer属性的介绍。
+				</userdata>
+			</item>
+			<item text="布局翻页导航栏" id="statictemplate3">
+				<userdata name="pageid">statictemplatepage3</userdata>
+				<userdata name="configfilename">
+					report_template.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=statictemplatepage3&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					数据自动列表报表的翻页导航栏部分也可以采用html模板进行布局，在其中可以使用任意标签，但不能使用不带type属性的＜wx:navigate/＞标签，
+					因为不带type属性的＜wx:navigate/＞标签表示显示整个翻页导航栏，如果将它用在翻页导航栏的html模板中，则会造成死循环。
+					关于翻页导航栏的更多演示，请参看后面“分页显示列表报表”部分。
+				</userdata>
+			</item>
+		</item>
+		<item text="动态模板" id="dynamictemplate">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				动态模板一般是用JSP文件实现，在其中利用Wabacus框架提供一组自定义标签控制报表各部分是否显示以及显示位置，必要时还可以调用框架的JAVA接口方法进行操作，比如取报表数据，获取数据库连接等等
+				动态模板文件在运行时会通过类似jsp:include的方式包含进来显示。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				动态模板不能像静态模板一样，单独用在Header/Footer/翻页导航栏中控制这些部分的显示，只能用在报表＜report/＞的template或dataexporttemplate中，控制整个报表的显示。
+			</userdata>
+			<item text="控制报表整体的显示" id="dynamictemplate1">
+				<userdata name="pageid">dynamictemplatepage1</userdata>
+				<userdata name="configfilename">report_template.xml</userdata>
+				<userdata name="otherfilename">/wabacusdemo/jsp/tagpages/dynamictemplatepage1.jsp</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=dynamictemplatepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						此演示页面上有两个报表report1和report2，它们共用一个动态模板控制显示，在模板中是将本报表做为一个整体进行控制。&lt;br/>&gt;
+						另外report2的数据导出也是用这个模板控制显示。
+				</userdata>
+			</item>
+			<item text="控制报表每个部分的显示" id="dynamictemplate2">
+				<userdata name="pageid">dynamictemplatepage2</userdata>
+				<userdata name="configfilename">report_template.xml</userdata>
+				<userdata name="otherfilename">/wabacusdemo/jsp/tagpages/dynamictemplatepage2_report1.jsp;/wabacusdemo/jsp/tagpages/dynamictemplatepage2_report2.jsp</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=dynamictemplatepage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						演示了如何控制报表每个部分的显示，这里的部分是指大的部分，一个报表包括如下几个部分：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					头部（Header）、搜索栏（SearchBox）、标题栏（Title）、数据部分（Data）、导航栏（NavigateBox）、脚部（Footer）。当然，对于细览报表，
+					就没有导航栏部分，其它几个部分都具备。&lt;br&gt;		
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里要演示的就是如何在JSP页面中利用框架提供的自定义标签控制报表上面每个部分的显示。
+				</userdata>
+			</item>
+			<item text="控制报表每个细节的显示" id="dynamictemplate3">
+				<userdata name="pageid">dynamictemplatepage3</userdata>
+				<userdata name="configfilename">report_template.xml</userdata>
+				<userdata name="otherfilename">/wabacusdemo/jsp/tagpages/dynamictemplatepage2_report1.jsp;/wabacusdemo/jsp/tagpages/dynamictemplatepage2_report2.jsp</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=dynamictemplatepage3&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示的是对报表最细粒度的控制，是对报表每个部分里面具体组成元素的控制，比如对搜索栏，如何控制每个搜索框的显示以及搜索按钮的显示。
+						再比如对于翻页导航栏，如何控制翻到任意一页的链接的控制。等等。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					另外对于数据部分，数据自动列表报表和数据细览报表能控制的粒度是不一样的，具体如下：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					对于数据细览报表，能对每一列的数据进行控制，也就是说可以控制任意一列数据显示在什么位置。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					对于数据自动列表报表，开发人员也能用自定义标签控制任意一个单元格显示数据的显示位置。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;，
+					另外，除了上面演示的利用框架提供的自定义标签，还可以利用框提供的访问报表数据的接口，取到任意行任意列的数据，对它们进行各种处理。
+				</userdata>
+			</item>
+			<item text="在一个报表模板中显示多个报表" id="dynamictemplate4">
+				<userdata name="pageid">dynamictemplatepage4</userdata>
+				<userdata name="configfilename">report_template.xml</userdata>
+				<userdata name="otherfilename">/wabacusdemo/jsp/tagpages/dynamictemplatepage4.jsp</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=dynamictemplatepage4&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						在一个报表的动态模板中，除了可以利用自定义标签显示本报表的数据，还可以显示同一页面的其它报表的数据，方法就是在自定义标签中指定reportid属性。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						被其它报表动态模板显示了的报表，如果本报表不再显示，则可以将其template属性配置为none即可。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						假设A报表的动态模板显示了B报表的内容，必须将A报表和B报表的refreshid设置为它们的父容器或父父容器，这样操作任何一个报表时，都能同步更新。
+				</userdata>
+			</item>
+		</item>
+	</item>
+	
+	<!--==============================================================================-->
+	<!--=================================模块化配置===================================-->
+	<!--==============================================================================-->
+	<item id="moduleconfig" text="模块化配置" 
+			im0="dhtmlxtree_icon.gif"	im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<userdata name="groupnode">true</userdata>
+		<userdata name="desc">
+			&lt;br&gt;
+			&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			模块化配置是指将报表配置模块化，这样可以带来如下两个好处：&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			1）、重用配置。对于很多地方都需要的配置，可以定义在一个大家都能引用到的地方，然后每个报表要使用它们时，只需引用一下即可，而不需到处去重复配置；&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			2）、提高配置可阅读性和可维护性。可以将一个报表不同部分的配置放在不同的文件中，最后组装成一个完整的配置，而不需像之前的老版本一样，必须把所有的配置放在一起，不能分割，
+			导致配置量大的报表很难阅读。&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			在Wabacus框架中，模块化配置有如下两种途径：&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			1）、通过报表继承来实现。一个报表可以继承另一个报表，然后覆盖其中某些配置，产生一个新的报表，这样就可以重用父报表很多配置。继承关系可以任意层级，比如A报表继承B报表，B报表又继承C报表等。
+			而且存在继承关系的父子报表可以配置在同一个配置文件中，也可以配置在不同的配置文件中，配置顺序也没有要求，只要不存在循环继承即可，比如A报表继承B报表，B报表又继承A报表，这样是不合法的。&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			2）、通过引用实现，一个报表很多部分的配置可以引用在资源文件中定义的配置，这样可以将报表不同部分放在不同的资源文件中，最后由它组装成一个完整的报表，这样可以实现复用和提高代码可阅读性的目的。&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			后面将分别演示继承和引用两种模块化方法。
+		</userdata>
+		<item text="报表继承" id="reportinherit">
+			<userdata name="pageid">reportinheritpage1</userdata>
+			<userdata name="configfilename">
+				report_modularize.xml
+			</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportinheritpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				一个报表可以继承另一个报表，然后覆盖其中某些配置，产生一个新的报表，这样就可以重用父报表很多配置。继承关系可以任意层级，比如A报表继承B报表，B报表又继承C报表等。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				存在继承关系的报表可以是配置在一个配置文件中，也可以是配置在不同的配置文件中，还可以是配置在同一个＜page/＞中的两个报表，父子报表的配置顺序也没有要求。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				通过继承实现重用时，只能实现粗粒度的重用，即，子报表只能覆盖＜report/＞下面的直接子标签，比如＜display/＞、＜sql＞、＜format/＞等。不能只覆盖它们里面的某些配置。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				如果要进行细粒度的重用，比如多个报表共用几个＜col/＞的配置，则必须借助下面演示的报表引用。
+			</userdata>
+		</item>
+		<item text="报表引用" id="reportreference">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				报表引用是指在配置报表时，支持报表的＜display/＞、＜sql/＞、＜format/＞、＜buttons/＞等标签引用定义在资源文件中的配置，引用方式有两种：&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1、在配置报表的这几个部分时，通过相应标签的ref属性引用配置在资源文件中的相关配置，引用方式为ref=“${key}”，如果要引用多个，用“|”分隔；&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2、有的标签还支持通过＜ref/＞子标签引用定义在资源文件中的配置，目前有＜display/＞和＜buttons/＞两个标签支持这个子标签。＜ref/＞子标签可以更灵活地控制引入资源项定义的元素显示的位置。
+			</userdata>
+			<item text="引用＜display/＞配置" id="refdisplay">
+				<userdata name="pageid">refdisplaypage1</userdata>
+				<userdata name="configfilename">
+					report_modularize.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=refdisplaypage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					＜display/＞标签支持ref属性，也支持＜ref/＞子标签，可以同时使用，关于更多介绍，请参看《非正式文档》中“模块化应用配置”一节。
+				</userdata>
+			</item>
+			<item text="引用＜sql/＞配置" id="refsql">
+				<userdata name="pageid">refsqlpage1</userdata>
+				<userdata name="configfilename">
+					report_modularize.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=refsqlpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					＜sql/＞标签只支持ref属性，不支持＜ref/＞子标签，关于更多介绍，请参看《非正式文档》中“模块化应用配置”一节。
+				</userdata>
+			</item>
+			<item text="引用＜buttons/＞配置" id="refbuttons">
+				<userdata name="pageid">refbuttonspage1</userdata>
+				<userdata name="configfilename">
+					report_modularize.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=refbuttonspage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					＜buttons/＞标签支持ref属性，也支持＜ref/＞子标签，可以同时使用，关于更多介绍，请参看《非正式文档》中“模块化应用配置”一节。
+				</userdata>
+			</item>
+			<item text="引用＜format/＞配置" id="refformat">
+				<userdata name="pageid">refformatpage1</userdata>
+				<userdata name="configfilename">
+					report_modularize.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=refformatpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					＜format/＞标签只支持ref属性，不支持＜ref/＞子标签，关于更多介绍，请参看《非正式文档》中“模块化应用配置”一节。lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					对于交叉统计报表，还有＜dataheader-format/＞标签，它也支持ref属性引入外部定义的格式化代码，配置方式与＜format/＞完全一致
+				</userdata>
+			</item>
+		</item>
+	</item>
+	
+	<!--==============================================================================-->
+	<!--=================================权限配置===================================-->
+	<!--==============================================================================-->
+	<item id="permission" text="授&amp;nbsp;&amp;nbsp;权" im0="dhtmlxtree_icon.gif"
+		im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<userdata name="groupnode">true</userdata>
+		<userdata name="desc">
+			&lt;br&gt;
+			&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			关于Wabacus框架权限的介绍请参看《Wabacus框架开发指南》文档
+		</userdata>
+		<item text="容器权限" id="containerpermission">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示对容器的授权效果
+			</userdata>
+			<item text="容器整体权限" id="containerpermission1">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示对容器整体（而不是对容器某个部分或细节）进行授权的效果
+				</userdata>
+				<item text="不显示" id="containerpermission11">
+					<userdata name="pageid">containerpermissionpage11</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=containerpermissionpage11&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						在此演示页面中，在页面拦截器中将ID为“vp1”的容器的整体的display的权限授为false，此时此容器将不会显示出来。
+					</userdata>
+				</item>
+				<item text="只读" id="containerpermission12">
+					<userdata name="pageid">containerpermissionpage12</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=containerpermissionpage12&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						在此演示页面中，在页面拦截器中将ID为“vp1”的容器的整体的readonly的权限授为true，此时此容器上所有具有readonly权限的子组件、子组件上的部分、部分上的元素的readonly权限均为true。
+						比如所有输入框将只读。注意：按钮都没有只读权限，因此按钮的功能都能正常使用。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						另外，这里的报表都不是可编辑报表或表单，如果是的话，将全部变为只读报表，不允许编辑
+					</userdata>
+				</item>
+				<item text="禁用" id="containerpermission13">
+					<userdata name="pageid">containerpermissionpage13</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=containerpermissionpage13&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						在此演示页面中，在页面拦截器中将ID为“vp1”的容器的整体的disabled的权限授为true，此时此容器上所有具有disabled权限的子组件、子组件上的部分、部分上的元素的disabled权限均为true。
+						比如所有按钮将不能点击。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						注意：输入框都没有禁用权限，因此输入框都能正常输入。
+					</userdata>
+				</item>
+			</item>
+			<item text="容器标题权限" id="containerpermission2">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示对容器标题部分进行授权的效果
+				</userdata>
+				<item text="不显示" id="containerpermission21">
+					<userdata name="pageid">containerpermissionpage21</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=containerpermissionpage21&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						在此演示页面中，在页面拦截器中将ID为“vp1”的容器的标题的display的权限授为false，此时此容器标题将不会显示出来，虽然为它配置了标题。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						为标题部分授权是将authorize()方法的第二个参数传入Consts.TITLE_PART
+					</userdata>
+				</item>
+			</item>
+			<item text="容器内容权限" id="containerpermission3">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示对容器内容部分进行授权的效果
+				</userdata>
+				<item text="不显示" id="containerpermission31">
+					<userdata name="pageid">containerpermissionpage31</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=containerpermissionpage31&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						在此演示页面中，在页面拦截器中将ID为“vp1”的容器的内容的display的权限授为false，此时此容器内容部分将不会显示出来。 &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						为容器内容部分授权是将authorize()方法的第二个参数传入Consts.DATA_PART
+					</userdata>
+				</item>
+				<item text="只读" id="containerpermission32">
+					<userdata name="pageid">containerpermissionpage32</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=containerpermissionpage32&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						在此演示页面中，在页面拦截器中将ID为“vp1”的容器的内容部分的readonly的权限授为true，此时此容器上所有具有readonly权限的子组件、子组件上的部分、部分上的元素的readonly权限均为true。
+						比如所有输入框将只读。注意：按钮都没有只读权限，因此按钮的功能都能正常使用。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						另外，这里的报表都不是可编辑报表或表单，如果是的话，将全部变为只读报表，不允许编辑&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						为容器内容部分授权是将authorize()方法的第二个参数传入Consts.DATA_PART
+					</userdata>
+				</item>
+				<item text="禁用" id="containerpermission33">
+					<userdata name="pageid">containerpermissionpage33</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=containerpermissionpage33&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						在此演示页面中，在页面拦截器中将ID为“vp1”的容器的内容的disabled的权限授为true，此时此容器上所有具有disabled权限的子组件、子组件上的部分、部分上的元素的disabled权限均为true。
+						比如所有按钮将不能点击。注意：输入框都没有禁用权限，因此输入框都能正常输入。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						为容器内容部分授权是将authorize()方法的第二个参数传入Consts.DATA_PART
+					</userdata>
+				</item>
+			</item>
+			<item text="tabpanel容器特有权限" id="containerpermission4">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					tabpanel容器除了上面介绍的所有容器共同的权限，还有一些专有的权限，这是因为它所有子组件不是一起显示出来，而是经过切换进行逐个显示。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					因此可以控制每个tab标签页的权限
+				</userdata>
+				<item text="隐藏标签页" id="containerpermission41">
+					<userdata name="pageid">containerpermissionpage41</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=containerpermissionpage41&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						隐藏tabpanel容器标签页的方法是在authorize()方法中第一个参数传入tabpanel的id，第二个参数传入Consts.DATA_PART，第三个参数传入要隐藏的标签页的下标，从0开始。 &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里隐藏了第一个和第二个标签页，只显示了第三个标签页。
+					</userdata>
+				</item>
+				<item text="禁用标签页" id="containerpermission42">
+					<userdata name="pageid">containerpermissionpage42</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=containerpermissionpage42&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						禁用tabpanel容器标签页的方法是在authorize()方法中第一个参数传入tabpanel的id，第二个参数传入Consts.DATA_PART，第三个参数传入要禁用的标签页的下标，从0开始，权限类型传入disabled，权限值传入true。 &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里禁用了第二个标签页，因此不能切换到此标签页进行显示。
+					</userdata>
+				</item>
+			</item>
+		</item>
+		<item text="报表权限" id="reportpermission">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示对报表及报表上所有部分，所有部分上的元素进行授权的效果。
+			</userdata>
+			<item text="报表整体权限" id="reportpermission1">
+				<userdata name="pageid">reportpermissionpage1</userdata>
+				<userdata name="configfilename">report_permissions.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportpermissionpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示对报表整体进行授权的效果，只要将authorize()方法的第一个参数传入报表ID，第二、三个参数传入null即可。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						对报表整体授的权限对其上的部分和部分上的元素都有效
+				</userdata>
+			</item>
+			<item text="报表按钮权限" id="reportpermission2">
+				<userdata name="pageid">reportpermissionpage2</userdata>
+				<userdata name="configfilename">report_permissions.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportpermissionpage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						关于按钮授权，要注意如下几个方面：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						1、按钮只有display和disabled权限，没有readonly权限&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						2、对于系统内置按钮，比如搜索、保存、添加等按钮，只能通过它们的类型以type{类型}的方式指定到authorize()方法的第三个参数中；而对于用户自己配置的按钮，
+						则必须指定相应＜button/＞的name属性；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						3、报表上所有按钮，如果要控制它的权限，都是通过将第二个参数指定为Consts.BUTTON_PART，而不能指定为按钮显示位置所在的部分名来指定，比如搜索按钮，
+						只能这样指定：rrequest.authorize("report2",Consts.BUTTON_PART,"type{search}","disabled","true");，
+						而不能指定为：rrequest.authorize("report2",Consts.SEARCH_PART,"type{search}","disabled","true");
+				</userdata>
+			</item>
+			<item text="报表搜索栏权限" id="reportpermission3">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示对搜索栏整体和搜索栏上查询条件输入框的授权效果，查询按钮不能在这里授权，而是通过上面介绍的按钮Consts.BUTTON_PART进行授权
+				</userdata>
+				<item text="搜索栏整体权限" id="reportpermission31">
+					<userdata name="pageid">reportpermissionpage31</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportpermissionpage31&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示了对搜索栏整体授权的效果，对搜索栏整体授权需要说明的包括如下几点：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							1、将authorize()方法的第二个参数partname指定为Consts.SEARCH_PART&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							2、搜索栏上的授权只会影响上面的所有查询条件输入框，不会影响查询按钮，查询按钮的授权是通过按钮进行。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							3、搜索栏只有display和readonly权限，没有disabled权限
+					</userdata>
+				</item>
+				<item text="搜索栏上元素的权限" id="reportpermission32">
+					<userdata name="pageid">reportpermissionpage32</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportpermissionpage32&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						搜索栏上的元素只包括所有查询条件输入框，可以分别对它们进行授权，通过它们的＜condition/＞的name属性。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						授权时，将authorize()方法的第二个参数指定为Consts.SEARCH_PART，第三个参数指定为＜condition/＞的name属性&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						它们只有display和readonly权限，没有disabled权限。
+					</userdata>
+				</item>
+			</item>
+			
+			<item text="报表标题栏权限" id="reportpermissiontitle">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了对标题栏及标题栏上各元素的授权效果
+				</userdata>
+				<item text="标题栏整体权限" id="reportpermissiontitle1">
+					<userdata name="pageid">reportpermissiontitlepage1</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportpermissiontitlepage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示了对标题栏整体授权的效果，对标题栏整体授权需要说明的包括如下几点：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							1、将authorize()方法的第二个参数partname指定为Consts.TITLE_PART&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							2、标题栏只有display权限
+					</userdata>
+				</item>
+				<item text="标题栏上元素的权限" id="reportpermissiontitle2">
+					<userdata name="pageid">reportpermissiontitlepage2</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportpermissiontitlepage2&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示了标题栏上各个元素的授权效果，对标题栏上的元素进行授权需要说明的包括如下几点：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							1、对标题栏上的元素进行授权时，在authorize()方法的第二个参数partname指定为Consts.TITLE_PART，在第三个参数partid可以传入两个值：如果传入“title，则对标题本身授权，
+							传入“subtitle”，则对副标题进行授权&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							2、标题栏上的元素也只有display权限
+					</userdata>
+				</item>
+			</item>
+			
+			<item text="报表数据权限" id="reportdatapermission">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					报表数据有两个权限，一个是是否显示权限，另一个是是否只读权限，因为这里演示的都是只读报表类型，因此只读权限无效。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					可以将整个报表数据部分授权为不显示，也可以只将某些列授权为不显示
+				</userdata>
+				<item text="数据整体权限" id="reportdatapermission1">
+					<userdata name="pageid">reportdatapermissionpage1</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportdatapermissionpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							这里演示针对报表数据部分的授权，需要说明的包括如下几方面：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							1、对数据授权时需要将authorize()方法中第二个参数传入Consts.DATA_PART&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							2、数据部分支持display、readonly两种权限类型，不过对于只读报表，readonly权限没有意义，因为它本来就是只读的。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					</userdata>
+				</item>
+				<item text="对某列数据授权" id="reportdatapartpermission1">
+					<userdata name="groupnode">true</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示对数据自动列表报表和数据细览报表的某些列授权为不显示
+					</userdata>
+					<item text="数据自动列表报表" id="reportdatapartpermissionlist">
+						<userdata name="pageid">reportdatapartpermissionlistpage1</userdata>
+						<userdata name="configfilename">report_permissions.xml</userdata>
+						<userdata name="desc">
+							&lt;br&gt;
+							&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+								&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportdatapartpermissionlistpage1&lt;br&gt;
+							&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								这里演示对数据自动列表报表的某些列授权为不显示&lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							将某列数据授权为不显示时，只需将authorize()方法中第二个参数partname传入Consts.DATA_PART，第三个参数partid传入列所在＜col/＞的column属性配置值即可
+						</userdata>
+					</item>
+					<item text="数据细览报表" id="reportdatapartpermissiondetail">
+						<userdata name="pageid">reportdatapartpermissiondetailpage1</userdata>
+						<userdata name="configfilename">report_permissions.xml</userdata>
+						<userdata name="desc">
+							&lt;br&gt;
+							&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+								&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportdatapartpermissiondetailpage1&lt;br&gt;
+							&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+								这里演示对数据细览报表的某些列授权为不显示&lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							将某列数据授权为不显示时，只需将authorize()方法中第二个参数partname传入Consts.DATA_PART，第三个参数partid传入列所在＜col/＞的column属性配置值即可&lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							此报表有一个特殊的列，即“评价”列，它的label为一个单独的＜col/＞，而这个＜col/＞的column是{non-value}，因此为了对它进行授权，为它分配了一个property属性为descriptionlabel，这样就可以用此
+							property属性进行授权。其实每个＜col/＞都有一个property属性，默认值与column属性值相同，所以默认对某个＜col/＞进行授权时，只要用其column属性值，如果配置了property，且与对应的column属性值不同，
+							则必须用property属性值传入authorize()方法的第三个参数partid进行授权。
+						</userdata>
+					</item>
+				</item>
+				<item text="对统计数据授权" id="reportdatapartpermission2">
+					<userdata name="pageid">reportdatapartpermissionpage2</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportdatapartpermissionpage2&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							对统计数据进行授权时，在authorize()方法的第二个参数partname传入Consts.DATA_PART，第三个参数partid传入＜scol/＞的property属性配置值&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							注意：如果一个报表的统计数据显示在多个列中，即配置了多个＜scol/＞，则对其中任意一列授权为不显示时，它们将不会分多列显示，而是显示在一列中，此列会自动占据整行的位置
+					</userdata>
+				</item>
+				<item text="对交叉统计列授权" id="reportdatapartpermission3">
+					<userdata name="pageid">reportdatapartpermissionpage3</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportdatapartpermissionpage3&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						如果是将某个交叉统计项授权为不显示，则将&lt;b&gt;(交叉统计列的＜col/＞的column属性).(统计项对应的＜statistic/＞的id属性)&lt;/b&gt;传入authorize()方法的第三个参数partid中。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						如果将交叉统计列最里层的＜col/＞的column属性传入authorize()方法的第三个参数partid中，则会隐藏掉对每个列的统计，如果某个＜statistic/＞通过statitems还配置了针对其它分组或整个报表的统计，不会受此影响，而是继续显示出来。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						如果要将所有动态统计列都隐藏，则要对每个＜statistic/＞授权为不显示。
+					</userdata>
+				</item>
+			</item>
+			<item text="报表翻页导航栏权限" id="reportpermission5">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了对翻页导航栏及其翻页导航栏上各个元素授权的效果
+				</userdata>
+				<item text="翻页导航栏整体权限" id="reportpermission51">
+					<userdata name="pageid">reportpermissionpage51</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportpermissionpage51&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示了对翻页导航栏整体授权的效果，对翻页导航栏整体授权需要说明的包括如下几点：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							1、将authorize()方法的第二个参数partname指定为Consts.NAVIGATE_PART&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							2、翻页导航栏有display和disabled权限，没有readonly权限。当disabled权限设置为true时，翻页导航栏上所有功能都失效。
+					</userdata>
+				</item>
+				<item text="翻页导航栏上元素的权限" id="reportpermission52">
+					<userdata name="pageid">reportpermissionpage52</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportpermissionpage52&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示了对翻页导航栏上各个元素的授权效果，对翻页导航栏上的元素进行授权需要说明的包括如下几点：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							1、对翻页导航栏上的元素进行授权时，在authorize()方法的第二个参数partname指定为Consts.NAVIGATE_PART，在第三个参数partid传入各元素的type值，
+								翻页导航栏上的type值包括：first、previous、next、last、sequence、pageno、pagesize、recordcount、pagecount，它们对应元素的意义请参看《Wabacus框架开发指南》。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							2、翻页导航栏上只有display和disabled权限，没有readonly权限。当设置为disabled为true时，相应功能将禁用。
+					</userdata>
+				</item>
+			</item>
+			
+			<item text="报表Header/Footer权限" id="reportpermission6">
+				<userdata name="pageid">reportpermissionpage6</userdata>
+				<userdata name="configfilename">report_permissions.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportpermissionpage6&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						Header和Footer比较简单，只有display权限，授权时分别传入authorize()方法第二个参数partname的值为Consts.HEADER_PART和Consts.FOOTER_PART。
+				</userdata>
+			</item>
+		</item>
+	</item>
+	
+	<!--==============================================================================-->
+	<!--=================================常用功能配置===================================-->
+	<!--==============================================================================-->
+	<item id="usualfunctions" text="常用功能配置&lt;font color='red'&gt;New&lt;font/&gt;" im0="dhtmlxtree_icon.gif"
+		im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<userdata name="groupnode">true</userdata>
+		<userdata name="desc">
+			&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			这里演示如何使用Wabacus框架配置常用功能，以及它们的显示效果
+		</userdata>
+		<item text="切换主题风格" id="skin">
+			<userdata name="pageid">skinpage1</userdata>
+			<userdata name="configfilename">
+				report_usualfunc5.xml
+			</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=skinpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				在wabacus框架中，可以设置某一个页面的主题风格，也可以设置整个项目的主题风格，可以设置对所有用户都生效的主题风格，也可以为不同的用户设置各自的主题风格。
+				具体参看《Wabacus框架开发指南》文档。
+			</userdata>
+		</item>
+		<item text="显示自动增长列" id="sequence">
+			<userdata name="pageid">sequencepage1</userdata>
+			<userdata name="configfilename">
+				report_usualfunc1.xml
+			</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=sequencepage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示了如何为一个数据自动列表类型的报表配置自动增长列，在此报表中，为它配置了四个自动增长列，显示的标题依次为“序号1”、“序号2”、“序号3”、“序号4”，
+				起始序号分别从0、-1、1、100开始&lt;br&gt;
+			</userdata>
+		</item>
+		<item text="列排序功能" id="clickorderby">
+			<userdata name="pageid">clickorderbypage1</userdata>
+			<userdata name="configfilename">
+				report_usualfunc1.xml
+			</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=clickorderbypage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示了配置列排序功能，如果某个列或某些列配置了列排序功能，则点击它们的列标题时，会按照当前列数据进行升序排列，再点击就会按照降序排列。
+				某个列需要列排序功能，只要将其&lt;col/&gt;的clickorderby属性配置为true即可。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面所演示的报表在其“工号”、“中文名”、“英文名”、“性别”、“年龄”、“出生日期”等列配置了列排序功能，其它列则没有配置。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				普通的列排序只对本次访问有效，下次再打开此报表时，将不再保留排序效果，但框架也支持为每个用户保存列排序效果，这样用户再打开时仍然保留上次点击的列排序效果。这里演示了将列排序效果保存在session中，
+				这样当会话没有过期时，打开报表仍然会保留上次的列排序。关于保存列排序效果的更多介绍请参看《Wabacus框架开发指南》文档“持久化报表表单个性化信息”一节。
+			</userdata>
+		</item>
+		<item text="列过滤功能" id="filtercol">
+			<userdata name="pageid">filterpage1</userdata>
+			<userdata name="configfilename">
+				report_usualfunc1.xml
+			</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=filterpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示了列过滤功能，某个列配置了列过滤功能，则点击其数据标题上的右端小箭头时，会弹出选项数据进行选择，然后根据用户选中数据进行筛选。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					列过滤分为两种：&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					    1、与某个查询条件关联的列过滤，即当前过滤列也是搜索栏中某个查询条件对应的列，此时在此列进行过滤时，和在相应查询条件中进行搜索效果一致，
+					    这种类型的列过滤配置方式为将&lt;col/&gt;的filter属性配置为condition{对应&lt;condition/&gt;的name属性}，这样它们就关联起来了。&lt;br&gt;
+					    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					    2、不与任何查询条件关联的列过滤，此时如果要为这样的列配置列过滤功能，只需将其&lt;col/&gt;的filter属性配置为true即可，但有的情况可能需要配置为一个表达式，具体可以参看《Wabacus框架开发指南》。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面所演示的报表中，为其“工号”、“中文名”配置的列过滤与查询条件关联、“英文名”、“性别”两列配置了不与查询条件关联的列过滤功能，其中“性别”还通过&lt;col/&gt;的filterformat属性配置了列过滤格式化方法formatColFilterSex，
+					它是定义在com.wabacusdemo.TestFormatMethod类中,通过&lt;report/&gt;的filterclass引入。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					提示列过滤选项的窗口默认与所在列宽相同，如果修改提示选项窗口的宽度，则通过&lt;col/&gt;的filterwidth属性配置。
+			</userdata>
+		</item>
+		<item text="列拖动" id="celldrag">
+			<userdata name="pageid">celldragpage1</userdata>
+			<userdata name="configfilename">
+				report_usualfunc1.xml
+			</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=celldragpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				可以通过系统配置文件wabacus.cfg.xml的＜item name="default-celldrag" value="1"/＞配置项控制整个项目中的报表是否允许拖动数据列来改变列的位置；&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				也可以通过报表＜report/＞标签的celldrag属性单独指定当前报表是否允许列拖动，这里的配置会覆盖掉上面的全局配置。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				配置为0时，不允许拖动列。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				配置为1时，允许拖动列来改变它们的位置；&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				普通的列拖动只对本次访问有效，下次再打开此报表时，将不再保留上次拖动的效果，但框架也支持为每个用户保存列拖动效果，这样用户再打开时仍然保留上次点击的列拖动效果。这里演示了将列拖动效果保存在session中，
+				这样当会话没有过期时，打开报表仍然会保留上次的拖动后的列顺序。关于保存列拖动效果的更多介绍请参看《Wabacus框架开发指南》文档“持久化报表表单个性化信息”一节。
+			</userdata>
+		</item>
+		<item text="列选择功能" id="colselected">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				列选择是指用户可以在客户端页面中动态选取要在页面中显示的列或在数据导出文件中下载的列。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				在所有报表表单中，＜display/＞标签都有一个colselect属性，如果配置为true，则当前报表具备列选择功能，如果配置为false，则关闭列选择功能。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				对于数据自动列表报表，colselect属性默认值为true，即提供列选择功能，对于数据细览报表，colselect属性默认值为false，即默认不提供列选择功能。
+			</userdata>
+			<item text="自动列表报表" id="colselected1">
+				<userdata name="pageid">colselectedpage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc4.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=colselectedpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					当＜display/＞标签将colselect属性配置为true（默认值）时，每个＜col/＞的displaytype属性意义如下所示：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						initial：开始访问时默认显示此列，但可以通过列选择功能将它取消显示&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						optional：开始访问时不显示此列，但可以通过列选择功能将它显示出来。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						always：不管此报表有没有提供列选择功能，此列一直显示。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						hidden：不管此报表有没有提供列选择功能，此列一直不显示&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果一个报表所有＜col/＞的displaytype属性都配置为hidden或always，则此报表将不具有列选择功能。如果一个报表的＜display/＞的colselect配置为false，
+					则此报表不具有列选择功能，此时，所有displaytype为initial、optional、always的列将显示出来，只有为hidden的列不显示出来。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					普通行分组报表和树形分组报表中，参与分组的列的displaytype属性将强制设置为always。即永远显示，不能在客户端取消它们的显示。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果一个报表具有列选择功能，且配置了统计功能（不管是针对整个报表、某个行分组、树形分组的统计），此时每一行的统计信息必须显示在一个整列中，即每行统计不能配置多个＜scol/＞。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					此＜scol/＞将会占据整行的单元格（当然对于分组的统计，不会占据分组列所在的单元格），因此，此时的＜scol/＞的startcolindex和colspan两个属性无效，可以不用配置，因为它会占据整行。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					普通的列选择只对本次访问有效，下次再打开此报表时，将不再保留上次选择的效果，但框架也支持为每个用户保存列选择效果，这样用户再打开时仍然保留上次选中的列。这里演示了将列选择效果保存在session中，
+					这样当会话没有过期时，打开报表仍然会保留上次选中显示的列。关于保存列选择效果的更多介绍请参看《Wabacus框架开发指南》文档“持久化报表表单个性化信息”一节。
+				</userdata>
+			</item>
+			<item text="数据细览报表" id="colselected2">
+				<userdata name="pageid">colselectedpage2</userdata>
+				<userdata name="configfilename">
+					report_usualfunc4.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=colselectedpage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					数据细览报表与数据自动列表报表一样，都可以通过＜display/＞标签的colselect属性控制报表是否需要列选择功能，每个＜col/＞的displaytype属性与数据自动列表报表完全一样。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					唯一的区别是，对于数据自动列表报表，＜display/＞标签的colselect属性默认值为true，即提供列选择功能，而对于数据细览报表，默认值为false，即默认不提供列选择功能
+				</userdata>
+			</item>
+		</item>
+		<item text="报表数据集&lt;font color='red'&gt;New&lt;font/&gt;" id="dataset">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示三种报表数据集：SQL语句、存储过程、JAVA类，一个报表的数据可以来自一个或多个数据集，这些数据集可以是独立的，也可以是关联关系的，如果是父子关联数据集，则它们的关联关系支持一对一、一对多、多对一、多对多等关联关系。
+			</userdata>
+			<item text="报表数据集类型" id="datasettype">
+				<userdata name="pageid">datasettypepage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc5.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=datasettypepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示框架报表表单支持的数据集类型及实现方法，包括三种：使用SQL语句、存储过程、JAVA类查询报表数据。
+					更多它们的使用说明，请参看《开发指南二》中相关章节的介绍。
+				</userdata>
+			</item>
+			<item text="多数据集" id="multipledataset">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					一个报表、表单的数据可以从多个地方获取，获取方式也可以是上面三种数据集类型中的任意一种，每个数据集可以来自同一个数据库，也可以来自不同的数据库，如果是SQL语句的数据集，还可以单独指定自己是采用preparedstatement还是statement方式执行。
+				</userdata>
+				<item text="不相关的多数据集" id="nonrelatemultipledataset">
+					<userdata name="pageid">nonrelatemultipledatasetpage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc5.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=nonrelatemultipledatasetpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示一个报表的数据是来自多个不相关的数据集，最终记录数由最大记录数的数据集决定。
+					</userdata>
+				</item>
+				<item text="关联关系的多数据集" id="relatemultipledataset">
+					<userdata name="pageid">relatemultipledatasetpage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc5.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=relatemultipledatasetpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示一个报表的数据是来自多个相关的数据集，可以是一个数据集被多个子数据集依赖，也可以是一个子数据集又被其它子数据集依赖，依赖关系有两种，则value标签的dependstype属性决定。具体参见《开发指南》文档的相关章节的介绍。
+					</userdata>
+				</item>
+			</item>
+		</item>
+		<item text="使用拦截器控制数据集" id="resultset">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				控制记录集是指在报表拦截器的加载数据前置动作中修改将要执行的SQL语句或直接返回相应的结果集的List对象。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				如果是返回修改后的SQL语句，则框架会执行用户返回的SQL语句。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				如果是在加载数据前置动作中直接加载好数据，返回存放了结果集的List对象，则框架不会执行任何SQL语句，而是使用用户返回的List对象
+				做为结果集。究竟结果集List对象存放什么结果，则视当前加载的数据类型决定。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				如果是加载报表数据，则List对象中存放POJO对象；如果是加载报表记录数的，则只要在里面存放一Integer对象；如果是加载下拉选项数据，
+				则存放String[]类型的对象，每个选项数据对应一个String[]类型的数组，选项名存放在String[0]中，选项值存放在String[1]中。
+				如果是加载列过滤的选项数据，则不能直接返回结果集，只能返回SQL语句。
+			</userdata>
+			<item text="打印所有执行的SQL语句" id="resultset1">
+				<userdata name="pageid">resultsetpage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc4.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=resultsetpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了在报表拦截器（关于拦截器配置请看后面的演示）的加载数据前置动作中打印所有执行的SQL语句，包括加载报表数据、加载记录数、
+					从数据库加载下拉选项数据、用户点击列过滤后加载选项数据等。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					加载上面每一类数据时，都会调用一次拦截器的beforeLoadData()方法，传入当前要执行的SQL语句。这里没对SQL语句做任何处理，
+					只是打印出来，然后原封不动的返回，后面会演示如何控制它们。
+				</userdata>
+			</item>
+			<item text="控制报表数据记录集" id="resultset2">
+				<userdata name="pageid">resultsetpage2</userdata>
+				<userdata name="configfilename">
+					report_usualfunc4.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=resultsetpage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示如何通过拦截器的加载数据前置动作中控制查询报表数据的记录集，包括改变查询报表数据的SQL语句和直接在前置动作中返回
+					结果集两种方式。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果只是修改查询数据的SQL语句，则只要在查询数据前置动作中修改，然后返回修改好的SQL语句，框架就会执行用户修改好的SQL语句。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果直接在查询数据的前置动作中构造好结果集，则直接返回构造好的List对象，框架将不会再进行查询动作，直接使用用户返回的结果集。
+					返回的结果集只能是List对象，即使里面只存放了一个结果数据。&lt;br&gt;&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在此页面演示的两个报表中：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					“控制SQL语句”报表演示了如何在拦截器的加载数据前置动作中修改加载报表数据的SQL语句，这里是在SQL语句中加上条件age>30，即只显示30岁以上的员工。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					因为这个加载数据前置动作在执行所有SQL语句时都会执行，因此要判断当前是在执行什么类型的SQL语句，通过判断typeObj变量的具体类型实现，
+					如果是在加载报表数据，它的类型为IReportType，如果是在加载列过滤的选项数据，它的类型为AbsListReportFilterBean，如果是在加载下拉/单选框选项数据，
+					它的类型为OptionBean。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里只修改加载报表和列过滤选项数据的SQL语句，因此判断到是这两个类型才修改，其它的则原样返回sql。
+					为了方便动态加上条件，在配置时为sql语句加上了%mycondition%占位符，以便替换。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					“控制结果集”演示了如何直接在拦截器的加载数据前置动作中获取结果集进行返回。对于查询报表数据，返回的结果集是存放有POJO对象的List对象。对于查询记录数，
+					返回的结果集就是存放有记录数的List对象。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					为了方便起见，这里没有采用框架自动生成POJO方式，而是自己开发POJO，这样调用时比较方便，不需用到反射操作。另外采用statement
+					方式执行SQL语句，这样在加载数据前置动作中的SQL语句就是拼凑好了的条件，如果采用PreparedStatement方式执行sql语句，则在
+					加载数据前置动作中的SQL语句中的条件全部为?号，还要手工从rrequet中取条件进行设置，略为麻烦。
+				</userdata>
+			</item>
+			<item text="控制下拉选项数据记录集" id="resultset3">
+				<userdata name="pageid">resultsetpage3</userdata>
+				<userdata name="configfilename">
+					report_usualfunc4.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=resultsetpage3&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示如何通过拦截器的加载数据前置动作中控制查询下拉/单选项选项数据的记录集，包括改变查询选项数据的SQL语句和直接在前置动作中返回
+					结果集两种方式。&lt;br&gt;&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在此页面演示的两个报表中：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					“控制SQL语句”报表演示了如何在拦截器的加载数据前置动作中修改加载选项数据的SQL语句，这里是在SQL语句中加上条件deptname like '%售%'，即只显示部门名称含“售”的部门。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					因为这个加载数据前置动作在执行所有SQL语句时都会执行，因此要判断当前是在执行什么类型的SQL语句，通过判断typeObj变量的具体类型实现，
+					如果是在加载报表数据，它的类型为IReportType，如果是在加载列过滤的选项数据，它的类型为AbsListReportFilterBean，如果是在加载下拉/单选框选项数据，
+					它的类型为OptionBean。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里只修改加载报表和列过滤选项数据的SQL语句，因此判断到是OptionBean类型才修改，其它的则原样返回sql。
+					为了方便动态加上条件，在配置时为sql语句加上了%mycondition%占位符，以便替换。&lt;br&gt;&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					“控制结果集”演示了如何直接在拦截器的加载数据前置动作中获取结果集进行返回。对于查询选项数据，返回的结果集是存放有String[]对象的List对象。
+					每个String[]对象存放一个下拉选项，String[0]为label，String[1]为value。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					获取每个下拉选项的label和value的字段名从OptionBean对象中可以得到，它有一个getLabel()和getValue()方法，分别获取到获取label和value数据的字段名。
+				</userdata>
+			</item>
+			<item text="报表数据来自多个数据源" id="resultset4">
+				<userdata name="pageid">resultsetpage4</userdata>
+				<userdata name="configfilename">
+					report_usualfunc4.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=resultsetpage4&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在这里演示的报表中，“序号”、“工号”、“姓名”、“年龄”、“性别”、“出生日期”几列来自一个数据源，“省”、“市”、“县”三列来自另一个数据源，它们通过“工号”列关联在一起。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					实现方式为：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在配置＜display/＞标签时，为所有列都配置好对应的＜col/＞标签，不过如果是来自于主数据源的，则像正常一样配置，而来自于子数据源的则统一将＜col/＞的column属性配置为{non-fromdb}，然后为它们配置一个property属性，
+					稍后就是根据这个property属性读写相应列的数据&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在配置＜sql/＞标签时，只配置查询主数据源的SQL语句，由框架自动查出主数据源的各列显示数据。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					开发一拦截器，实现加载数据后置动作，在其中先取到主数据源的关联列的数据（比如上面的工号列），然后根据它访问一次数据库取到子数据源中相应列的数据，然后将它们设置到相应记录的POJO对象中，显示时会使用加载数据后置动作修改后的数据对象进行显示。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					因为在加载数据后置动作中要修改报表数据，所以要读写报表每条记录每列数据，有两种方式：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					第一种是像普通报表一样，采用框架自动生成POJO类的方式来存放报表数据，此时就要通过框架在ReportDataAssistant类中提供的一组接口方法来读写任意行任意列的数据，可以看一下此类的源码或常用类的API文档关于此类方法的介绍&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					另一种是开发人员自己提供存放报表数据的POJO类，只要编写一个类，为每个＜col/＞提供一个成员变量，成员变量名是＜col/＞的property属性，如果没有此属性，则是它的column属性配置值，然后为每个成员变量提供get/set方法，如果要对报表数据进行格式化，
+					则实现IFormat接口，并在其中完成格式化动作。采用这种方式后，就可以在加载数据后置动作中直接调它的get/set方法存取报表任意列的数据了。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					以上两种方式在DEMO都有演示。
+					关于加载数据后置动作的更多介绍，可以参看《开发指南》文档中相应章节
+				</userdata>
+			</item>
+		</item>
+		
+		<item text="控制报表显示" id="controlpagedisplay">
+			<userdata name="pageid">controlpagedisplaypage1</userdata>
+			<userdata name="configfilename">
+				report_usualfunc5.xml
+			</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=controlpagedisplaypage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示了如何通过拦截器的显示每行记录前置动作控制列表报表和细览报表的显示，在此拦截方法中可以完成如下几个工作：&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在显示当前记录行的前面插入一个或多个自定义的数据行（每个自定义行为一个＜tr/＞）；&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					中断本数据行的显示；&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					控制本记录行的显示样式 &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					以上都是通过返回的com.wabacus.system.intercept.RowDataByInterceptor类的对象实现，更详细的介绍请参看《开发指南二》关于此拦截方法的介绍。
+			</userdata>
+		</item>
+		
+		<item text="显示辅助记录行&lt;font color='red'&gt;New&lt;font/&gt;" id="subdisplay">
+			<userdata name="pageid">subdisplaypage1</userdata>
+			<userdata name="configfilename">
+				report_usualfunc3.xml
+			</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=subdisplaypage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示了如何为报表在最后一页、每一页的起始记录行、结束记录行显示一行或多行非报表数据内容，还演示了在行分组、树形分组的记录行中显示非报表数据内容。
+			</userdata>
+		</item>
+		
+		<item text="延迟加载数据" id="lazydataload">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示了两种指定延迟加载的方式，分别是通过URL和通过拦截器，其实效果完全一样，不过通过URL比较简单，不过只能指定第一次访问为延迟加载，通过拦截器比较灵活，可以根据需要随时指定延迟加载。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				另外，这里只演示了数据自动列表报表，对于数据细览报表，也支持延迟加载，指定方式完全一样。
+			</userdata>
+			<item text="通过URL指定延迟加载" id="lazydataloadurl">
+				<userdata name="pageid">lazydataloadurlpage1</userdata>
+				<userdata name="params">&amp;report1_lazyload=true&amp;report1_lazyloadmessage=NoData</userdata>
+				<userdata name="configfilename">
+					report_usualfunc3.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=lazydataloadurlpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					通过在URL中加上reportid_lazyload=true参数，可以使访问报表时延迟加载，点击搜索后，不管有没有输入条件都会加载数据，执行列拖动，列选择等操作会仍保持延迟加载的行为。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					此外，还可以通过reportid_lazyloadmessage参数指定延迟加载时在数据部分的提示信息，如果没指定，数据部分将显示空白。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里没有演示细览报表，指定方式完全一样，更多介绍，请参看《Wabacus框架开发指南》文档。
+				</userdata>
+			</item>
+			<item text="通过拦截器指定延迟加载" id="lazydataloadinterceptor">
+				<userdata name="pageid">lazydataloadinterceptorpage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc3.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=lazydataloadinterceptorpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示在报表拦截器的前置动作中调用rrequest.setAttribute("reportid_lazyload","true")指定延迟加载的方式，这种指定方式非常灵活，可以随时让报表延迟加载数据。比如，
+					这里判断到输入条件值后才加载数据，其它情况都延迟加载。 &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					另外，也可以通过rrequest.setAttribute("reportid_lazyloadmessage","提示信息")设置延迟加载时的提示信息，默认为显示空白。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里没有演示细览报表，指定方式完全一样，更多介绍，请参看《Wabacus框架开发指南》文档。
+				</userdata>
+			</item>
+		</item>
+		
+		<item text="查询条件" id="searchbox">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示对查询条件及其输入框的高级控制，包括为一个查询条件提供多个条件表达式以及自己开发查询条件输入框等。
+			</userdata>
+			<item text="在SQL语句中指定条件" id="searchbox_sql">
+				<userdata name="pageid">searchbox_sqlpage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc1.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=searchbox_sqlpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					将＜condition/＞中配置的条件放入SQL语句中有两种方式，一种是常见的通过在SQL语句中指定{#condition#}占位符，然后每个＜condition/＞配置一个＜value/＞子标签，在其中配置条件表达式，
+					当此条件有条件值时，就将此条件值替换到＜value/＞配置的条件表达式中，再将此条件表达式跟其它条件表达式组合，替换到SQL语句的{#condition#}占位符中，拼凑成一个完整的SQL语句查询数据库的数据。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这种方式简单，但不够灵活，所有动态条件必须组合放在一起，再替换到SQL语句的{#condition#}占位符中，所以灵活性不足。第二种方式解决了这个问题。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					第二种方式是不用在＜condition/＞中配置条件表达式，而是在SQL语句的where条件子句中直接通过#name#的方式引用＜condition/＞的条件值，引用方式有两种：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果当前＜condition/＞条件值可能为空，且为空时其在SQL语句中对应的条件表达式需要删除，则在SQL语句中用{}将其条件表达式括起来，方便运行时判断到此条件值为空时将它对应的条件表达式删除掉；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果当前＜condition/＞条件值不可能为空，比如设置了默认值，或者为空时也不用删除其在SQL语句中对应的条件表达式，则不需将其条件表达式用{}括住，有时候也无法括住，因为一个条件表达式可能用到多个＜condition/＞的值。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在此演示页面中&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					“工号”、“姓名”两个查询条件对应的条件表达式在SQL语句中用{}括住，说明它这两个条件值为空时，其对应的条件表达式将被删除；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					“最小年龄”、“最大年龄”两个查询条件都有默认值，也就是不存在为空的情况，因此它们的条件表达式没有用{}括住（其实它们在SQL语句中是对应同一个条件表达式between ... and ...，其中一个条件值为空时无法删除）；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					“性别”查询条件采用传统的方式，即自己在＜value/＞子标签中配置了条件表达式，有条件值时它对应的条件表达式替换掉SQL语句中的{#condition#}占位符。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					除上面演示的外，还有两个特性上面没有演示：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					一个条件可以同时多次出现在SQL语句的多个位置中，不一定要将它们连续出现在某个条件子句中；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					一个条件即可以配置＜value/＞子标签，指定它的条件表达式，又可以同时出现在SQL语句的某个条件子句中，以#name#的方式指定它的值为条件。
+				</userdata>
+			</item>
+			<item text="配置查询条件默认值" id="searchbox0">
+				<userdata name="pageid">searchboxpage0</userdata>
+				<userdata name="configfilename">
+					report_usualfunc1.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=searchboxpage0&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果在查询数据时，某个查询条件没有取到条件值，则可以给它配置一个默认值，这样框架就会用配置的默认值做为这个条件的值进行过滤数据。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					配置方法是通过＜condition/＞的defaultvalue属性进行指定，这个defaultvalue可以配置为常量、url中的参数值、request中的值、session中的值&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					具体方法可以参看《Wabacus框架开发指南》中关于默认值的介绍。
+				</userdata>
+			</item>
+			<item text="控制查询条件数据" id="searchbox2">
+				<userdata name="pageid">searchboxpage2</userdata>
+				<userdata name="configfilename">
+					report_usualfunc1.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=searchboxpage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					查询条件数据除了来自于request，还可以来自session，同时开发人员还可以在前置动作中动态修改条件数据。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1、如果条件数据来自session，只要将其＜condition＞的source属性配置为session。注意：只有hidden为1，constant为0的查询条件
+					才能配置为条件数据来自于session中。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2、在前置动作中修改查询条件数据，这种功能可以非常灵活地控制条件数据。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果要判断当前是否正在对当前报表进行查询操作，只需调用rrequest.getSearchReportId()方法获取当前正在查询的报表ID，如果
+					获取的为null，则说明当前不是进行查询操作，如果与当前的rbean.getId()相同，则说明当前正在对这个报表进行查询操作。
+				</userdata>
+			</item>
+			<item text="定制查询条件输入框" id="searchbox3">
+				<userdata name="pageid">searchboxpage3</userdata>
+				<userdata name="configfilename">
+					report_usualfunc1.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=searchboxpage3&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					此页面演示了如何为查询条件开发自己的输入框，在此演示报表中，为“姓名”开发了一个多行文本框做为其输入框，为“年龄”查询条件
+					开发了一个输入查询年龄的文本框和一组选择范围的单选框。因为为“年龄”条件显示的条件框比较复杂，所以在拦截器的前置动作中做了解析处理。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					可以为查询条件开发任意输入框，只要在合适的时候调用框架的js函数：setConditionInputBoxValue(reportid,conditionname,value)将输入框的值设置
+					进去，这样框架才能读到输入框的值。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					注意：要为条件开发自己的输入框，必须借助自定义页面，在跳转的目标JSP页面中编写输入框代码。
+				</userdata>
+			</item>
+			<item text="查询条件关联" id="conditionrelate">
+				<userdata name="pageid">conditionrelatepage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc4.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=conditionrelatepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						查询条件关联是指同一页面上不同报表，如果存在查询条件关联，则在一个报表的关联查询条件中进行查询时，另一个报表也会在这个条件中进行查询。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						在Wabacus框架中，同一页面中的两个或多个报表，如果它们之间存在这样的查询条件，则这几个报表在此查询条件中存在关联关系：＜condition/＞的name属性相同，且不是从session中取条件值。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						存在条件关联的几个报表总是一起更新，也就是说更新其中一个报表，另一个报表也会刷新。lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						注意：两个报表的某个查询条件只要存在name属性相同，且不是从session中取数据，不管有没有显示查询条件输入框（即＜condition/＞的hidden属性可以都是1或一个是1或都不是1），都存在关联关系，
+						利用这个特性可以实现两个报表共用一个查询条件输入框的功能，即将两个报表的某个查询条件配置为name属性相同，但一个配置＜condition/＞的hidden为1，另一个不为1，这样一个显示输入框，另一个不显示，
+						在这个显示查询条件输入框中进行搜索时，另一个报表也会跟着搜索lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						从报表不会与其它任何报表存在查询条件关联，即使它有与其它报表相同name属性的＜condition/＞，这是因为它永远是单独刷新的。lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				</userdata>
+			</item>
+			<item text="查询前客户端回调函数" id="searchcallback">
+				<userdata name="pageid">searchcallbackpage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc1.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=searchcallbackpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					查询前客户端回调函数是在查询某个报表数据前由框架调用，并依次传入pageid、reportid、url三个参数，其中url即为将要执行的查询报表URL，开发人员可以
+					修改URL中各查询条件的值，然后返回修改后的URL。如果返回的为空，则中断本次查询操作。
+				</userdata>
+			</item>
+			<item text="高级查询条件" id="ultracondition">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					高级查询条件演示如何为一个条件输入框提供多个可选比较列、多个可选条件表达式、甚至多套条件输入框、多套条件输入框的比较关系的选择功能
+				</userdata>
+				<item text="选择条件表达式" id="ultraconditionvalues">
+					<userdata name="pageid">ultraconditionvaluespage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc1.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=ultraconditionvaluespage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						是指为一个查询条件配置多个条件表达式，当用户在条件输入框中输入条件值后，可以选中其中一个表达式来使用此条件值进行查询，关于提供多个条件表达式的配置方法，请参看《Wabacus框架开发指南》文档
+					</userdata>
+				</item>
+				<item text="选择比较字段" id="ultraconditioncolumns">
+					<userdata name="pageid">ultraconditioncolumnspage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc1.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=ultraconditioncolumnspage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						是指为一个查询条件配置多个比较字段，当用户在条件输入框中输入条件值后，可以选中其中一个比较字段对应的条件表达式来使用此条件值进行查询，关于提供多个条件表达式的配置方法，请参看《Wabacus框架开发指南》文档
+					</userdata>
+				</item>
+				<item text="综合两种选择" id="ultraconditionboth">
+					<userdata name="pageid">ultraconditionbothpage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc1.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=ultraconditionbothpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示的是上面两种情况的综合，即为一个条件输入框同时提供多个条件表达式和比较字段选择功能
+					</userdata>
+				</item>
+				<item text="显示多套条件输入框" id="ultraconditionmulti">
+					<userdata name="pageid">ultraconditionmultipage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc1.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=ultraconditionmultipage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示为一个查询条件显示多套输入框的方法，多套输入框之间的逻辑关系可以是and、or或同时提供这两种的选择，只有当一个条件提供了条件表达式或比较字段的选择功能时，才能提供多套输入框。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						关于为一个查询条件配置多套条件输入框的配置方法，请参看《Wabacus框架开发指南》文档
+					</userdata>
+				</item>
+				<item text="控制条件多个输入框显示位置" id="ultraconditionposition">
+					<userdata name="pageid">ultraconditionpositionpage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc1.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=ultraconditionpositionpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						当一个条件需要显示多种类型的输入框时（比如配置了条件表达式选择功能、比较字段选择功能等等），此时框架将为它们显示多个输入框，这些输入框的显示顺序由它们对应标签的配置顺序有关&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						即配置在前面的显示在前面，配置在后面的显示在后面。
+					</userdata>
+				</item>
+			</item>
+			<item text="查询条件下拉框" id="selectradiobox">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					查询条件输入框可以使用除富文本编辑框之外的其它任意输入框类型，这里只演示一下在查询条件中配置下拉框，因为下拉框相对比较复杂一点。
+				</userdata>
+				<item text="下拉框关联" id="selectboxrelate">
+					<userdata name="pageid">selectboxrelatepage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc4.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=selectboxrelatepage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							本页面演示了搜索输入框中下拉框之间的一级关联和二级关联，其实框架支持下拉框间N级关联关系。下拉框的关联关系是指一个下拉框的数据依赖另一个下拉框所选中的数据&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							本页面“一级关联”报表中的查询条件“市”的下拉框的数据依赖“省”下拉框的选中项&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							本页面“多级关联”报表中的查询条件“市”的下拉框的数据依赖“省”下拉框的选中项，“县”下拉框的数据依赖“市”下拉框选中的选项&lt;br&gt;
+					</userdata>
+				</item>
+				<item text="配置动态查询条件" id="selectboxcondition">
+					<userdata name="pageid">selectboxconditionpage1</userdata>
+					<userdata name="params">&amp;paramProvince=江西</userdata>
+					<userdata name="configfilename">
+						report_usualfunc4.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=selectboxconditionpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							这里演示了如何从request和session中传入查询下拉选项数据的动态条件值的配置方法和效果。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							其中“省”查询条件的下拉框配置了一个动态条件，从request(也就是url)中取参数名为paramProvince的值做为查询条件。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						    “市”查询条件的下拉框是依赖“省”查询条件下拉框，而且配置了一个从session中取键为paramCity的值做为查询条件。因为“市”的下拉框
+						    依赖别的下拉框，因此不能配置从request（即URL）中获取条件值的查询条件。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							在本示例页面中，“省”下拉框传入的动态查询条件为“江西”、“市”下拉框的数据为“宜春”
+					</userdata>
+				</item>
+			</item>
+		</item>
+		
+		<item text="报表滚动条" id="reportscroll">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				利用Wabacus框架，可以为数据自动列表报表类型和数据细览报表类型配置滚动条，即可以配置横向滚动条，又可以配置垂直滚动条。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				即可以配置图片滚动条，又可以配置普通滚动条。普通滚动条和图片滚动条是通过＜report/＞标签的scrolltype属性进行指定。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				配置为normal时，即为普通滚动条；&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				配置为image时，即为图片滚动条。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				另外，还可以通过系统配置文件wabacus.cfg.xml的＜item name="default-scrolltype" value="normal|image"/＞配置项控制整个项目中的报表
+				默认是采用普通滚动条还是图片滚动条。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里只演示了为数据自动列表报表类型配置滚动条，没有演示为数据细览报表类型配置滚动条，因为后者用得较少。
+			</userdata>
+			<item text="常规滚动条" id="normalscroll">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					
+				</userdata>
+				<item text="普通滚动条" id="normalcommonscroll">
+					<userdata name="pageid">normalcommonscrollpage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc1.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=normalcommonscrollpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						
+					</userdata>
+				</item>
+				<item text="图片滚动条" id="normalimagescroll">
+					<userdata name="pageid">normalimagescrollpage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc1.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=normalimagescrollpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						
+					</userdata>
+				</item>
+			</item>
+			<item text="冻结行列标题" id="reportfixedscroll">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					wabacus框架开发的报表允许冻结数据自动列表报表的行和列，分别通过＜report/＞标签的fixedcols和fixedrows属性进行指定。
+					因为冻结行列标题必须通过拖动滚动条才能体现，因此还需要将滚动条显示出来，显示滚动条需要通过＜report/＞标签的scrollwidth、width、scrollheight等属性将滚动条显示出来
+				</userdata>
+				<item text="只冻结行标题" id="reportfixedrowscroll">
+					<userdata name="pageid">reportfixedrowscrollpage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc5.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportfixedrowscrollpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						冻结行标题通过＜report/＞标签的fixedrows属性配置，如果配置为大于0的数字，则表示冻结的行数，如果配置为title，则表示冻结标题行，这在提供列选择功能的报表中有用，因为列选择后，报表的标题行数是动态的，因此没办法指定一个固定的数字进行固定，此时就可以配置为title即可。
+						框架会自动运行当前显示的标题行，并冻结起来。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						除了静态配置，用户还可以通过在拦截器的前置动作、加载数据前/后置动作、格式化方法中调用rrequest.setAttribute(reportid+"_FIXEDROWS",固定记录数);动态指定本报表冻结的记录数，这里的指定会覆盖掉静态配置，
+						可以动态指定为大于等于0的数或指定title。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						指定了冻结记录数只是完成了第一步，还需要通过scrollheight属性将垂直滚动条显示出来，这样才能体现拖动滚动条时，记录行被冻结。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						更多内容，请参看《Wabacus框架开发指南》文档相关章节的介绍。
+					</userdata>
+				</item>
+				<item text="只冻结列标题" id="reportfixedcolscroll">
+					<userdata name="pageid">reportfixedcolscrollpage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc5.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportfixedcolscrollpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						冻结列标题通过＜report/＞标签的fixedcols属性配置，如果配置为大于0的数字，则表示冻结的列数，在计算列数时，隐藏列不计算在内。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						冻结列数不支持在拦截器中动态指定，只支持静态配置的方式。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						指定了冻结记录数只是完成了第一步，还需要通过scrollwidth/width属性将横向滚动条显示出来，这样才能体现拖动滚动条时，数据列被冻结的效果。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						更多内容，请参看《Wabacus框架开发指南》文档相关章节的介绍。
+					</userdata>
+				</item>
+				<item text="冻结行列标题" id="reportfixedbothscroll">
+					<userdata name="pageid">reportfixedbothscrollpage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc5.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportfixedbothscrollpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里是对上面两种情况的综合，即同时配置＜report/＞标签的fixedrows和fixedcols属性，并让纵横滚动条都显示出来。
+					</userdata>
+				</item>
+			</item>
+		</item>
+		<item text="翻页导航栏" id="navigate">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示如何为数据自动列表报表实现各种分页显示效果。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			</userdata>
+			<item text="翻页按钮" id="navigatebutton">
+				<userdata name="pageid">navigatebuttonpage1</userdata>
+				<userdata name="configfilename">report_usualfunc4.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=navigatebuttonpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示如何实现各种翻页按钮的效果，翻页按钮包括“首页”、“上一页”、“下一页”、“尾页”。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在html模板中显示这四个翻页按钮是将＜wx:navigate/＞的type属性分别指定为“first”、“previous”、“next”、“last”。
+					此时＜wx:button/＞的标签内容为按钮，如果没有指定，则会用相应的默认图片。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				</userdata>
+			</item>
+			<item text="翻页页码串" id="navigatesequence">
+				<userdata name="pageid">navigatesequencepage1</userdata>
+				<userdata name="configfilename">report_usualfunc4.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=navigatesequencepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					翻页页码串是指显示当前页及其前后几页的页码，供用户方便点击进入相邻的页，这个功能在google/baidu中都有使用。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在html模板中显示连续页码串是通过将＜wx:navigate/＞的type属性指定为“sequence”来实现，它有几个重要属性，下面会介绍到。
+					利用wabacus框架可以很方便地配置出这种效果，包括如下几个方面：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					指定初始显示的连续页码个数（通过initcount属性）和最大显示的页码个数（通过maxcount属性指定），maxcount属性可以不指定，此时与initcount属性相等。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					页码字符串的最小长度（通过maxlength属性指定），如果小于这个长度，则会在前面补0。比如指定为2，则会显示出01、02、...10、11、...101的效果。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					当页码有链接时的显示效果，这个配置在＜wx:navigate type="sequence"/＞的标签内容中，以%PAGENO%为占位符，可以配置任意html代码。
+				</userdata>
+			</item>
+			<item text="页面跳转输入框" id="navigategoto">
+				<userdata name="pageid">navigategotopage1</userdata>
+				<userdata name="configfilename">report_usualfunc4.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=navigategotopage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					演示如何直接跳转到指定页的配置方式，在wabacus框架中，有两种跳转方式：在文本框中输入页码数字进行跳转和点击显示所有页码的下拉框进行跳转。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在文本框中输入页码数字进行跳转：指定方式为＜wx:navigate type="pageno"＞textbox＜/wx:navigate>&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在下拉框中选择页码进行跳转：指定方式为＜wx:navigate type="pageno"＞selectbox＜/wx:navigate>&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果直接指定＜wx:navigate type="pageno"/＞，则表示显示当前页码，不具有页跳转功能。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					另外，这里还演示了如何在拦截器前置动作动态指定显示哪一页，就是通过在rrequest对象中设置属性reportid_DYNPAGENO的值进行控制。例如rrequest.setAttribute("reportid_DYNPAGENO",页码);
+					指定哪个页码，则显示时就自动翻到指定页进行显示，如果指定的页码大于最大页数，则自动显示最后一页。本DEMO就是采用这种方式显示报表的最后一页，即指定为一个很大的数99999。
+					注意：在设置时，要考虑到reportid_PAGENO（不是reportid_DYNPAGENO）属性是否已经有值，如果有的话，则不能再设置，否则用户无论如何翻页都会跳到reportid_DYNPAGENO指定的页中。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					另外，还可以通过在URL中指定&amp;reportid_DYNPAGENO=页码 的方式指定默认访问的页码。
+				</userdata>
+			</item>
+			<item text="页大小及切换" id="navigatepagesize">
+				<userdata name="pageid">navigatepagesizepage1</userdata>
+				<userdata name="configfilename">report_usualfunc4.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=navigatepagesizepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					一个数据自动列表报表可以指定不分页显示、分页显示时每页记录数以及提供多组页码让用户切换。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					当将＜report/＞的pagesize配置为-1时，当前报表不分页显示；当配置为大于0的整数时，则表示分页显示，且数值为每页记录数。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果将pagesize配置多组数据，且用“|”分隔，则会为此报表提供一个下拉框，下拉选项即为所有页码，用户可以通过切换每页显示记录数。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					另外，这里还演示了如何在拦截器前置动作动态指定显示的页大小，就是通过在rrequest对象中设置属性reportid_PAGESIZE的值进行控制。例如rrequest.setAttribute("reportid_PAGESIZE",页大小);
+					注意：如果本报表配置为不分页显示，即配置pagesize=-1，则不能动态将其pagesize设置为大于0的数进行分页显示，但配置为分页显示的报表可以动态指定为不分页显示。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					另外，还可以通过在URL中指定&amp;reportid_DYNPAGENO=页码 的方式指定默认访问的页码。
+				</userdata>
+			</item>
+			<item text="翻页导航栏关联" id="navigaterelate">
+				<userdata name="pageid">navigaterelatepage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc4.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=navigaterelatepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						翻页导航栏关联是指两个分页显示的报表必须始终是页数相同的报表，然后只在一个页面显示翻页导航栏，在这里进行翻页时，两个报表都翻到指定的页中。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						两个分页报表要能共用翻页导航栏，必须满足如下条件：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						1、页数始终相同，因此如果有查询条件时，必须两个报表的查询条件存在条件关联，且不管如何搜索后，它们的页数都能一致，记录数和页大小可以不一致；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						2、必须显示在同一个，且同一层的＜page/＞、＜hpanel/＞或＜vpanel/＞中，这样才能确保它们永远是一起显示的，不会存在只显示一个报表的情况。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						3、将不显示翻页导航栏的报表＜report/＞的navigate_reportid配置为显示翻页导航栏的报表ID
+				</userdata>
+			</item>
+			<item text="细览报表分页" id="detailnavigate">
+				<userdata name="pageid">detailnavigatepage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc4.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=detailnavigatepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示了如何为细览报表配置分页功能，细览报表的分页功能是一条记录显示在一页中，有多少条记录就有多少页。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						要使细览报表提供分页显示的功能，只需将＜report/＞的pagesize配置为1即可，注意：配置为任意值都视为不分页显示。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						细览报表的分页也像数据列表报表一样，可以通过静态模板控制翻页导航栏的显示，框架提供的自定义标签意义与用法完全相同。
+				</userdata>
+			</item>
+		</item>
+		<item text="控制报表边框" id="reportborder">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				可以通过报表＜report/＞标签的border属性配置报表边框的显示模式，如果配置为0，则不显示边框；如果配置为1，则只显示横向边框；如果配置为2，则只显示纵向边框，如果配置为3，则显示全部边框。
+				如果配置为显示边框，还可以通过＜report/＞标签的bordercolor属性指定边框颜色。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				对于数据自动列表报表，这里只能控制数据部分边框，不能控制标题部分的边框，要控制标题部分的边框，可通过修改system.css文件中的cls-data-table样式进行。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				对于数据细览报表，这里控制的是整个数据表格的边框，包括标题和数据部分，当然也可以通过system.css文件中的cls-data-table样式来控制边框。
+			</userdata>
+			<item text="数据自动列表报表边框" id="reportborderlist">
+				<userdata name="pageid">reportborderlistpage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc1.xml
+				</userdata>
+				<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportborderlistpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					此页面演示了同一数据自动列表报表的几种样式显示情况，都是通过＜report/＞标签的border和bordercolor属性进行控制。
+					另外，还可通过system.css文件中的cls-data-table样式来批量控制边框&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					关于＜report/＞标签的border属性可配置值及意义，请参看《Wabacus标签手册》文档
+				</userdata>
+			</item>
+			<item text="数据细览报表边框" id="reportborderdetail">
+				<userdata name="pageid">reportborderdetailpage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc1.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportborderdetailpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						此页面演示了同一数据细览报表的几种样式显示情况，都是通过＜report/＞标签的border和bordercolor属性进行控制。
+						另外，还可通过system.css文件中的cls-data-table样式来批量控制边框&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						注意：细览报表类型不支持“只显示纵向边框”方式，因此不能将其border配置为vertical&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					关于＜report/＞标签的border属性可配置值及意义，请参看《Wabacus标签手册》文档
+				</userdata>
+			</item>
+		</item>
+		<item text="调整列宽度" id="cellresize">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				可以通过系统配置文件wabacus.cfg.xml的＜item name="default-cellresize" value="1"/＞配置项控制整个项目中的报表是否允许调整报表数据列的宽度，以及调整方式；&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				也可以通过报表＜report/＞标签的cellresize属性单独指定当前报表是否允许调整列宽以及调整方式，这里的配置会覆盖掉上面的全局配置。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				配置为0时，不允许左右移动改变列宽。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				配置为1时，左右移动只改变相邻列的宽度，不改变表格宽度；&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				配置为2时，左右移动只改变当前单元格及表格的宽度。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				对于复杂表头的数据自动列表报表，只能移动不参与列分组的列及顶层列分组，子列分组和列分组中的列都不允许单独调整列宽。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				对于数据细览报表，暂不支持调整数据列的宽度。
+			</userdata>
+			<item text="调整方式一" id="cellresize1">
+				<userdata name="pageid">cellresizepage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc1.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=cellresizepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这个报表将＜report/＞标签的cellresize属性配置为1，因此允许左右移动单元格，且移动时只改变相邻两列的宽度，最后一列除外，移动最后一列时，会改变当前列和整个报表的宽度，因为它没有相邻列。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					注意：对于复杂表头的报表，只能对顶层分组所在单元格以及没有参与列分组的列所在单元格进行移动，比如在这演示的复杂表头报表中：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					“工号”、“年龄”、“入职日期”三列属于没有参与列分组的列，所以可以对它们所在单元格进行移动；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					“基本信息”分组属于顶层分组，因为它不属于哪个分组的子分组，所以也可以对它所在单元格进行移动；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					“中文名”、“英文名”、“性别”三列是参与了列分组的列，所以不能对它们所在单元格进行移动；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					“姓名”分组不是顶层分组，因为它是父分组“基本信息”的一部分，所以不能对它所在单元格进行移动。&lt;br&gt;
+				</userdata>
+			</item>
+			<item text="调整方式二" id="cellresize2">
+				<userdata name="pageid">cellresizepage2</userdata>
+				<userdata name="configfilename">
+					report_usualfunc1.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=cellresizepage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这个报表将＜report/＞标签的cellresize属性配置为2，因此允许左右移动单元格，且移动时只改变相邻当前列和整个表格的宽度&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					注意：对于复杂表头的报表，只能对顶层分组所在单元格以及没有参与列分组的列所在单元格进行移动，比如在这演示的复杂表头报表中：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					“工号”、“年龄”、“入职日期”三列属于没有参与列分组的列，所以可以对它们所在单元格进行移动；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					“基本信息”分组属于顶层分组，因为它不属于哪个分组的子分组，所以也可以对它所在单元格进行移动；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					“中文名”、“英文名”、“性别”三列是参与了列分组的列，所以不能对它们所在单元格进行移动；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					“姓名”分组不是顶层分组，因为它是父分组“基本信息”的一部分，所以不能对它所在单元格进行移动。&lt;br&gt;
+				</userdata>
+			</item>
+			<item text="不允许调整列宽" id="cellresize0">
+				<userdata name="pageid">cellresizepage0</userdata>
+				<userdata name="configfilename">
+					report_usualfunc1.xml
+				</userdata>
+				<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=cellresizepage0&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这个报表将＜report/＞标签的cellresize属性配置为0，因此不允许左右移动单元格来调整列宽&lt;br&gt;
+				</userdata>
+			</item>
+		</item>
+		
+		<item text="记录行排序" id="roworder">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				wabacus框架支持四种记录行排序方式：拖动记录行、点击上下箭头、输入排序值、点击置顶按钮。更多介绍请参看《Wabacus框架开发指南》文档
+			</userdata>
+			<item text="通过拖动行排序" id="roworderdrag">
+				<userdata name="pageid">roworderdragpage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc5.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=roworderdragpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					要支持拖动记录行排序功能，只要将＜report/＞的rowordertype配置为drag，这样拖动记录行的空白部分时（注意拖动单元格的数据部分不能拖动行，这是为了方便提供行拖动排序功能后还能选中单元格的数据），将能拖动行的位置。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					另外，如果没有在wabacus.cfg.xml中指定统一的保存行顺序的处理类，则需要开发一个，并将全限定类名配置在＜report/＞的roworderclass属性中。开发的类必须实现ILoadStoreListReportRoworder接口，并实现
+					其中的storeRoworderByDrag()方法，保存用户拖动记录行后此记录行的新顺序值到数据库中。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					记录行顺序的规则由开发人员自己决定，这里演示了用一个int类型的字段存放整型数字存放排序值。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					注意：在实际开发时，不需要每个报表去开发一个这样的类，可以统一开发一个，然后将全限定类名配置在wabacus.cfg.xml文件的name为default-roworderclass配置项中。
+				</userdata>
+			</item>
+			<item text="通过上下箭头排序" id="roworderarrow">
+				<userdata name="pageid">roworderarrowpage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc5.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=roworderarrowpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					要支持点击上下箭头进行行排序的功能，只要将＜report/＞的rowordertype配置为arrow，这样框架会自动在最后位置生成一个显示箭头的列，用户也可以自己配置一个column为“roworder-arrow”的＜col/＞，而不用框架自动生成的列。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					另外，如果没有在wabacus.cfg.xml中指定统一的保存行顺序的处理类，则需要开发一个，并将全限定类名配置在＜report/＞的roworderclass属性中。开发的类必须实现ILoadStoreListReportRoworder接口，并实现
+					其中的storeRoworderByArrow()方法，保存用户点击箭头后此记录行的新顺序值到数据库中。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					注意：在实际开发时，不需要每个报表去开发一个这样的类，可以统一开发一个，然后将全限定类名配置在wabacus.cfg.xml文件的name为default-roworderclass配置项中。	
+				</userdata>
+			</item>
+			<item text="通过输入框排序" id="roworderinputbox">
+				<userdata name="pageid">roworderinputboxpage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc5.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=roworderinputboxpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					要支持通过输入框输入排序值进行行排序的功能，只要将＜report/＞的rowordertype配置为inputbox，这样框架会自动在最后位置生成一个显示输入框的列，用户也可以自己配置一个column为“roworder-inputbox”的＜col/＞，而不用框架自动生成的列。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果用户自己配置了column为“roworder-inputbox”的＜col/＞，则可以通过此＜col/＞的inputboxstyleproperty属性配置输入框的样式字符串控制输入框的样式。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					另外，如果没有在wabacus.cfg.xml中指定统一的保存行顺序的处理类，则需要开发一个，并将全限定类名配置在＜report/＞的roworderclass属性中。开发的类必须实现ILoadStoreListReportRoworder接口，并实现
+					其中的storeRoworderByInputbox()方法，保存此记录行的新顺序值到数据库中。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					注意：在实际开发时，不需要每个报表去开发一个这样的类，可以统一开发一个，然后将全限定类名配置在wabacus.cfg.xml文件的name为default-roworderclass配置项中。		
+				</userdata>
+			</item>
+			<item text="通过置顶排序" id="rowordertop">
+				<userdata name="pageid">rowordertoppage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc5.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=rowordertoppage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					要支持置顶功能，只要将＜report/＞的rowordertype配置为top，这样框架会自动在最后位置生成一个显示置顶图标的列，用户也可以自己配置一个column为“roworder-top”的＜col/＞，而不用框架自动生成的列。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果没有在wabacus.cfg.xml中指定统一的保存行顺序的处理类，则需要开发一个，并将全限定类名配置在＜report/＞的roworderclass属性中。开发的类必须实现ILoadStoreListReportRoworder接口，并实现
+					其中的storeRoworderByTop()方法，保存用户点击置顶图标后保存此记录行的新顺序值到数据库中。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					注意：在实际开发时，不需要每个报表去开发一个这样的类，可以统一开发一个，然后将全限定类名配置在wabacus.cfg.xml文件的name为default-roworderclass配置项中。	
+				</userdata>
+			</item>
+			<item text="综合" id="rowordermix">
+				<userdata name="pageid">rowordermixpage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc5.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=rowordermixpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					可以为一个数据自动列表报表配置多种行排序功能，通过将＜report/＞的rowordertype属性配置多个排序类型，并用“｜”进行分隔。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示的报表同时配置了四种行排序功能。
+				</userdata>
+			</item>
+		</item>
+		
+		<item text="客户端/服务器端校验配置" id="validate">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				可以为查询条件输入框配置需要用到的一个或多个客户端校验和服务器端校验函数。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				所配置的客户端校验函数必须在其直接或间接引用的js文件中存在，否则找不到校验函数。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				配置的服务器端校验函数必须在系统配置文件中配置的全局JAVA校验类中存在，否则不能完成校验。
+			</userdata>
+			<item text="客户端校验" id="clientvalidate1">
+				<userdata name="pageid">clientvalidatepage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc1.xml
+				</userdata>
+				<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=clientvalidatepage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在本演示报表中，配置了三个查询条件，并为它们配置了客户端校验，三个查询条件要求如下：&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					    “姓名”查询条件要求不能为空。为些查询条件配置的校验出错提示直接跟在校验函数中&lt;br&gt;
+					    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					    “工号”查询条件要求不能为空，且全部由数字组成。校验出错提示通过key引用资源项&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					    “年龄”查询条件要求必须是有效数字，且值在0和200之间。校验出错提示通过key引用资源项&lt;br&gt;
+				</userdata>
+			</item>
+			<item text="增强型客户端校验" id="clientvalidate2">
+				<userdata name="pageid">clientvalidatepage2</userdata>
+				<userdata name="configfilename">
+					report_usualfunc1.xml
+				</userdata>
+				<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=clientvalidatepage2&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在本演示页面演示的客户端配置中，校验字段与逻辑完全一样，但这种校验配置不光在点击“搜索”时进行校验。
+					在输入框失去焦点时也会进行校验。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					要配置这种校验方式，需要将＜report/＞的jsvalidatetype配置为1。如果整个项目都需要这种校验功能，可以在wabacus.cfg.xml
+					系统级配置文件中的＜system/＞中增加一default-jsvalidatetype配置项，将其值配置为1，则对整个项目生效。
+					如果配置为0，则只会在点击“搜索”按钮时进行一次校验。
+				</userdata>
+			</item>
+			<item text="服务器端校验" id="servervalidate">
+				<userdata name="pageid">servervalidatepage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc1.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=servervalidatepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						在本演示报表中，配置了两个查询条件，并为它们配置了服务器端校验，两个查询条件要求如下：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						    “工号”查询条件要求不能为空（此条件由客户端校验），且全部由数字组成（由服务器端方法校验）。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						    “年龄”查询条件要求必须是有效数字，且值在0和200之间（均由服务器端校验）。&lt;br&gt;&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						此报表用到的两个服务器端校验方法isNumber和isValidAge，前者定义在框架自带的JAVA类ValidateTools中，在内置系统配置文件wabacus.default.xml中注册；
+						后者定义在用户自定义校验类TestServerValidate.java中，在系统配置文件wabacus.cfg.xml中注册。
+				</userdata>
+			</item>
+		</item>
+		<item text="输入联想" id="typeprompt">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示为查询条件输入框（仅限文本框）配置各种的输入联想（提示）功能
+			</userdata>
+			<item text="单列提示" id="typeprompt1">
+				<userdata name="pageid">typepromptpage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc1.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=typepromptpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						本页面演示了为查询条件输入框提供一列数据进行提示，如果某个查询条件是针对某一列数据，就可以采用这种方式进行提示 &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						本页面一共显示了三个报表，分别演示了三种不同的情况，另外每个报表都有两个查询条件“工号”和“中文名”，前者配置的是从任意位置开始匹配，后者配置的是从起始位置开始匹配。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					    1、第一个报表：为输入提示列显示了标题。其中“工号”查询条件从任意位置开始匹配，“中文名”查询条件从起始位置开始匹配。&lt;br&gt;
+					    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					    2、第二个报表不为提示列显示标题。其中“工号”查询条件从任意位置开始匹配，“中文名”查询条件从起始位置开始匹配。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					    3、第三个报表不将提示列的宽度保持与输入框一致，而是配置它的宽度。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					 这里还演示了类似下拉框的选项值和选项显示label不同的情况，此时选项label用于匹配和显示，选项值用于选中后填到输入框中，选项值可以显示出来，也可以隐藏，这里是隐藏起来。
+				</userdata>
+			</item>
+			<item text="多列提示" id="typeprompt2">
+				<userdata name="pageid">typepromptpage2</userdata>
+				<userdata name="configfilename">
+					report_usualfunc1.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=typepromptpage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						本页面演示了为查询条件输入框提供多列数据进行提示，在这多列中，可以使其中一列或多列与用户输入进行匹配，不参与用户输入匹配的列可能只是对参与匹配的列起说明作用。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						本页面一共显示了二个报表，分别演示了两种不同的情况&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					    1、第一个报表：（1）“工号”查询条件，为它配置了两个提示列：“工号”和“中文名”，其中只有“工号”列参与匹配，且选中后将其输入显示到输入框中，而“中文名”这一列在此查询条件输入提示中不参与匹配。
+					    			  （2）“姓名”查询条件，也为它配置了两个提示列“中文名”和“英文名”，因为此查询条件确实同时根据了这两个列的数据进行搜索，因此为它配置的这两个提示列都参与了匹配，不过它们都配置为从起始位置进行匹配。&lt;br&gt;
+					    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					    2、第二个报表不为提示列显示标题。其它与第一个报表相同。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					 这里还演示了类似下拉框的选项值和选项显示label不同的情况，此时选项label用于匹配和显示，选项值用于选中后填到输入框中，选项值可以显示出来，也可以隐藏，这里是显示出来了。
+				</userdata>
+			</item>
+			<item text="配置动态查询条件" id="typepromptcondition">
+				<userdata name="pageid">typepromptconditionpage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc1.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=typepromptconditionpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						如果查询联想数据是通过SQL语句，则可以为它配置动态查询条件，配置动态条件包括两步：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在SQL语句的条件中加上占位符{#condition#}&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在＜datasource/＞中配置一个或多个＜condition/＞子标签，在其中配置条件的表达式，这里的条件只能从session中获取条件数据，因此必须配置source="session{key}"的格式
+				</userdata>
+			</item>
+			<item text="提示数据来自缓存" id="typeprompt3">
+				<userdata name="pageid">typepromptpage3</userdata>
+				<userdata name="configfilename">
+					report_usualfunc1.xml
+				</userdata>
+				<userdata name="otherfilename">
+					com.wabacusdemo.TestTypePromptDataSource
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=typepromptpage3&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						本页面演示了真接从自已的JAVA类中获取输入提示数据的过程，在上面的演示中，提示数据都来自于数据库，因此用户每次输入时，都会执行SQL语句从数据库中查询数据出来提示。有时候为了提高效率，
+						提示时从内存（缓存）中获取提示数据，因此可以采用这里示范的方式，配置为从JAVA对象中获取数据，一个JAVA类要能为某个输入提示提供数据，必须继承com.wabacus.config.typeprompt.AbsTypePromptDataSource类。
+						并实现其中的public List&lt;Map&lt;String,String&gt;&gt; getResultDataList(ReportRequest rrequest,ReportBean rbean,
+            String typedata)方法，在此方法中返回匹配的提示数据列表。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						本页面只提供了一个查询条件“工号或姓名”，即在此查询框中输入工号或姓名都能查询。也为它提供了“工号”和“中文名”的输入联想，其中“工号”采用任意位置匹配，“中文名”采用起始位置匹配方式。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这种方式配置的输入联想也支持选项label和选项value不同的配置，配置方法与上面一样，在这种情况下，不管选项值要不要显示出来，都要把它取出来根据自己的KEY存入Map中以便在联想显示选项时能取到。
+				</userdata>
+			</item>
+			<item text="执行选中选项后的回调函数" id="typeprompt4">
+				<userdata name="pageid">typepromptpage4</userdata>
+				<userdata name="configfilename">
+					report_usualfunc1.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=typepromptpage4&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						开发人员可以在＜typeprompt/＞标签的callbackmethod属性中配置一JS函数（只能配置一个），框架会在用户选中输入联想的选项数据后，先将选项数据填入文本框中，
+						然后调用callbackmethod属性中配置的JS函数，并传入文本框对象，开发人员可以根据文本框对象取到选中的值，还可以根据文本框对象的id取到其所在的页面ID和报表ID。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里就演示了为输入联想配置一个JS回调函数，在其中先打印选中值，然后执行报表搜索动作，而不需用户再点击“确定”按钮进行搜索。
+				</userdata>
+			</item>
+		</item>
+		
+		<item text="功能按钮&lt;font color='red'&gt;New&lt;font/&gt;" id="buttons">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示了如何为wabacus的组件配置各种功能按钮
+			</userdata>
+			<item text="容器按钮&lt;font color='red'&gt;New&lt;font/&gt;" id="containerbuttons">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里以tabpanel容器为例演示了如何为容器配置功能按钮，其它的容器的配置方法与此容器类似，另外，为容器配置的按钮也支持静态配置事件和动态构造事件，这里没做演示，请参看报表按钮部分的演示。
+				</userdata>
+				<item text="按钮显示类型&lt;font color='red'&gt;New&lt;font/&gt;" id="containerbuttonsdisplay">
+					<userdata name="pageid">containerbuttonsdisplaypage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc4.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=containerbuttonsdisplaypage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示了如何为容器配置普通按钮和图片按钮，以及如何为按钮指定样式
+					</userdata>
+				</item>
+				<item text="按钮位置类型" id="containerbuttonsposition">
+					<userdata name="pageid">containerbuttonspositionpage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc4.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=containerbuttonspositionpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示了容器按钮的显示位置和对齐方式的配置，显示位置包括top、bottom、contextmenu，分别表示显示在容器顶部、底部和右键菜单中。可以为一个按钮指定多个位置，用｜分隔，这样一个功能按钮就会同时显示在多个位置上。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						如果按钮显示在顶部或底部，还可以通过＜buttons/＞的align属性配置按钮的对齐方式，可配置为left、center、right
+					</userdata>
+				</item>
+				<item text="显示子报表按钮" id="containerbuttonsreport">
+					<userdata name="pageid">containerbuttonsreportpage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc4.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=containerbuttonsreportpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						在容器中，可以显示其任意层级的子报表上某个按钮，通过＜button/＞的refer属性指定，指定方式有两种：refer="reportid.buttonname"和refer="reportid.type{按钮类型}"，
+						第一种是通过被引用报表的name属性进行引用，一般用于引用在＜report/＞的＜button/＞中配置的按钮，因为配置时必定会分配一个name属性。第二种是通过按钮的类型名进行引用，这种主要是针对内置的功能按钮，
+						例如引用“添加”按钮，则指定type{add}，引用“搜索”按钮，则指定为type{search}等等，关于框架内置按钮的类型，请参看《开发指南》文档中“配置按钮和右键菜单”一节中“报表配置功能按钮”部分的介绍。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						此外，＜button/＞还有一个referedbutton属性，指定被引用的按钮在其所在的报表中是否仍需显示出来，如果配置为display，则在源报表处仍然显示出来，如果配置为hidden，则不显示出来，默认值为hidden。
+					</userdata>
+				</item>
+			</item>
+			
+			<item text="报表按钮&lt;font color='red'&gt;New&lt;font/&gt;" id="reportbuttons">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示如何为报表配置功能按钮。根据显示按钮的位置不同，分为两类：一类是显示在记录中的按钮，每条记录显示一个按钮，这种类型的按钮配置方法就与一般的格式化方法一样，在＜format/＞方法中进行拼凑。
+					另一类是显示在搜索栏、翻页导航栏、Title、Header、Footer、右键菜单等部分的按钮，这些按钮是配置在＜report/＞的＜buttons/＞子标签中，每个按钮配置一＜button/＞子标签，一个按钮可以配置显示在多个位置上。
+				</userdata>
+				<item text="按钮显示类型&lt;font color='red'&gt;New&lt;font/&gt;" id="reportbuttonsdisplay">
+					<userdata name="pageid">reportbuttonsdisplaypage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc4.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportbuttonsdisplaypage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						为应用配置的功能按钮可以是普通的按钮，也可以是图片按钮，还可以是与框架风格一致的按钮，这里分别进行了演示。
+					</userdata>
+				</item>
+				<item text="按钮位置类型&lt;font color='red'&gt;New&lt;font/&gt;" id="reportbuttonsposition">
+					<userdata name="pageid">reportbuttonspositionpage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc4.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportbuttonspositionpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						为应用配置的功能按钮可以显示在报表的任意位置，如果显示在搜索栏、标题栏、右键菜单中，则可以直接通过＜button/＞的position属性进行指定，分别指定为searchbox、title、contextmenu，
+						可以指定一个或多个位置，用“｜”号进行分隔。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						如果要显示在其它位置，比如Footer、Header等等，可以通过静态模板或动态模板的＜wx:button/＞自定义标题在模板文件中指定显示位置，这里没做演示。
+					</userdata>
+				</item>
+				<item text="按钮事件类型&lt;font color='red'&gt;New&lt;font/&gt;" id="reportbuttonsevent">
+					<userdata name="pageid">reportbuttonseventpage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc4.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportbuttonseventpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						为功能按钮配置点击事件有两种：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						一种是静态配置事件，直接将事件代码配置在＜button＞＜/button＞标签内容中&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						另一种是通过运行时JAVA代码动态构造点击事件代码，此时通过＜button/＞标签的子标签＜dynevent/＞配置JAVA代码动态构造事件，这里的JAVA代码可以通过变量名rrequest访问到ReportRequest对象，
+						比如可以从中取到数据库连接，任意查询条件的值，甚至任意报表的数据等等。如果这里的JAVA代码需要访问外部包，可以通过子标签＜imports/＞进行导入。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						注意：不管是静态配置的事件，还是动态构造的事件，在事件函数中都不能出现双引号，只能和单引号，如果有多层引号嵌套，可以用\转义符，具体可以参看开发指南文档的介绍。
+					</userdata>
+				</item>
+				<item text="显示在记录中的按钮" id="reportbuttonsrecord">
+					<userdata name="pageid">reportbuttonsrecordpage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc4.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportbuttonsrecordpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这种类型的按钮一般用于针对当前记录的操作，在格式化方法中拼凑此类按钮时，可以把当前行所有列的任意列的数据参到其点击参数中。
+						这里演示的按钮传了“工号”和“中文名”两列数据到其点击事件中打印出来。
+					</userdata>
+				</item>
+			</item>
+		</item>
+		
+		<item text="客户端调用服务器端方法&lt;font color='red'&gt;New&lt;font/&gt;" id="invokeservermethod">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示如何在客户端通过JS方法调用服务器端JAVA类的操作，更多介绍请参看《开发指南》文档中“客户端调用服务器端操作”一节的介绍
+			</userdata>
+			<item text="针对框架组件调用" id="invokeservermethod_component">
+				<userdata name="pageid">invokeservermethod_componentpage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc4.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=invokeservermethod_componentpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示针对组件调用服务器端类的方法，调用时传入了参数并在调用完后刷新页面显示，然后执行一个回调JS函数。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在此演示中，对页面和页面上的两个报表都配置了一个调用服务器端方法的按钮，关于这种调用的更多介绍请参看《Wabacus框架开发指南》文档。
+				</userdata>
+			</item>
+			<item text="直接配置调用脚本&lt;font color='red'&gt;New&lt;font/&gt;" id="invokeservermethod_sql">
+				<userdata name="pageid">invokeservermethod_sqlpage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc4.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=invokeservermethod_sqlpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示如何在＜button/＞中配置客户端调用的SQL语句、存储过程、JAVA类，还可以混合调用它们，这里没做演示。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在＜button/＞中配置调用脚本时，与可编辑报表的＜insert/＞、＜update/＞、＜delete/＞配置方法基本一样，也可以通过＜params/＞定义变量，以及使用!{}访问客户端传过来的自定义数据&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里还演示了如何在拦截器中读取客户端传入的动态参数，以及如何新增参数，写到日志表的logcontent就是在拦截器中构造的。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					关于这种调用的更多介绍请参看《Wabacus框架开发指南》文档的
+				</userdata>
+			</item>
+			<item text="与框架应用无关的调用" id="invokeservermethod_alone">
+				<userdata name="pageid">invokeservermethod_alonepage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc4.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=invokeservermethod_alonepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了如何纯粹调用一次服务器端的操作，调用时不与任何组件有关联，只是一次简单的服务器端调用，与ajax组件DWR功能类型。 &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在此演示中，配置的两个功能按钮都是向同一个类同一个方法发起一次请求，只是传入的动态参数不同，一个是传入一个包含两个值的对象，一个是传入三个对象的数组，每个对象包含两个值。调用完后执行一个客户端回调函数，
+					打印服务器端方法返回的字符串以及传入服务器端方法的动态参数。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					关于这种调用的更多介绍请参看《Wabacus框架开发指南》文档的
+				</userdata>
+			</item>
+		</item>
+		
+		<item text="数据分组显示" id="datagroup">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				数据分组是指将数据按列换按行进行分组，让用户一眼就能看出报表数据的规律
+			</userdata>
+			<item text="列分组" id="colgroup">
+				<userdata name="pageid">colgrouppage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc2.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=colgrouppage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示了如何配置列分组功能，以及显示效果。通过Wabacus框架，可以配置任意复杂的列分组。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						本页面“简单列分组”报表中只配置了一个列分组，而且只有一层&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						本页面“复杂列分组”报表则配置了多层次多个列分组&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					对于列分组标题，可以在＜group/＞的labelstyleproperty中指定rowspan值，使此分组列的标题占据多行，比如“复杂列分组”中的“姓名”和“地区”两个分组，
+					都配置了labelstylepropert="rowspan='2'"，此分组标题就占据两行。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					注意：＜col/＞的labelstyleproperty属性不能配置rowspan，否则可能导致标题显示混乱。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					但有一种＜col/＞可以在labelstyleproperty中配置rowspan，就是交叉统计的动态列的＜col/＞，如果其下的统计的标题要显示成一个独立的行（比如其下有多个统计或虽只有一个统计但配置了label），
+					此时此＜col/＞相当于一个＜group/＞，因此可以在其labelstyleproperty中配置rowspan让它占据多行。
+				</userdata>
+			</item>
+			<item text="行分组" id="rowgroup">
+				<userdata name="pageid">rowgrouppage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc2.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=rowgrouppage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示了如何配置行分组功能，以及显示效果。通过Wabacus框架，可以配置任意复杂的行分组。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					行分组与列分组不同，列分组是在配置时指定哪些列为一组，而行分组在配置时只指定按哪些列的数据进行分组，究竟分了多少组，跟这些列的数据有关。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						本页面“简单行分组”报表中只配置了按一列数据进行行分组&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						本页面“复杂行分组”报表则配置了同时按多列数据进行多重行分组&lt;br&gt;
+				</userdata>
+			</item>
+		</item>
+		<item text="树形表格" id="tabletree">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				树形表格其实也是一种行分组，不过是显示成树形结构，所以它的配置与行分组报表配置类似。
+				通过Wabacus框架，可以配置任意复杂的树形分组。
+			</userdata>
+			<item text="可折叠树" id="tabletree1">
+				<userdata name="pageid">tabletreepage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc2.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=tabletreepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示了如何配置树形表格以及显示效果，这里演示的树形表格初始状态均为展开状态&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这个页面中共演示了同一个树形表格的四种显示样式，只要通过&lt;display/&gt;的treeboder属性进行指定即可
+				</userdata>
+			</item>
+			<item text="初始为收缩状态可折叠树" id="tabletree2">
+				<userdata name="pageid">tabletreepage2</userdata>
+				<userdata name="configfilename">
+					report_usualfunc2.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=tabletreepage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示的树形表格与上面类似，只是初始状态均为折叠状态。要将树初始状态设置为折叠状态，只要将&lt;display/&gt;的initstate属性设置为close即可
+				</userdata>
+			</item>
+			<item text="不可折叠树" id="tabletree3">
+				<userdata name="pageid">tabletreepage3</userdata>
+				<userdata name="configfilename">
+					report_usualfunc2.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=tabletreepage3&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示的树形表格与上面类似，这里显示的树形表格不能折叠。要将树初始状态设置为不可折叠，只要将&lt;display/&gt;的treecloseable属性设置为false即可
+				</userdata>
+			</item>
+			<item text="带复选框的树" id="tabletree4">
+				<userdata name="pageid">tabletreepage4</userdata>
+				<userdata name="configfilename">
+					report_usualfunc2.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=tabletreepage4&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果要树具有带复选框的行选中功能，只要将此报表的选中类型配置为checkbox，即将＜report/＞的rowselect属性配置为checkbox
+				</userdata>
+			</item>
+		</item>
+		<item text="行选中功能" id="rowselect">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				Wabacus框架允许开发人员为报表配置选中记录的功能，也就是行选中功能，可配置四种选中方式：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1、普通单行选中：通过鼠标点击直接选中&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2、单选框单行选中：会自动显示一列，为每行显示一个单选框，选中单选框即可选中整行&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					3、普通多行选中：通过按住Ctrl键或Shift键点击记录行进行多选&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					4、复选框多行选中：会自动显示一列，为每行显示一个复选框，选中复选框即可选中整行&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				另外，框架还允许用户配置选中后的回调javascript函数，这样选中了记录时，框架就会调用用户的js函数，在js函数中
+				可以取到被选中行的任意列的数据
+			</userdata>
+			<item text="普通单行选中" id="rowselectsingle1">
+				<userdata name="pageid">rowselectsinglepage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc2.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=rowselectsinglepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示为报表配置单行选中功能的方法，只需将&lt;report/&gt;的rowselect属性配置为single即可。
+				</userdata>
+			</item>
+			<item text="单选框单行选中" id="rowselectsingle2">
+				<userdata name="pageid">rowselectsinglepage2</userdata>
+				<userdata name="configfilename">
+					report_usualfunc2.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=rowselectsinglepage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示为报表配置通过单选框进行单行选中功能的方法，只需将&lt;report/&gt;的rowselect属性配置为radiobox即可。 &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里除了演示了由框架自动生成行选中的单选框列，在最后一个报表还演示了如何控制行选择列的显示位置或样式，方法就是为它专门配置一个＜col/＞，将其column配置为{col-rowselect}，然后它就可以像普通列一样控制样式。
+				</userdata>
+			</item>
+			<item text="普通多行选中" id="rowselectmulti1">
+				<userdata name="pageid">rowselectmulti1page1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc2.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=rowselectmulti1page1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示为报表配置多行选中功能的方法，只需将&lt;report/&gt;的rowselect配置为multiply即可。选择时通过按住Ctrl键或Shift键
+					用鼠标单击记录行进行选中
+				</userdata>
+			</item>
+			<item text="多选框多行选中" id="rowselectmulti2">
+				<userdata name="pageid">rowselectmultipage2</userdata>
+				<userdata name="configfilename">
+					report_usualfunc2.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=rowselectmultipage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示为报表配置通过复选框进行多行选中功能的方法，只需将&lt;report/&gt;的rowselect属性配置为checkbox即可。 &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里除了演示了由框架自动生成行选中的复选框列，在最后一个报表还演示了如何控制行选择列的显示位置或样式，方法就是为它专门配置一个＜col/＞，将其column配置为{col-rowselect}，然后它就可以像普通列一样控制样式。
+				</userdata>
+			</item>
+			<item text="执行选中回调函数" id="rowselect3">
+				<userdata name="pageid">rowselectpage3</userdata>
+				<userdata name="configfilename">
+					report_usualfunc2.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=rowselectpage3&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示如何为可选中报表配置选中后回调函数，以及在回调函数中如何获取到所选中行各列的数据。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1、通过&lt;report/&gt;的selectcallback属性配置回调函数名，可以配置多个，用逗号分隔开，这样选中了行后，将依次调用它们。
+					行回调函数有一个参数，就是被选中&lt;tr/&gt;对象的数组，通过循环它可以取到所有被选中行。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2、如果某列数据需要在回调函数中使用，将其所在的&lt;col/&gt;的rowselectvalue属性配置为true，这样在生成此列数据时，会为它所在的&lt;td/&gt;
+					生成两个属性：name属性指定当前列的字段名，value属性指定当前列的数据。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					3、在回调函数中，通过循环被选中行的&lt;tr/&gt;对象，依次取出它们的&lt;td/&gt;对象，如果有name和value属性，说明可以取到当列的数据。&lt;br/&gt;&lt;br&gt;
+					此报表的行选中回调函数testcallbacufunc定义在/wabacusdemo/js/demo.js文件中。
+				</userdata>
+			</item>
+		</item>
+		<item text="主从报表显示" id="masterslave">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				主从报表就是一个报表的数据依赖另一个报表所选中的数据，被依赖的报表称为主报表，依赖的报表称为从报表，主报表可以为数据自动列表报表，也可以为数据细览报表类型，从报表也可以是任意报表类型。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				在Wabacus框架中，支持多个从报表依赖一个主报表；也支持A依赖B，B又依赖C,.....，即多级依赖关系，但只要一个报表被其它报表依赖，它的类型必须是数据自动列表报表类型。
+			</userdata>
+			<item text="简单主从报表" id="masterslave1">
+				<userdata name="pageid">masterslavepage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc2.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=masterslavepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面分别演示了主报表为数据自动列表报表和数据细览报表的简单的主从报表，因为它们只有一层依赖关系。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					不管是哪种类型的主从报表，当主报表没有数据时，从报表都支持两种状态的配置，即当＜report/＞的dependstype属性指定为display时，从报表仍显示出来，只是提示没有数据，当dependstype属性
+					指定为hidden时，从报表则不会显示出来，默认值为display.
+				</userdata>
+			</item>
+			<item text="多级主从报表" id="masterslave2">
+				<userdata name="pageid">masterslavepage2</userdata>
+				<userdata name="configfilename">
+					report_usualfunc2.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=masterslavepage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示了两个比较复杂的主从关系，在第一个主从报表中：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1、“部门信息列表”是一个独立报表，不依赖任何报表；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2、“部门详细资料”和“员工基本信息列表”两个报表都依赖上面的“部分信息列表”报表，这样选中“部门信息列表报表数据”时，这两个报表数据都得切换到相应部门的数据。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					3、“员工详细资料”报表又依赖“员工基本信息列表”报表。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在第二个主从报表中：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1、“部门详细资料”报表是一个独立报表，不依赖任何报表&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2、“部门信息列表”和“员工信息列表”两个报表依赖于“部门详细资料”报表&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					3、“员工详细资料”报表依赖于“员工信息列表”报表&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					从上面可以看出，主、从报表可以在不同的容器中，而且可以多级依赖。
+				</userdata>
+			</item>
+			<item text="另类主从报表" id="masterslave3">
+				<userdata name="pageid">masterslavepage3</userdata>
+				<userdata name="configfilename">
+					report_usualfunc2.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=masterslavepage3&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示了一个跳转新页面的方式实现多重主从报表的关系，通过这种方式实现主从报表，要借助＜format/＞中格式化代码来实现，
+					并且要利用框架提供的ReportRequest类的forwardPageWithback方法进行跳转。它们的跳转关系如下所示：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1、在“部门信息列表”点击“部门编号”数据上的链接，可以跳转到本部门的员工列表报表中；点击“部门名称”数据上的链接，可以跳转到本部门详细资料列表报表中&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2、在“部门详细资料”报表中，通过点击“部门编号”上的链接，可以跳转到本部门员工列表报表中。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					3、在“员工信息列表”报表中，点击“工号”列数据上的链接，可以跳转到本员工详细资料报表中。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					上面是在每条记录中显示带“返回”功能的跳转功能，在此页面中，还演示了配置与记录无关的带“返回”功能的跳转，即配置一个按钮，让它的事件采用动态方式生成，在动态生成的JAVA代码中调用ReportRequest类的forwardPageWithback方法。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在跳转到从报表后，都可以点击“返回”按钮返回到主报表中，且保留了主报表跳转前的状态，即查询条件和翻到的页数。这种主从报表可以为数据细览类型的报表配置从报表。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里还演示了为页面配置按钮，为页面配置的按钮显示在底部居中显示，同时还显示在右键菜单中。
+				</userdata>
+			</item>
+		</item>
+		<item text="数据统计&lt;font color='red'&gt;New&lt;font/&gt;" id="statistic">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				数据统计是Wabacus框架为用户提供的一个对报表数据进行统计的功能，目前支持如下几种类型的统计：SUM：求和；COUNT：求总数；AVG：求平均值；
+				MAX：求最大值；MIN：求最小值。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				可以对普通报表进行各列的数据统计，统计结果显示在最后一行。也可以对行分组和树形表格的数据进行分组统计。
+			</userdata>
+			<item text="普通报表数据统计" id="statistic1">
+				<userdata name="pageid">statisticpage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc2.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=statisticpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示了针对普通报表全表某个或某些字段数据的统计，统计结果显示在报表最后一页的最后一行。关于报表的统计配置在&lt;display/&gt;的子标签&lt;stastic/&gt;子标签中，针对整个报表
+					数据的统计就直接配置在&lt;stastic/&gt;子标签中，每个显示列配置一&lt;scol/&gt;标签。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在此演示报表中，一共为统计行配置了三列，第一列显示记录数；第二列显示平均年龄，最大年龄，最小年龄；第三列显示平均工资，总工资，
+					每一列的起始和结束位置由colspan属性配置值确定。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					另外，针对平均年龄，平均工资等统计数据，还利用格式化方法formatDouble进行了格式化，此格式化方法定义在引入的格式化类com.wabacusdemo.TestFormatMethod中。
+					如果所用的格式化类在wabacus.cfg.xml的format-class配置项中注册的格式化类中存在，则可直接使用，不需在&lt;report/&gt;中导入。一个统计数据可以配置
+					多个格式化方法进行格式化，框架会依次调用它们，最后的结果即为显示结果。
+				</userdata>
+			</item>
+			<item text="行分组数据统计" id="statistic2">
+				<userdata name="pageid">statisticpage2</userdata>
+				<userdata name="configfilename">
+					report_usualfunc2.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=statisticpage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示了针对行分组报表数据进行统计的配置和显示效果，这里共显示三个报表，分别演示三种情况：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1、第一个报表为所有参与行分组的列配置了统计信息，并为整个报表也配置了统计信息。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2、第二个报表为部分参与行分组的列以及整个报表数据配置了统计信息，而没有为“城市”分组列配置行统计信息。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					3、第三个报表为所有参与行分组的列配置了统计信息，但没有为整个报表配置行统计信息。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					为参与行分组的列配置统计信息是通过＜stastic/＞的子标签＜rowgroup/＞标签。
+				</userdata>
+			</item>
+			<item text="树形表格数据统计" id="statistic3">
+				<userdata name="pageid">statisticpage3</userdata>
+				<userdata name="configfilename">
+					report_usualfunc2.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=statisticpage3&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示了针对树形表格报表的数据进行统计的配置和显示效果，这里共显示三个报表，分别演示三种情况：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1、第一个报表为所有参与树形分组的列配置了统计信息，并为整个报表也配置了统计信息。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2、第二个报表为部分参与树形分组的列以及整个报表数据配置了统计信息，而没有为“城市”树形分组列配置行统计信息。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					3、第三个报表为所有参与树形分组的列配置了统计信息，但没有为整个报表配置行统计信息。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					为参与树形分组的列配置统计信息是通过＜stastic/＞的子标签＜treerowgroup/＞标签。
+				</userdata>
+			</item>
+		</item>
+		<item text="报表拦截器" id="interceptor">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				拦截器是Wabacus框架提供给用户控制报表显示的一个手段，配置给报表的拦截器包括前置动作和后置动作两部分，前置动作在执行初始报表时执行，用户可以在前置动作中
+				通过调用rrequest.getErrors().addError("出错信息");中断报表的显示并提示出错；后置动作在报表显示完后执行。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				为报表配置拦截器有三种途径：&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				1、直接通过＜report/＞的子标签＜interceptor/＞配置，它有三个子标签：＜imports/＞、＜preaction/＞、＜postaction/＞，第一个用于导入要用到的外部JAVA类，
+				第二个用于配置前置动作JAVA代码，第三个用于配置后置动作JAVA代码，在JAVA代码中，可以通过rrequest参数名调用到ReportRequest对象，通过此对象可以取到数据库连接，任意URL中参数的值，包括查询条件输入框的值等等。
+				一个拦截器可以根据需要配置前置动作或后置动作或都配置。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				2、在资源文件中配置，然后通过＜report/＞的属性interceptor进行引用。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				3、新建一个拦截器JAVA类，在其中编写前后置动作，然后通过＜report/＞的属性interceptor进行引用&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				上面三种方式定义的拦截器是等价的，一个报表最多只能配置一个拦截器，不管采用哪种方式。后面的演示中就会通过三种方式配置同一功能的拦截器。
+			</userdata>
+			<item text="直接配置拦截器" id="interceptor1">
+				<userdata name="pageid">interceptorpage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc3.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=interceptorpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示的报表通过＜report/＞标签的＜interceptor/＞子标签配置拦截器，同时配置了前置动作和后置动作，
+					其中前置动作对用户输入的“年龄”查询条件进行校验，只能输入10到20之间的数字，否则中断报表显示，并给出出错提示。前后置动作在执行完后都会在控制台打印一条提示信息。&lt;br&gt;
+				</userdata>
+			</item>
+			<item text="引用资源文件中的拦截器" id="interceptor2">
+				<userdata name="pageid">interceptorpage2</userdata>
+				<userdata name="configfilename">
+					report_usualfunc3.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=interceptorpage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示的报表通过＜report/＞标签的interceptor属性引用定义在资源文件中key为interceptorpage2.report1.interceptor的拦截器资源项，它的逻辑与上面直接配置在报表中的拦截器逻辑完全一致。
+					可以打开resources/resources_business_zh.xml资源文件查看此资源项。&lt;br&gt;
+				</userdata>
+			</item>
+			<item text="开发拦截器JAVA类" id="interceptor3">
+				<userdata name="pageid">interceptorpage3</userdata>
+				<userdata name="configfilename">
+					report_usualfunc3.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=interceptorpage3&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示的报表通过＜report/＞标签的interceptor属性引用一拦截器JAVA类，它的逻辑与上面直接配置在报表中的拦截器逻辑完全一致。
+					可以打开com.wabacusdemo.Interceptorpage3Report1Interceptor类查看此拦截器的逻辑。&lt;br&gt;
+				</userdata>
+			</item>
+		</item>
+		<item text="多语言支持" id="multilanguage">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				多语言支持包括两种：本地化和国际化。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				本地化：通过给报表配置引入不同语言的资源文件，就可以使报表显示成相应语言形式。
+				用户如果想让报表支持本地化，就需将所有显示信息定义在资源文件中，每种要支持的语言类型提供一份相应的资源文件，在配置报表时，引用资源文件中的配置即可，这样通过引入不同语言的配置文件就可以显示成相应语言版本的报表&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				国际化：将报表显示信息全部配置为从国际化资源文件中获取，每种语言定义一份以_语言后缀（比如中文：_zh，日语：_jp）命名的资源文件，用户访问时，框架会自动根据用户浏览器的语言设置选择相应的语言资源文件来显示报表。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示的多语言支持都是针对静态配置信息，对于从数据库中取出的数据要支持多语言，没在这里演示，请参看《Wabacus框架入门与提高》文档的国际化部分。
+			</userdata>
+			<item text="本地化" id="l10n">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示如何为一个报表配置中文版本和英文版本，它们在配置上基本上一样，只是引用的资源文件名为不同语言的版本，显示就为相应语言的报表
+				</userdata>
+				<item text="中文版" id="l10n1">
+					<userdata name="pageid">l10npage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc3.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=l10npage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						本页面演示了一个中文版的报表配置，它的所有静态显示信息都配置为从资源文件中获取，包括客户端校验出错信息。这样只要给它引入不同语言版本的资源文件，就可以使报表显示成相应语言&lt;br&gt;
+					</userdata>
+				</item>
+				<item text="英文版" id="l10n2">
+					<userdata name="pageid">l10npage2</userdata>
+					<userdata name="configfilename">
+						report_l10n_en.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=l10npage2&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						本页面演示了一个英文版的报表配置，其配置与上面中文版报表的配置基本上完全相同，只是放在不同的配置文件中，在此配置文件中引入的是英文版的资源文件，因此它显示成英文版本。
+					</userdata>
+				</item>
+			</item>
+			<item text="国际化" id="i18n">
+				<userdata name="pageid">i18npage1</userdata>
+				<userdata name="configfilename">
+					report_i18n.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=i18npage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面将一个报表的静态显示信息以及校验出错信息全部配置为支持国际化显示，用户只要切换浏览器的首选语言即可查看到相应语言版本的报表。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1、为了方便起见，这里采用xml格式的国际化资源文件，而没有采用.properties格式的国际化资源文件，因为采用后者对于中文要进行native2ascii编码。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+  					2、这里只提供了两个语言的国际化资源文件：ApplicationResources.xml和ApplicationResources_zh.xml,因此支持中英文两种语言&lt;br&gt;
+  					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+  					3、要切换查看中、英文版本的报表，请更改浏览器的“首选语言”，设置成英文则当前报表显示成英文，切换成中文则当前报表显示成中文，以IE为例，依次点击：工具-->选项-->常规-->语言，然后进行设置。&lt;br&gt;
+  					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+  					4、这里演示的是静态配置信息的国际化，对于从数据库取出的动态数据，如果要进行国际化显示，请参看《Wabacus框架入门与提高》文档的国际化一章&lt;br&gt;
+  					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+  					5、为两个查询条件都配置了校验，校验出错信息也支持国际化，校验规则与上面“客户端/服务器端校验”演示的报表一致。
+				</userdata>
+			</item>
+		</item>
+		
+		<item text="html/jsp应用" id="htmljspapp">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				在wabacus框架中，可以直接在配置文件中显示HTML代码或包含外部的JSP文件进行显示，分别通过＜html/＞和＜jsp＞标签进行显示。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				它们跟报表一样，都是应用，可以显示在容器中。
+			</userdata>
+			<item text="显示html" id="htmlapp">
+				<userdata name="pageid">htmlapppage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc3.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=htmlapppage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了如何在容器中通过＜html/＞标签显示html代码，可以显示独立的html代码，也可以显示html模板，然后在模板中通过自定义标签显示某个报表的内容。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果＜html/＞标签是显示html模板，并在模板中显示某个报表的内容，则必须配置它的belongto属性为对应报表的ID。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里只演示了直接在＜html/＞标签中配置html代码的方式，还可以在＜html/＞标签中配置为${key}、classpath{key}、absolute{path}、relative{path}三种方式引用定义在资源文件中的html代码或定义在html文件中的html代码。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					使用方式与＜report/＞的＜header/＞、＜footer/＞完全一样
+				</userdata>
+			</item>
+			<item text="显示jsp" id="jspapp">
+				<userdata name="pageid">jspapppage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc3.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=jspapppage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了如何在容器中通过＜jsp/＞标签包含外部的JSP文件进行显示，JSP文件可以是一个单独的JSP文件，也可以是与某个报表相关的JSP文件，如果是后者，则可以通过自定义标签显示报表中的内容，比如按钮、数据等等。与报表的动态模板使用方式完全一致&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果＜jsp/＞标签需要显示某个报表的数据或其它内容（包括通过JAVA代码调用框架接口方法或通过自定义标签方式），则必须配置它的belongto属性为对应报表的ID。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					此外，还可以将引入的外部JSP文件显示在一个独立的iframe中，只要将＜jsp/＞标签的iframe属性配置为true即可。关于此标签的更多介绍，请参看《Wabacus框架开发指南》文档。
+				</userdata>
+			</item>
+		</item>
+		
+		<item text="其它" id="other">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示其它类别功能的配置以及显示效果
+			</userdata>
+			<item text="控制行背景色" id="rowbgcolor">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示如何通过拦截器来控制报表每一行的背景色，可以根据行号来决定显示的背景色，也可以根据当前行某一列的数据来决定。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在拦截器中，有如下两个重要方法：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					public String beforeDisplayReportDataPerRow(AbsListReportType reportTypeObj,
+            ReportRequest rrequest,int rowindex);：在数据自动列表报表的每一行显示前调用，其中rowindex为当前显示的行号，从0开始。如果为-1，则说明当前在显示数据行。
+            这个方法的返回值为当前行的＜tr/＞的样式字符串，如果不想控制当前行的样式，则返回null。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					public ColDataByInterceptor beforeDisplayReportDataPerCol(AbsReportType reportTypeObj,
+            ReportRequest rrequest,Object displayColBean,int rowindex,String value);
+            		对于所有报表，在显示每一列的标题和数据时，分别调用一次，如果对当前列不做任何处理，则返回null即可。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+            		这两个方法如果直接在报表配置文件中配置，分别对应＜beforedisplay-perrow/＞和＜beforedisplay-percol/＞标签。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+            		关于这两个方法更多介绍，请参看《非正式文档》
+				</userdata>
+				<item text="普通列表报表" id="commonrowbgcolor">
+					<userdata name="pageid">commonrowbgcolorpage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc3.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=commonrowbgcolorpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示如何控制普通列表报表的各行背景色的方法，分别演示了通过记录行号和当前行的业务数据来控制记录行的背景色。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						要控制普通列表报表的记录行颜色，只要实现拦截器的beforeDisplayReportDataPerRow方法或＜beforedisplay-perrow/＞标签。
+						这个方法会在显示每行记录前进行调用，返回当前行的样式字符串。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示了通过记录行号和业务数据进行控制：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						通过记录行号进行控制时，因为比较简单，所以直接在报表配置文件中配置了＜beforedisplay-perrow/＞标签，根据rowindex值进行判断。
+						注意要去除rowindex为-1的情况，因为这是在显示数据标题行。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						通过业务数据进行控制时，写了一个拦截器类com.wabacusdemo.Interceptor_commonrowbgcolorpage1Report2，实现了其beforeDisplayReportDataPerRow方法，
+						在其中取出当前行号对应的POJO数据对象，并从中取出sex列的值，如果为“女”，则改变背景色。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						关于拦截器这个方法的介绍，请参看《非正式文档》
+					</userdata>
+				</item>
+				<item text="行分组报表" id="rowgroupbgcolor">
+					<userdata name="pageid">rowgroupbgcolorpage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc3.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=rowgroupbgcolorpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示如何控制行分组列表报表的各行背景色的方法，分别演示了通过记录行号和当前行的业务数据来控制记录行的背景色。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						因为行分组报表中，参与分组的列不想改变背景色，所以不能像普通报表那样控制行背景色，而是实现拦截器的beforeDisplayReportDataPerCol方法或＜beforedisplay-percol/＞标签。
+						即通过将所有非分组列的背景色设置为某个背景色。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示了通过记录行和业务数据进行控制：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						通过记录行号进行控制时，演示了直接在报表配置文件中配置了＜beforedisplay-percol/＞标签，首先判断当前列是否是分组列，如果不是的话，
+						再看rowindex值是否是偶数，如果是的话，就根据当前列的背景色。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						通过业务数据进行控制时，写了一个拦截器类com.wabacusdemo.Interceptor_rowgroupbgcolorpage1Report2，实现了其beforeDisplayReportDataPerCol方法，
+						在其中取出当前行号对应的POJO数据对象，并从中取出sex列的值，如果为“女”，则改变背景色，当然这里也要排除参与分组的列，不改变它们的背景色。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						关于拦截器这个方法的介绍，请参看《非正式文档》
+					</userdata>
+				</item>
+				<item text="树形分组报表" id="treerowgroupbgcolor">
+					<userdata name="pageid">treerowgroupbgcolorpage1</userdata>
+					<userdata name="configfilename">
+						report_usualfunc3.xml
+					</userdata>
+					<userdata name="desc">
+						&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=treerowgroupbgcolorpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示如何控制树形分组列表报表的各行背景色的方法，分别演示了通过记录行号和当前行的业务数据来控制记录行的背景色。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						因为树形分组报表中，参与分组的列不能改变背景色，所以与上面控制行分组报表背景色方法完全一样，通过实现拦截器的beforeDisplayReportDataPerCol方法或＜beforedisplay-percol/＞标签。
+						即通过将所有非分组列的背景色设置为某个颜色。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示了通过记录行和业务数据进行控制：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						通过记录行号进行控制时，演示了直接在报表配置文件中配置＜beforedisplay-percol/＞标签，首先判断当前列是否是分组列，如果不是的话，
+						再看rowindex值是否是偶数，如果是的话，就根据当前列的背景色。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						通过业务数据进行控制时，写了一个拦截器类com.wabacusdemo.Interceptor_rowgroupbgcolorpage1Report2，实现了其beforeDisplayReportDataPerCol方法，
+						在其中取出当前行号对应的POJO数据对象，并从中取出sex列的值，如果为“女”，则改变背景色，当然这里也要排除参与分组的列，不改变它们的背景色。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						关于拦截器这个方法的介绍，请参看《非正式文档》
+					</userdata>
+				</item>
+			</item>
+			<item text="动态指定报表列标题" id="dyncoltitle">
+				<userdata name="pageid">dyncoltitlepage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc3.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=dyncoltitlepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					对于所有报表，包括数据自动列表报表和数据细览报表，都可以在拦截器的beforeDisplayReportDataPerCol方法或＜beforedisplay-percol/＞标签中
+					动态修改每一列的标题和数据，关于拦截器的此方法，可以参看《非正式文档》的相关说明。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在这个演示页面中，对“姓名”分组标题、“省份”、“城市”、“县城”三个列标题进行了动态修改。
+				</userdata>
+			</item>
+			<item text="控制鼠标滑过时行背景色" id="rowmouseover">
+				<userdata name="pageid">rowmouseoverpage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc3.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=rowmouseoverpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					鼠标滑过时行背景色变换可以通过两种方式控制：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						1、在系统配置文件wabacus.cfg.xml中的＜system/＞中增加一个名为default-mouseoverbgcolor的配置项，控制整个项目中
+						所有报表的鼠标滑过时行背景色，如果配置为空字符串，则鼠标滑过时不改变行背景色。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						2、通过每个报表的＜display/＞标签的mouseoverbgcolor属性配置当前报表的鼠标滑过时行背景色，这里的配置会覆盖掉上面的
+						全局配置，如果配置为空字符串，则鼠标滑过时不改变颜色。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在此演示中，为了不影响其它报表，只改变所演示报表的鼠标滑过时行背景色。一共演示了两个报表，一个演示改变全局配置的默认背景色，
+					另一个演示鼠标滑过时不改变背景色。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					另外，行选中后的背景色也可以改变，只要修改系统配置文件wabacus.cfg.xml中的＜system/＞中增加一个名为selectedrow-bgcolor的配置项，指定其值
+					为某个颜色值，则选中行后即会用所配置的颜色做为行的背景色。
+				</userdata>
+			</item>
+			<item text="显示行列标题" id="other2">
+				<userdata name="pageid">otherpage2</userdata>
+				<userdata name="configfilename">
+					report_usualfunc3.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=otherpage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示了通过＜col/＞、＜group/＞的labelstyleproperty设置各列标题的背景色，以及通过＜col/＞的valuestyleproperty属性设置第一列数据的背景色，
+					达到报表看起来像行列都是标题的效果。
+				</userdata>
+			</item>
+			<item text="不显示数据标题部分" id="other5">
+				<userdata name="pageid">otherpage5</userdata>
+				<userdata name="configfilename">report_usualfunc3.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=otherpage5&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							演示不显示数据标题，只显示数据部分的配置。这种显示方式也可以通过grid页面类型或自定义标签达到目的，但这里演示的是直接通过配置实现，方法最简单，
+							直接将&lt;display/&gt;的dataheader=""即可。&lt;br&gt;
+				</userdata>
+			</item>
+			<item text="显示输入框" id="other3">
+				<userdata name="pageid">otherpage3</userdata>
+				<userdata name="configfilename">
+					report_usualfunc3.xml
+				</userdata>
+				<userdata name="otherfilename">
+					/wabacusdemo/js/otherpage3.js
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=otherpage3&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					本页面演示如何通过格式化方法将某列数据显示成输入框形式，并取用用户输入的数据。这里配置了两列输入框，第一列为每条记录显示单选框，第二列显示复选框，并演示了如何取选中的值，
+					获取选中值的javascript代码放在/wabacusdemo/js/otherpage3.js文件中&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					通过报表＜format/＞标签的format方法，可以为任意列拼凑出任意输入框或按钮。
+				</userdata>
+			</item>
+			<item text="配置报表onload回调函数" id="reportonload">
+				<userdata name="pageid">reportonloadpage1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc3.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=reportonloadpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					可以通过报表的＜report/＞标签的onload属性配置报表每次加载完后的回调函数，这样当前报表每次重新加载完（比如因为查询、翻页等等动作）都会自动调用它们。
+					可以配置多个，用分号分隔。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					回调函数所在js文件必须通过所在页面的＜page/＞的js属性导入进来，否则访问不到。另外，每个onload回调函数可以声明两个参数：
+					pageid和reportid，框架在执行时会自动通过这两个参数将当前报表所在页面的ID和报表ID传进来，在回调函数内部可以使用它们。
+				</userdata>
+			</item>
+		</item>
+	</item>
+	<!--==============================================================================-->
+	<!--=================================客户端接口方法的演示===================================-->
+	<!--==============================================================================-->
+	<item id="clientapi" text="常用客户端接口方法" im0="dhtmlxtree_icon.gif"
+		im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<item text="刷新报表或页面" id="refreshreportapi">
+			<userdata name="pageid">refreshreportapipage1</userdata>
+			<userdata name="configfilename">report_clientapi.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=refreshreportapipage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				通过框架提供的javascript接口方法refreshComponentDisplay(pageid,componentid,isReset)，可以刷新页面及页面上任意组件的显示，
+				三个参数分别是传入要刷新组件所在页面ID、组件ID，是否需要重置组件的状态，如果要刷新整个页面，则componentid参数传入空或pageid值。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				关于这三个参数（尤其是isReset参数）的意义，请参看《常用接口方法》文档。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示了刷新两个报表和整个页面的效果，为了方便查看演示效果，为页面和其上的两个报表都配置了自己的onload函数
+			</userdata>
+		</item>
+		<item text="设置查询条件输入框的值" id="setconditionapi">
+			<userdata name="pageid">setconditionapipage1</userdata>
+			<userdata name="configfilename">report_clientapi.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=setconditionapipage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					框架为设置查询条件输入框的值提供了两个javascript接口方法:&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					setInputboxValueForCondition(pageid,reportid,paramname,paramvalue)：这是一个专门用来设置查询条件输入框的方法，其中的paramname为查询条件对应＜condition＞的name属性值。
+					这个方法调用简单，不过一次只能设置一个条件的值，所以这里的演示连续调用两次设置了两个条件的值&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					setReportInputBoxValue(pageid,reportid,reporttype,newvalues,conditions)：这是一个设置所有类型的输入框（比如查询条件输入框、各种可编辑报表的编辑输入框等）的通用方法，在用它
+					设置查询条件输入框的值时，reporttype必须传入“conditionbox”，conditions参数传入null即可。newvalues参数就是通过json方式指定新的条件值，可以同时指定多个，因此一次调用可以设置任意个
+					查询条件输入框的值
+			</userdata>
+		</item>
+		<item text="行选中" id="rowselectapi">
+			<userdata name="pageid">rowselectapipage1</userdata>
+			<userdata name="configfilename">report_clientapi.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=rowselectapipage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了如何调用框架提供的selectReportDataRow(trObj,invokeOnloadMethod)接口方法选中记录行，以及调用deselectReportDataRow(trObj)方法取消行选中。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					对于single、multiply、radiobox、checkbox四种行选中类型，调用方法完全一致，开发人员不需考虑报表配置的选中类型。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里还演示了树形分组报表配置为checkbox行选中类型的选中效果，虽然选中效果与其它普通报表或这种报表的其它三种选中类型不同，但在调用上面两个JS接口方法进行选中时，没有什么两样。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					为了看中行选中效果，这里为它们都配置了行选中回调函数，并且在调用selectReportDataRow()方法进行选中时，第二个参数传入true，指定执行这个行选中回调函数，如果指定为false，则不会执行。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					关于这两个方法的更多介绍，请参看《Wabacus框架接口方法》
+			</userdata>
+		</item>
+	</item>
+</tree>

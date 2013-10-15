@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/lmsportal/!svn/ver/12160/lms_portal_admin/trunk/src/java/com/telecom/lms/core/controller/trainresource
+END
+TrainResourceInfoController.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/lmsportal/!svn/ver/11994/lms_portal_admin/trunk/src/java/com/telecom/lms/core/controller/trainresource/TrainResourceInfoController.java
+END
+CourseWareResourceInfoController.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/lmsportal/!svn/ver/12138/lms_portal_admin/trunk/src/java/com/telecom/lms/core/controller/trainresource/CourseWareResourceInfoController.java
+END
+KnowledgePointInfoController.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/lmsportal/!svn/ver/12160/lms_portal_admin/trunk/src/java/com/telecom/lms/core/controller/trainresource/KnowledgePointInfoController.java
+END
+CaseResourceInfoController.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/lmsportal/!svn/ver/12116/lms_portal_admin/trunk/src/java/com/telecom/lms/core/controller/trainresource/CaseResourceInfoController.java
+END
+KnowledgeCategoryInfoController.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/lmsportal/!svn/ver/12072/lms_portal_admin/trunk/src/java/com/telecom/lms/core/controller/trainresource/KnowledgeCategoryInfoController.java
+END
+DocumentResourceInfoController.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/lmsportal/!svn/ver/12072/lms_portal_admin/trunk/src/java/com/telecom/lms/core/controller/trainresource/DocumentResourceInfoController.java
+END

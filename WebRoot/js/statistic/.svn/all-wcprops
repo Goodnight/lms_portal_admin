@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/lmsportal/!svn/ver/11572/lms_portal_admin/trunk/WebRoot/js/statistic
+END
+org.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/lmsportal/!svn/ver/11572/lms_portal_admin/trunk/WebRoot/js/statistic/org.js
+END
+trainplan.js
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/lmsportal/!svn/ver/11572/lms_portal_admin/trunk/WebRoot/js/statistic/trainplan.js
+END
+trainclass.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/lmsportal/!svn/ver/11572/lms_portal_admin/trunk/WebRoot/js/statistic/trainclass.js
+END
+user.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/lmsportal/!svn/ver/8123/lms_portal_admin/trunk/WebRoot/js/statistic/user.js
+END
+course.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/lmsportal/!svn/ver/8165/lms_portal_admin/trunk/WebRoot/js/statistic/course.js
+END

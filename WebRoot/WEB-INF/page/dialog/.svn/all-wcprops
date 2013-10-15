@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/lmsportal/!svn/ver/12538/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog
+END
+onlineDocListDialog.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/onlineDocListDialog.jsp
+END
+onlineCaseDocListDialog.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/onlineCaseDocListDialog.jsp
+END
+onlineCoursewareByCaseDocListDialog.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/onlineCoursewareByCaseDocListDialog.jsp
+END
+onlineCoursewareByDocListDialog.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/onlineCoursewareByDocListDialog.jsp
+END
+onlineCoursewareListDialog.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/onlineCoursewareListDialog.jsp
+END
+companyDialog.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/companyDialog.jsp
+END
+onlineCaseDocListByCaseDocDialog.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/onlineCaseDocListByCaseDocDialog.jsp
+END
+onlineDocListByCaseDocDialog.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/onlineDocListByCaseDocDialog.jsp
+END
+onlineCaseDocListByDocDialog.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/onlineCaseDocListByDocDialog.jsp
+END
+onlineDocListByDocDialog.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/onlineDocListByDocDialog.jsp
+END

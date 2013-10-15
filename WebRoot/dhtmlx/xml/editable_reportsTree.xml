@@ -1,0 +1,1556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tree id="0">
+	<!--==============================================================================-->
+	<!--=================================报表类型配置===================================-->
+	<!--==============================================================================-->
+	<item id="editablereporttypes" text="可编辑报表类型" im0="dhtmlxtree_icon.gif"
+		im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<userdata name="groupnode">true</userdata>
+		<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					演示Wabacus框架内置的各种可编辑数据自动列表报表类型的显示、操作效果及配置方法。这里重点演示报表的编辑，不演示报表的复杂展示效果。
+					所有在“数据展示篇”演示的展示方式在这里都适用，关于如何配置出复杂的展示效果，请参看“数据展示篇”。
+		</userdata>
+		<item text="可编辑数据自动列表报表" id="editablelistreport">
+			<userdata name="pageid">editablelistreportpage1</userdata>
+			<userdata name="configfilename">report_reportypes.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editablelistreportpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示了对数据自动列表报表的两种编辑方式，分别对应两种报表类型editablelist2和editablelist。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				第一种编辑方式的报表类型为editablelist2，直接在报表上进行增、删、改操作&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				第二种编辑方式的报表类型为editablelist，在本报表只能完成删除操作，如果要新增和修改，则通过指向另外一个editabledetail报表类型的报表或一个普通的JSP页面进行，点击这种报表类型的“添加”按钮，
+				就会跳到editabledetail报表或其它JSP页面中进行添加。框架还会为每行数据生成一个编辑图标列，点击它就会跳转到editabledetail报表类型或其它JSP页面进行修改本行记录的操作。在目标页面保存完后
+				会自动关闭弹出的页面并刷新源页面。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				更多介绍请参看《开发指南》相关章节
+			</userdata>
+		</item>
+		<item text="可编辑数据细览报表" id="editabledetail">
+			<userdata name="pageid">editabledetailpage1</userdata>
+			<userdata name="configfilename">report_reportypes.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editabledetailpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示了对数据细览报表的两种编辑方式，分别对应两个报表类型editabledetail2和editabledetail：&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				第一种编辑方式的报表类型为editabledetail2，这种报表类型只能对细览报表进行修改、删除操作，不能添加数据。&lt;br&gt;
+				在这个演示报表中，“创建日期”列为日期选择输入框，“表现”列为下拉框，“简介”为textarea类型的文本框，其它列均为普通文本框。
+				并且为“部门编号”、“创建日期”列配置了客户端校验功能。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				第二种编辑方式的类型为editabledetail，在这种方式的编辑中，可以对报表数据进行添加、修改、删除等。同时，需要注意如下两点：&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1、如果要修改报表数据，需要先点击“修改”按钮，才能进行修改状态进行修改；&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2、添加完记录后默认是进入添加数据前的报表，如果要显示新添加的数据，则要在＜insert/＞标签中配置condition属性，为查询条件＜condition/＞配置新添加数据的值，以便能显示到当前报表数据。&lt;br&gt;
+				在这个演示报表中，“创建日期”列为日期选择输入框，“表现”列为下拉框，“简介”为textarea类型的文本框，其它列均为普通文本框。
+				并且为“部门编号”、“创建日期”列配置了客户端校验功能。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					3、因为此报表的“简介”列是大字段类型，如果是Oracle数据库，且采用的不是oracle10g的jdbc驱动，则可能不能正常的完成添加操作，
+					需要将配置文件中此报表的＜insert/＞标签中配置的SQL语句：insert into ...后面加上where deptno=@{deptno__old}，即变为如下形式：
+					insert into tbl_department(guid=uuid{},@{deptno},@{deptname},@{manager},@{builtdate},@{performance},@{description}) where deptno=@{deptno__old};
+					然后重新启动即可。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				另外，如果修改了部门编号列，会同时修改“员工基本信息”表的部门编号，以保持一致。
+			</userdata>
+		</item>
+	</item>
+	<!--==============================================================================-->
+	<!--=================================模板配置===================================-->
+	<!--==============================================================================-->
+	<item text="自定义布局报表显示" id="editabletemplate"
+			im0="dhtmlxtree_icon.gif" im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<userdata name="groupnode">true</userdata>
+		<userdata name="desc">
+			&lt;br&gt;
+			&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			对于可编辑报表类型，与“数据展示篇”中介绍的模板一样，也支持静态模板和动态模板两种方式对报表进行自定义布局。&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			这里着重介绍数据部分和编辑按钮的功能，对于报表其它部分的控制，请参看“数据展示篇”的“自定义布局报表显示”，那里介绍了对报表各个部分的精确控制。&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			这里只介绍控制各细节的显示，没有介绍控制整体的显示，因为这比较简单，参考数据展示篇中“自定义布局报表显示”的演示
+		</userdata>
+		<item text="静态模板" id="editablestatictemplate">
+			<userdata name="pageid">editablestatictemplatepage1</userdata>
+			<userdata name="configfilename">report_template.xml</userdata>
+			<userdata name="otherfilename">/wabacusdemo/htmltemplate/editabletemplatepage1report1_report.html</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editablestatictemplatepage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示了在HTML模板中布局显示在页面和数据导出文件中的显示效果，其中布局显示在页面中的html模板内容定义在模板文件editabletemplatepage1report1_report.html中。
+				布局显示在数据导出文件中的静态模板定义在资源项中。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里没有演示采用html模板布局Header/Footer/翻页导航栏部分的显示，它们与数据展示篇完全一样。
+			</userdata>
+		</item>
+		<item text="动态模板" id="editabledynamictemplate">
+			<userdata name="pageid">editabledynamictemplatepage1</userdata>
+			<userdata name="configfilename">report_template.xml</userdata>
+			<userdata name="otherfilename">/wabacusdemo/jsp/tagpages/testtagpage4.jsp</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editabledynamictemplatepage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示了如何在JSP页面中利用框架提供的自定义标签控制每个报表各细节的显示，这里重点演示了控制功能按钮和数据部分。
+				其它部分细节显示的控制请参看“数据展示篇”的“控制报表各细节的显示”的演示部分。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				对于editablelist2和editabledetail2两种报表类型，数据部分都必须做为一个整体，不能像“数据展示篇”演示的逐行逐列控制它们的显示，否则将失去可编辑功能。
+				对于editabledetail报表类型，则可以控制每一列的显示位置
+			</userdata>
+		</item>
+	</item>
+	
+	<!--==============================================================================-->
+	<!--=================================权限配置===================================-->
+	<!--==============================================================================-->
+	<item id="editablepermission" text="授&amp;nbsp;&amp;nbsp;权" im0="dhtmlxtree_icon.gif"
+		im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<userdata name="groupnode">true</userdata>
+		<userdata name="desc">
+			&lt;br&gt;
+			&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			这里只演示报表权限，不演示容器权限，而且只演示跟数据编辑相关的权限，其它的请参看数据展示篇中的演示
+		</userdata>
+		<item text="报表权限" id="editablereportpermission">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示对报表所有部分上的元素进行授权的效果。
+			</userdata>
+			<item text="报表数据权限" id="editablereportpermission1">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了对可编辑报表数据部分进行readonly授权效果，关于其它权限类型，则参看数据展示篇。
+				</userdata>
+				<item text="数据整体权限" id="editablereportpermission11">
+					<userdata name="pageid">editablereportpermissionpage11</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editablereportpermissionpage11&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						将数据整体的readonly权限授权为true时，此可编辑报表将不允许编辑，但允许删除操作。如果也不允许删除操作，则可以将它的accessmode设置为readonly &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						注意：最好不要通过将整个报表的readonly权限设置为true达到只读的目的，因为这样的话，查询框中的条件输入框也将只读。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						另外，开发人员还可以根据不同的访问模式进行不同的授权
+					</userdata>
+				</item>
+				<item text="每列数据权限" id="editablereportpermission12">
+					<userdata name="pageid">editablereportpermissionpage12</userdata>
+					<userdata name="configfilename">report_permissions.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+							&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editablereportpermissionpage12&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示了将此页面上三个报表的“创建日期”、“表现”两列设置为只读权限和不显示的权限。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						另外，开发人员还可以根据不同的访问模式进行不同的授权
+					</userdata>
+				</item>
+			</item>
+			<item text="编辑按钮权限" id="editablereportpermission2">
+				<userdata name="pageid">editablereportpermissionpage2</userdata>
+				<userdata name="configfilename">report_permissions.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editablereportpermissionpage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里只演示编辑相关的按钮的授权效果，对于其它按钮，请参看数据展示篇的演示。编辑相关的按钮都是系统内置的按钮，它们都有自己的type，因此授权时都只能通过它们的type属性进行授权，不能通过name属性。
+						编辑相关按钮包括如下type：add：添加按钮；modify：修改按钮；delete：删除按钮；save：保存按钮；reset：重置按钮；cancel：取消按钮；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						编辑按钮像其它按钮一样，只有display和disabled两个权限类型，例如授权代码：rrequest.authorize("report1",Consts.BUTTON_PART,"type{save}","disabled","true");
+						rrequest.authorize("report1",Consts.SEARCH_PART,"type{add}","display","false");
+				</userdata>
+			</item>
+		</item>
+	</item>
+	<!--==============================================================================-->
+	<!--=================================常用功能配置===================================-->
+	<!--==============================================================================-->
+	<item id="editableusualfunctions" text="常用功能配置&lt;font color='red'&gt;New&lt;font/&gt;" im0="dhtmlxtree_icon.gif"
+		im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<userdata name="groupnode">true</userdata>
+		<userdata name="desc">
+			&lt;br&gt;
+			&lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			这里演示了如何使用Wabacus框架完成常用的功能
+		</userdata>
+		<item text="编辑部分列" id="editpartcol">
+			<userdata name="pageid">editpartcolpage1</userdata>
+			<userdata name="configfilename">report_editablefunc1.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editpartcolpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				在此页面中演示了只编辑部分列的配置方式与效果。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				在这个演示报表中：&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				修改数据时：“工号”、“姓名”、“所属部门”三列不允许修改&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				添加数据时，“性别”、“出生日期”两列不允许添加&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				一个列不允许修改，则只要它不出现在＜update/＞配置的修改数据的SQL语句中即可，同样，一个列不允许添加，
+				则只要不出现在＜insert/＞配置的插入数据的SQL语句中即可。
+			</userdata>
+		</item>
+		<item text="更新数据脚本类型&lt;font color='red'&gt;New&lt;font/&gt;" id="storeprocedure">
+			<userdata name="pageid">sppage1</userdata>
+			<userdata name="configfilename">report_editablefunc5.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=sppage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示了如何使用wabacus支持的所有更新后台数据的脚本类型，包括SQL语句、存储过程、JAVA类，其中SQL语句又包括wabacus专有格式的insert/update/delete语句和标准格式的语句。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				对于存储过程，还演示了如何获取存储过程执行后的返回值。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				更多介绍请参看《开发指南》文档。
+			</userdata>
+		</item>
+		<item text="更新多个数据源上的数据&lt;font color='red'&gt;New&lt;font/&gt;" id="multidatasource">
+			<userdata name="pageid">multidatasourcepage1</userdata>
+			<userdata name="configfilename">report_editablefunc4.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=multidatasourcepage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示了如果在＜insert/＞、＜update/＞、＜delete/＞中配置同时更新多个数据源上数据的方法，只要为它们配置多个＜value/＞子标签，每个＜value/＞子标签配置自己的datasource属性指向不同的数据源，
+				然后在＜value/＞子标签标签内容中配置一个或多个更新数据的SQL语句、存储过程、JAVA类更新相应数据源上的数据即可。 &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里为了演示，没有真正将不同＜value/＞标签上的datasource属性指向不同的数据源。
+			</userdata>
+		</item>
+		<item text="动态设置某行或单元格只读&lt;font color='red'&gt;New&lt;font/&gt;" id="editablereportpermission13">
+			<userdata name="pageid">editablereportpermissionpage13</userdata>
+			<userdata name="configfilename">report_permissions.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editablereportpermissionpage13&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示了在可编辑报表拦截器的显示每行每列数据前置动作中动态指定某个记录行或某个列为只读
+			</userdata>
+		</item>
+		<item text="主从报表数据编辑" id="editablemasterslave">
+			<userdata name="pageid">editablemasterslavepage1</userdata>
+			<userdata name="configfilename">report_editablefunc1.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editablemasterslavepage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				此页面演示了两种类型的主从报表，演示的第一个主从报表有三个可编辑报表，第一个是可编辑数据列表报表，第二、第三个为可编辑数据细览报表，且为两种不同的编辑方式。
+				同时它们都依赖于第一个“员工信息列表”报表。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				演示的第二个主从报表中，主报表为可编辑的数据细览报表，从报表为可编辑的数据自动列表报表。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里没有演示复杂的可编辑主从报表，在“数据展示篇”已经演示了这类主从报表。
+			</userdata>
+		</item>
+		
+		<item text="输入联想" id="editabletypeprompt">
+			<userdata name="pageid">editabletypepromptpage1</userdata>
+			<userdata name="configfilename">report_editablefunc1.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editabletypepromptpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				在数据展示篇中，演示了查询条件输入框中的输入联想功能，其实任意可编辑报表类型的文本编辑框都可以配置输入联想功能，而且配置方法与查询条件输入框完全相同&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里就演示三种可编辑报表类型中编辑输入框的输入联想功能配置，更多的效果请参看“数据展示篇”的输入联想
+			</userdata>
+		</item>
+		
+		<item text="自动填充报表数据&lt;font color='red'&gt;New&lt;font/&gt;" id="autocompletedata">
+			<userdata name="pageid">autocompletedatapage1</userdata>
+			<userdata name="configfilename">report_editablefunc5.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=autocompletedatapage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				自动填充报表数据是指当用户在某一列输入数据后，会自动从数据库中取出其它列的数据填充到报表其它输入框中，在获取数据时：&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				可以与查询报表采用同一条SQL语句获取，也可以另外配置SQL语句获取自动填充数据；&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				可以只根据当前输入框的值获取其它自动坛列的数据，也可以根据多个列的数据做为条件获取其它自动填充列的数据；&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				可以在拦截器加载数据前置动作中自己获取填充数据而不用框架自动获取，也可以在加载数据后置动作中修改框架获取的自动填充数据
+			</userdata>
+		</item>
+		
+		<item text="定制删除数据确认提示" id="deleteconfirmprompt">
+			<userdata name="pageid">deleteconfirmpromptpage1</userdata>
+			<userdata name="configfilename">report_editablefunc1.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=deleteconfirmpromptpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				不管什么报表类型，其＜delete/＞标签都支持confirmessage属性，用于配置删除本报表数据时向用户提示的确认提示信息，如果要在提示信息中引用某列数据，可以通过@{column}指定相应列所在＜col/＞的column属性配置值。
+				可以在确认提示信息中引用任意多个列的动态数据。
+			</userdata>
+		</item>
+		
+		<item text="同时保存多个报表" id="savemultireports">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+			&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				默认情况下，每个可编辑报表都有自己的保存按钮，点击时即可保存本报表，此外，wabacus框架提供同时保存多个报表的功能，用户可以点击一个按钮，同时保存同一页面中多个报表的数据，这一过程也叫绑定保存&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				绑定保存分为静态配置的绑定保存和动态指定的绑定保存，而动态指定的绑定保存又分为通过框架的js接口方法动态指定和在模板文件中通过自定义标签动态指定两种，下面将分别演示。&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				除了绑定保存，wabacus框架还支持绑定删除，因为这个用的少，没在这里演示，在《Wabacus框架开发指南》文档中有介绍
+			</userdata>
+			<item text="静态配置绑定保存" id="savemultireports_static">
+				<userdata name="pageid">savemultireports_staticpage1</userdata>
+				<userdata name="configfilename">report_editablefunc4.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=savemultireports_staticpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					同时保存多个报表是指可以在一个报表的保存按钮中，保存同一页面的其它多个报表的数据，如果一个报表被其它报表绑定保存，则它自己不再显示保存按钮。 &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					绑定保存是通过＜sql＞的savebinding属性配置，配置被绑定保存的报表ID，如果要绑定保存多个，则用分号分隔它们。 &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					注意：静态配置的绑定保存不能配置从报表绑定保存主报表的数据，但主报表可以绑定保存从报表
+				</userdata>
+			</item>
+			<item text="自定义标签动态指定绑定保存" id="savemultireports_tag">
+				<userdata name="pageid">savemultireports_tagpage1</userdata>
+				<userdata name="configfilename">report_editablefunc4.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=savemultireports_tagpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在此页面中，为第一个报表配置了一个动态模板，然后在其动态模板文件中显示了三个绑定保存按钮，分别绑定保存剩下的两个报表。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					注意：如果是在A报表的模板文件中的＜wx:button/＞中指定savebinding时没有指定A报表自己的ID，它也会绑定保存A报表，比如＜wx:button type=”save” savebindng=”B”/＞，
+					则此按钮会同时保存A和B报表，如果指定为＜wx:button type=”save” savebinding=”B;C”/＞，则点击此按钮时会同时绑定保存A、B、C三个报表。
+				</userdata>
+			</item>
+			<item text="javascript方法动态指定绑定保存" id="savemultireports_js">
+				<userdata name="pageid">savemultireports_jspage1</userdata>
+				<userdata name="configfilename">report_editablefunc4.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=savemultireports_jspage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里为演示了使用框架的saveEditableReportData()方法动态指定要保存和删除数据的报表，关于此方法的介绍，请参看《Wabacus框架接口方法》。
+				</userdata>
+			</item>
+		</item>
+		
+		<item text="默认值" id="defaultvalue">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+			&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示的默认值是针对编辑列的，对于查询条件中的默认值在“数据展示篇”中已经演示过了。&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				默认值分两种：一种是输入框的默认值，配置在＜col/＞下的＜inputbox/＞的defaultvalue属性中，当此列没有数据显示时，将在它对应的输入框中显示输入框默认值；&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				另一种是列的默认值，配置在＜col/＞的defaultvalue属性中，它跟前台显示无关而是在保存时，如果没有取到此列的保存数据，将用这里配置的默认值保存到数据库对应字段中。&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里只演示了可编辑数据自动列表报表，对于可编辑细览报表配置方式与意义完全一样，这里没做演示。
+			</userdata>
+			<item text="输入框默认值" id="inputboxdefaultvalue">
+				<userdata name="pageid">inputboxdefaultvaluepage1</userdata>
+				<userdata name="configfilename">report_editablefunc1.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=inputboxdefaultvaluepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					输入框默认值是指当在编辑某个列时，此列没有数据，则在其输入框中显示的默认值，它配置在＜col/＞下的＜inputbox/＞的defaultvalue属性中。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					defaultvalue属性可配置如下几种类型的默认值：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1）、配置为常量，此时直接配置为defaultvalue=”value”；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2）、配置为从request中取数据做为默认值，此时配置为defaultvalue=”url{key}”；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					3）、配置为从session中取数据做为默认值，此时配置为defaultvalue=”session{key}”。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					输入框默认值与保存数据无关，如果保存时清除了此输入框中的值，则此列将会保存空数据到相应字段中。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在此演示中，用户可以添加记录然后编辑配置有输入框默认值的列，则会在其中看到自动填充为它们配置的默认值。
+				</userdata>
+			</item>
+			<item text="列默认值" id="coldefaultvalue">
+				<userdata name="pageid">coldefaultvaluepage1</userdata>
+				<userdata name="configfilename">report_editablefunc1.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=coldefaultvaluepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					列默认值是指当保存数据时，如果某个列没有要保存的数据，则将用户在此列中配置的默认值保存到相应字段中，它配置在列＜col/＞的defaultvalue属性中，&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					defaultvalue属性可配置如下几种类型的默认值：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1）、配置为常量，此时直接配置为defaultvalue=”value”；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2）、配置为从request中取数据做为默认值，此时配置为defaultvalue=”url{key}”；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					3）、配置为从session中取数据做为默认值，此时配置为defaultvalue=”session{key}”。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					列默认值跟前台显示无关，而是在保存时，如果没有取到此列的保存数据，将用这里配置的默认值保存到数据库对应字段中。
+				</userdata>
+			</item>
+		</item>
+		
+		<item text="客户端/服务器端校验" id="editablevalidate">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+			&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			在数据展示篇中，我们演示了针对查询框的客户端/服务器端校验配置，这里要演示的是针对编辑输入框的客户端/服务器端校验配置，其实配置方法是完全一样的。&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			同样，客户端校验也分两种，一种是普通的，一种是增强型的，即失去焦点时会先进行一次校验，保存时再进行一次校验。后面都会演示到
+			</userdata>
+			<item text="客户端/服务器端校验" id="editablevalidate1">
+				<userdata name="pageid">editablevalidatepage1</userdata>
+				<userdata name="configfilename">report_editablefunc1.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editablevalidatepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在此页面中演示了为报表编辑输入框配置服务器端校验和普通的客户端校验功能，分别通过＜inputbox/＞输入框的jsvalidate和servervalidate两个属性进行配置，
+					配置方式与“数据展示篇”介绍的为查询条件输入框配置客户端/服务器端校验方式完全一样。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在这个演示报表中：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					为工号、年龄、出生日期、工资几列配置了客户端校验，且年龄和出生日期两列分别配置了两个客户端校验方法。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					为工号、年龄、所属部门、省、市、县几列配置了服务器端校验，且年龄列配置了两个服务器端校验方法。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					另外，这里没有演示数据细览报表的两个编辑方式下如何配置客户端/服务器端校验，配置方式与此完全相同。
+				</userdata>
+			</item>
+			<item text="增强型客户端校验" id="editablevalidate2">
+				<userdata name="pageid">editablevalidatepage2</userdata>
+				<userdata name="configfilename">report_editablefunc1.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editablevalidatepage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					此页面的客户端/服务器端校验列与校验逻辑与上一页面完全一样，只是将客户端校验改为增强型的校验，即输入框在失去焦点时即会进行
+					一次客户端校验。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					要进行增强型客户端校验，只需将＜report/＞的jsvalidatetype配置为1即可，也可以在wabacus.cfg.xml中进行全局默认配置。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					另外，这里没有演示数据细览报表的两个编辑方式下如何配置客户端/服务器端校验，配置方式与此完全相同。
+				</userdata>
+			</item>
+		</item>
+		<item text="客户端保存回调函数" id="clientsavecallback">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				在框架保存数据前和保存数据后，开发人员可以让框架分别执行一个js方法。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				在保存操作前执行的js方法称为保存前客户端回调函数。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				在保存完后执行的js方法称为保存后客户端回调函数。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				后面会对这两个回调函数进行演示。
+			</userdata>
+			<item text="保存前客户端回调函数" id="clientsavecallback_before">
+				<userdata name="pageid">clientsavecallback_beforepage1</userdata>
+				<userdata name="configfilename">report_editablefunc1.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=clientsavecallback_beforepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					保存前客户端回调函数是配置在＜sql/＞标签的beforesave属性中，只能配置一个回调函数方法名。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					保存前回调函数的方法必须如下签名：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					function  方法名(pageid,reportid,type)&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					{&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						return true;//执行保存操作&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+   						return false;//不执行保存操作&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					}&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					其中&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						pageid：为当前执行报表的＜page/＞的id值；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						reportid：为当前保存报表的＜report/＞的id值；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						type：只对EditableDetailReportType及其子类型EditableFormReportType有效，表示当前是进行什么类型的操作。可取值为：add、update、delete，分别表示当前进行添加、修改、删除操作。
+							  对于EditableListReportType2和EditableDetailReportType2两种报表类型，此参数无效，因为它们增、删、改操作都在保存时一起完成。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						返回值：true则会执行后续的保存操作，返回false则中断保存操作。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						如果是绑定保存多个报表，则每个配置有保存回调函数都会依次执行，只要有一个返回false，则会中断报表的保存动作。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在此演示DEMO中，保存前置动作第一次返回false，第二次返回true，依次类推。
+				</userdata>
+			</item>
+			<item text="保存后客户端回调函数" id="clientsavecallback_after">
+				<userdata name="pageid">clientsavecallback_after1page1</userdata>
+				<userdata name="configfilename">report_editablefunc1.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=clientsavecallback_after1page1&lt;br&gt;
+					保存后客户端回调函数是配置在＜sql/＞标签的aftersave属性中，配置格式为：方法名|[true|false]，只能配置一个回调函数方法名。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					其中第二个参数[true|false]是可选配置，表示执行完保存回调函数后，是否中止新页面的加载。如果后置动作是跳转到其它页面，则配置为中止，提升性能。默认为false，即保存后刷新页面。br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在保存后客户端回调函数中可以从全局变量WX_ALL_UPDATE_DATAS获取到当前报表的所有保存数据。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					WX_ALL_UPDATE_DATAS为一Map对象，键为当前保存的所有报表id（因为可能绑定保存多个报表），值为相应报表保存的数据，为一个Array对象，数组中每个Object对象存放待保存的每一行记录，此记录中每个参数在Object存放时，是以参数名为键，参数值为值。
+（说明：对于可编辑细览报表类型，因为每次只保存一条记录，因此它的Array数据中只有一个Object对象。）&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					保存后回调函数的签名比较简单，没有参数，没有返回值。
+				</userdata>
+			</item>
+		</item>
+		
+		<item text="保存拦截动作&lt;font color='red'&gt;New&lt;font/&gt;" id="saveinterceptor">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+			&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				为了方便开发人员控制报表的每个保存过程，并且能够轻松加入自己的实现，框架提供了一组接口，用户需要在哪个过程进行定制，则实现相应接口，框架会在相应阶段调用开发人员的实现。
+				而且开发人员在实现接口时，可以通过返回值控制保存流程，比如是继续保存还是中断保存等等。
+			</userdata>
+			<item text="保存报表动作" id="saveinterceptorreport">
+				<userdata name="pageid">saveinterceptorreportpage1</userdata>
+				<userdata name="configfilename">report_editablefunc3.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=saveinterceptorreportpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了在保存报表所有数据的拦截方法，并在这个方法中演示了如何读取本次要保存的所有数据，包括定义在＜params/＞中的变量数据，用户还可以在此拦截动作中修改它们，这样保存时会使用用户修改后的数据。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在保存前置动作中返回值有WX_RETURNVAL_SUCCESS、WX_RETURNVAL_SUCCESS_NOTREFRESH、WX_RETURNVAL_SKIP、WX_RETURNVAL_TERMINATE，意义请参看《开发指南》文档。
+				</userdata>
+			</item>
+			<item text="保存每条记录动作" id="saveinterceptorperrow">
+				<userdata name="pageid">saveinterceptorperrowpage1</userdata>
+				<userdata name="configfilename">report_editablefunc3.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=saveinterceptorperrowpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了在保存报表每条记录前的拦截方法，并在这个方法中演示了如何读取本条记录各列的数据以及相应本条记录的定义在＜params/＞中的变量数据，用户还可以在保存前置动作中修改它们，这样保存时会使用用户修改后的数据。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在保存前置动作中返回值有WX_RETURNVAL_SUCCESS、WX_RETURNVAL_SUCCESS_NOTREFRESH、WX_RETURNVAL_SKIP、WX_RETURNVAL_TERMINATE它们的意义请参看《开发指南》文档。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					注意：对于数据细览报表，只会有一条记录，因为它一次只能显示一条记录，而数据自动列表报表可能会同时保存或删除多条记录，所以会多次调用这对方法。
+				</userdata>
+			</item>
+			<item text="执行每条脚本动作" id="saveinterceptorpersql">
+				<userdata name="pageid">saveinterceptorpersqlpage1</userdata>
+				<userdata name="configfilename">report_editablefunc3.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=saveinterceptorpersqlpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了在保存报表每条记录时执行每个脚本语句前的拦截方法，并在这个方法中演示了如何读取本条记录各列的数据以及相应本条记录的定义在＜params/＞中的变量数据，以及要执行的SQL语句，框架会在调用
+					此方法时自动传进来，开发人员可以直接使用它们，此外，开发人员还可以在保存前置动作中修改它们，这样保存时会使用用户修改后的数据。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在保存前置动作中返回值有WX_RETURNVAL_SUCCESS、WX_RETURNVAL_SUCCESS_NOTREFRESH、WX_RETURNVAL_SKIP、WX_RETURNVAL_TERMINATE，它们的意义请参看《开发指南》文档。
+				</userdata>
+			</item>
+		</item>
+		
+		<item text="提供部分编辑功能" id="parteditable">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				提供部分编辑功能是指为一个可编辑报表只提供修改数据、添加数据、删除数据三个功能中的任意一个或两个。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				此功能只对“可编辑数据自动列表”报表和“可编辑数据细览”报表的第二种编辑方式的报表类型有效。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				对于“可编辑数据细览”报表的第一种编辑方式，因为只能提供修改功能，不能提供添加和删除功能，因此不存在提供部分和全部功能的问题。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			</userdata>
+			<item text="数据自动列表报表" id="parteditable1">
+				<userdata name="pageid">parteditable1page1</userdata>
+				<userdata name="configfilename">report_editablefunc1.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=parteditable1page1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了对可编辑数据自动列表报表提供部分或全部编辑功能的配置以及显示效果。其实也很简单，需要添加功能，则配置＜insert/＞标签，
+					需要修改功能，则配置＜update＞标签，需要删除功能，则配置＜delete/＞标签。
+				</userdata>
+			</item>
+			<item text="数据细览报表编辑方式二" id="parteditable2">
+				<userdata name="pageid">parteditable1page2</userdata>
+				<userdata name="configfilename">report_editablefunc1.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=parteditable1page1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了对数据细览报表编辑方式二提供部分或全部编辑功能的配置以及显示效果。其实也很简单，需要添加功能，则配置＜insert/＞标签，
+					需要修改功能，则配置＜update＞标签，需要删除功能，则配置＜delete/＞标签。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					对于数据细览报表编辑方式一只能配置修改功能，不能配置添加和删除功能，因此不存在配置部分和全部功能的问题。
+				</userdata>
+			</item>
+		</item>
+		<item text="控制编辑按钮显示位置" id="editablebuttons">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里介绍的是通过直接配置来控制各功能按钮的显示位置，这种控制方式简单，方便维护。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;此外，还有一种更灵活的控制方式是通过采用后面介绍的
+				自定义页面来显示报表，即在一JSP页面中灵活控制报表各部分的显示，其中就可以灵活控制种功能按钮的显示位置，不过这种方式需要写一JSP页面，不
+				是很方便，但更灵活。
+			</userdata>
+			<item text="控制数据自动列表报表按钮" id="editablebuttons1">
+				<userdata name="pageid">editablebuttonspage1</userdata>
+				<userdata name="configfilename">report_editablefunc1.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editablebuttonspage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了控制可编辑数据自动列表报表编辑按钮的显示位置，方法就是为需要重新指定显示位置的编辑按钮配置一个＜button＞标签，
+					让它继承各编辑按钮的内置配置，然后覆盖默认位置配置值，即此标签的position属性，在此属性中可以指定多个位置，用|号分隔。
+					可配置值为：searchbox、header、footer、title、navigate。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					注意：如果配置的位置当前报表不显示，比如配置一个按钮显示在翻页导航栏，即navigate，但当前报表是不分页显示的报表，则不会显示出此按钮。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这种类型的报表有三个编辑按钮：添加、保存、删除，它们内置配置的key分别为：add2.button.default、save2.button.default
+					、delete2.button.default，配置时，只要将相应的＜button＞标签的extend属性指定为对应内置编辑按钮的key，写法格式为${key}，然后再覆盖掉其位置position
+					属性，具体参看此报表关于按钮的配置。
+				</userdata>
+			</item>
+			<item text="控制数据细览报表按钮" id="editablebuttons2">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				</userdata>
+				<item text="编辑方式一报表按钮" id="editablebuttons2_1">
+					<userdata name="pageid">editablebuttonspage2</userdata>
+					<userdata name="configfilename">report_editablefunc1.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editablebuttonspage2&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示了控制可编辑数据细览报表编辑方式一的编辑按钮的显示位置，这种报表类型只有一个编辑按钮，即保存，它的内置配置的key为save2.button.default。
+						配置方式与上面演示的可编辑数据自动列表报表方式一样。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						注意：这种报表类型没有翻页导航栏，因此指定位置时不能指定为navigate。
+					</userdata>
+				</item>
+				<item text="编辑方式二报表按钮" id="editablebuttons2_2">
+					<userdata name="pageid">editablebuttonspage3</userdata>
+					<userdata name="configfilename">report_editablefunc1.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editablebuttonspage3&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示了控制可编辑数据细览报表编辑方式二的编辑按钮的显示位置，这种报表类型有：添加、删除、修改、保存、取消、重填等几个编辑按钮，
+						它们内置配置的key分别为：add.button.default、delete.button.default、modify.button.default、save.button.default、
+						cancel.button.default、reset.button.default。
+						控制它们显示位置的配置方式与上面可编辑数据自动列表报表方式一样。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						注意：这种报表类型没有翻页导航栏，因此指定位置时不能指定为navigate。
+					</userdata>
+				</item>
+			</item>
+		</item>
+		<item text="常见输入框&lt;font color='red'&gt;New&lt;font/&gt;" id="inputbox">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示框架支持的输入框类型，开发人员也可以新增新的输入框类型，只要增加一个实现类即可。
+			</userdata>
+			<item text="文本框/多行文本框" id="commoninputbox">
+				<userdata name="pageid">commoninputboxpage1</userdata>
+				<userdata name="configfilename">report_editablefunc2.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=commoninputboxpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了四种输入框类型：“部门编号”、“部门名”列采用普通文本框“创建日期”列采用日期选择框；
+					“简介”列采用多行文本框。并同时演示了它们显示在三种报表类型下的效果。
+				</userdata>
+			</item>
+			<item text="密码框" id="passwordinputbox">
+				<userdata name="pageid">passwordinputboxpage1</userdata>
+				<userdata name="configfilename">report_editablefunc2.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=passwordinputboxpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					框架提供的密码框包括两种，普通密码框和加密密码框，普通密码框是将密码以明文的形式显示在密码框中，显示位数与实际位数完全一致。
+					加密密码框是将密码以加密后的形式显示在密码框中，无论密码是多少位，显示在加密密码框中的位数都是开发人员指定的位数。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					加密密码框与普通密码框的配置方式基本一样，都是将＜inputbox/＞标签的type配置为passwordbox，如果要使用加密密码框，则需要配置其encodelength属性，指定加密后的位数，指定的位数必须大于等于5，
+					即最少加密成5位或以上。
+				</userdata>
+			</item>
+			<item text="单选框/下拉框/复选框&lt;font color='red'&gt;New&lt;font/&gt;" id="selectoptions">
+				<userdata name="pageid">selectoptionspage1</userdata>
+				<userdata name="configfilename">report_editablefunc2.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=selectoptionspage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了单选框和下拉框两种输入框类型，其中“性别”列采用用单选框；“所属部门”列采用下拉框；“省”、“市”、“县”三列也都采用下拉框，
+					而且是相互关联的下拉框，“市”列下拉选项数据依赖“省”列下拉框的选中值，“县”列下拉框的选项数据依赖“市”列下拉框所选中的数据。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					另外，这里还演示了可输入的下拉框和通过JAVA类获取下拉选项列表的方法，复选框和单选框的选项列表也可以通过JAVA类提供，方法与下拉框一致，这里没做演示。
+				</userdata>
+			</item>
+			<item text="日期选择框" id="datepicker">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了两种日期选择框，分别是两种第三方组件，其中第一种组件功能更强，支持各种格式的日期、时间的选择
+				</userdata>
+				<item text="日期选择框一" id="datepicker1">
+					<userdata name="pageid">datepickerpage1</userdata>
+					<userdata name="configfilename">report_editablefunc2.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=datepickerpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这种日期选择框是采用My97DatePicker组件，支持多皮肤、多语言、多种格式的日期、时间选择，这种日期选择框的＜inputbox/＞有两个专有属性：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						dateformat属性：用于配置日期选择框选择的日期、时间格式，比如：yyyy-MM-dd、MM/dd/yyyy、MM/dd/yyyy HH:mm:ss、HH:mm:ss等等，默认为yyyy-MM-dd；&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						inputboxparams属性：可以通过json方式指定My97DatePicker组件的WdatePicker()方法接受的任何参数。例如：inputboxparams="dateFmt:'MM/dd/yyyy',lang:'en',skin:'whyGreen'"，
+						关于WdatePicker()方法可接受的参数，请参看这个组件的介绍。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						如果即在＜inputbox/＞配置了dateformat或language属性，又通过inputboxparams属性指定了这两个参数，则inputboxparams中指定的优先级更高。
+					</userdata>
+				</item>
+				<item text="日期选择框二" id="datepicker2">
+					<userdata name="pageid">datepickerpage2</userdata>
+					<userdata name="configfilename">report_editablefunc2.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=datepickerpage2&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这种日期选择框是采用另一个日期组件，如果配置为这种日期选择组件，则将＜inputbox/＞的type属性配置为datepicker2，此时此标签只有一个专有属性dateformat，
+						例如，可以将它配置为y-mm-dd、mm/dd/y等等，注意：这种日期选择框不支持时间的选择。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						要切换这种日期选择框的语言，只能通过＜inputbox/＞的lanuage属性，可配置为en、zh等。
+					</userdata>
+				</item>
+			</item>
+			<item text="富文本编辑器" id="richtextbox">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了如何配置富文本编辑器输入框，只能在editabledetail、form两种报表表单类型的编辑列中配置这种输入框，其它可编辑报表类型则不允许配置这种输入框
+				</userdata>
+				<item text="中文版" id="richtextboxcn">
+					<userdata name="pageid">richtextboxcnpage1</userdata>
+					<userdata name="configfilename">report_editablefunc2.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=richtextboxcnpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						富文本编辑器只能配置在editabledetail、form两种报表类型的编辑列中，其它报表类型（比如editabledetail2、editablelist2、listform）的编辑列不能配置这种类型的输入框。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						要配置这种类型的输入框，只要将＜inputbox/＞的type配置为richtextbox即可，此时＜inputbox/＞有一个inputboxparams属性，可以指定富文本编辑器可接受的所有参数，以json形式组织。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						在wabacus.jar包的wabacus.resources.default.xml中配置了一个key为richtextbox.params.default的全局默认的参数，如果想控制整个项目复文本编辑器的行为，可以修改这个全局默认配置，
+						如果想修改某一个富文本编辑器的行为，则通过＜inputbox/＞的inputboxparams属性即可。
+					</userdata>
+				</item>
+				<item text="英文版" id="richtextboxen">
+					<userdata name="pageid">richtextboxenpage1</userdata>
+					<userdata name="configfilename">report_editablefunc2.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=richtextboxenpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示的英文版与上面的中文版配置一样，只是将＜inputbox/＞的language的属性配置为en，此时它将显示成英文版形式&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						其实也可以通过在inputboxparams属性中指定lanugage:'en'也可以将此编辑框指定为英文版。
+					</userdata>
+				</item>
+			</item>
+			<item text="弹出输入框窗口" id="popup">
+				<userdata name="pageid">popuppage1</userdata>
+				<userdata name="configfilename">report_editablefunc2.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=popuppage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示弹出窗口输入框的配置方法和显示效果，弹出窗口中选择的内容可以只回填到源页面对应的输入框中，还可以为其它列赋值，赋的值可以相同，也可以完全不同。
+					另外，弹出窗口输入框的源输入框可以是普通文本框（默认），也可以多行文本框。
+				</userdata>
+			</item>
+			<item text="文件上传输入框" id="fileupload">
+				<userdata name="pageid">fileuploadpage1</userdata>
+				<userdata name="configfilename">report_editablefunc2.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=fileuploadpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了如何使用文件上传输入框上传各种类型的文件，以及如何使用拦截器控制显示界面和上传后待保存到数据库的值
+				</userdata>
+			</item>
+			<item text="定制编辑输入框" id="customizeinputbox">
+				<userdata name="pageid">customizeinputboxpage1</userdata>
+				<userdata name="configfilename">report_editablefunc2.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=customizeinputboxpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					使用自己的输入框有两种方式：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1、新增一输入框实现类，像框架内置的各种输入框类型实现类一样，然后在系统配置文件中注册，使用时，将＜inputbox/＞的type指定为
+					   注册的name属性即可，这种方式对所有报表类型的编辑框和查询条件输入框都有效，但实现有点复杂，在此不做演示。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2、对于editabledetail可编辑报表类型以及普通表单类型，可以为任意可编辑列提供自己的输入框，而且实现非常简单，不过要在自定义jsp页面中
+					编写。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示的就是第2种情况下如何提供自己的输入框，包括如下几步：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1）、配置上没什么不同，但在JSP显示此列时，需要将＜wx:data/＞的inputbox属性设置为false&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2）、如果为此列配置了客户端校验，则在JSP显示此输入框时，需要为它分配一id属性，值为reportid+＜col/＞的property，
+					如果没有配置客户端js校验函数，则可以不分配id属性。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					3）、在自己实现的输入框对象的某个事件（比如onblur，onclick等）将用户新输入的值设置到框架中，方法是调用框架的js函数setInputBoxValue(boxObj,value);
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在此演示页面中，“表现”、“简介”两个数据的输入框是用户在自定义页面中自己实现的，而没有用框架提供的输入框。
+					且“简介”列配置了客户端校验，因此给它分配了id属性，值为“report1description”。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					关于在普通表单中使用自定义输入框的演示，请参看“表单篇”中相应部分的演示。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					关于自定义页面，请参看下面“自定义页面”的演示。
+				</userdata>
+			</item>
+		</item>
+		<item text="编辑特殊字段类型" id="columntype">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+			&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			这里介绍一些比较特殊的字段的编辑方法
+			</userdata>
+			<!--item text="日期类型字段" id="page">
+				<userdata name="pageid">detailpage1</userdata>
+				<userdata name="configfilename">report_reportypes.xml</userdata>
+				<userdata name="desc">
+				</userdata>
+			</item-->
+			<item text="大字段" id="clob">
+				<userdata name="pageid">clobpage1</userdata>
+				<userdata name="configfilename">report_editablefunc3.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=clobpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了大字符串类型字段的读写方法，其实和普通字段没什么两样，只要将所在＜report/＞标签的datatype声明为clob即可，其它
+					框架都会自动处理好。
+					对于Oracle早期版本的数据库，如果是配置添加操作，就略为有点特殊，需要在＜insert/＞中配置插入数据的SQL语句时，需要象配置更新
+					语句一样，配置查询条件，比如某个报表的description字段为大字符串类型，它在Oracle的插入数据的SQL语句配置为：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					＜insert＞&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						insert into tbl_department(guid=uuid{},@{deptno},@{deptname},@{manager},@{builtdate},@{performance},@{description}) &lt;b&gt;where deptno=@{deptno__old}&lt;/b&gt;;&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					＜/insert＞&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果采用的是oracle10g的jdbc驱动，则不用这么配置，只要像其它数据库一样，配置成如下形式即可：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					＜insert＞&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						insert into tbl_department(guid=uuid{},@{deptno},@{deptname},@{manager},@{builtdate},@{performance},@{description});&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					＜/insert＞
+				</userdata>
+			</item>
+			<item text="自动增长字段" id="increase">
+				<userdata name="pageid">increasepage1</userdata>
+				<userdata name="configfilename">report_editablefunc3.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=increasepage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了数据表中有自动增长列时的编辑方法。此报表的ID列对应的id字段类型为数据自动增长列类型，在编辑这种类型的报表数据时，
+					有如下要求：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1、因为此字段在添加时不用指定添加值，因此不能出现在＜insert/＞配置的添加字段列表中；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2、因为此字段在修改时不允许修改，因此不能出现在＜update/＞配置的修改字段列表中，但可以做为条件出现在修改SQL语句的where子句中；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					3、出现在修改和删除SQL语句中时，配置方式与其它列无异。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					4、对于不支持自动增长列的数据库，比如Oracle，不能采用自动增长列的字段，因此这里演示的报表不能在Oracle数据库中进行添加操作。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					5、目前暂不支持这种字段类型做为一个表的主键的同时，又做为另一个表的外键，这种情况添加操作不能成功。如果两个表有主外键关系，可以采用其它字段或uuid或sequence字段做为键，不能采用自动增长字段。
+				</userdata>
+			</item>
+			<item text="UUID字段" id="uuid">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示使用uuid字段做为主键和同时做为外键的保存配置
+				</userdata>
+				<item text="只做主键" id="uuid1">
+					<userdata name="pageid">uuidpage1</userdata>
+					<userdata name="configfilename">report_editablefunc3.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=uuidpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示以UUID字段做为主键时进行增、删、改数据的配置，有如下几点需要说明：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						1、uuid类型的字段因为是在插入记录时由系统自动生成，不能修改，因此不能出现在＜update/＞配置的更新字段列表中。
+						但可以出现在＜update/＞和＜delete/＞条件子句即where子句中，在where子句中的配置方式与普通字段无异。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						2、在添加操作时，因为是由系统自动生成，因此配置方法为：“uuid字段名=uuid{}”。比如这里的配置如下所示：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						＜insert＞
+		  		 			insert into tbl_department(&lt;b&gt;guid=uuid{}&lt;/b&gt;,@{deptno},@{deptname},@{manager},@{builtdate},@{description});
+			  			＜/insert＞
+					</userdata>
+				</item>
+				<item text="同时做主键和外键" id="uuid2">
+					<userdata name="pageid">uuidpage2</userdata>
+					<userdata name="configfilename">report_editablefunc3.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=uuidpage2&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示一个UUID类型的字段即是一个表的主键，又是另一个表的外键的编辑配置。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						如果一个UUID字段即是一个表的主键，又是另一个表的外键，则在插入此字段时，不能两边都直接在插入数据的SQL语句中用uuid{}进行
+						赋值，否则系统会为它们各生成一个新的UUID值，这样主键和外键的值就不一致了。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						正确的做法是利用框架提供的＜params/＞标签定义一个变量，分配一个变量名，赋一uuid的值，后面要用此uuid值的字段都通过
+						此变量名进行赋值，这样它们的UUID值就完全一致了。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						比如此处演示的报表中，guid字段即是tbl_department表的主键，又是tbl_dept_pingjia表的外键，因此在配置时＜insert/＞中定义
+						了一个＜value name="myguid" value="uuid{}"/＞变量，后面配置的插入两个表的数据中都使用了此变量名为各自的guid字段赋值，配置如下：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+		  		 		insert into tbl_department(&lt;b&gt;guid=#{myguid}&lt;/b&gt;,@{deptno},@{deptname},@{manager},@{builtdate},@{description});&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+		  		 		insert into tbl_dept_pingjia(&lt;b&gt;guid=#{myguid}&lt;/b&gt;,@{pingjia});&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+		  		 		注意：对于修改和删除操作，这种字段类型只能出现在where子句中做为条件，使用方法与普通字段无异。
+					</userdata>
+				</item>
+			</item>
+			<item text="sequence字段" id="sequencecol">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示使用sequence字段做为主键和同时做为外键的保存配置，注意：只有支持序列的数据库类型才能配置sequence字段。
+				</userdata>
+				<item text="只做主键" id="sequencecol1">
+					<userdata name="pageid">sequencecolpage1</userdata>
+					<userdata name="configfilename">report_editablefunc3.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=sequencecolpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示以sequence字段做为主键时进行增、删、改数据的配置，有如下几点需要说明：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						1、只有支持sequence的数据库，比如oracle才能配置这种方式的ID；&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						2、sequence类型的字段因为是在插入记录时由数据库利用某个序列自动生成，不能修改，因此不能出现在＜update/＞配置的更新字段列表中。
+						但可以出现在＜update/＞和＜delete/＞条件子句即where子句中，在where子句中的配置方式与普通字段无异。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						2、在添加操作时，因为是由系统自动生成，因此配置方法为：“sequence字段名=sequence{序列名}”。比如这里的配置如下所示：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						＜insert＞
+		  		 			insert into tbl_zhaoping(&lt;b&gt;id=sequence{seq_zhaoping}&lt;/b&gt;,@{zhiwei},@{salary},@{count},@{xueli});
+			  			＜/insert＞
+					</userdata>
+				</item>
+				<item text="同时做主键和外键" id="sequencecol2">
+					<userdata name="pageid">sequencecolpage2</userdata>
+					<userdata name="configfilename">report_editablefunc3.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=sequencecolpage2&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示一个sequence类型的字段即是一个表的主键，又是另一个表的外键的编辑配置。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						如果一个sequence字段即是一个表的主键，又是另一个表的外键，则在插入此字段时，不能两边都直接在插入数据的SQL语句中用sequence{序列名}进行
+						赋值，否则系统会为它们各生成一个新的sequence值，这样主键和外键的值就不一致了。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						正确的做法是利用框架提供的＜params/＞标签定义一个变量，分配一个变量名，赋一sequence的值，后面要用此sequence值的字段都通过
+						此变量名进行赋值，这样它们的sequence值就完全一致了。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						比如此处演示的报表中，id字段即是tbl_zhaoping表的主键，又是tbl_zhaopingdesc表的外键，因此在配置时＜insert/＞中定义
+						了一个＜params＞＜value name="id" value="sequence{seq_zhaoping}"/＞＜/params＞变量，
+						后面配置的插入两个表的数据中都使用了此变量名为各自的id字段赋值，配置如下：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+		  		 		insert into tbl_zhaoping(&lt;b&gt;id=#{id}&lt;/b&gt;,@{zhiwei},@{salary},@{count},@{xueli});&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+		  		 		insert into tbl_zhaopingdesc(&lt;b&gt;id=#{id}&lt;/b&gt;,@{yaoqiu},@{description});&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+		  		 		注意：对于修改和删除操作，这种字段类型只能出现在where子句中做为条件，使用方法与普通字段无异。
+					</userdata>
+				</item>
+			</item>
+		</item>
+		
+		<item text="保存其它数据" id="saveotherdata">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				保存的数据来源除了用户在输入框中输入的以及从数据库中取出的数据，还可以来自于如下途径：&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				1、url传递过来的数据，注意：是指进入编辑页面时从URL传递过来的数据，而不是点击保存按钮时的URL中的数据&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				2、session中的数据&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				3、当前日期/时间&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				4、框架生成的uuid数据&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				5、sequence序列生成的数据。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				6、用户在保存前置动作中动态构造的数据&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				以上1-5种类型的数据都是通过＜insert/＞、＜update/＞、＜delete/＞三个标签的子标签＜params/＞进行定义的。
+				第6种也要在＜params/＞中进行定义，然后在保存前置动作中动态修改它的值。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里不演示保存第4、5两种类型的数据，在“编辑特殊字段类型”部分已经对它们进行了演示。
+			</userdata>
+			<item text="通过＜params＞直接配置保存外部数据" id="otherdata1">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=otherdatapage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示直接保存通过＜params/＞定义的“URL传递过来的数据”、“request中的数据”、“Session中的数据”、“当前日期/时间”等几种类型的数据，
+					关于＜params/＞中可以取用什么类型的数据，请参看《Wabacus框架开发指南》中的“＜params/＞定义值”一节。
+				</userdata>
+				<item text="保存request中的数据" id="otherdata_request">
+					<userdata name="pageid">otherdata_requestpage1</userdata>
+					<!--userdata name="params">&amp;descrip=default description</userdata-->
+					<userdata name="configfilename">report_editablefunc4.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=otherdata_requestpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示某列的保存数据来自request中，这种数据包括两种类型：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							1、值直接存放在request中，此时将变量的value定义为：value="request{key}" &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							2、值存放在request的一个POJO对象的属性中，并且为此属性提供了get方法，此时将变量的value定义为：value="request{变量key.属性名}&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							定义好变量好，使用变量的方法与普通变量一致，通过在更新数据的SQL语句中指定“字段名＝#{变量名}”&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							在这个演示页面中，在报表的拦截器前置动作里面向request中存放了一个数据，然后在配置＜insert/＞时，配置了一个名为desc，值为request{key}的变量，
+							并在插入数据的SQL语句中配置了description=#{desc}，说明插入数据时，description列的数据从此变量中获取进行保存。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						所以添加记录时，“简介”列不允许输入数据，而是request中存放的指定数据。
+					</userdata>
+				</item>
+				<item text="保存来自session中的数据" id="otherdata_session">
+					<userdata name="pageid">otherdata_sessionpage1</userdata>
+					<userdata name="configfilename">report_editablefunc4.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=otherdata_sessionpage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示某列的保存数据来自session中，这种数据包括两种类型：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							1、值直接存放在session中，此时将变量的value定义为：value="session{key}" &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							2、值存放在session的一个POJO对象的属性中，并且为此属性提供了get方法，此时将变量的value定义为：value="session{变量key.属性名}&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							定义好变量好，使用变量的方法与普通变量一致，通过在更新数据的SQL语句中指定“字段名＝#{变量名}”&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+							在这个演示页面中，在报表的拦截器前置动作里面向session中存放了一个数据，然后在配置＜insert/＞时，配置了一个名为desc，值为session{key}的变量，
+							并在插入数据的SQL语句中配置了description=#{desc}，说明插入数据时，description列的数据从此变量中获取进行保存。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						所以添加记录时，“简介”列不允许输入数据，而是session中存放的指定数据。
+					</userdata>
+				</item>
+				<item text="保存当前日期/时间" id="otherdata_date">
+					<userdata name="pageid">otherdata_datepage1</userdata>
+					<userdata name="configfilename">report_editablefunc4.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=otherdata_datepage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示取当前日期/时间保存到某个字段中。在此演示中，添加记录时，“创建日期”列不能编辑，会自动取当前日期进行保存
+					</userdata>
+				</item>
+			</item>
+			<item text="保存客户端传入的任意数据" id="otherdata_client">
+				<userdata name="pageid">otherdata_clientpage1</userdata>
+				<userdata name="configfilename">report_editablefunc4.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=otherdata_clientpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果在保存时，希望将客户端的某数据传到后台进行保存或做为保存的条件，则可以通过为它配置一个保存前客户端回调js函数(这种函数的参数请参看《Wabacus框架开发指南》)，
+					然后在客户端回调函数中利用框架的setCustomizeParamValue(pageid,reportid,参数名,参数值)方法将自定义数据传给后台。后台要使用这里传过来的参数有两种办法： &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						1、直接在＜update/＞、＜insert/＞、＜delete/＞配置的更新SQL语句中通过“!{参数名}”的方式使用，比如update ... colname=!{customname}...，这里的colname为字段名，customname为客户端传过来的参数名
+						这种方式配置方便，但只有传过来的数据为字符串类型时才行，如果为非字符串类型，则用第二种办法； &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						2、在＜params/＞定义一个变量，让其值为“!{参数名}”的方式，然后这个变量就像其它变量一样，可以用在更新数据的SQL语句中。这种方式可以在变量中指定它的数据类型。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						在这里同时演示了上面两种情况，每次增、删、改记录时，都会在日志表中写一条记录，其中更新时间由客户端传入固定值‘2011-10-22 11:11:11’，内容为客户端拼凑好的本次操作的记录，它们一个定义在变量中，另一个直接写在更新数据的SQL语句中。
+				</userdata>
+			</item>
+			<item text="保存服务器端构造的任意数据" id="otherdata_server">
+				<userdata name="pageid">otherdata_serverpage1</userdata>
+				<userdata name="configfilename">report_editablefunc4.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=otherdata_serverpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					开发人员可以在服务器端的拦截器的保存前置动作中，动态构造任意复杂的数据进行保存。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在此页面演示的报表中，增、删、改数据时，均会向日志表tbl_log中记录一条日志。在日志中主要记录如下两方面的内容：&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1、当前时间：通过在＜insert/＞、＜update/＞、＜delete/＞的＜params/＞定义一个取当前时间的变量，然后将它写到
+					日志表中。因为要同时记录日期和时间，因此变量类型为timestamp；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2、日志内容：记录一条描述信息，里面包括当前增、删、改的部门编号和部门名称。这个也是通过在＜insert/＞、＜update/＞、＜delete/＞的＜params/＞
+					定义一个名为logcontent，值为空的变量。这个值在保存数据的前置动作中动态进行构造，并将构造的结果字符串写入此变量中，最后保存时使用的变量值即为构造后的字符串。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					注意查看此报表用到的拦截器com.wabacusdemo.Interceptor_otherdata_serverpage1类，看它是如何取出用户增、删、改的记录中某列的值，以及如何更新所定义的变量值。
+				</userdata>
+			</item>
+		</item>
+		
+		<item text="编辑分组显示报表" id="editgroupreport">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里的分组是指行分组以及树形分组报表，对于这两种分组类型的报表，可以对其数据进行增、删、改操作。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				配置可编辑的分组显示的报表与配置普通可编辑报表方法完全一样。
+			</userdata>
+			<item text="编辑行分组报表" id="editrowgroup">
+				<userdata name="pageid">editcommonrowgrouppage2</userdata>
+				<userdata name="configfilename">report_editablefunc4.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editcommonrowgrouppage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示通过editablelist报表类型来编辑行分组报表的配置方式与效果，这种报表类型中，“添加”和“修改”都是通过弹出一editabledetail/form两种报表类型之一来完成，删除时才是直接在此报表本身完成。
+				</userdata>
+			</item>
+			<item text="编辑树形分组报表" id="edittreerowgroup">
+				<userdata name="pageid">editcommontreerowgrouppage2</userdata>
+				<userdata name="configfilename">report_editablefunc4.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editcommontreerowgrouppage2&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示通过editablelist报表类型来编辑树形分组报表的配置方式与效果，这种报表类型中，“添加”和“修改”都是通过弹出一editabledetail/form两种报表类型之一来完成，删除时才是直接在此报表本身完成。
+				</userdata>
+			</item>
+		</item>
+		<item text="动态指定访问模式" id="editableAccessmode">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				对于可编辑报表类型，都可以以只读的方式访问它们，此时与相应的数据展示报表类型显示效果一致，不会提供编辑功能。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				以只读方式访问某个报表的方法为：在URL中指定reportid+"_ACCESSMODE=readonly"即可，其中reportid为要访问报表的ID值。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				此功能对于需要权限控制的场合比较有用。 &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里为了方便显示以不同模式访问报表的链接，采用grid页面类型进行页面布局。关于这种页面类型，请看“数据展示篇”的页面类型部分关于此
+				报表类型的演示。
+			</userdata>
+			<item text="可编辑自动列表报表" id="editableAccessmodeList">
+				<userdata name="pageid">editableAccessmodeListPage1</userdata>
+				<userdata name="configfilename">report_editablefunc3.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editableAccessmodeListPage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					动态指定访问模式：是指对于配置的可编辑报表类型，可以通过在URL中指定参数实现以只读方式访问和以可编辑方式访问，这对权限控制非常有用。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了可编辑数据自动列表报表类型的两种访问模式，一种是默认的访问模式，此时可以编辑数据。另一种是只读访问模式，此时
+					显示效果与数据自动列表报表类型一致，只能浏览，不能编辑。
+				</userdata>
+			</item>
+			<item text="可编辑数据细览报表" id="editableAccessmodeDetail">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了两种可编辑细览报表类型的普通访问模式和只读访问模式显示效果。
+				</userdata>
+				<item text="编辑方式一" id="editableAccessmodeDetail1">
+					<userdata name="pageid">editableAccessmodeDetailPage1</userdata>
+					<userdata name="configfilename">report_editablefunc3.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editableAccessmodeDetailPage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示了第一种可编辑细览报表类型的默认访问模式和只读访问模式。
+					</userdata>
+				</item>
+				<item text="编辑方式二" id="editableAccessmodeDetail2">
+					<userdata name="pageid">editableAccessmodeDetailPage2</userdata>
+					<userdata name="configfilename">report_editablefunc3.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editableAccessmodeDetailPage2&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这里演示了第二种可编辑细览报表类型的默认访问模式和只读访问模式。其实对于这种报表类型，除了这两种访问模式，还有如下几种：&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						update：编辑模式，此时会直接以编辑状态显示此报表，即可编辑的列数据都会显示在相应的输入框中；&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						add：添加模式，此时会显示成添加新记录的状态，可以录入新记录。
+					</userdata>
+				</item>
+			</item>
+		</item>
+		<item text="根据访问模式进行格式化" id="editableFormat">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				上面已经演示了可编辑报表类型都有两种以上的访问模式，在格式化显示数据时，可以根据当前的显示模式进行不同的格式化，这样可以达到
+				不同的显示模式看到不同的显示效果的目的。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				对于有些报表类型，比如普通表单，此功能可以实现在添加数据时，为某些输入框提供默认值的功能。
+			</userdata>
+			<item text="可编辑自动列表报表" id="editableFormatList">
+				<userdata name="pageid">editableFormatListPage1</userdata>
+				<userdata name="configfilename">report_editablefunc3.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editableFormatListPage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这种报表类型只有两种访问模式，即默认访问模式和只读访问模式。在此演示的报表中，在＜format/＞方法中从rrequest对象中获取到当前
+					访问模式，如果是readonly，表示是只读模式访问，其它（一般是空值）则是默认的编辑模式。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					因此可以分两种情况对它们进行不同的格式化显示。这里是在只读访问模式时单独将工号列数据格式化为一个超链接。
+				</userdata>
+			</item>
+			<item text="可编辑数据细览报表" id="editableFormatDetail">
+				<userdata name="groupnode">true</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了两种可编辑细览报表类型的不同访问模式下进行不同的格式化显示的效果与配置方法。
+				</userdata>
+				<item text="编辑方式一" id="editableFormatDetail1">
+					<userdata name="pageid">editableFormatDetailPage1</userdata>
+					<userdata name="configfilename">report_editablefunc3.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editableFormatDetailPage1&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这种报表类型只有两种访问模式，即默认访问模式和只读访问模式。在此演示的报表中，在＜format/＞方法中从rrequest对象中获取到当前
+						访问模式，如果是readonly，表示是只读模式访问，其它（一般是空值）则是默认的编辑模式。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						因此可以分两种情况对它们进行不同的格式化显示。这里是在只读访问模式时将“部门编号”列格式化为一个超链接，
+						使用默认访问模式时，将“部门经理”列格式化为一超链接
+					</userdata>
+				</item>
+				<item text="编辑方式二" id="editableFormatDetail2">
+					<userdata name="pageid">editableFormatDetailPage2</userdata>
+					<userdata name="configfilename">report_editablefunc3.xml</userdata>
+					<userdata name="desc">
+						&lt;br&gt;
+						&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editableFormatDetailPage2&lt;br&gt;
+						&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						这种报表类型有read（默认）、readonly、add、update四种访问模式，这里演示了为这四种模式分别进行格式化的配置和显示效果。&lt;br&gt;
+						&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						在add模式进行格式化时有时候特别有用，它可以实现添加数据时，为某些列自动填上默认值。这里是自动为部门编号列自动填上111111数据。
+					</userdata>
+				</item>
+			</item>
+		</item>
+		
+		<item text="客户端调用服务器端方法" id="editableInvokeServerAction">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里只演示与可编辑报表类型有关的调用服务器端方法，所有在“数据展示篇”中演示过的调用方式对于可编辑报表类型都有效，这里不做重复演示
+			</userdata>
+			<item text="自动传入报表数据的调用" id="editableInvokeServerAction_auto">
+				<userdata name="pageid">editableInvokeServerAction_autopage1</userdata>
+				<userdata name="configfilename">report_editablefunc3.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editableInvokeServerAction_autopage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示客户端接口方法invokeServerActionForReportData()的使用，通过此方法调用服务器端JAVA类时，如果是可编辑报表类型editablelist2/listform/editabledetail2/editabledetail/form，不管
+					是以什么方式访问（只读还是可编辑），框架都会自动获取报表数据传入服务器端类，对于editablelist2/listform报表类型，还可以指定获取哪些记录的数据传入后台服务器端类。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了对可编辑报表在可编辑、只读模式下调用服务器端类，并在服务器端类中打印了传入的lstData参数数据，调用完后还调用了一个客户端回调函数，并在客户端回调函数中再次打印了传入服务器端类的数据。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					关于客户端调用服务器端方法的更多介绍，请参看《Wabacus框架开发指南》文档
+				</userdata>
+			</item>
+			<item text="直接配置脚本更新自动传入报表数据" id="editableInvokeServerAction_autodb">
+				<userdata name="pageid">editableInvokeServerAction_autodbpage1</userdata>
+				<userdata name="configfilename">report_editablefunc3.xml</userdata>
+				<userdata name="desc">
+					&lt;br&gt;
+					&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=editableInvokeServerAction_autodbpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了在客户端调用服务器端数据库操作的方法，并且是通过直接配置按钮的方式，而不像“数据展示篇”中演示的先配置按钮，再通过调用JS接口方法invokeComponentSqlActionButton()调用按钮的方式。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					因为这里演示的都是可编辑报表类型，因此在调用时框架会自动将报表数据传入后台，因此在为按钮配置的SQL语句中可以通过@{column}方式使用各＜col/＞的新旧值。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					注意：对于可编辑列，其旧值的参数名为column__old，新值参数名为column；对于不可编辑列，它只有旧值没有新值，参数名为column，而不是column__old。在使用时需要注意这一点。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示的SQL语句使用了“工号”一列的旧值，对于可编辑报表，因为此列可编辑，因此通过@{no__old}使用其旧值，而在只读报表中，因为此列不可编辑，因此通过@{no}使用其值。
+					如果一个可编辑报表的某列配置为可编辑，但被授权为不可编辑，则它仍有参数名分别为column__old和column的新旧值。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里没有演示使用存储过程和JAVA类进行更新，配置方法与“数据展示篇”中演示的“直接配置调用脚本”方法一致。
+				</userdata>
+			</item>
+		</item>
+	</item>
+	<!--==============================================================================-->
+	<!--=================================客户端接口方法的演示===================================-->
+	<!--==============================================================================-->
+	<item id="editableclientapi" text="常用客户端接口方法" im0="dhtmlxtree_icon.gif"
+		im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<item text="添加记录行" id="addrowapi">
+			<userdata name="pageid">addrowapipage1</userdata>
+			<userdata name="configfilename">report_clientapi.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=addrowapipage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				如果某个可编辑数据自动列表报表配置了添加功能（即配置了＜insert/＞），则框架不仅会为它自动提供“添加”按钮进行添加记录，还可以调用框架提供的javascript接口方法：
+				addListReportNewDataRow(pageid,reportid,dynDefaultValues)利用程序进行添加，添加时还可以为某此列的输入框指定默认值。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				注意：如果本报表没有配置添加功能，则不能调用此方法添加记录&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				关于此接口方法的介绍，请参看《Wabacus框架接口方法》文档
+			</userdata>
+		</item>
+		<item text="删除记录行" id="deleterowapi">
+			<userdata name="pageid">deleterowapipage1</userdata>
+			<userdata name="configfilename">report_clientapi.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=deleterowapipage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果某个可编辑数据自动列表报表配置了删除功能（即配置了＜delete/＞），则框架不仅会为它自动提供“删除”按钮进行删除操作，还可以调用框架提供的javascript接口方法：
+				 deleteEditableListReportRows(pageid,reportid,trObj)利用程序进行删除，最后一个trObj参数即为要删除的＜tr/＞对象，可以通过它们的id得到，因为每个记录行的＜tr/＞对象都会分配一个独立的ID。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				注意：如果本报表没有配置删除功能，则调用此方法不能完成删除操作&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				关于此接口方法的介绍，请参看《Wabacus框架接口方法》文档
+			</userdata>
+		</item>
+		<item text="设置编辑列输入框的值" id="setcolinputboxvalueapi">
+			<userdata name="pageid">setcolinputboxvalueapipage1</userdata>
+			<userdata name="configfilename">report_clientapi.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=setcolinputboxvalueapipage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了如何通过框架提供的javascript接口方法setReportInputBoxValue(pageid,reportid,reporttype,newvalues,conditions)设置三种可编辑报表类型的输入框的值&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					对于editabledetail报表类型，框架还提供了一个更为简单的专用方法来设置其上输入框的值，此方法签名为：setInputboxValueForDetailReport(pageid,reportid,paramname,paramvalue)
+					其中的paramname 列＜col/＞的column属性配置值； paramvalue 为此列输入框设置的新值&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					关于上面接口方法的更多介绍，请参看《Wabacus框架接口方法》文档&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里只演示了设置可编辑列上输入框的值，其实框架还提供了设置不可编辑列或隐藏列的值的接口方法，签名为：setEditableReportColValue(pageid,reportid,reporttype,newvalues,conditions)，
+					此方法的使用方法与setReportInputBoxValue(pageid,reportid,reporttype,newvalues,conditions)类似，这里没做演示，请参看《Wabacus框架接口方法》文档关于它的介绍
+			</userdata>
+		</item>
+		<item text="获取可编辑报表列的值" id="getcolvalueapi">
+			<userdata name="pageid">getcolvalueapipage1</userdata>
+			<userdata name="configfilename">report_clientapi.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=getcolvalueapipage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示了如何通过框架提供的javascript接口方法getEditableReportColValues(pageid,reportid,reporttype,columns,conditions)获取三种可编辑报表类型上的列的新旧值&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				注意：这个方法不光是获取输入框的值，对于不可编辑列或隐藏列，也可以通过此方法获取到值，它与setEditableReportColValue()方法对应，后者是设置编辑列上的值。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				关于上面接口方法的更多介绍，请参看《Wabacus框架接口方法》文档&lt;br&gt;
+			</userdata>
+		</item>
+		<item text="保存一个或多个报表" id="savereportapi">
+			<userdata name="pageid">savemultireports_jspage1</userdata>
+			<userdata name="configfilename">report_editablefunc4.xml</userdata>
+			<userdata name="desc">
+				&lt;br&gt;
+				&lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=savemultireports_jspage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了如何通过框架提供的javascript接口方法saveEditableReportData(params)保存一个或多个报表数据的方法&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					其实通过此方法还可以绑定删除多个报表的数据，而且保存和删除可以同时进行。关于上面接口方法的更多介绍，请参看《Wabacus框架接口方法》文档&lt;br&gt;
+			</userdata>
+		</item>
+	</item>
+</tree>

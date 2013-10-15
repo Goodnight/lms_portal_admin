@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/lmsportal/!svn/ver/7936/lms_portal_admin/trunk/src/resource/reportconfig/resources
+END
+resources_system_en.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/lmsportal/!svn/ver/7936/lms_portal_admin/trunk/src/resource/reportconfig/resources/resources_system_en.xml
+END
+resources_system_i18n.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/lmsportal/!svn/ver/7936/lms_portal_admin/trunk/src/resource/reportconfig/resources/resources_system_i18n.xml
+END

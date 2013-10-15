@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/lmsportal/!svn/ver/12185/lms_portal_admin/trunk/src/resource/reportconfig/report
+END
+userlearn.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/lmsportal/!svn/ver/12102/lms_portal_admin/trunk/src/resource/reportconfig/report/userlearn.xml
+END
+courselearn.xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/lmsportal/!svn/ver/12102/lms_portal_admin/trunk/src/resource/reportconfig/report/courselearn.xml
+END
+trainclassuser.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/lmsportal/!svn/ver/12102/lms_portal_admin/trunk/src/resource/reportconfig/report/trainclassuser.xml
+END
+orgcourse.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/lmsportal/!svn/ver/12102/lms_portal_admin/trunk/src/resource/reportconfig/report/orgcourse.xml
+END
+classusers.xml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/12102/lms_portal_admin/trunk/src/resource/reportconfig/report/classusers.xml
+END
+trainclassdetail.xml
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/lmsportal/!svn/ver/10394/lms_portal_admin/trunk/src/resource/reportconfig/report/trainclassdetail.xml
+END
+test.xml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/lmsportal/!svn/ver/7936/lms_portal_admin/trunk/src/resource/reportconfig/report/test.xml
+END
+orgcase.xml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/lmsportal/!svn/ver/12185/lms_portal_admin/trunk/src/resource/reportconfig/report/orgcase.xml
+END
+orgtrainclass.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/12102/lms_portal_admin/trunk/src/resource/reportconfig/report/orgtrainclass.xml
+END
+report.xml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/lmsportal/!svn/ver/7936/lms_portal_admin/trunk/src/resource/reportconfig/report/report.xml
+END
+orgdoc.xml
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/lmsportal/!svn/ver/12185/lms_portal_admin/trunk/src/resource/reportconfig/report/orgdoc.xml
+END
+usercourse.xml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/10898/lms_portal_admin/trunk/src/resource/reportconfig/report/usercourse.xml
+END

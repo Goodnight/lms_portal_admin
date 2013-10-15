@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/lmsportal/!svn/ver/11650/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/auth
+END
+user_manage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/6403/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/auth/user_manage.jsp
+END
+user_list_radio_auth.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/lmsportal/!svn/ver/6403/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/auth/user_list_radio_auth.jsp
+END
+user_list_small.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/lmsportal/!svn/ver/9453/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/auth/user_list_small.jsp
+END
+checkAuthUser.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/auth/checkAuthUser.jsp
+END
+auth_manage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/9594/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/auth/auth_manage.jsp
+END
+user_list_multi.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/lmsportal/!svn/ver/11649/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/auth/user_list_multi.jsp
+END
+user_list_radio.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/lmsportal/!svn/ver/6403/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/auth/user_list_radio.jsp
+END
+user_list.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/lmsportal/!svn/ver/11650/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/auth/user_list.jsp
+END
+info_detail.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/auth/info_detail.jsp
+END
+role_self_define.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/lmsportal/!svn/ver/7114/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/auth/role_self_define.jsp
+END
+user_role_radio.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/lmsportal/!svn/ver/6889/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/auth/user_role_radio.jsp
+END
+user_list_radio_small.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/lmsportal/!svn/ver/6403/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/auth/user_list_radio_small.jsp
+END

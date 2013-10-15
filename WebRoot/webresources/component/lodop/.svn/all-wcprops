@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/lmsportal/!svn/ver/7936/lms_portal_admin/trunk/WebRoot/webresources/component/lodop
+END
+install_lodop.exe
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/lmsportal/!svn/ver/7936/lms_portal_admin/trunk/WebRoot/webresources/component/lodop/install_lodop.exe
+END
+printsetting.html
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/lmsportal/!svn/ver/7936/lms_portal_admin/trunk/WebRoot/webresources/component/lodop/printsetting.html
+END
+LodopFuncs.js
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/lmsportal/!svn/ver/7936/lms_portal_admin/trunk/WebRoot/webresources/component/lodop/LodopFuncs.js
+END

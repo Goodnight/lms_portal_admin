@@ -1,0 +1,71 @@
+#############################################
+### 自动发布脚本使用说明                     ###
+#############################################
+
+两个脚本
+1) deploy.trunk
+2) deploy
+第一个脚本用与打包部署trunk下面的源代码
+第二个脚本用于指定一个tag,与打包部署tag下面的源代码
+
+
+#############################################
+### 脚本使用的准备工作                        ##
+### 以下工作只需要在初始化的时候进行一次(每个节点)##
+#############################################
+
+#挂载网络存储,请先检查是否已经挂载过,如果已经挂载不要重复挂载
+mount -t nfs4 -o intr,rsize=8196,wsize=8196 10.127.1.55:/ /mnt/test_disk
+
+#创建工作目录
+mkdir /mnt/main_disk
+ln -s /mnt/test_disk /mnt/main_disk
+ln -s /mnt/test_disk/applications /mnt/main_disk/applications
+ln -s /mnt/test_disk/maven_repo/ /mnt/main_disk/maven_repo
+ln -s /mnt/test_disk/software/apache-maven-3.0.4 /opt/apache-maven
+
+#配置mvn允许环境,在/etc/profile中添加一下配置
+JAVA_HOME=/opt/jdk
+MAVEN_HOME=/opt/apache-maven
+export PATH=$JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH
+
+#使配置生效,执行以下命令
+source /etc/profile
+
+#检出源代码
+mkdir /mnt/main_disk/applications/lms
+cd /mnt/main_disk/applications/lms
+
+svn co https://218.83.175.166/svn/lmsportal/lms_portal_admin/trunk lms_portal_admin
+
+#########################################################################
+###  deploy.trunk脚本使用说明                                           ###
+###  接收一个参数 $profile,对应工程下面 profile中的目录,该参数必须提供        ###
+###  例如需要只用 profile/release中的配置文件创建war包,那么应该执行如下命令   ###
+#########################################################################
+cd /mnt/main_disk/applications/lms/lms_portal_admin
+chmod +x deploy.trunk
+./deploy.trunk release
+ 
+#########################################################################
+###  deploy脚本使用说明                                                 ###
+###  接收两个参数                                                       ###
+###  1) $profile,对应工程下面 profile中的目录,该参数必须提供                ###
+###  2) $tag_name,对应svn的tag名称,该参数必须提供                         ###
+###  例如需要只用 profile/release中的配置文件创建war包                     ###
+###  并且需要切换至tag:lms-admin-20120220                               ###
+###  那么应该执行如下命令                                                ###
+#########################################################################
+cd /mnt/main_disk/applications/lms/lms_portal_admin
+chmod +x deploy
+./deploy release lms-admin-20120220
+
+#################################################################
+###  脚本执行过程说明                                            ###
+#################################################################
+# 1) 会将war解压到 /opt/applications/webapps/lms-admin
+# 2) 会将 /opt/applications/webapps/lms-admin 软链到 /opt/tomcat/webapps/ROOT
+# 3) 会重启安装在这个目录"/opt/tomcat"的tomcat
+# 4) 源代码的版本信息会放到war下面的 META-INF/svn.info里面
+# 5) 执行成功后要检查tomcat进程是否正常
+# 6) tomcat正常后要检查应用日志查看,应用是否正常启动

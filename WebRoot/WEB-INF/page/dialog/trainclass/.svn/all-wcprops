@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/lmsportal/!svn/ver/12538/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/trainclass
+END
+assignnum.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/lmsportal/!svn/ver/9368/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/trainclass/assignnum.jsp
+END
+planedClassDialog.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/trainclass/planedClassDialog.jsp
+END
+video_person.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/lmsportal/!svn/ver/8934/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/trainclass/video_person.jsp
+END
+setstudent.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/lmsportal/!svn/ver/12538/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/trainclass/setstudent.jsp
+END
+importperson.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/trainclass/importperson.jsp
+END
+orgClassDialog.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/lmsportal/!svn/ver/9743/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/trainclass/orgClassDialog.jsp
+END
+docDialog.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/lmsportal/!svn/ver/9349/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/trainclass/docDialog.jsp
+END
+assigndep.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/trainclass/assigndep.jsp
+END
+forum.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/8332/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/trainclass/forum.jsp
+END
+assignperson.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/trainclass/assignperson.jsp
+END
+relatedClassDialog.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/lmsportal/!svn/ver/8750/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/trainclass/relatedClassDialog.jsp
+END
+onlineCourseDialog.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/lmsportal/!svn/ver/9349/lms_portal_admin/trunk/WebRoot/WEB-INF/page/dialog/trainclass/onlineCourseDialog.jsp
+END

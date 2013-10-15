@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/lmsportal/!svn/ver/12158/lms_portal_admin/trunk/WebRoot/js/auth
+END
+organization_new.js
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/lmsportal/!svn/ver/11635/lms_portal_admin/trunk/WebRoot/js/auth/organization_new.js
+END
+addAuthRoles.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/lmsportal/!svn/ver/6879/lms_portal_admin/trunk/WebRoot/js/auth/addAuthRoles.js
+END
+organization.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/lmsportal/!svn/ver/10616/lms_portal_admin/trunk/WebRoot/js/auth/organization.js
+END
+department_new.js
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/js/auth/department_new.js
+END
+authorityTransfer.js
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/js/auth/authorityTransfer.js
+END
+user_new.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/lmsportal/!svn/ver/12158/lms_portal_admin/trunk/WebRoot/js/auth/user_new.js
+END
+lineStaff.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/lmsportal/!svn/ver/10289/lms_portal_admin/trunk/WebRoot/js/auth/lineStaff.js
+END
+operateAdmin.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/lmsportal/!svn/ver/11084/lms_portal_admin/trunk/WebRoot/js/auth/operateAdmin.js
+END
+user.js
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/lmsportal/!svn/ver/11889/lms_portal_admin/trunk/WebRoot/js/auth/user.js
+END
+roleStaff.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/js/auth/roleStaff.js
+END
+position.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/lmsportal/!svn/ver/9664/lms_portal_admin/trunk/WebRoot/js/auth/position.js
+END
+tempuser.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/lmsportal/!svn/ver/10025/lms_portal_admin/trunk/WebRoot/js/auth/tempuser.js
+END
+ethnicity.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/js/auth/ethnicity.js
+END
+roleManage.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/lmsportal/!svn/ver/11077/lms_portal_admin/trunk/WebRoot/js/auth/roleManage.js
+END
+lineManager.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/js/auth/lineManager.js
+END

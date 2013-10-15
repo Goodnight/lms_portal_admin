@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/lmsportal/!svn/ver/12526/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/trainclass
+END
+TeacherCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/trainclass/TeacherCtr.java
+END
+DiplomaClassCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/trainclass/DiplomaClassCtr.java
+END
+FaceCourseCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/lmsportal/!svn/ver/12526/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/trainclass/FaceCourseCtr.java
+END
+PlanTrainClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/lmsportal/!svn/ver/12393/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/trainclass/PlanTrainClass.java
+END
+DispatchTrainClassCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/lmsportal/!svn/ver/11965/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/trainclass/DispatchTrainClassCtr.java
+END
+LearnStatsCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/lmsportal/!svn/ver/11965/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/trainclass/LearnStatsCtr.java
+END
+TrainClassStudentCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/lmsportal/!svn/ver/12430/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/trainclass/TrainClassStudentCtr.java
+END
+VideoClassCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/lmsportal/!svn/ver/10548/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/trainclass/VideoClassCtr.java
+END
+TrainClassCtr.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/lmsportal/!svn/ver/12522/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/control/trainclass/TrainClassCtr.java
+END

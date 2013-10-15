@@ -1,0 +1,221 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/lmsportal/!svn/ver/12391/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource
+END
+caseDoc.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/lmsportal/!svn/ver/12322/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/caseDoc.jsp
+END
+demoTwo.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/lmsportal/!svn/ver/11680/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/demoTwo.jsp
+END
+docDetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/lmsportal/!svn/ver/12352/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/docDetails.jsp
+END
+coursewareResources.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/lmsportal/!svn/ver/7637/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/coursewareResources.jsp
+END
+docPic.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/lmsportal/!svn/ver/10011/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/docPic.jsp
+END
+selectTagByCaseDoc.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/selectTagByCaseDoc.jsp
+END
+communityDocDetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/lmsportal/!svn/ver/7637/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/communityDocDetails.jsp
+END
+courseMain.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/lmsportal/!svn/ver/9959/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/courseMain.jsp
+END
+toUpdateKnowledgePoint.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/lmsportal/!svn/ver/6476/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/toUpdateKnowledgePoint.jsp
+END
+doc.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/lmsportal/!svn/ver/12322/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/doc.jsp
+END
+caseDocDetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/lmsportal/!svn/ver/12352/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/caseDocDetails.jsp
+END
+demoThree.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/lmsportal/!svn/ver/11680/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/demoThree.jsp
+END
+communityDocPic.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/lmsportal/!svn/ver/7172/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/communityDocPic.jsp
+END
+caseDocPic.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/lmsportal/!svn/ver/10011/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/caseDocPic.jsp
+END
+selectTagByDoc.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/selectTagByDoc.jsp
+END
+knowledgeClassification.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/knowledgeClassification.jsp
+END
+demoForCours.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/lmsportal/!svn/ver/9382/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/demoForCours.jsp
+END
+saveDocDetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/lmsportal/!svn/ver/10295/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/saveDocDetails.jsp
+END
+coursewareDetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/lmsportal/!svn/ver/12352/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/coursewareDetails.jsp
+END
+docResources.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/lmsportal/!svn/ver/7637/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/docResources.jsp
+END
+saveCoursewareDetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/lmsportal/!svn/ver/11808/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/saveCoursewareDetails.jsp
+END
+communityDoc.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/lmsportal/!svn/ver/7172/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/communityDoc.jsp
+END
+KnowledgePoint.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/lmsportal/!svn/ver/12327/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/KnowledgePoint.jsp
+END
+coursewarePic.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/10011/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/coursewarePic.jsp
+END
+selectTagByKnoledge.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/selectTagByKnoledge.jsp
+END
+toAddTag.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/lmsportal/!svn/ver/6785/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/toAddTag.jsp
+END
+toUpdateTag.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/toUpdateTag.jsp
+END
+lsResList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/lmsportal/!svn/ver/12323/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/lsResList.jsp
+END
+saveCaseDocDetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/lmsportal/!svn/ver/11761/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/saveCaseDocDetails.jsp
+END
+courseware.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/lmsportal/!svn/ver/12391/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/courseware.jsp
+END
+tagList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/tagList.jsp
+END
+knowledgeCategoryList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/lmsportal/!svn/ver/10558/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/knowledgeCategoryList.jsp
+END
+caseDocResources.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/lmsportal/!svn/ver/7637/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/caseDocResources.jsp
+END
+selectTagGroup.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/selectTagGroup.jsp
+END
+libraryResList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/lmsportal/!svn/ver/12323/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/libraryResList.jsp
+END
+demo.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/lmsportal/!svn/ver/10904/lms_portal_admin/trunk/WebRoot/WEB-INF/page/resource/demo.jsp
+END

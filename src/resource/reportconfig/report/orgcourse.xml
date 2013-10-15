@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications xmlns="http://www.wabacus.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.wabacus.com ../xsd/wabacus.applications.xsd">
+	<page id="orgcourse">
+		<report id="orgcourselist" title="课程报表" pagesize="20"
+			scrollstyle="image" dataexport="richexcel" cellresize="1">
+			<display>
+				<col column="deptName" label="机构名称" clickorderby="true" width="200px" />
+				<col column="userTotal" label="用户总数" clickorderby="true" />
+				<col column="coursetotal" label="课程总数" clickorderby="true" />
+				<col column="eliteNum" label="精品课程数" clickorderby="true" />
+				<col column="updateNum" label="更新课程数" clickorderby="true" />
+				<col column="usedNum" label="已用课程数" clickorderby="true" />
+				<col column="courseUseRate" label="课程使用率" clickorderby="true" />
+				<col column="studentTotal" label="学习总人数" clickorderby="true" />
+				<col column="studyTimeTotal" label="学习总人次" clickorderby="true" />
+				<col column="studyHourTotal" label="学习总时长" clickorderby="true" />
+				<col column="studyHourAvg" label="平均学习时长" clickorderby="true" />
+				<col column="studyRate" label="学习率" clickorderby="true" />
+			</display>
+			<sql>
+				<value>
+						<![CDATA[SELECT a.*,b.namepath as deptName  from rpt_org_course a left join au_organization b on a.org_orgId=b.orgId where  1=1 and {#condition#} order by userTotal desc]]>
+				</value>
+				<condition name="jobId"  hidden="true">
+					<value>
+						<![CDATA[(job_jobId='#data#')]]>
+					</value>
+				</condition>
+			</sql>
+			<format>
+				<imports>
+					<import>com.telecom.lms.portal.admin.util</import>
+					<import>com.wabacus.system.format</import>
+					<import>com.wabacus.util</import>
+					<import>com.wabacus.config</import>
+					<import>com.wabacus</import>
+				</imports>
+				<value>
+					<![CDATA[
+					courseUseRate=courseUseRate==null?FormatTools.formatDouble("0","#,###0.00")+"%":FormatTools.formatDouble(courseUseRate,"#,###0.00")+"%";
+					studyTimeTotal=studyTimeTotal==null?"0":studyTimeTotal;
+					eliteNum=eliteNum==null?"0":eliteNum;
+					updateNum=updateNum==null?"0":updateNum;
+					usedNum=usedNum==null?"0":usedNum;
+					studentTotal=studentTotal==null?"0":studentTotal;
+					studyHourTotal=TimeTool.changeSecToHMS(studyHourTotal);
+					studyHourAvg=TimeTool.changeSecToHMS(studyHourAvg);
+					studyRate=studyRate==null?"0":studyRate;
+					studyRate=FormatTools.formatDouble(studyRate,"#,###0.00")+"%";
+					if(rrequest.getShowtype() == Consts.DISPLAY_ON_PAGE)
+					{//如果是显示在html页面上，则提供查看详细资料的链接
+					deptName="<a href=\"#\" title='"+deptName+"'>"+deptName+"</a>";
+					}
+					]]>
+				</value>
+			</format>
+		</report>
+	</page>
+</applications>

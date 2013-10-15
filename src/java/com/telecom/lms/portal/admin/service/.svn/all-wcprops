@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/lmsportal/!svn/ver/11656/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/service
+END
+ConfigInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/lmsportal/!svn/ver/9420/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/service/ConfigInfo.java
+END
+LoadMenuService.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/lmsportal/!svn/ver/8916/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/service/LoadMenuService.java
+END
+LoadRunServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/lmsportal/!svn/ver/8916/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/service/LoadRunServlet.java
+END
+SpringLoadProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/lmsportal/!svn/ver/8916/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/service/SpringLoadProcessor.java
+END
+LoginService.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/lmsportal/!svn/ver/8916/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/service/LoginService.java
+END
+CommonService.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/lmsportal/!svn/ver/11656/lms_portal_admin/trunk/src/java/com/telecom/lms/portal/admin/service/CommonService.java
+END

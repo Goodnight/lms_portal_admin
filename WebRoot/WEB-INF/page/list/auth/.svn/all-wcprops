@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/lmsportal/!svn/ver/12180/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth
+END
+user_cours_list.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/12050/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/user_cours_list.jsp
+END
+roleStaffList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/6768/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/roleStaffList.jsp
+END
+newRoleAuthority.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/newRoleAuthority.jsp
+END
+roleAuthority.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/9047/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/roleAuthority.jsp
+END
+roleManagerListOri.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/roleManagerListOri.jsp
+END
+user_list.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/lmsportal/!svn/ver/11862/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/user_list.jsp
+END
+user_list_common_radio.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/lmsportal/!svn/ver/6768/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/user_list_common_radio.jsp
+END
+lineManagerList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/lmsportal/!svn/ver/6768/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/lineManagerList.jsp
+END
+user_list_common.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/lmsportal/!svn/ver/10806/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/user_list_common.jsp
+END
+roleManageList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/lmsportal/!svn/ver/11045/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/roleManageList.jsp
+END
+manageStaffList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/11045/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/manageStaffList.jsp
+END
+user_class_list.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/11861/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/user_class_list.jsp
+END
+checkAuthUser.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/lmsportal/!svn/ver/10422/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/checkAuthUser.jsp
+END
+tempuser_list.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/8772/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/tempuser_list.jsp
+END
+user_outClass_list.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/lmsportal/!svn/ver/12180/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/user_outClass_list.jsp
+END
+nodeTree.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/nodeTree.jsp
+END
+user_estimate_list.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/lmsportal/!svn/ver/12048/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/user_estimate_list.jsp
+END
+node.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/node.jsp
+END
+user_list4upclassdialog.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/lmsportal/!svn/ver/6768/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/user_list4upclassdialog.jsp
+END
+nodeCheckBoxTree.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/nodeCheckBoxTree.jsp
+END
+user_docvideo_list.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/lmsportal/!svn/ver/12048/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/auth/user_docvideo_list.jsp
+END

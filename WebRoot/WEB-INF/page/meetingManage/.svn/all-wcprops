@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/lmsportal/!svn/ver/11330/lms_portal_admin/trunk/WebRoot/WEB-INF/page/meetingManage
+END
+meetingInfo.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/11330/lms_portal_admin/trunk/WebRoot/WEB-INF/page/meetingManage/meetingInfo.jsp
+END
+newMeeting.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/lmsportal/!svn/ver/11311/lms_portal_admin/trunk/WebRoot/WEB-INF/page/meetingManage/newMeeting.jsp
+END
+meetingManageList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/lmsportal/!svn/ver/10169/lms_portal_admin/trunk/WebRoot/WEB-INF/page/meetingManage/meetingManageList.jsp
+END
+meetingStaff.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/lmsportal/!svn/ver/10428/lms_portal_admin/trunk/WebRoot/WEB-INF/page/meetingManage/meetingStaff.jsp
+END

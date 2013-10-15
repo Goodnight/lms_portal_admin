@@ -1,0 +1,123 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@include file="/WEB-INF/page/include/taglibs.jsp"%>
+        <div class="z w176">
+        <div class="companylist w164 h455 newtree2">
+            <div class="creatlesson">
+                <div class="pr"><h2 class="png_bg organize_h2">组织部门</h2></div>
+            </div>
+            <div id="class_orgtree" class="demo mt20"></div>   
+        </div>
+        </div>
+        <div class="y w750">
+            <div class="ngreyborder h470">
+                <h2 class="png_bg">选择分配的培训班</h2>
+                <div class="scroll h400 mt20">
+                    <div class="searchblock m10">
+                      <table border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td class="taR">培训班名称</td>
+                            <td class="taL"><input id="name" type="text" class="input" /></td>
+                            <td class="taR">培训班状态</td>
+                            <td class="taL"><select id="statusTrainClass" ><option value="" >全部</option><option value="1" >新建</option><option value="2" >实施</option><option value="3" >完成</option></select></td>
+                          </tr>
+                      </table>
+                            <div align="right" class="m10"><input name="" type="button" class="searchbutton" value="搜索" onclick="page(1)"/></div>
+                  </div>
+                 <div class="choosedcourse">
+                    <div id="listTrainClass"></div>
+                    <div class="makesure">
+                        <input id="addTrainClass" type="button" class="step" value="确定"/>
+                        <input id="oriDepId" type="hidden" value="9002" />
+                    </div>
+                 </div> 
+            </div>
+        </div>  
+        </div>  
+<jsp:include page="/WEB-INF/page/include/script.jsp"></jsp:include>
+<script type="text/javascript">
+$(function(){
+
+    page(1);
+    $("#addTrainClass").click(function(){
+        var sId=$("#sId").val();
+        var ids = $("input:checkbox[name=trianClassId]:checked");
+        var param = "method=remove&sId="+sId+"&ids=";   
+        for(var i=0;i<ids.length;i++){
+            param += $(ids[i]).val()+",";
+            var oText = $(ids[i]).parent().parent().parent().parent().find("#className").text();
+            $("#newpersonco1").children().eq(0).append('<label class="speciallabel">'+oText+'<a href="javascript:;" class="ml6"><img src="'+basepath+'/images/deletegreen.gif" /></a><input type="hidden" id="classIds" name="classIds" value="'+$(ids[i]).val()+'" /></label>');
+        }
+        $("#dialog").hide();
+    });
+    
+    $("#class_orgtree").jstree({
+        "plugins":["themes","json_data","types","ui"],
+        "json_data":{
+            "ajax" : {
+                "url" : basepath+"/list/org4jstree.html",
+                "cache":false,
+                "data" : function(n){
+                    return {
+                        "operation":"",
+                        "id":n.attr?n.attr("id"):0
+                    };
+                }
+            }
+        },
+        "types" : {
+            "types" : {
+                "pos" : {
+                    "valid_children" : "none",
+                    "icon" : {
+                        "image" : basepath+"/images/file.png"}
+                },
+                "dep" : {
+                    "valid_children" : "none",
+                    "icon" : {
+                        "image" : basepath+"/images/file.png"}
+                }
+            }
+        },
+        "ui":{
+            "initially_select":userdepid
+        },
+        "core":{
+            "initially_open":userdeppath
+        }
+    }).bind("select_node.jstree",function(e,data){
+        var id = data.rslt.obj.attr("id");
+        orgClassClick(id);
+    });
+});
+
+var value = "";
+function orgClassClick(id){
+    $("#oriDepId").val(id);
+    var depId = id;
+    value = "&depId="+depId;
+    page(1);
+} 
+
+function page(i){
+    var max = $("#listTrainClass .page_max").val()?$("#listTrainClass .page_max").val():10;
+    var status = document.getElementById("statusTrainClass").value;
+    var name = document.getElementById("name").value;
+    var factor ="&status="+status+"&name="+name;
+    var url = basepath+"/inquiry/inquiryTrainClassList.html?pagefn=page&page="+i+factor+value+"&max="+max+"&r="+Math.random();
+    $("#listTrainClass").load(encodeURI(url),function(){
+        $(".chooseall").click(function(){
+            if($(this).attr("checked")){
+                $(".chooseitem").attr("checked",true);
+            }else{
+                $(".chooseitem").attr("checked",false);
+            }
+            $.uniform.update();
+        });
+        $(".cls_checkbox").uniform();
+        $("#listTrainClass .page_max").change(function(){
+            page(1);
+        });
+    }); 
+}
+
+</script>

@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tree id="0">
+	<item id="dataprint" text="数据打印" im0="dhtmlxtree_icon.gif"
+		im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<userdata name="groupnode">true</userdata>
+		<userdata name="desc">
+			&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			这里演示框架支持的三种打印方式：默认打印、Lodop打印、Pdf打印
+		</userdata>
+		<item text="默认打印" id="defaultnormalprint">
+			<userdata name="pageid">defaultnormalprintpage1</userdata>
+			<userdata name="configfilename">
+				report_dataexportprint.xml
+			</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=defaultnormalprintpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这种打印方式是利用网页的window.print()方法进行的打印，不用安装插件，但打印功能较弱，对于普通的网页打印足够
+			</userdata>
+		</item>
+		<item text="Lodop打印" id="lodopprint">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这种打印方式是通过使用lodop打印组件进行的打印，打印前需要在线安装这个组件才能打印。因为这个组件提供了丰富的设计器，因此支持专业的打印功能。
+			</userdata>
+			<item text="通过模板控制打印" id="lodopprintbytpl">
+				<userdata name="pageid">lodopprintbytplpage1</userdata>
+				<userdata name="configfilename">
+					report_dataexportprint.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=lodopprintbytplpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了如何使用静态/动态模板控制打印内容的方法
+				</userdata>
+			</item>
+			<item text="通过Lodop代码控制打印" id="lodopprintbylodop">
+				<userdata name="pageid">lodopprintbylodoppage1</userdata>
+				<userdata name="configfilename">
+					report_dataexportprint.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=lodopprintbylodoppage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了如何使用Lodop代码控制打印内容的方法
+				</userdata>
+			</item>
+			<item text="打印页码信息" id="lodopprintpageinfo">
+				<userdata name="pageid">lodopprintpageinfopage1</userdata>
+				<userdata name="configfilename">
+					report_dataexportprint.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=lodopprintpageinfopage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了如何在每个打印页上显示页码信息
+				</userdata>
+			</item>
+			<item text="打印设计" id="lodopprintdesign">
+				<userdata name="pageid">/WabacusDemo/webresources/component/lodop/printsetting.html</userdata>
+				<userdata name="configfilename">
+					report_dataexportprint.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/webresources/component/lodop/printsetting.html&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					演示了框轲提供的一个打印设计页面，开发人员可以访问此页面进行设计，也可以直接调用lodop的打印设计窗口进行设计。
+				</userdata>
+			</item>
+			<item text="套打" id="lodopformatprint">
+				<userdata name="pageid">lodopformatprintpage1</userdata>
+				<userdata name="configfilename">
+					report_dataexportprint.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=lodopformatprintpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					演示了如何使用lodop进行页面套打的功能
+				</userdata>
+			</item>
+		</item>
+		<item text="PDF打印" id="pdfprint">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示了如何使用PDF进行打印的功能，这种打印方式要借助于浏览器的pdf插件，一般浏览器都会提供这个插件。
+			</userdata>
+			<item text="普通打印" id="pdfnormalprint">
+				<userdata name="pageid">pdfnormalprintpage1</userdata>
+				<userdata name="configfilename">
+					report_dataexportprint.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=pdfnormalprintpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了如何使用PDF进行普通打印的功能，即完整地打印某个或某些报表
+				</userdata>
+			</item>
+			<item text="套打" id="pdfformatprint">
+				<userdata name="pageid">pdfformatprintpage1</userdata>
+				<userdata name="configfilename">
+					report_dataexportprint.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=pdfformatprintpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					演示了如何使用PDF模板进行网页打印功能
+				</userdata>
+			</item>
+		</item>
+	</item>
+
+	<item id="dataexport" text="数据导出" im0="dhtmlxtree_icon.gif"
+		im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<userdata name="groupnode">true</userdata>
+		<userdata name="desc">
+			&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			使用Wabacus框架可以很容易配置出将报表数据导出到pdf、word、excel等文件中，并且支持海量数据的导出。&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+			这里将详细演示各种导出方式的配置以及效果。
+		</userdata>
+		<item text="数据导出类型" id="dataexporttype">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示wabacus框架支持的各种导出类型及配置方法
+			</userdata>
+			<item text="导出Word" id="dataexportword">
+				<userdata name="pageid">dataexportwordpage1</userdata>
+				<userdata name="configfilename">
+					report_dataexportprint.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=dataexportwordpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这种导出类型是指将页面中的数据完整导出到Word文件中，包括页面上显示的各种格式化效果，使得在Word文件中的显示效果与在页面基本相同，这种
+					下载方式导出的Word文件方便查看和打印；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这种导出方式的报表导出结构可以在＜dataexport＞标签的template属性配置静态模板或动态模板进行控制，默认使用在wabacus.resources.default.xml中定义
+					的KEY为dataexport.template.default的资源项指定的静态模板进行统一默认的控制。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					配置这种导出方式只需将＜report/＞的dataexport属性配置为word即可。
+				</userdata>
+			</item>
+			<item text="导出带格式Excel" id="dataexportrichexcel">
+				<userdata name="pageid">dataexportrichexcelpage1</userdata>
+				<userdata name="configfilename">
+					report_dataexportprint.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=dataexportrichexcelpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这种导出类型是指将页面中的数据完整导出到Excel文件中，包括页面上显示的各种格式化效果，使得在Excel文件中的显示效果与在页面基本相同，这种
+					下载方式导出的Excel文件方便查看和打印；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这种导出方式的报表导出结构可以在＜dataexport＞标签的template属性配置静态模板或动态模板进行控制，默认使用在wabacus.resources.default.xml中定义
+					的KEY为dataexport.template.default的资源项指定的静态模板进行统一默认的控制。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					配置这种导出方式只需将＜report/＞的dataexport属性配置为richexcel即可。
+				</userdata>
+			</item>
+			<item text="导出标准Excel" id="dataexportplainexcel">
+				<userdata name="pageid">dataexportplainexcelpage1</userdata>
+				<userdata name="configfilename">
+					report_dataexportprint.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=dataexportplainexcelpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					导出数据到标准Excel文件时，因为这里不支持html代码，因此一般是用于导出不带格式的纯数据，而且用这种方式导出树形分组或普通行分组报表时，不会保留这种分组效果。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					不过这种导出方式也有自己的优点，表现在：1、如果数据量大，可以分Sheet进行导出，这样方便导出海量数据；2、导出的报表列标题可以是列名、列的label、或者不导出列标题，因此方便以后的数据导入操作。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					配置这种导出方式只需将＜report/＞的dataexport属性配置为plainexcel即可。
+				</userdata>
+			</item>
+			<item text="导出Pdf" id="dataexportpdf">
+				<userdata name="pageid">dataexportpdfpage1</userdata>
+				<userdata name="configfilename">
+					report_dataexportprint.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=dataexportpdfpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示如何将报表导出到PDF文件中，分为两种，一种是没有指定PDF模板的导出，一种是指定PDF模板的导出方式
+				</userdata>
+			</item>
+		</item>
+		<item text="控制导出记录数" id="dataexportcount">
+			<userdata name="pageid">dataexportcountpage1</userdata>
+				<userdata name="configfilename">
+					report_dataexportprint.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=dataexportcountpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了如何控制数据导出的记录数，比如可以控制导出当前页、所有页，并且可以指定导出的最大记录数。
+				</userdata>
+		</item>
+		<item text="同时导出多个报表" id="multidataexport">
+			<userdata name="pageid">multidataexportpage1</userdata>
+				<userdata name="configfilename">
+					report_dataexportprint.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=multidataexportpage1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了如何在一个导出文件中导出页面上多个报表数据的方法，包括如下几种:&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					1、在配置导出功能的＜dataexport＞标签时，为其include指定多个报表的ID，用分号分隔，这样在导出时就会自动将相关报表全部导出；&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					2、为容器或报表配置导出按钮时，将相应导出按钮＜button/＞标签内容指定为要导出的所有报表ID，用分号分隔；点击它时导出所指定的报表的数据&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					3、在一个报表动态模板文件中用＜wx:button type="word" componentid="report1;report2;...."＞指定要导出的报表&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					4、在报表配置导出功能的＜dataexport＞的template属性指定一个动态模板或静态模板，然后在其中用自定义标签显示多个导出报表的数据，这种导出多个报表的方式需注意两点：1）、要模板中指定的所有导出报表ID必须出现在＜dataexport＞标签的include属性中；2）、这种导出多个报表的方式只适用于richexcel、word两种导出方式。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里只演示了第1、2、4三种方法。
+				</userdata>
+		</item>
+	</item>
+	
+	<item id="dataimport" text="数据导入" im0="dhtmlxtree_icon.gif"
+		im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<item text="导入Excel" id="excelimport">
+			<userdata name="groupnode">true</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				导入Excel是指将Excel数据文件中的数据导入到数据库表中，wabacus框架支持两种类型的数据导入：&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				利用框架的数据文件上传功能上传数据文件时触发导入动作，这里又分为两种，一种是通过数据导入标签＜wx:dataimport/＞提供数据文件上传并导入；另一种是
+				与报表配置绑定在一起，配置在＜report/＞标签的dataimport属性中，此时数据导入功能与报表数据导出功能一样，与报表绑定在一起显示。这两种数据导入上传方式实现的功能完全一致。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				另一种是自动导入，利用框架的一个定时线程，自动检测某个目录中是否有符合条件的数据文件传入，如果有，则自动将它的数据导入表中。用户可以以任意方式将数据文件拷入指定目录中，而不需要一定使用框架的数据文件上传功能传入文件。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				对于配置的同一个数据导入项，可以同时使用这两种方式导入数据。
+			</userdata>
+			<item text="通过导入标签实现导入功能" id="excelimport1">
+				<userdata name="pageid">/WabacusDemo/wabacusdemo/jsp/tagpages/dataimportpage.jsp</userdata>
+				<userdata name="configfilename">
+					report_usualfunc4.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/wabacusdemo/jsp/tagpages/dataimportpage.jsp&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					这里演示了通过数据导入标签＜wx:dataimport/＞配置数据导入功能，真正的数据导入功能是配置在资源文件中的资源项，这里的数据导入标签只是引用它们，然后提供数据文件上传功能。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					当用户通过框架自动提供的数据文件上传功能上传了数据文件时，如果上传的数据文件名与导入标签＜wx:dataimport/＞所引用的某个数据导入项的filename属性匹配，则触发导入系统进行导入。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					数据导入标签＜wx:dataimport/＞不依赖于框架的其它标签，可以单独放在任意JSP页面中提供数据导入功能。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					数据导入功能有很多配置项，这里只演示了其中主要部分，关于更多的介绍，请参看《非正式文档》中“数据导入导出”一节。
+				</userdata>
+			</item>
+			<item text="为报表配置导入功能" id="excelimport2">
+				<userdata name="pageid">excelimport1page1</userdata>
+				<userdata name="configfilename">
+					report_usualfunc4.xml
+				</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=excelimport1page1&lt;br&gt;
+					&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					为报表配置数据导入功能类似于上面的通过数据导入标签配置数据导入功能，只不过这里显示位置与报表紧密联系在一起，做为报表的一个功能按钮，类似于数据导出按钮。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					所有在上面介绍数据导入标签中配置的数据导入功能，在这里都能配置。为了不重复演示，这里只演示了为一个报表配置同时导入两个数据文件到两个表的数据导入功能。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					在＜report/＞中配置数据导入功能的方法与数据导入标签差不多。具体请参看《非正式文档》的“数据导入/导出”一节。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					注意：在＜report/＞中配置dataimport时，资源项的key必须用${}括住，而不能将数据导入标签一样直接key。
+				</userdata>
+			</item>
+			<item text="自动导入数据" id="excelimport3">
+				<userdata name="pageid">[message]</userdata>
+				<userdata name="desc">
+					&lt;br&gt; &lt;b&gt;说明：&lt;/b&gt; &lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					自动导入数据是指将数据文件不管通过什么方式拷入＜dataimport/＞标签的filepath属性中，只要数据文件名与＜dataimport/＞的
+					filename属性配置值匹配，就会自动进行数据导入。而不需为它们提供一文件上传功能。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					一个＜dataimport/＞标签配置的数据导入项默认是具有数据自动导入功能，即不管有没有为它提供数据文件上传功能（被数据导入标签或报表＜report/＞的dataimport属性引用），
+					都能自动监控到filepath目录中是否有符合条件的数据文件传入，如果有，则自动进行导入。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					如果一个数据导入项提供了数据文件上传功能，不需要再提供自动导入功能，只需上传时由框架自动触发数据导入，则将其＜dataimport/＞的autodetect属性配置为false即可，
+					这样可以提高一点性能。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					为了实现数据自动导入功能，wabacus框架在服务启动时会在后台启动一个定时线程，定时线程的支持间隔可以在wabacus.cfg.xml中进行指定，默认为60秒。&lt;br&gt;
+					&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+					关于数据导入的更多介绍，请参看《非正式文档》的“数据导入/导出”一节。
+				</userdata>
+			</item>
+		</item>
+	</item>
+	
+	<item id="fileupdownload" text="文件上传/下载" im0="dhtmlxtree_icon.gif"
+		im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+		<item text="文件上传" id="fileuploadtag">
+			<userdata name="pageid">/WabacusDemo/wabacusdemo/jsp/tagpages/fileuploadpage.jsp</userdata>
+			<userdata name="configfilename">
+			</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/wabacusdemo/jsp/tagpages/fileuploadpage.jsp&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示的文件上传功能与上面演示的文件上传输入框类型不同，这里是演示利用框架提供的文件上传自定义标签＜wx:fileupload/＞实现文件上传功能。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				＜wx:fileupload/＞即可以用在HTML模板中，也可以用在JSP文件中，使用方法、支持的属性、实现的功能完全一样。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这个标签可以独立用在任意JSP页面中，与其它任意标签，比如＜wx:page/＞、＜wx:report/＞等都无关。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				更多关于文件上传标签的使用，请参看《Wabacus框架开发指南》中“文件上传/下载功能”一节的介绍。
+			</userdata>
+		</item>
+		<item text="文件下载" id="filedownload">
+			<userdata name="pageid">filedownloadpage1</userdata>
+			<userdata name="configfilename">
+				report_usualfunc3.xml
+			</userdata>
+			<userdata name="desc">
+				&lt;br&gt; &lt;b&gt;本报表页面访问URL：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/WabacusDemo/ShowReport.wx?PAGEID=filedownloadpage1&lt;br&gt;
+				&lt;b&gt;主要演示效果：&lt;/b&gt; &lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				这里演示如何使用框架实现文件下载功能，主要演示了在资源文件中定义资源项指定文件路径和通过调用Tools.encodeFilePath()方法编码文件路径两种指定文件路径的方式，还演示了下载后保持以前的文件名和修改文件名两种效果。&lt;br&gt;
+				&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+				关于文件下载的详细使用方法，请参看《Wabacus框架开发指南》中“文件上传/下载功能”一节的介绍。
+			</userdata>
+		</item>
+	</item>
+</tree>

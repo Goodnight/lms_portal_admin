@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/lmsportal/!svn/ver/7669/lms_portal_admin/trunk/WebRoot/WEB-INF/page/survey/report
+END
+all.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/lmsportal/!svn/ver/7310/lms_portal_admin/trunk/WebRoot/WEB-INF/page/survey/report/all.jsp
+END
+detail.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/lmsportal/!svn/ver/7669/lms_portal_admin/trunk/WebRoot/WEB-INF/page/survey/report/detail.jsp
+END
+percent.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/lmsportal/!svn/ver/6414/lms_portal_admin/trunk/WebRoot/WEB-INF/page/survey/report/percent.jsp
+END
+ranking.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/lmsportal/!svn/ver/7001/lms_portal_admin/trunk/WebRoot/WEB-INF/page/survey/report/ranking.jsp
+END
+column.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/lmsportal/!svn/ver/6950/lms_portal_admin/trunk/WebRoot/WEB-INF/page/survey/report/column.jsp
+END

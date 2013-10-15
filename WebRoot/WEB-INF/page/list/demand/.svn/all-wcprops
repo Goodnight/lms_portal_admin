@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/lmsportal/!svn/ver/10298/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/demand
+END
+demandItemList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/8809/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/demand/demandItemList.jsp
+END
+demandTopicList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/lmsportal/!svn/ver/10298/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/demand/demandTopicList.jsp
+END

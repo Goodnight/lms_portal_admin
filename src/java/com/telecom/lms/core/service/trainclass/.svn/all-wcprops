@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/lmsportal/!svn/ver/12449/lms_portal_admin/trunk/src/java/com/telecom/lms/core/service/trainclass
+END
+TrainClassStudentInfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/lmsportal/!svn/ver/12416/lms_portal_admin/trunk/src/java/com/telecom/lms/core/service/trainclass/TrainClassStudentInfoService.java
+END
+LearnStatsInfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/lmsportal/!svn/ver/11961/lms_portal_admin/trunk/src/java/com/telecom/lms/core/service/trainclass/LearnStatsInfoService.java
+END
+TrainClassInfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/lmsportal/!svn/ver/12443/lms_portal_admin/trunk/src/java/com/telecom/lms/core/service/trainclass/TrainClassInfoService.java
+END
+TrainResourceInfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/lmsportal/!svn/ver/11961/lms_portal_admin/trunk/src/java/com/telecom/lms/core/service/trainclass/TrainResourceInfoService.java
+END

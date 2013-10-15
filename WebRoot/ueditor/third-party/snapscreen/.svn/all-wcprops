@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/ueditor/third-party/snapscreen
+END
+setup.exe
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/ueditor/third-party/snapscreen/setup.exe
+END
+test.html
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/ueditor/third-party/snapscreen/test.html
+END
+Snapsie.dll
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/ueditor/third-party/snapscreen/Snapsie.dll
+END
+user_manual.txt
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/ueditor/third-party/snapscreen/user_manual.txt
+END
+UEditorSnapscreen.exe
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/ueditor/third-party/snapscreen/UEditorSnapscreen.exe
+END

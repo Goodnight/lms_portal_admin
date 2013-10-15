@@ -1,0 +1,174 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%><%@include
+	file="/WEB-INF/page/include/taglibs.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="gbk" xml:lang="gbk">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+		<meta http-equiv="content-language" content="gbk" />
+		<c:if test="${surveyType == '1' }">
+			<title>培训需求模板列表</title>
+		</c:if>
+		<c:if test="${surveyType == '2' }">
+			<title>评估模板列表</title>
+		</c:if>
+		<jsp:include page="/WEB-INF/page/include/css.jsp"></jsp:include>
+		<link href="${basepath}/css/festival.css" rel="stylesheet"
+			type="text/css" />
+		
+	</head>
+	<body class="bg">
+		<form id="form1">
+			<input type="hidden" id="importType" name="importType" value="${surveyType == '1'?'inquiry':'evaluate' }" />
+			<input type="hidden" id="objId" name="objId" value="${surveyType}" />
+		</form>
+		<div class="blackall hidden">
+			&nbsp;
+		</div>
+
+		<div id="dialog" class="hidden">
+			<div class="blackall ">
+				&nbsp;
+			</div>
+			<div class="newwindow" id="release">
+				<div class="taR">
+					<a href="javascript:;"><img class="png_bg closed"
+							src="${basepath}/images/close.png" width="40" height="40" /> </a>
+				</div>
+				<div class="ngreyborder changeblue2 mt20">
+					<div class="scroll h450">
+						<div id="list_inquiryTpItemList"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<%-- <div class="newwindow hidden" id="leadinco2">
+			<div class="taR">
+				<a href="javascript:;"><img class="png_bg closed"
+						src="${basepath }/images/close.png" width="40" height="40" /> </a>
+			</div>
+			<div class="ngreyborder changeblue2 mt20">
+				<h2 class="png_bg">
+					导入结果明细
+				</h2>
+				<div class="basic_information w90p">
+					<div class="pt20">
+						导入结果明细：
+						<input id="filepath" name="filepath" type="file" />
+						<a href="" class="ml30">下载导入模板 <img
+								src="${basepath }/images/download.png" width="16" height="16"
+								class="vm" /> </a>
+					</div>
+					<div class="m10 taR ">
+						<input type="button" class="step windowbutton" value="确定" />
+					</div>
+				</div>
+			</div>
+		</div> --%>
+		<div class="container">
+			<jsp:include page="/WEB-INF/page/include/header.jsp"></jsp:include>
+			<div class="cl">
+				<div class="newright">
+					<div class="newrightco">
+						<div class="listpagenav">
+							<div class="breadCrumbHolder pf">
+								<div class="breadCrumb reHeight" id="breadCrumb3">
+									<div class="z">
+										<ul>
+											<li class="first">
+												<a href="${basepath }/index.html">首页</a>
+											</li>
+											<li>
+												<a
+													href="${basepath }/inquiry/inquiryTpIndex.html?surveyType=<%=request.getParameter("surveyType")%>"><jsp:include
+														page="serveyType.jsp" /></a>
+											</li>
+											<li class="last"><jsp:include page="serveyType.jsp" />列表
+											</li>
+										</ul>
+									</div>
+									<div class="y"></div>
+								</div>
+							</div>
+						</div>
+						<input type="hidden" id="surveyType" name="surveyType"
+							value="<%=request.getParameter("surveyType")%>" />
+						<div class="searchblock pt15">
+							<ul class="dpnav2 m10">
+								<li class="now">
+									查询
+								</li>
+							</ul>
+							<table border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td class="taR">
+										模板名称
+									</td>
+									<td class="taL">
+										<input id="name" type="text" class="input" />
+									</td>
+									<td class="taR"><jsp:include page="serveyType.jsp" />发布状态
+									</td>
+									<td class="taL">
+										<select id="status" class="select">
+											<option value="">
+												全部
+											</option>
+											<option value="1">
+												未发布
+											</option>
+											<option value="2">
+												已发布
+											</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td class="taR">
+										创建时间
+									</td>
+									<td class="taL" colspan="3">
+										<input id="creatDt" type="text" class="input vm time" />
+									</td>
+								</tr>
+							</table>
+							<div align="right" class="mt10">
+								<input name="" type="button" class="searchbutton m10" value="搜索"
+									onclick="page(1)" hidefocus="true" />
+							</div>
+
+						</div>
+						<div class="classlist">
+							<h3 class="reHeight">
+								<div class="z" style="font-size: 14px">
+									<jsp:include page="serveyType.jsp" />列表
+								</div>
+								<div class="y">
+									<a href="inquiryTpNew.html?surveyType=${surveyType}"
+										class="functionbutton" target="_blank">新建</a> <a href="javascript:;"
+										class="functionbutton" id="leadin">导入</a> <a id="btn_delete"
+										class="functionbutton">删除</a>
+								</div>
+							</h3>
+							<div class="dataTables_wrapper">
+								<div id="list_inquiryTp"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="newleft">
+					<c:set var="menu_sn" value="10" scope="request"></c:set>
+					<c:if test="${surveyType == '2' }">
+						<c:set var="menu_sn" value="8" scope="request"></c:set>
+					</c:if>
+					<jsp:include page="/WEB-INF/page/include/leftNav.jsp"></jsp:include>
+				</div>
+			</div>
+		</div>
+		<jsp:include page="/WEB-INF/page/include/script.jsp"></jsp:include>
+		<script type="text/javascript"
+			src="${basepath}/js/inquiry/inquiryTp.js" charset="gbk"></script>
+		<jsp:include page="/WEB-INF/page/include/upload.jsp"></jsp:include>
+	</body>
+</html>

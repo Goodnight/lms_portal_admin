@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/lmsportal/!svn/ver/12525/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train
+END
+estimate.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/lmsportal/!svn/ver/11509/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/estimate.jsp
+END
+information.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/lmsportal/!svn/ver/11651/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/information.jsp
+END
+facecourse_traininfo.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/lmsportal/!svn/ver/11474/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/facecourse_traininfo.jsp
+END
+outtrainclass_setting.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/lmsportal/!svn/ver/10368/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/outtrainclass_setting.jsp
+END
+outtrainclass_info.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/lmsportal/!svn/ver/12525/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/outtrainclass_info.jsp
+END
+improvePlanInfo.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/lmsportal/!svn/ver/9083/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/improvePlanInfo.jsp
+END
+examination.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/lmsportal/!svn/ver/9118/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/examination.jsp
+END
+response_setting.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/12045/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/response_setting.jsp
+END
+uptrainclass_list.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/7241/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/uptrainclass_list.jsp
+END
+index.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/lmsportal/!svn/ver/12345/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/index.jsp
+END
+bbs.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/lmsportal/!svn/ver/10223/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/bbs.jsp
+END
+behavior_new.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/lmsportal/!svn/ver/12063/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/behavior_new.jsp
+END
+videoclass_detail.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/videoclass_detail.jsp
+END
+facecourse_newcheckin.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/lmsportal/!svn/ver/8914/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/facecourse_newcheckin.jsp
+END
+errorPage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/lmsportal/!svn/ver/9916/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/errorPage.jsp
+END
+certificate.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/lmsportal/!svn/ver/8688/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/certificate.jsp
+END
+facecourse_new.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/lmsportal/!svn/ver/12504/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/facecourse_new.jsp
+END
+studentEnrolInfo.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/lmsportal/!svn/ver/9221/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/studentEnrolInfo.jsp
+END
+course.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/lmsportal/!svn/ver/10288/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/course.jsp
+END
+videoclass.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/lmsportal/!svn/ver/9118/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/videoclass.jsp
+END
+videoclass_new.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/lmsportal/!svn/ver/11140/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/videoclass_new.jsp
+END
+outtrainclass_list.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/lmsportal/!svn/ver/11739/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/outtrainclass_list.jsp
+END
+outtrainclass_new.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/lmsportal/!svn/ver/10320/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/outtrainclass_new.jsp
+END
+staffing.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/lmsportal/!svn/ver/12420/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/staffing.jsp
+END
+response_new.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/lmsportal/!svn/ver/12045/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/response_new.jsp
+END
+statistics.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/lmsportal/!svn/ver/11746/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/statistics.jsp
+END
+behavior_setting.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/lmsportal/!svn/ver/12064/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/behavior_setting.jsp
+END
+leadertrainclass_list.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/lmsportal/!svn/ver/8330/lms_portal_admin/trunk/WebRoot/WEB-INF/page/train/leadertrainclass_list.jsp
+END

@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/lmsportal/!svn/ver/12627/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list
+END
+resource_doc.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/lmsportal/!svn/ver/6768/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/resource_doc.jsp
+END
+scoreUserCostList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/lmsportal/!svn/ver/6768/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/scoreUserCostList.jsp
+END
+scoreDepCostList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/lmsportal/!svn/ver/10261/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/scoreDepCostList.jsp
+END
+resource_courseware.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/resource_courseware.jsp
+END
+resource_onlineByCaseDocDocList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/resource_onlineByCaseDocDocList.jsp
+END
+resource_onlineByDocCaseDocList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/resource_onlineByDocCaseDocList.jsp
+END
+scoreBaseDepList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/lmsportal/!svn/ver/9134/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/scoreBaseDepList.jsp
+END
+resource_onlineDocList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/resource_onlineDocList.jsp
+END
+approvalIntegralCostApplicationList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/lmsportal/!svn/ver/6768/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/approvalIntegralCostApplicationList.jsp
+END
+resource_onlineCoursewareByCaseDocList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/resource_onlineCoursewareByCaseDocList.jsp
+END
+resource_onlineResourseDocList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/resource_onlineResourseDocList.jsp
+END
+scoreDepCostAllApplyList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/lmsportal/!svn/ver/10381/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/scoreDepCostAllApplyList.jsp
+END
+tagList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/lmsportal/!svn/ver/6788/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/tagList.jsp
+END
+resource_onlineByCaseDocCaseDocList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/resource_onlineByCaseDocCaseDocList.jsp
+END
+resource_onlineByDocDocList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/resource_onlineByDocDocList.jsp
+END
+resource_onlineCoursewareList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/resource_onlineCoursewareList.jsp
+END
+scoreDepGainList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/lmsportal/!svn/ver/6768/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/scoreDepGainList.jsp
+END
+scoreUserGainList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/lmsportal/!svn/ver/6768/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/scoreUserGainList.jsp
+END
+resource_onlineResourseCourseware.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/resource_onlineResourseCourseware.jsp
+END
+scoreDepList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/lmsportal/!svn/ver/10150/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/scoreDepList.jsp
+END
+scoreUserList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/lmsportal/!svn/ver/9942/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/scoreUserList.jsp
+END
+approvalIntegralApplicationList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/lmsportal/!svn/ver/6768/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/approvalIntegralApplicationList.jsp
+END
+resource_onlineCourse.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/6768/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/resource_onlineCourse.jsp
+END
+resource_onlineCaseDocList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/resource_onlineCaseDocList.jsp
+END
+resource_onlineCoursewareByDocList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/resource_onlineCoursewareByDocList.jsp
+END
+pager.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/lmsportal/!svn/ver/7740/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/pager.jsp
+END
+resource_onlineResourseCaseDocList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/lmsportal/!svn/ver/6212/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/resource_onlineResourseCaseDocList.jsp
+END
+scoreDepCostApply.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/lmsportal/!svn/ver/6768/lms_portal_admin/trunk/WebRoot/WEB-INF/page/list/scoreDepCostApply.jsp
+END

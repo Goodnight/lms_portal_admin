@@ -1,0 +1,83 @@
+<%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@include file="/WEB-INF/page/include/taglibs.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="gbk" xml:lang="gbk">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<meta http-equiv="content-language" content="gbk" />
+<title><c:if test="${dmdItem.dtId==null}">新建需求收集项</c:if><c:if test="${dmdItem.dtId!=null}">修改需求收集项</c:if></title>
+<jsp:include page="/WEB-INF/page/include/css.jsp"></jsp:include>
+</head>
+<body class="bg">
+<div class="container">
+<jsp:include page="/WEB-INF/page/include/header.jsp"></jsp:include>
+  <div class="breadCrumbHolder breadCrumbPage">
+    <div class="headerco">
+        <div class="breadCrumb reHeight noborder" id="breadCrumb3">
+            <div class="z">
+                <ul>
+                    <li class="first">
+                        <a href="${basepath }/index.html">首页</a>
+                    </li>
+                    <li>
+                        <a href="${basepath }/demand/demandItemIndex.html">需求收集项</a>
+                    </li>
+                    <li class="last">
+                    <c:if test="${dmdItem.dtId==null}">新建需求收集项</c:if><c:if test="${dmdItem.dtId!=null}">修改需求收集项</c:if>
+                    </li>
+                </ul>
+            </div>
+            <div class="y"></div>
+        </div> 
+        </div>
+    </div> 
+  <div class="content cl">
+		<div class="ngreyborder changeblue2 mt20">
+			<c:if test="${dmdItem.dtId==null}">
+        	<h2 class="png_bg">新建需求收集项</h2>
+        	</c:if>
+        	<c:if test="${dmdItem.dtId!=null}">
+        	<h2 class="png_bg">修改需求收集项</h2>
+        	</c:if>
+        	<form id="demandItemNew" action="saveItem.html" method="post">
+        	<input type="hidden" name ="dtId" value="${dmdItem.dtId}"/>
+            <div class="basic_information mt2">
+                <table border="0" cellspacing="15" cellpadding="15">
+                	<tbody>
+                        <tr>
+                        	<td><em>*</em>编号</td>
+                            <td colspan="3"><input id="sn" type="text" name="sn" class="input vm si" value="${dmdItem.sn}" maxlength="30" /><input id="sn_old" name="sn_old" type="hidden" value="${dmdItem.sn }"/><div id="sn_error" class="validate_error"></div></td>
+                        </tr>
+                        <tr>
+                        	<td><em>*</em>名称</td>
+                            <td colspan="3"><input id="name" type="text" name="name" class="input vm si" value="${dmdItem.name}" maxlength="30" /><div id="name_error" class="validate_error"></div></td>   
+                        </tr>
+                        <tr>
+                        	<td><em>*</em>有效状态</td>
+                        	<c:if test="${dmdItem.status == 1 }">
+                                <td colspan="3"><em class="option choosed"><input name="status" type="radio" value="1" checked="checked"/></em>有效<em class="option"><input name="status" type="radio" value="0" /></em>无效</td>
+                            </c:if>
+                            <c:if test="${dmdItem.status == 0 }">
+                                <td colspan="3"><em class="option"><input name="status" type="radio" value="1" /></em>有效<em class="option choosed"><input name="status" type="radio" value="0" checked="checked" /></em>无效</td>
+                            </c:if>
+                            <c:if test="${null == dmdItem.status }">
+                                <td colspan="3">
+                                    <em class="option"><input id="status" name="status" type="radio" value="1" /></em> 有效 
+                                    <em class="option"><input id="status" name="status" type="radio" value="0" /></em> 无效
+                                    <div id="status_error" class="validate_error"></div>
+                                </td>
+                            </c:if>
+                        </tr>
+                    </tbody>
+                </table>
+                <div align="right" class="mr100"><input type="submit" class="step m10" value="确定"/><a href="#" class="back mt10 allclose">关闭</a></div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<jsp:include page="/WEB-INF/page/include/script.jsp"></jsp:include>
+<script type="text/javascript" src="${basepath}/js/demand/demandItemNew.js" charset="gbk"></script>
+</body>
+</html>
+   

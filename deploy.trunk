@@ -1,0 +1,33 @@
+profile=$1
+
+##checkout from svn
+svn sw https://218.83.175.166/svn/lmsportal/lms_portal_admin/trunk .
+svn info > svn.info
+
+##compile and war
+mvn clean compile war:war -P $profile 
+
+##stop tomcat
+chmod +x stop_tomcat
+./stop_tomcat
+
+##convert lms-admin.war to lms-admin.tar.gz
+cd target/lms-admin
+jar -xvf lms-admin.war 
+rm -rf lms-admin.war
+cd ..
+tar -czvf lms-admin.tar.gz lms-admin
+
+##deplay the lms-admin.tar.gz
+rm -rf /opt/applications/webapps/lms-admin
+mkdir /opt/applications/webapps/lms-admin
+tar -zxvf lms-admin.tar.gz -C /opt/applications/webapps
+
+##makte tomcat webapps link
+rm -rf /opt/tomcat/webapps/ROOT
+ln -s  /opt/applications/webapps/lms-admin /opt/tomcat/webapps/ROOT
+
+##start tomcat
+cd ..
+chmod +x start_tomcat
+./start_tomcat

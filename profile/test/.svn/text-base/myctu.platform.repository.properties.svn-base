@@ -1,0 +1,14 @@
+##################################################
+###    repository console settings            ####
+##################################################
+#com.myctu.platform.repository.console.host=192.168.1.108
+#0.0.0.0
+#com.myctu.platform.repository.console.port=8001
+#9011
+
+##################################################
+###   gateway agent settings                  ####
+##################################################
+#com.myctu.gateway.uri=http://180.168.60.15:8002/service-gateway
+com.myctu.gateway.uri=http://10.127.1.75:8002/service-gateway
+status=1

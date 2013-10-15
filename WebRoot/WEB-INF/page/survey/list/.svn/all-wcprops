@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/lmsportal/!svn/ver/12494/lms_portal_admin/trunk/WebRoot/WEB-INF/page/survey/list
+END
+collectList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/lmsportal/!svn/ver/12218/lms_portal_admin/trunk/WebRoot/WEB-INF/page/survey/list/collectList.jsp
+END
+inquiryPersonListInfo1.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/lmsportal/!svn/ver/12494/lms_portal_admin/trunk/WebRoot/WEB-INF/page/survey/list/inquiryPersonListInfo1.jsp
+END
+inquiryPersonListInfo2.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/lmsportal/!svn/ver/12494/lms_portal_admin/trunk/WebRoot/WEB-INF/page/survey/list/inquiryPersonListInfo2.jsp
+END
+remarkList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/lmsportal/!svn/ver/9869/lms_portal_admin/trunk/WebRoot/WEB-INF/page/survey/list/remarkList.jsp
+END

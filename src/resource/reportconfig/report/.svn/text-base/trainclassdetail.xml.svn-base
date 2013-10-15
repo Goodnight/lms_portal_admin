@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications xmlns="http://www.wabacus.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.wabacus.com ../xsd/wabacus.applications.xsd">
+	<page id="trainclassdetail">
+		<report id="trainclassdetaillist" title="培训班详情统计结果" pagesize="20"
+			scrollstyle="image" dataexport="richexcel" cellresize="1">
+			<display>
+				<col column="sn" label="培训班编号" clickorderby="true" width="150px" />
+				<col column="trainClass_tcId"  displaytype="hidden" />
+				<col column="trainCName" label="培训班名称" clickorderby="true"  width="150px"  />
+				<col column="traiCType" label="计划内/外" clickorderby="true"  width="100px"  />
+				<col column="attendNum" label="人数" clickorderby="true" />
+				<col column="alldate" label="起止时间" clickorderby="true" width="150px" />
+				<col column="levelName" label="培训级别" clickorderby="true" />
+				<col column="trainTName" label="培训类别" clickorderby="true" />
+				<col column="form" label="培训形式" clickorderby="true" />
+				<col column="video" label="同步课堂" clickorderby="true" width="100px" />
+				<col column="exam" label="考试" clickorderby="true" width="50px" />
+				<col column="examAvgScore" label="考试平均分" clickorderby="true" />
+				<col column="response" label="反应层评估" clickorderby="true" />
+				<col column="behavior" label="行为层评估" clickorderby="true" />
+				<col column="improvePlan" label="改进计划" clickorderby="true" />
+				<col column="forum" label="培训班讨论区" clickorderby="true" />
+			</display>
+			<sql>
+				<value>
+						<![CDATA[SELECT *,Concat(date_format(startdate,'%Y-%m-%d'),'-',date_format(enddate,'%Y-%m-%d')) as alldate FROM rpt_train_class where 1=1 and  {#condition#} ]]>
+				</value>
+				<condition name="jobId"  hidden="true">
+					<value>
+						<![CDATA[(job_jobId='#data#')]]>
+					</value>
+				</condition>
+			</sql>
+			
+			
+			<format>
+				<imports>
+					<import>com.wabacus.system.format</import>
+					<import>com.wabacus.util</import>
+					<import>com.wabacus</import>
+				</imports>
+				<value>
+					traiCType=traiCType==null?"1":traiCType.trim();
+					if(traiCType.equals("1")) traiCType="计划内";
+					else traiCType="计划外";
+					exam=exam==null?"0":exam.trim();
+					if(exam.equals("0")) exam="无";
+					else exam="有";
+					response=response==null?"0":response.trim();
+					if(response.equals("0")) response="无";
+					else response="有";
+					behavior=behavior==null?"0":behavior.trim();
+					if(behavior.equals("0")) behavior="无";
+					else behavior="有";
+					improvePlan=improvePlan==null?"0":improvePlan.trim();
+					if(improvePlan.equals("0")) improvePlan="无";
+					else improvePlan="有";
+					forum=forum==null?"0":forum.trim();
+					if(forum.equals("0")) forum="无";
+					else forum="有";
+					<![CDATA[
+					examAvgScore=examAvgScore==null?FormatTools.formatDouble("0","#,###0.00"):FormatTools.formatDouble(examAvgScore,"#,###0.00");
+					if(rrequest.getShowtype() == Consts.DISPLAY_ON_PAGE)
+					{//如果是显示在html页面上，则提供查看详细资料的链接
+					attendNum ="<a href=\"#\" onclick=\"wx_winpage('/lmsportal-admin/ShowReport.wx?PAGEID=trainclassuser&tcId="+trainClass_tcId+"',{width:600})\""+ ">"+attendNum+"</a>";
+					}
+					]]>
+</value>
+			</format>
+		</report>
+	</page>
+</applications>

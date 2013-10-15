@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/lmsportal/!svn/ver/12624/lms_portal_admin/trunk/profile/test
+END
+telecom.lms.level.properties
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/lmsportal/!svn/ver/8977/lms_portal_admin/trunk/profile/test/telecom.lms.level.properties
+END
+myctu.platform.repository.properties
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/lmsportal/!svn/ver/6515/lms_portal_admin/trunk/profile/test/myctu.platform.repository.properties
+END
+telecom.lms.jdbc.properties
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/lmsportal/!svn/ver/11632/lms_portal_admin/trunk/profile/test/telecom.lms.jdbc.properties
+END
+logback.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/lmsportal/!svn/ver/9460/lms_portal_admin/trunk/profile/test/logback.xml
+END
+telecom.lms.url.properties
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/lmsportal/!svn/ver/7392/lms_portal_admin/trunk/profile/test/telecom.lms.url.properties
+END
+telecom.lms.import.properties
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/lmsportal/!svn/ver/11725/lms_portal_admin/trunk/profile/test/telecom.lms.import.properties
+END
+lms.dao.telecom.context.xml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/lmsportal/!svn/ver/11668/lms_portal_admin/trunk/profile/test/lms.dao.telecom.context.xml
+END
+telecom.lms.api.properties
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/lmsportal/!svn/ver/12624/lms_portal_admin/trunk/profile/test/telecom.lms.api.properties
+END
+telecom.lms.export.properties
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/lmsportal/!svn/ver/12577/lms_portal_admin/trunk/profile/test/telecom.lms.export.properties
+END
+telecom.lms.config.properties
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/lmsportal/!svn/ver/12624/lms_portal_admin/trunk/profile/test/telecom.lms.config.properties
+END
+lms-admin.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/lmsportal/!svn/ver/11666/lms_portal_admin/trunk/profile/test/lms-admin.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/lmsportal/!svn/ver/10305/lms_portal_admin/trunk/profile/test/web.xml
+END
+lms-jdbc.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/lmsportal/!svn/ver/7798/lms_portal_admin/trunk/profile/test/lms-jdbc.xml
+END

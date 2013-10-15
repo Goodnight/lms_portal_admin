@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/lmsportal/!svn/ver/7936/lms_portal_admin/trunk/WebRoot/webresources/component/tiny_mce
+END
+license.txt
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/7936/lms_portal_admin/trunk/WebRoot/webresources/component/tiny_mce/license.txt
+END
+tiny_mce.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/lmsportal/!svn/ver/7936/lms_portal_admin/trunk/WebRoot/webresources/component/tiny_mce/tiny_mce.js
+END
+tiny_mce_popup.js
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/lmsportal/!svn/ver/7936/lms_portal_admin/trunk/WebRoot/webresources/component/tiny_mce/tiny_mce_popup.js
+END

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-3.0.xsd
+			http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+			http://www.springframework.org/schema/task
+			http://www.springframework.org/schema/task/spring-task-3.0.xsd
+			http://www.springframework.org/schema/util
+			http://www.springframework.org/schema/util/spring-util-3.0.xsd
+			">
+	<import resource="classpath:lmscore-sdk-plugin.xml"/>
+	<import resource="classpath:lmscore-sdk.xml"/>
+	<import resource="classpath:lms-jdbc.xml"/>
+	<import resource="classpath:lms.dao.telecom.context.xml"/>
+	
+	<util:properties id="config" location="classpath:telecom.lms.config.properties" />
+	<util:properties id="url" location="classpath:telecom.lms.url.properties" />
+	<util:properties id="level" location="classpath:telecom.lms.level.properties" />
+	<util:properties id="export" location="classpath:telecom.lms.export.properties" />
+	<util:properties id="import" location="classpath:telecom.lms.import.properties" />
+	
+		
+	<!-- search Component -->
+	<context:component-scan base-package ="com.telecom.lms.dao.*"/>
+	<context:component-scan base-package ="com.telecom.lms.portal.admin.*"/>
+	<context:component-scan base-package ="com.telecom.lms.core.*" />
+	<context:annotation-config />
+	
+	<!-- 设置默认的分页对象中每页记录数量 -->
+	<bean id="pageTool" class="com.telecom.lms.portal.admin.util.PagerTool"></bean>
+	<bean id="applicationPropertiesInjector" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="staticMethod">
+			<value>com.telecom.lms.portal.admin.util.PagerTool.setDEFAULT_PAGE_SIZE</value>
+		</property>
+		<property name="arguments" value="20">
+		</property>
+	</bean>
+	
+    <!-- 文件上传 -->  
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
+        <property name="maxUploadSize" value="100000000" />  
+        <property name="defaultEncoding" value="UTF-8" />  
+    </bean>  
+	
+	<bean id="commonInterceptor" class="com.telecom.lms.portal.admin.interceptor.CommonInterceptor"></bean>
+	<bean id="urlInterceptor" class="com.telecom.lms.portal.admin.interceptor.UrlInterceptor"></bean>
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" >
+		<property name="interceptors">
+			<list>
+				<ref bean="commonInterceptor"/>
+				<ref bean="urlInterceptor"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" >
+		<property name="messageConverters">
+			<util:list id="beanList">
+				<ref bean="mappingJacksonHttpMessageConverter"/>
+			</util:list>
+		</property>
+	</bean>
+	<bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>application/json;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean> 
+	
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		p:viewClass="org.springframework.web.servlet.view.JstlView"
+		p:prefix="/WEB-INF/page/"
+		p:suffix=".jsp" />
+
+	
+	<!-- 
+	<mvc:default-servlet-handler/>  
+	<mvc:resources mapping="/images/**" location="/WEB-INF/images/" />  
+	<mvc:resources mapping="/css/**" location="/WEB-INF/css/" />  
+	<mvc:resources mapping="/js/**" location="/WEB-INF/js/" />  
+	 -->
+</beans>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications xmlns="http://www.wabacus.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.wabacus.com ../xsd/wabacus.applications.xsd">
+	<page id="trainclassuser">
+		<report id="trainclassuserlist" title="培训班详情统计结果" pagesize="20"
+			scrollstyle="image" dataexport="richexcel" cellresize="1">
+			<display>
+				<col column="sn" label="员工编号" />
+				<col column="name" label="员工姓名" />
+				<col column="oname" label="所属机构" />
+				<col column="pname" label="岗位" />
+			</display>
+			<sql>
+				<value>
+						<![CDATA[SELECT b.sn,b.name,c.name as pname,d.namePath as oname FROM train_class_student a left join au_userinfo b on a.student_uid=b.uid left join au_position c on b.benchmarkPost_pId=c.pId left join au_organization d on b.org_orgId=d.orgId where  {#condition#} ]]>
+				</value>
+				<condition name="tcId" hidden="true">
+					<value>
+						<![CDATA[(a.tc_tcId='#data#')]]>
+					</value>
+				</condition>
+			</sql>
+		</report>
+	</page>
+</applications>
