@@ -4,11 +4,10 @@
 
      	<thead>
          	<tr>
-             	<th class="center">
-             		<label>
+             	<th>
+             		
              		<input type="checkbox" class="dialog_user_chooseall"/>
-             		<span class="lbl"></span>
-             		</label>
+             		
              	</th>
                  <th>所在部门</th>
              	<th>员工编号</th>

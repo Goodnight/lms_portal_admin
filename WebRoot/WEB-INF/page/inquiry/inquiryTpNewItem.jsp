@@ -42,7 +42,7 @@
    	<br/>
     <br/>
 		<div class="ngreyborder changeblue2 mt20">
-        	<h2 class="png_bg">设置问题</h2>
+        	<h5 class="png_bg">设置问题</h5>
         	<form id="newTemplate" action="saveInquiryTpItem.html" name="form1" method="post">
         	<input type="hidden" name="surveyType" value="<%=request.getParameter("surveyType")%>" />
         	<input type="hidden" name="stId" value="${stId}"/>

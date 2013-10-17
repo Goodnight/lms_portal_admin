@@ -1,13 +1,13 @@
 <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@include file="/WEB-INF/page/include/taglibs.jsp"%>
-  <table width="100%" id="sample-table-1" class="table table-striped table-bordered table-hover">
+  <table width="100%" id="sample-table-1" class="table table-striped table-bordered table-hover ">
    	  <thead>
        	<tr>
            	<th class="center">
-				<label>
-					<input type="checkbox" class="ace">
-					<span class="lbl"></span>
-				</label>
+				
+					<input type="checkbox" class="checkbox cls_checkbox cls_chooseall">
+					
+				
 			</th>
             <th>调查主题</th>
             <th>开始时间</th>
@@ -22,18 +22,18 @@
         <c:forEach items="${inquiryList.data}" var="inquiry" varStatus="st">    
            <tr class="gradeA <c:out value="${st.index%2==0?'even':'odd' }"/>">
                <td class="center">
-               		<label>
+               		
                     <c:choose>
 	            		<c:when test="${inquiry.status==1 }">
-	            			<input id="${inquiry.sId }" name="groupTypeId" type="checkbox" value="${inquiry.sId }" delete="1" partinnum="${inquiry.participantsNum}" class="ace" />
-	            			<span class="lbl"></span>
+	            			<input id="${inquiry.sId }" name="groupTypeId" type="checkbox" value="${inquiry.sId }" delete="1" partinnum="${inquiry.participantsNum}" class="checkbox cls_checkbox cls_chooseall" />
+	            		
 	            		</c:when>
 	            		<c:otherwise>
-	            			<input id="${inquiry.sId }" name="groupTypeId" type="checkbox" value="${inquiry.sId }" delete="0" partinnum="${inquiry.participantsNum}" class="ace" />
-	            			<span class="lbl"></span>
+	            			<input id="${inquiry.sId }" name="groupTypeId" type="checkbox" value="${inquiry.sId }" delete="0" partinnum="${inquiry.participantsNum}" class="checkbox cls_checkbox cls_chooseall" />
+	            		
 	            		</c:otherwise>
 	            	</c:choose>
-	            	</label>
+	            	
                </td>
                <!-- 未发布且参与人员为零时可以修改 20130315 by LTC -->
                <td>

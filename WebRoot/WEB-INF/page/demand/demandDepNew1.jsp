@@ -49,7 +49,7 @@
    	<br/>
     <br/>
         <div class="ngreyborder changeblue2 mt20">
-            <h2 class="png_bg">新建部门培训需求</h2>
+            <h5 class="png_bg">新建部门培训需求</h5>
                 <form id="demandDepNew" action="saveDmdDep.html" method="post"> 
                 
                 <div class="reHeight">
@@ -84,9 +84,10 @@
                             <%i++; 
                             if(i==2){
                             %>
-                          	  <label class="options checked"><input name="type_id" type="radio"  value="${bo.spId}" checked="checked" class="ace" /><label class="lbl">${bo.name}</label></label>
+                            
+                          	  <label class="options checked newR" style="display: inline-block;"><input name="type_id" type="radio"  value="${bo.spId}" checked="checked" class="ace" /><label class="lbl"></label>&nbsp;&nbsp;${bo.name}</label>
                           	  <%}else{ %>
-                          	   <label class="options"><input name="type_id" type="radio" class="ace"  value="${bo.spId}" /><label class="lbl">${bo.name}</label></label>
+                          	   <label class="options newR" style="display: inline-block;"><input name="type_id" type="radio" class="ace"  value="${bo.spId}" /><label class="lbl"></label>&nbsp;&nbsp;${bo.name}</label>
                           	  <%} %>
    							</c:forEach>
                              </td>   

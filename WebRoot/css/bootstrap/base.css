@@ -145,25 +145,24 @@ color: #444;
 	position: fixed!important;
 }
 
-.newmain{float:left;width:100%;}
-.newmainco{margin-left:215px;}
+.newmain{float:right;width:100%;}
+.newmainco{margin-right:215px;}
 .newlefttree{
-	float:left;
-	margin-left:-100%;
+	float:right;
+	
 	width:200px;
 }
 .extra{
-	float: left;
-	width: 30px;
-	margin-left: -100%;
+	float: right;
+
 	position: relative;
-	left: 200px;
+    margin-right:-80%;
 	padding-top:85px;
 }
 .pftree{
 	position:fixed;
 	top:85px;
-	border-left: 1px solid #fff;
+
 	border-right: 1px solid #dedede;
 	height:88%;
 	overflow:auto;
@@ -181,6 +180,7 @@ color: #444;
 .extra h3{
 	height:90%;
 	width:14px;
+	border-left:1px solid #dedede;
 	border-right:1px solid #dedede;
 	background:url(../../images/bgchangecloumn.jpg) repeat-y;
 	border-bottom:1px solid #dedede;
@@ -218,7 +218,7 @@ color: #444;
 	right:-239px;
 	display:none;
 }
-@media screen and (-webkit-min-device-pixel-ratio:0){.extra h3{margin-left:200px;}}
+@media screen and (-webkit-min-device-pixel-ratio:0){.extra h3{margin-right:200px;}}
 
 
 
@@ -254,4 +254,21 @@ border: none;
 }
 .mr100{
 	margin-right:100px;
+}
+#btn-scroll-up {
+border: 0;
+position: fixed!important;
+float: bottom!important;
+margin-right: 221px;
+}
+
+input[type=radio] {
+width: 15px!important;
+height: 15px!important;
+}
+.newR input[type=radio]{
+margin-top:15px!important;	
+}
+.newR2 input[type=radio]{
+margin-top:-2px!important;	
 }

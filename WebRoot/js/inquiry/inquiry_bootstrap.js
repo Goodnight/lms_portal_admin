@@ -134,8 +134,7 @@ function page(i){
 	});	
 	
 	
-	$('[data-rel=tooltip]').tooltip();
-	$('[data-rel=popover]').popover({html:true});
+
 
 }
 

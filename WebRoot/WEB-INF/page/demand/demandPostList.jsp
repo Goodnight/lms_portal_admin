@@ -3,7 +3,7 @@
 <table id="sample-table-1" class="table table-striped table-bordered table-hover" width="100%">
 	<thead>
     	<tr>
-            <th width="10"><input name="" type="checkbox" value="" class="ace  cls_chooseall"/><label class="lbl"></th>
+            <th width="10"><input name="" type="checkbox" value="" class="checkbox cls_checkbox  cls_chooseall"/></th>
             <th class="classname">年度</th>
             <th>部门</th>
             <th>岗位</th>
@@ -15,7 +15,7 @@
       <tbody>
       <c:forEach items="${dmdPostList.data}" var="t" varStatus="st">   
       	<tr class="gradeA <c:out value="${st.index%2==0?'even':'odd' }"/>">
-        	<td><input id="groupTypeId" name="groupTypeId" type="checkbox" value="${t.dpId}" class="ace  cls_chooseitem"/><label class="lbl"></td>
+        	<td><input id="groupTypeId" name="groupTypeId" type="checkbox" value="${t.dpId}" class="checkbox cls_checkbox  cls_chooseitem"/><label class="lbl"></td>
             <td class="classname">${t.topic.year}年</td>
             <td>${t.creater.org.name}</td>
             <td><a href="demandPostNewModify.html?dpId=${t.dpId}" target="_blank">${t.position.name}</a></td>

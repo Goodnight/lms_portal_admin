@@ -116,12 +116,8 @@
 	                  		<label class="control-label">是否包含下级：</label>
 	                 		<div class="controls">
 	                                                                             
-	                      		<label class="ml12">
-	                      			<input name="isChildDep"
-											type="radio" value="1" class="vm" checked="checked" /> <span class="lbl">是</span></label>
-	                      		<label class="ml12">
-	                            	<input name="isChildDep" type="radio"
-											value="0" class="vm" /><span class="lbl">否</span>
+	                      		<label class="ml12" style="display: inline-block;"><input name="isChildDep" type="radio" value="1" class="ace vm" checked="checked" /><label class="lbl"></label>&nbsp;&nbsp;是</label>
+                            <label class="ml12" style="display: inline-block;"><input name="isChildDep" type="radio" value="0" class="ace vm" /><label class="lbl"></label>&nbsp;&nbsp;否
 	                      		</label>
 	                 		</div>
 	                  	</div>

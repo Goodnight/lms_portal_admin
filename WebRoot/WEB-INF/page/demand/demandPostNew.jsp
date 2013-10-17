@@ -65,7 +65,7 @@
 			<br>       	
     <div class="content cl">
         <div class="ngreyborder changeblue2 mt20">
-            <h2 class="png_bg">新建岗位培训需求</h2>
+            <h5 class="png_bg">新建岗位培训需求</h5>
                 <form id="saveDemandPost" action="saveDemandPost.html" method="post" >
                 <div class="reHeight" >
                 	<div class="basic_information mt2" style="padding-top:0">
@@ -99,9 +99,9 @@
                         <tr>
                         	<td><em>*</em>迫切性</td>
                         	<td colspan="3">
-                        	   <label class="option"><input id="urgentLevel" name="urgentLevel" type="radio" value="2" class="ace"/><label class="lbl"> 迫切 </label></label>
-                        	   <label class="option"><input id="urgentLevel" name="urgentLevel" type="radio" value="1" class="ace"/><label class="lbl"> 一般</label></label>
-                        	   <label class="option"><input id="urgentLevel" name="urgentLevel" type="radio" value="0" class="ace"/><label class="lbl"> 不迫切</label></label>
+                        	   <label class="option newR" style="display: inline-block;"><input id="urgentLevel" name="urgentLevel" type="radio" value="2" class="ace"/><label class="lbl"></label>&nbsp;&nbsp;迫切</label>
+                        	   <label class="option newR" style="display: inline-block;"><input id="urgentLevel" name="urgentLevel" type="radio" value="1" class="ace"/><label class="lbl"></label>&nbsp;&nbsp;一般</label>
+                        	   <label class="option newR" style="display: inline-block;"><input id="urgentLevel" name="urgentLevel" type="radio" value="0" class="ace"/><label class="lbl"></label>&nbsp;&nbsp;不迫切</label>
                         	   <div id="urgentLevel_error" class="validate_error"></div>
                             </td>
                         </tr>

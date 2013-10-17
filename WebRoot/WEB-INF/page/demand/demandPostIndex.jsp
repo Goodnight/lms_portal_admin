@@ -76,7 +76,7 @@
 		                              </tr>
 		                              	<tr>
 		                                <td class="taR">直线经理&nbsp;</td>
-		                                <td class="taL"><div class="inputType"><input type="text"  id="name"  class="input"/></div></td>
+		                                <td class="taL"><div class="inputType"><input type="text"  id="name"  class="input span2"/></div></td>
 		                                
 		                                <td class="taR">迫切性&nbsp;</td>
 		                                <td class="taL">
@@ -123,7 +123,8 @@
                     	
                     	<div class="pftree">
                         	<h3>机构部门</h3>
-                            <div class="m10">是否包含下级<label class="ml12"><input name="1" type="radio" value="" class="vm" checked="checked"/> <span class="lbl">是</span></label><label class="ml12"><input name="1" type="radio" value="" class="vm"/><span class="lbl">否</span> </label></div>
+                            <div class="m10">是否包含下级<br/><label class="ml12" style="display: inline-block;"><input name="isChildDep" type="radio" value="1" class="ace vm" checked="checked" /><label class="lbl"></label>&nbsp;&nbsp;是</label>
+                            <label class="ml12" style="display: inline-block;"><input name="isChildDep" type="radio" value="0" class="ace vm" /><label class="lbl"></label>&nbsp;&nbsp;否</label></div>
                     		<div id="org_jstree"></div>
 						</div>
                         

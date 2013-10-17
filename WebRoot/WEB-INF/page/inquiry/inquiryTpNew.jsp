@@ -64,7 +64,7 @@
    	<br/>
     <br/>
 		<div class="ngreyborder changeblue2 mt20">
-        	<h2 class="png_bg"><c:if test="${surveyType == '1' }">新建培训需求模板</c:if><c:if test="${surveyType == '2' }">新建评估模板</c:if></h2>
+        	<h5 class="png_bg"><c:if test="${surveyType == '1' }">新建培训需求模板</c:if><c:if test="${surveyType == '2' }">新建评估模板</c:if></h5>
         	<form id="inquiryTp" action="saveInquiryTp.html" method="post">
         	<input type="hidden" name="surveyType" value="${surveyType}" />
             <div class="basic_information">

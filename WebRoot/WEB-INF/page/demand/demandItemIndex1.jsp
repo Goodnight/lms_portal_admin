@@ -72,9 +72,9 @@
                                 <td class="taL"><input id="dmdItemName" type="text" class="input"/></td>
                                 <td class="taR">状态&nbsp;</td>
                                 <td class="taL">
-                                	<label class="option" style="display: inline-block;"><input  name="13" type="radio" value="0" class="ace" /><label class="lbl"> 无效</label></label>
-                                        <label class="option" style="display: inline-block;"><input name="13" type="radio" value="1" class="ace" /><label class="lbl"> 有效</label></label>
-                                        <label class="option choosed" style="display: inline-block;"><input name="13" type="radio" value="" class="ace"  /><label class="lbl"> 不限</label></label>
+                                	<label class="option newR2" style="display: inline-block;"><input  name="13" type="radio" value="0" class="ace" /><label class="lbl"></label>&nbsp;&nbsp;无效</label>
+                                        <label class="option newR2" style="display: inline-block;"><input name="13" type="radio" value="1" class="ace" /><label class="lbl"></label>&nbsp;&nbsp;有效</label>
+                                        <label class="option choosed newR2" style="display: inline-block;"><input name="13" type="radio" value="" class="ace"  /><label class="lbl"></label>&nbsp;&nbsp;不限</label>
                                 </td>
                               </tr>
                               <tr>
